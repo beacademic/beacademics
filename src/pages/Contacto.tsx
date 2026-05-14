@@ -47,8 +47,8 @@ export default function Contacto() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
-                        <Link to="/" className="text-corp-dark font-bold text-lg tracking-tight">
-                            BE Academic
+                        <Link to="/" className="flex items-center">
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex gap-6">
                             <Link to="/" state={{ scrollTo: 'soluciones' }} className="text-gray-600 hover:text-corp-dark transition-colors">Software</Link>

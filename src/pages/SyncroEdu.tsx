@@ -8,8 +8,9 @@ export default function SyncroEdu() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
-                        <Link to="/" className="text-gray-400 font-bold tracking-tight hover:text-gray-900 transition-colors">
-                            &lsaquo; BE Academic
+                        <Link to="/" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+                            <span className="text-lg leading-none pb-0.5">&lsaquo;</span>
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-5 w-auto object-contain" />
                         </Link>
                         <span className="text-corp-green font-bold text-lg tracking-tight">SyncroEdu</span>
                         <div className="hidden md:flex gap-6">
@@ -40,7 +41,7 @@ export default function SyncroEdu() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
                     >
-                        Simplicidad <br className="hidden lg:block" /> operativa.
+                        Simplicidad que revoluciona <br className="hidden lg:block" /> tu gestión operativa.
                     </motion.h1>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -48,7 +49,7 @@ export default function SyncroEdu() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                         className="text-2xl font-semibold text-corp-green mb-6"
                     >
-                        Transforma la complejidad legal.
+                        Blinda tu institución. Simplifica lo legal.
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -56,7 +57,7 @@ export default function SyncroEdu() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                         className="text-xl text-gray-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
                     >
-                        El Cerebro Digital que asegura la cuadratura perfecta entre contratos, horas de aula y cumplimiento legal (MINEDUC y Estatuto Docente) en tu institución educativa chilena.
+                        El primer Cerebro Digital de Chile diseñado para garantizar la cuadratura perfecta de tus contratos educativos. Automatiza procesos, blinda tu colegio ante el MINEDUC y despídete para siempre del desgaste operativo.
                     </motion.p>
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
@@ -68,7 +69,7 @@ export default function SyncroEdu() {
                             Solicitar Demo Gratis
                         </Link>
                         <a href="https://wa.me/message/7NPPQUPQWQLCN1" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-medium px-8 py-3 flex items-center justify-center gap-2 border-2 border-corp-green hover:bg-green-50 rounded-full transition-colors w-full sm:w-auto text-center">
-                            Consulta por WhatsApp &rsaquo;
+                            Conversar con Asesor &rsaquo;
                         </a>
                     </motion.div>
                 </div>
@@ -79,13 +80,17 @@ export default function SyncroEdu() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                     className="flex-1 w-full max-w-2xl"
                 >
-                    <div className="relative rounded-[2rem] bg-apple-light border border-gray-200 p-2 shadow-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-                        <div className="absolute top-4 left-4 flex gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                    <div className="relative rounded-3xl bg-apple-light border border-gray-200 p-2 shadow-2xl overflow-hidden">
+                        <div className="flex items-center px-4 pt-3 pb-3">
+                            <div className="flex gap-2">
+                                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
                         </div>
-                        <span className="text-gray-400 font-medium text-lg mt-4">Dashboard Preview</span>
+                        <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
+                            <img src="/Dashboard-SyncroEdu.png" alt="Dashboard SyncroEdu Preview" className="w-full h-auto object-cover block" />
+                        </div>
                     </div>
                 </motion.div>
             </section>
@@ -94,10 +99,10 @@ export default function SyncroEdu() {
             <section className="py-24 bg-apple-light px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-8">
-                        ¿Cansado de la burocracia manual y el miedo constante a las mutas?
+                        ¿Cansado de la burocracia manual y el miedo constante a las dolorosas multas normativas?
                     </h2>
                     <p className="text-xl text-gray-500 font-medium leading-relaxed">
-                        Pasar días calculando horas en Excel, arriesgar multas de la Superintendencia por errores en el coeficiente 65/35 o 60/40, y la pesadilla de gestionar reemplazos en tiempo real. Sabemos que la gestión escolar en Chile es compleja, por eso creamos la solución.
+                        Horas interminables atrapado en Excel, el estrés permanente de fallar en el coeficiente 65/35 y el caos imprevisto de los reemplazos. Sabemos que dirigir un colegio en Chile es un desafío mayúsculo; por eso, diseñamos la solución definitiva para blindarte y liberar tu tiempo.
                     </p>
                 </div>
             </section>
@@ -113,25 +118,31 @@ export default function SyncroEdu() {
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Panel de Control y Auditoría Legal</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Visualización instantánea mediante un semáforo de cumplimiento que te alerta si cumples con las horas de preparación de enseñanza y recreos proporcionales. Obtén una vista global de tus docentes, horas de contrato y ausencias.
+                            Monitorea al instante tu cumplimiento legal con nuestro avanzado sistema de semáforos. Anticípate a cualquier auditoría y visualiza el estado real de tu plantilla docente, detectando riesgos antes de que se conviertan en molestas multas.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Calculadora de Jornada Docente</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Sincronización en tiempo real. El sistema te dice exactamente cuántos minutos faltan o sobran para cuadrar el horario y calcula la Bolsa No Lectiva legal de forma automática, impidiendo errores de cálculo.
+                            ¡Olvídate de las planillas de Excel! Nuestra calculadora inteligente sincroniza en tiempo real, indicándote con precisión quirúrgica los minutos exactos para cuadrar el horario. Automatiza la Bolsa No Lectiva legal y despídete de los errores costosos.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión de Reemplazos en tiempo real</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            ¿Faltó un profesor? SyncroEdu encuentra al instante quién tiene horas no lectivas disponibles para cubrir el bloque exacto, asegurando la continuidad pedagógica y generando el respaldo legal de forma automática.
+                            ¿Ausencias imprevistas? No hay problema. SyncroEdu detecta de inmediato al candidato perfecto con horas no lectivas disponibles para cubrir el bloque exacto. Asegura la continuidad pedagógica y genera automáticamente respaldos legales a prueba de balas.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión Integral del Personal</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Importación masiva desde SIGE en CSV en segundos. Gestiona no solo a docentes, sino también las jornadas diferenciadas de los Asistentes de la Educación (Psicólogos, Inspectores, Administrativos) con soporte multiaño.
+                            Conecta tu flujo de trabajo en segundos con importaciones masivas desde SIGE. Administra sin esfuerzo a toda tu maquinaria educativa: desde docentes hasta psicólogos e inspectores. Control total con jornadas diferenciadas y soporte multiaño.
+                        </p>
+                    </div>
+                    <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow md:col-span-2">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Generación Automática de Horarios</h3>
+                        <p className="text-gray-600 leading-relaxed text-lg">
+                            ¿Semanas armando el rompecabezas escolar? Define tus restricciones de disponibilidad y recintos, y deja que nuestro motor inteligente genere el escenario perfecto. Una vez listos, inyéctalos al horario de cada docente con un solo clic. Transforma un proceso lento y estresante en resultados instantáneos y sin choques.
                         </p>
                     </div>
                 </div>
@@ -150,21 +161,21 @@ export default function SyncroEdu() {
                             <span className="text-5xl mb-6">🛡️</span>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Blindaje ante Auditorías</h3>
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                Elimina el riesgo de multas al asegurar que cada contrato cumple estrictamente con el coeficiente legal (65/35 o 60/40) y la normativa vigente.
+                                Tranquilidad absoluta. Elimina de raíz el riesgo de penalizaciones futuras asegurando el cumplimiento milimétrico del coeficiente legal establecido por MINEDUC.
                             </p>
                         </div>
                         <div className="flex flex-col items-center border-t md:border-t-0 md:border-l border-gray-200 pt-8 md:pt-0 md:pl-8">
                             <span className="text-5xl mb-6">⏰</span>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Ahorro Masivo de Tiempo</h3>
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                Convierte días de cálculos manuales en Excel en minutos. Automatiza la burocracia para que tu equipo directivo se enfoque en lo pedagógico.
+                                Dile adiós a la burocracia repetitiva, recuperando valiosas horas semanales. Potencia a tu equipo directivo para enfocarse en lo que realmente importa: la calidad pedagógica.
                             </p>
                         </div>
                         <div className="flex flex-col items-center border-t md:border-t-0 md:border-l border-gray-200 pt-8 md:pt-0 md:pl-8">
                             <span className="text-5xl mb-6">🎯</span>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Precisión Matemática</h3>
                             <p className="text-gray-600 leading-relaxed text-lg">
-                                Elimina el error humano en cálculos de horas cronológicas vs pedagógicas. Optimiza las contrataciones con datos reales.
+                                Decisiones basadas en datos puros. Erradica el error humano en las complejas conversiones de horas y optimiza tus contrataciones con extrema precisión.
                             </p>
                         </div>
                     </div>

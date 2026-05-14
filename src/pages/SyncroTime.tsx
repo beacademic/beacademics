@@ -8,8 +8,9 @@ export default function SyncroTime() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
-                        <Link to="/" className="text-gray-400 font-bold tracking-tight hover:text-gray-900 transition-colors">
-                            &lsaquo; BE Academic
+                        <Link to="/" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+                            <span className="text-lg leading-none pb-0.5">&lsaquo;</span>
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-5 w-auto object-contain" />
                         </Link>
                         <span className="text-corp-cyan font-bold text-lg tracking-tight">SyncroTime</span>
                         <div className="hidden md:flex gap-6">
@@ -48,7 +49,7 @@ export default function SyncroTime() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                         className="text-2xl font-semibold text-corp-cyan mb-6"
                     >
-                        Optimiza el tiempo, elimina los cruces.
+                        Arma tu puzzle escolar en minutos, sin topes ni estrés.
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -56,7 +57,7 @@ export default function SyncroTime() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                         className="text-xl text-gray-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
                     >
-                        El motor generador de horarios más avanzado que se adapta a las restricciones de tu institución. Facilita la creación, edición y reportabilidad de la carga académica de forma inteligente y sin errores.
+                        El motor generador de horarios más inteligente del mercado. Se adapta a todas las restricciones de tu institución para facilitar la creación, edición y reportabilidad de la carga académica de forma infalible y automatizada.
                     </motion.p>
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
@@ -64,11 +65,11 @@ export default function SyncroTime() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start"
                     >
-                        <Link to="/contacto" className="bg-corp-cyan text-white px-8 py-3 rounded-full text-lg font-medium hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl">
+                        <Link to="/contacto" className="bg-corp-cyan text-white px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl">
                             Solicitar Demo Gratis
                         </Link>
                         <a href="https://wa.me/message/7NPPQUPQWQLCN1" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-medium px-8 py-3 flex items-center justify-center gap-2 border-2 border-corp-cyan hover:bg-cyan-50 rounded-full transition-colors w-full sm:w-auto text-center">
-                            Consulta por WhatsApp &rsaquo;
+                            Conversar con experto &rsaquo;
                         </a>
                     </motion.div>
                 </div>
@@ -101,10 +102,10 @@ export default function SyncroTime() {
             <section className="py-24 bg-cyan-50/50 px-6">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-8">
-                        ¿Semanas armando horarios que siempre terminan con topes?
+                        ¿Semanas atrapado armando horarios que siempre terminan con topes?
                     </h2>
                     <p className="text-xl text-gray-500 font-medium leading-relaxed">
-                        Despedirse de los pizarrones magnéticos y de las hojas de cálculo interminables ya es una realidad. SyncroTime toma todas las variables docentes, reglas institucionales e infraestructura, y genera la estructura ideal en minutos, lista para afinar visualmente.
+                        Despedirse de los pizarrones magnéticos y de las caóticas hojas de cálculo ya es una realidad. SyncroTime toma todas tus variables docentes, reglas institucionales e infraestructura, y genera la estructura ideal en minutos. Recupera tu tiempo y tu cordura.
                     </p>
                 </div>
             </section>
@@ -121,9 +122,9 @@ export default function SyncroTime() {
                         <div className="bg-cyan-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
                             <span className="text-2xl">⚙️</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Motor de Generación Automática</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Motor de Generación Ultra-Rápido</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Olvídate del trabajo manual. Ingresa tus docentes, asignaturas y dejas que nuestro avanzado motor procese todas las combinaciones posibles para entregarte la mejor distribución horaria sin cruces.
+                            Olvídate del agotador trabajo manual. Ingresa tus docentes y asignaturas; deja que nuestro avanzado algoritmo procese miles de combinaciones en segundos para entregarte la distribución perfecta, sin topes ni conflictos.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:shadow-xl hover:border-cyan-100 transition-all">
@@ -132,25 +133,34 @@ export default function SyncroTime() {
                         </div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Edición Intuitiva Drag & Drop</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Modifica el horario generado fácilmente arrastrando y soltando bloques. El sistema te guiará con "Sugerencias de espacios disponibles", evitando que asignes en horarios no permitidos o ya ocupados.
+                            Afina detalles arrastrando y soltando como en un juego. Nuestro sistema actúa como un copiloto, mostrándote "espacios seguros" en verde y bloqueando movimientos prohibidos para que nunca te equivoques.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:shadow-xl hover:border-cyan-100 transition-all">
                         <div className="bg-cyan-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
                             <span className="text-2xl">👁️</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Múltiples Vistas de Control</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Control a Vista de Pájaro</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Analiza la información desde cualquier ángulo. Alterna rápidamente entre Vista de Docente, Vista de Curso, Panorámica por Curso y Panorámica por Docentes para un control absoluto y sin puntos ciegos.
+                            Analiza tu colegio desde cualquier ángulo en tiempo real. Alterna instantáneamente entre Vista Docente, Vista Curso y Panorámicas Globales para detectar necesidades y optimizar cada sala.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:shadow-xl hover:border-cyan-100 transition-all">
                         <div className="bg-cyan-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
                             <span className="text-2xl">📊</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Exportación y Reportabilidad</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Reportabilidad a un Clic</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Imprime o descarga múltiples reportes en formatos PDF y Excel según las necesidades de tu institución educativa, desde el horario individual que entregas al profesor, hasta sábanas complejas de gestión.
+                            Basta de transcribir horarios. Descarga sábanas institucionales complejas en Excel o imprime horarios individuales hermosos en PDF listos para entregar a cada docente. Profesionaliza tu gestión.
+                        </p>
+                    </div>
+                    <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:shadow-xl hover:border-cyan-100 transition-all md:col-span-2">
+                        <div className="bg-cyan-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                            <span className="text-2xl">⚠️</span>
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Sistema de Alertas Anti-Topes en Vivo</h3>
+                        <p className="text-gray-600 leading-relaxed text-lg">
+                            Mantén el control absoluto. Durante la edición manual, si intentas mover una clase a un bloque que genera un choque de horarios o incumple una restricción, el sistema te alerta instantáneamente dejándote decidir si deseas abortar el movimiento para proteger el horario, o confirmar el cambio y asumir la excepción.
                         </p>
                     </div>
                 </div>

@@ -22,8 +22,8 @@ export default function Home() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
-                        <Link to="/" className="text-corp-dark font-bold text-lg tracking-tight">
-                            BE Academic
+                        <Link to="/" className="flex items-center">
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex gap-6">
                             <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-dark transition-colors">Software</button>
@@ -50,7 +50,7 @@ export default function Home() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
                 >
-                    Transformamos la <br className="hidden md:block" /> Gestión Escolar.
+                    Potenciamos el futuro de <br className="hidden md:block" /> tu gestión escolar.
                 </motion.h1>
                 <motion.p 
                     initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function Home() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                     className="text-xl md:text-2xl text-gray-500 max-w-3xl mb-10 leading-relaxed font-medium"
                 >
-                    La tecnología y el conocimiento se unen para elevar el estándar de las instituciones educativas en Chile.
+                    Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile.
                 </motion.p>
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
@@ -67,10 +67,10 @@ export default function Home() {
                     className="flex flex-col sm:flex-row gap-4"
                 >
                     <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="bg-corp-dark text-white px-8 py-3 rounded-full text-lg font-medium hover:scale-105 transition-transform">
-                        Conoce el software
+                        Descubre el Ecosistema
                     </button>
                     <Link to="/contacto" className="text-corp-dark font-medium px-8 py-3 flex items-center gap-2 hover:underline">
-                        Contactar ventas &rsaquo;
+                        Hablar con un asesor &rsaquo;
                     </Link>
                 </motion.div>
             </section>
@@ -87,15 +87,16 @@ export default function Home() {
                         {/* SyncroEdu Card */}
                         <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
                             <div className="mb-8">
+                                <img src="/Logo-SyncroEdu.png" alt="Logo SyncroEdu" className="h-12 w-auto mb-6 object-contain" />
                                 <h3 className="text-3xl font-bold text-corp-green mb-2 tracking-tight">SyncroEdu</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Gestión Docente y Legal</h4>
+                                <h4 className="text-xl font-medium text-gray-900 mb-4">Gestión Docente y Cumplimiento Legal</h4>
                                 <p className="text-gray-500 text-lg leading-relaxed">
-                                    El cerebro digital que asegura la cuadratura perfecta entre contratos, horas de aula y cumplimiento de la normativa del MINEDUC.
+                                    El cerebro digital para tu colegio. Automatiza la cuadratura de contratos, controla las horas de aula y blinda a tu institución ante auditorías del MINEDUC, previniendo multas y ganando horas de tranquilidad.
                                 </p>
                             </div>
                             <div className="mt-auto pt-8">
                                 <Link to="/syncroedu" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Explorar SyncroEdu <span className="text-lg leading-none">&rsaquo;</span>
+                                    Descubrir SyncroEdu <span className="text-lg leading-none">&rsaquo;</span>
                                 </Link>
                             </div>
                         </div>
@@ -103,15 +104,16 @@ export default function Home() {
                         {/* Nexus Card */}
                         <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
                             <div className="mb-8">
+                                <img src="/Logo-Nexus.png" alt="Logo Nexus" className="h-12 w-auto mb-6 object-contain" />
                                 <h3 className="text-3xl font-bold text-corp-blue mb-2 tracking-tight">Nexus</h3>
                                 <h4 className="text-xl font-medium text-gray-900 mb-4">Plataforma Integral de Calidad</h4>
                                 <p className="text-gray-500 text-lg leading-relaxed">
-                                    Cubre todas las dimensiones de los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos.
+                                    Eleva tus Estándares Indicativos de Desempeño. Centraliza la evaluación del liderazgo, la gestión pedagógica, la convivencia y los recursos, logrando mejoras continuas demostrables mes a mes.
                                 </p>
                             </div>
                             <div className="mt-auto pt-8">
                                 <Link to="/nexus" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Explorar Nexus <span className="text-lg leading-none">&rsaquo;</span>
+                                    Descubrir Nexus <span className="text-lg leading-none">&rsaquo;</span>
                                 </Link>
                             </div>
                         </div>
@@ -119,15 +121,16 @@ export default function Home() {
                         {/* SyncroTime Card */}
                         <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500 md:col-span-2 lg:col-span-1">
                             <div className="mb-8">
+                                <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-6 object-contain" />
                                 <h3 className="text-3xl font-bold text-corp-cyan mb-2 tracking-tight">SyncroTime</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Generación de Horarios</h4>
+                                <h4 className="text-xl font-medium text-gray-900 mb-4">Generador de Horarios Inteligente</h4>
                                 <p className="text-gray-500 text-lg leading-relaxed">
-                                    Potente motor generador de horarios que permite su creación y edición bajo múltiples restricciones. Genera y exporta reportes en formato PDF y Excel a la medida de tus necesidades.
+                                    Armar horarios nunca fue tan fácil. Nuestro potente motor genera combinaciones óptimas adaptándose a múltiples restricciones en tiempo récord. Exporta resultados claros en PDF y Excel, listos para implementar.
                                 </p>
                             </div>
                             <div className="mt-auto pt-8">
                                 <Link to="/syncrotime" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Explorar SyncroTime <span className="text-lg leading-none">&rsaquo;</span>
+                                    Descubrir SyncroTime <span className="text-lg leading-none">&rsaquo;</span>
                                 </Link>
                             </div>
                         </div>
@@ -138,26 +141,26 @@ export default function Home() {
             {/* Services */}
             <section id="servicios" className="py-24 px-6 bg-apple-light">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center text-gray-900 mb-16">Más allá del código.</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center text-gray-900 mb-16">Vamos mucho más allá del software.</h2>
                     
                     <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-12">
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
                             <div className="w-12 h-12 bg-corp-dark text-white rounded-2xl flex items-center justify-center text-2xl mb-6">
                                 🧠
                             </div>
-                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Capacitación Docente</h4>
+                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Capacitación Docente y Directiva</h4>
                             <p className="text-gray-500 text-lg leading-relaxed">
-                                Entrenamos a tu equipo directivo y docente en el uso de herramientas tecnológicas y normativas educacionales, asegurando una transición fluida.
+                                No te dejamos solo con la herramienta. Entrenamos a tu equipo presencialmente y de forma asíncrona para asegurar la máxima adopción tecnológica y una transición completamente libre de fricciones.
                             </p>
                         </div>
                         
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100">
+                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
                             <div className="w-12 h-12 bg-corp-dark text-white rounded-2xl flex items-center justify-center text-2xl mb-6">
-                                📊
+                                📈
                             </div>
-                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Asesoría Estratégica</h4>
+                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Consultoría Estratégica Escolar</h4>
                             <p className="text-gray-500 text-lg leading-relaxed">
-                                Acompañamos a sostenedores y equipos directivos en la optimización de procesos, levantamiento de PME y alineación con los Estándares.
+                                Trabajamos hombro a hombro con sostenedores para optimizar procesos internos, maximizar el rendimiento del PME y garantizar que tu institución se alinee a la perfección con los estándares nacionales.
                             </p>
                         </div>
                     </div>
@@ -167,10 +170,10 @@ export default function Home() {
             {/* Contact / Footer */}
             <section id="contacto" className="py-24 bg-gray-900 text-white text-center px-6">
                 <div className="max-w-2xl mx-auto">
-                    <h2 className="text-4xl font-bold tracking-tight mb-6">¿Hablamos sobre el futuro?</h2>
-                    <p className="text-xl text-gray-400 mb-10">Agenda una sesión con un experto y descubre cómo podemos potenciar tu institución.</p>
-                    <Link to="/contacto" className="bg-white text-gray-900 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors inline-block">
-                        Contactar a un Asesor
+                    <h2 className="text-4xl font-bold tracking-tight mb-6">¿Hablamos sobre el futuro de tu colegio?</h2>
+                    <p className="text-xl text-gray-400 mb-10">Agenda una sesión estratégica hoy mismo con uno de nuestros expertos educacionales. Descubre en vivo cómo podemos blindar y potenciar tu institución.</p>
+                    <Link to="/contacto" className="bg-corp-green text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-green-500 transition-colors inline-block shadow-xl hover:scale-105 transform duration-300">
+                        Agenda una demostración gratuita
                     </Link>
                 </div>
             </section>

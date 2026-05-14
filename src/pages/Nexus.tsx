@@ -8,8 +8,9 @@ export default function Nexus() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
-                        <Link to="/" className="text-gray-400 font-bold tracking-tight hover:text-gray-900 transition-colors">
-                            &lsaquo; BE Academic
+                        <Link to="/" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
+                            <span className="text-lg leading-none pb-0.5">&lsaquo;</span>
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-5 w-auto object-contain" />
                         </Link>
                         <span className="text-corp-blue font-bold text-lg tracking-tight">Nexus</span>
                     </div>
@@ -34,23 +35,23 @@ export default function Nexus() {
                     </div>
                     
                     <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6">
-                        El futuro de la <br className="hidden md:block" /> Calidad Educativa.
+                        Revoluciona tu <br className="hidden md:block" /> Calidad Educativa.
                     </h1>
                     
                     <h2 className="text-2xl md:text-3xl font-semibold text-corp-blue mb-8">
-                        Estamos trabajando en el desarrollo, pronto te tendremos novedades.
+                        Estamos construyendo el estándar del futuro. Pronto revelaremos la plataforma.
                     </h2>
                     
                     <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-                        Nuestra Plataforma Integral de Calidad está siendo diseñada para cubrir todas las dimensiones de los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos.
+                        Nuestra nueva Plataforma Integral de Calidad centralizará por completo el cumplimiento de los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos, facilitando la toma de decisiones basada en datos reales.
                     </p>
                     
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Link 
                             to="/contacto" 
-                            className="bg-corp-blue text-white px-8 py-3 rounded-full text-lg font-medium hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl"
+                            className="bg-corp-blue text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-600 hover:scale-105 transition-all w-full sm:w-auto text-center shadow-lg hover:shadow-xl"
                         >
-                            Solicitar acceso anticipado
+                            Lista de Espera VIP
                         </Link>
                         <Link 
                             to="/" 
