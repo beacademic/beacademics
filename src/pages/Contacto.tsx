@@ -93,7 +93,7 @@ export default function Contacto() {
                     >
                         <h2 className="text-2xl md:text-3xl font-bold mb-6">Nuestros datos</h2>
                         <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
-                            Estamos aquí para ayudarte a transformar la gestión de tu colegio. Escríbenos y un asesor se pondrá en contacto contigo a la brevedad.
+                            Transforma la gestión de tu colegio. Escríbenos y un asesor te contactará pronto.
                         </p>
                         
                         <div className="space-y-6">
@@ -118,8 +118,8 @@ export default function Contacto() {
                                 <div>
                                     <h3 className="text-xs md:text-sm font-semibold text-gray-400 uppercase tracking-wider mb-1">Teléfono</h3>
                                     <p className="text-lg md:text-xl font-medium">
-                                        <a href="tel:+56973197888" className="hover:text-corp-green transition-colors">
-                                            +56 9 7319 7888
+                                        <a href="tel:+56964375050" className="hover:text-corp-green transition-colors">
+                                            +56 9 6437 5050
                                         </a>
                                     </p>
                                 </div>
