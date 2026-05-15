@@ -164,6 +164,12 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
+
+                    <div className="mt-16 text-center">
+                        <Link to="/contacto" className="bg-corp-dark text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-black transition-all inline-flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transform duration-300">
+                            Hablemos sobre tu institución &rsaquo;
+                        </Link>
+                    </div>
                 </div>
             </section>
 
