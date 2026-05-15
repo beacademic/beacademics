@@ -9,35 +9,16 @@ export default function Contacto() {
         if (formCreated.current) return;
         formCreated.current = true;
 
-        const createForm = () => {
-            if ((window as any).hbspt) {
-                (window as any).hbspt.forms.create({
-                    region: "na1",
-                    portalId: "50405101",
-                    formId: "9baeca2e-479f-47c0-b8c8-66993a9f1794",
-                    target: "#hubspotFormContainer"
-                });
-            }
-        };
-
-        if ((window as any).hbspt) {
-            createForm();
-        } else {
-            let script = document.querySelector('script[src="https://js.hsforms.net/forms/embed/v2.js"]') as HTMLScriptElement;
-            if (!script) {
-                script = document.createElement('script');
-                script.src = 'https://js.hsforms.net/forms/embed/v2.js';
-                script.async = true;
-                document.body.appendChild(script);
-            }
-            script.addEventListener('load', createForm);
+        if (!(window as any).hbspt_script_loaded) {
+            const script = document.createElement('script');
+            script.src = 'https://js.hsforms.net/forms/embed/50405101.js';
+            script.defer = true;
+            document.body.appendChild(script);
+            (window as any).hbspt_script_loaded = true;
         }
 
         return () => {
-            const container = document.getElementById('hubspotFormContainer');
-            if (container) {
-                container.innerHTML = '';
-            }
+            // cleanup is handled to some extent by React, but the script stays loaded
         };
     }, []);
 
@@ -132,13 +113,11 @@ export default function Contacto() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                        className="md:col-span-8 lg:col-span-8 bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-gray-100 min-h-[400px]"
+                        className="md:col-span-8 lg:col-span-8 bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 min-h-[400px]"
                     >
-                        <div className="mb-8">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
-                            <p className="text-gray-500">Completa el formulario y te enviaremos la información solicitada.</p>
+                        <div id="hubspotFormContainer" className="[&_.hs-form]:!font-sans min-h-[500px]">
+                            <div className="hs-form-frame" data-region="na1" data-form-id="9baeca2e-479f-47c0-b8c8-66993a9f1794" data-portal-id="50405101"></div>
                         </div>
-                        <div id="hubspotFormContainer" className="[&_.hs-form]:!font-sans"></div>
                     </motion.div>
                 </div>
             </section>
