@@ -1,29 +1,54 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Contacto() {
     const formCreated = useRef(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isLoadingForm, setIsLoadingForm] = useState(true);
 
     useEffect(() => {
         if (formCreated.current) return;
-        formCreated.current = true;
 
-        if (!(window as any).hbspt_script_loaded) {
-            const script = document.createElement('script');
-            script.src = 'https://js.hsforms.net/forms/embed/50405101.js';
-            script.defer = true;
-            document.body.appendChild(script);
-            (window as any).hbspt_script_loaded = true;
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !formCreated.current) {
+                formCreated.current = true;
+                
+                // Check if script already exists to avoid duplication
+                if (!document.querySelector('script[src="https://js.hsforms.net/forms/embed/50405101.js"]')) {
+                    const script = document.createElement('script');
+                    script.src = 'https://js.hsforms.net/forms/embed/50405101.js';
+                    script.defer = true;
+                    // We can't easily detect when hbspt finishes rendering inside the frame, 
+                    // but we can hide the skeleton after a reasonable time or on script load
+                    script.onload = () => {
+                        setTimeout(() => setIsLoadingForm(false), 1500);
+                    };
+                    document.body.appendChild(script);
+                } else {
+                    setIsLoadingForm(false);
+                }
+                
+                observer.disconnect();
+            }
+        }, { rootMargin: '200px' });
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
         }
 
-        return () => {
-            // cleanup is handled to some extent by React, but the script stays loaded
-        };
+        return () => observer.disconnect();
     }, []);
 
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white">
+            <Helmet>
+                <title>Contacto | BE Academic - Ecosistema Tecnológico para la Educación</title>
+                <meta name="description" content="Contáctanos para una asesoría gratuita. Potencia tu colegio con SyncroEdu, SyncroTime y Nexus. Estamos para ayudarte a elevar la calidad educativa." />
+                <meta name="keywords" content="contacto be academic, asesoría escolar chile, software educativo contacto" />
+                <link rel="canonical" href="https://beacademic.cl/contacto" />
+            </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
@@ -113,9 +138,25 @@ export default function Contacto() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                        className="md:col-span-8 lg:col-span-8 bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 min-h-[400px]"
+                        className="md:col-span-8 lg:col-span-8 bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 min-h-[500px] relative overflow-hidden"
                     >
-                        <div id="hubspotFormContainer" className="[&_.hs-form]:!font-sans min-h-[500px]">
+                        {isLoadingForm && (
+                            <div className="absolute inset-0 p-8 bg-white z-10">
+                                <div className="space-y-6 animate-pulse">
+                                    <div className="h-4 bg-gray-100 rounded w-1/4"></div>
+                                    <div className="h-12 bg-gray-50 rounded"></div>
+                                    <div className="h-4 bg-gray-100 rounded w-1/3"></div>
+                                    <div className="h-12 bg-gray-50 rounded"></div>
+                                    <div className="h-32 bg-gray-50 rounded"></div>
+                                    <div className="h-12 bg-corp-dark/10 rounded w-1/2"></div>
+                                </div>
+                            </div>
+                        )}
+                        <div 
+                            ref={containerRef}
+                            id="hubspotFormContainer" 
+                            className="[&_.hs-form]:!font-sans min-h-[500px]"
+                        >
                             <div className="hs-form-frame" data-region="na1" data-form-id="9baeca2e-479f-47c0-b8c8-66993a9f1794" data-portal-id="50405101"></div>
                         </div>
                     </motion.div>

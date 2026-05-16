@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 export default function SyncroTime() {
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-cyan selection:text-white">
+            <Helmet>
+                <title>SyncroTime | Generador de Horarios Inteligente para Colegios</title>
+                <meta name="description" content="SyncroTime es el motor generador de horarios escolar más inteligente en Chile. Automatiza la creación de horarios, evita topes y optimiza la carga académica en minutos." />
+                <meta name="keywords" content="generador de horarios escolar, software horarios colegios, syncrotime, horarios sin topes, gestión académica chile" />
+                <link rel="canonical" href="https://beacademic.cl/syncrotime" />
+            </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">

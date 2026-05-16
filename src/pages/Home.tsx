@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 export default function Home() {
     const location = useLocation();
@@ -16,8 +17,52 @@ export default function Home() {
         }
     }, [location]);
 
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BE Academic",
+        "url": "https://beacademic.cl",
+        "logo": "https://beacademic.cl/Logo-BE-Academic.png",
+        "description": "Ecosistema Tecnológico para la Educación en Chile. Soluciones innovadoras para la gestión escolar, cumplimiento legal y calidad educativa.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CL"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+56-9-6437-5050",
+            "contactType": "customer service",
+            "email": "beacademic.ltda@gmail.com"
+        }
+    };
+
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white">
+            <Helmet>
+                <title>BE Academic | Ecosistema Tecnológico para la Educación en Chile</title>
+                <meta name="description" content="BE Academic ofrece soluciones tecnológicas integrales para colegios en Chile: SyncroEdu para gestión docente, SyncroTime para horarios inteligentes y Nexus para calidad educativa." />
+                <meta name="keywords" content="gestión escolar chile, software para colegios, syncroedu, syncrotime, nexus, cumplimiento legal mineduc, calidad educativa, estándares indicativos de desempeño" />
+                <link rel="canonical" href="https://beacademic.cl/" />
+                
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://beacademic.cl/" />
+                <meta property="og:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
+                <meta property="og:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile." />
+                <meta property="og:image" content="https://beacademic.cl/Logo-BE-Academic.png" />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://beacademic.cl/" />
+                <meta property="twitter:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
+                <meta property="twitter:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile." />
+                <meta property="twitter:image" content="https://beacademic.cl/Logo-BE-Academic.png" />
+
+                {/* Structured Data */}
+                <script type="application/ld+json">
+                    {JSON.stringify(schemaData)}
+                </script>
+            </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
@@ -91,7 +136,7 @@ export default function Home() {
                                 <h3 className="text-3xl font-bold text-corp-green mb-2 tracking-tight">SyncroEdu</h3>
                                 <h4 className="text-xl font-medium text-gray-900 mb-4">Gestión Docente y Cumplimiento Legal</h4>
                                 <p className="text-gray-500 text-lg leading-relaxed">
-                                    El cerebro digital para tu colegio. Automatiza la cuadratura de contratos, controla las horas de aula y blinda a tu institución ante auditorías del MINEDUC, previniendo multas y ganando horas de tranquilidad.
+                                    El cerebro digital definitivo. Genera e inyecta horarios inteligentes automáticamente, transformando semanas de trabajo en minutos. Gestiona reemplazos, estadísticas de ausencias y clases perdidas en tiempo real. Blinda tu institución con auditoría legal global y por docente, asegurando cumplimiento total ante el MINEDUC.
                                 </p>
                             </div>
                             <div className="mt-auto pt-8">

@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 export default function Nexus() {
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-blue selection:text-white flex flex-col">
+            <Helmet>
+                <title>Nexus | Plataforma Integral de Calidad Educativa</title>
+                <meta name="description" content="Nexus es la próxima plataforma integral de calidad para colegios en Chile. Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica y más." />
+                <meta name="keywords" content="calidad educativa, estándares indicativos de desempeño, nexus, gestión pedagógica chile, liderazgo escolar" />
+                <link rel="canonical" href="https://beacademic.cl/nexus" />
+            </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">

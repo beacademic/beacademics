@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 export default function SyncroEdu() {
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-green selection:text-white">
+            <Helmet>
+                <title>SyncroEdu | Gestión Docente y Cumplimiento Legal MINEDUC</title>
+                <meta name="description" content="SyncroEdu automatiza la gestión docente, cuadratura de contratos y cumplimiento legal ante el MINEDUC. Blinda tu colegio contra multas y optimiza procesos operativos." />
+                <meta name="keywords" content="gestión docente chile, cumplimiento legal mineduc, syncroedu, cuadratura de contratos, software educativo chile" />
+                <link rel="canonical" href="https://beacademic.cl/syncroedu" />
+            </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
@@ -118,7 +125,7 @@ export default function SyncroEdu() {
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Panel de Control y Auditoría Legal</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Monitorea al instante tu cumplimiento legal con nuestro avanzado sistema de semáforos. Anticípate a cualquier auditoría y visualiza el estado real de tu plantilla docente, detectando riesgos antes de que se conviertan en molestas multas.
+                            Monitorea al instante tu cumplimiento con auditorías legales globales y por docente. Nuestro sistema de semáforos te permite visualizar estadísticas de ausencias y clases perdidas en tiempo real, detectando riesgos normativos antes de que se conviertan en multas.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
@@ -128,9 +135,9 @@ export default function SyncroEdu() {
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión de Reemplazos en tiempo real</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión de Reemplazos y Ausentismo</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            ¿Ausencias imprevistas? No hay problema. SyncroEdu detecta de inmediato al candidato perfecto con horas no lectivas disponibles para cubrir el bloque exacto. Asegura la continuidad pedagógica y genera automáticamente respaldos legales a prueba de balas.
+                            ¿Ausencias imprevistas? SyncroEdu detecta de inmediato al candidato perfecto con horas disponibles para cubrir el bloque exacto. Realiza un seguimiento exhaustivo de estadísticas de ausencias y clases perdidas, asegurando la continuidad pedagógica con respaldos legales automáticos.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
