@@ -125,31 +125,37 @@ export default function SyncroEdu() {
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Panel de Control y Auditoría Legal</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Monitorea al instante tu cumplimiento con auditorías legales globales y por docente. Nuestro sistema de semáforos te permite visualizar estadísticas de ausencias y clases perdidas en tiempo real, detectando riesgos normativos antes de que se conviertan en multas.
+                            Visualiza tu cumplimiento al instante con auditorías globales y por docente. Nuestro sistema de "semáforo normativo" te permite detectar riesgos en tiempo real, transformando la incertidumbre en seguridad jurídica total ante el MINEDUC.
+                        </p>
+                    </div>
+                    <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Informes PDF y Reportes Ejecutivos</h3>
+                        <p className="text-gray-600 leading-relaxed text-lg">
+                            Genera con un clic informes detallados listos para entregar. Obtén horarios de cursos profesionales, reportes de carga horaria precisos para el equipo contable y certificados de cumplimiento legal respaldados por datos, eliminando días de trabajo administrativo manual.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">Calculadora de Jornada Docente</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            ¡Olvídate de las planillas de Excel! Nuestra calculadora inteligente sincroniza en tiempo real, indicándote con precisión quirúrgica los minutos exactos para cuadrar el horario. Automatiza la Bolsa No Lectiva legal y despídete de los errores costosos.
+                            ¡Olvídate de las planillas de Excel! Nuestra calculadora inteligente sincroniza en tiempo real, indicándote con precisión quirúrgica los minutos exactos para cuadrar el horario y la Bolsa No Lectiva legal, evitando multas por falta de coeficiente.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión de Reemplazos y Ausentismo</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión de Reemplazos e Impago</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            ¿Ausencias imprevistas? SyncroEdu detecta de inmediato al candidato perfecto con horas disponibles para cubrir el bloque exacto. Realiza un seguimiento exhaustivo de estadísticas de ausencias y clases perdidas, asegurando la continuidad pedagógica con respaldos legales automáticos.
+                            Detecta de inmediato al candidato perfecto para cubrir ausencias basándose en disponibilidad real. Realiza un seguimiento exhaustivo de estadísticas de ausentismo y clases perdidas, asegurando la continuidad pedagógica y el respaldo legal automático.
                         </p>
                     </div>
                     <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión Integral del Personal</h3>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Gestión Integral y SIGE</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Conecta tu flujo de trabajo en segundos con importaciones masivas desde SIGE. Administra sin esfuerzo a toda tu maquinaria educativa: desde docentes hasta psicólogos e inspectores. Control total con jornadas diferenciadas y soporte multiaño.
+                            Conecta tu flujo de trabajo con importaciones masivas desde SIGE. Administra a toda tu maquinaria educativa (docentes, psicólogos, administrativos) con jornadas diferenciadas y soporte multiaño para una planificación sin fricciones.
                         </p>
                     </div>
-                    <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow md:col-span-2">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Generación Automática de Horarios</h3>
+                    <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4">Inyección Inteligente de Horarios</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            ¿Semanas armando el rompecabezas escolar? Define tus restricciones de disponibilidad y recintos, y deja que nuestro motor inteligente genere el escenario perfecto. Una vez listos, inyéctalos al horario de cada docente con un solo clic. Transforma un proceso lento y estresante en resultados instantáneos y sin choques.
+                            Define tus restricciones y deja que nuestro motor genere el escenario perfecto. Una vez listo, inyecta la carga directamente al horario de cada docente. Transforma un proceso que solía tomar semanas en resultados instantáneos y sin choques de sala.
                         </p>
                     </div>
                 </div>

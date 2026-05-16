@@ -136,7 +136,7 @@ export default function Home() {
                                 <h3 className="text-3xl font-bold text-corp-green mb-2 tracking-tight">SyncroEdu</h3>
                                 <h4 className="text-xl font-medium text-gray-900 mb-4">Gestión Docente y Cumplimiento Legal</h4>
                                 <p className="text-gray-500 text-lg leading-relaxed">
-                                    El cerebro digital definitivo. Genera e inyecta horarios inteligentes automáticamente, transformando semanas de trabajo en minutos. Gestiona reemplazos, estadísticas de ausencias y clases perdidas en tiempo real. Blinda tu institución con auditoría legal global y por docente, asegurando cumplimiento total ante el MINEDUC.
+                                    El cerebro digital definitivo. Genera e inyecta horarios inteligentes, gestiona reemplazos y estadísticas de ausencias en tiempo real. Blinda tu colegio con auditoría legal global y genera informes PDF detallados de cargas horarias y cumplimiento para una gestión administrativa impecable ante el MINEDUC.
                                 </p>
                             </div>
                             <div className="mt-auto pt-8">
