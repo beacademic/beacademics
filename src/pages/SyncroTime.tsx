@@ -1,8 +1,18 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 
 export default function SyncroTime() {
+    const [pricingUrl, setPricingUrl] = useState('https://syncrotime.com/es/pricing');
+
+    useEffect(() => {
+        const userLang = navigator.language || (navigator as any).userLanguage || 'es';
+        const langCode = userLang.split('-')[0].toLowerCase();
+        const lang = langCode === 'en' ? 'en' : 'es';
+        setPricingUrl(`https://syncrotime.com/${lang}/pricing`);
+    }, []);
+
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-cyan selection:text-white">
             <Helmet>
@@ -29,12 +39,9 @@ export default function SyncroTime() {
                         <a href="https://syncrotime.com" className="text-gray-600 hover:text-gray-900 transition-colors hidden sm:block">
                             Iniciar Sesión
                         </a>
-                        <button 
-                            onClick={() => document.getElementById('cotizar')?.scrollIntoView({ behavior: 'smooth' })} 
-                            className="bg-corp-cyan text-white px-4 py-1.5 rounded-full hover:bg-cyan-600 transition-colors shadow-sm"
-                        >
-                            Solicitar Demo
-                        </button>
+                        <a href={pricingUrl} className="bg-corp-cyan text-white px-4 py-1.5 rounded-full hover:bg-cyan-600 transition-colors shadow-sm">
+                            Ver Precios
+                        </a>
                     </div>
                 </nav>
             </header>
@@ -72,9 +79,9 @@ export default function SyncroTime() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start"
                     >
-                        <Link to="/contacto" className="bg-corp-cyan text-white px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl">
-                            Solicitar Demo Gratis
-                        </Link>
+                        <a href={pricingUrl} className="bg-corp-cyan text-white px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl">
+                            Cotizar Ahora
+                        </a>
                         <a href="https://wa.me/message/7NPPQUPQWQLCN1" target="_blank" rel="noopener noreferrer" className="text-gray-900 font-medium px-8 py-3 flex items-center justify-center gap-2 border-2 border-corp-cyan hover:bg-cyan-50 rounded-full transition-colors w-full sm:w-auto text-center">
                             Conversar con experto &rsaquo;
                         </a>
@@ -219,9 +226,9 @@ export default function SyncroTime() {
                         Solicita ahora mismo una demostración de SyncroTime.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link to="/contacto" className="bg-corp-cyan text-white px-10 py-4 rounded-full text-xl font-medium hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-md">
-                            Completar Formulario de Contacto
-                        </Link>
+                        <a href={pricingUrl} className="bg-corp-cyan text-white px-10 py-4 rounded-full text-xl font-medium hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-md">
+                            Ver Planes y Precios
+                        </a>
                         <a href="https://wa.me/message/7NPPQUPQWQLCN1" target="_blank" rel="noopener noreferrer" className="bg-transparent text-corp-cyan border-2 border-corp-cyan px-10 py-4 rounded-full text-xl font-medium hover:bg-cyan-900 transition-colors w-full sm:w-auto text-center">
                             Hablar directamente por WhatsApp
                         </a>
