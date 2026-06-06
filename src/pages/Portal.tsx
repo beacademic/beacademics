@@ -26,6 +26,17 @@ export default function Portal() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         <a 
+                            href="https://syncrotime.com" 
+                            className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-cyan/30 transition-all duration-300 text-center"
+                        >
+                            <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
+                            <h3 className="text-3xl font-bold text-corp-cyan tracking-tight mb-8 group-hover:scale-105 transition-transform">SyncroTime</h3>
+                            <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-cyan transition-colors mt-auto">
+                                Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+                            </span>
+                        </a>
+
+                        <a 
                             href="https://syncroedu.com" 
                             className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-green/30 transition-all duration-300 text-center"
                         >
@@ -43,17 +54,6 @@ export default function Portal() {
                             <img src="/Logo-Nexus.png" alt="Logo Nexus" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
                             <h3 className="text-3xl font-bold text-corp-blue tracking-tight mb-8 group-hover:scale-105 transition-transform">Nexus</h3>
                             <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-blue transition-colors mt-auto">
-                                Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
-                            </span>
-                        </a>
-
-                        <a 
-                            href="https://syncrotime.com" 
-                            className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-cyan/30 transition-all duration-300 text-center"
-                        >
-                            <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
-                            <h3 className="text-3xl font-bold text-corp-cyan tracking-tight mb-8 group-hover:scale-105 transition-transform">SyncroTime</h3>
-                            <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-cyan transition-colors mt-auto">
                                 Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
                             </span>
                         </a>

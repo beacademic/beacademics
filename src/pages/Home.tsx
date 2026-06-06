@@ -129,6 +129,23 @@ export default function Home() {
                     </div>
 
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                        {/* SyncroTime Card */}
+                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
+                            <div className="mb-8">
+                                <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-6 object-contain" />
+                                <h3 className="text-3xl font-bold text-corp-cyan mb-2 tracking-tight">SyncroTime</h3>
+                                <h4 className="text-xl font-medium text-gray-900 mb-4">Generador de Horarios Inteligente</h4>
+                                <p className="text-gray-500 text-lg leading-relaxed">
+                                    Armar horarios nunca fue tan fácil. Nuestro potente motor genera combinaciones óptimas adaptándose a múltiples restricciones en tiempo récord. Exporta resultados claros en PDF y Excel, listos para implementar.
+                                </p>
+                            </div>
+                            <div className="mt-auto pt-8">
+                                <Link to="/syncrotime" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
+                                    Descubrir SyncroTime <span className="text-lg leading-none">&rsaquo;</span>
+                                </Link>
+                            </div>
+                        </div>
+
                         {/* SyncroEdu Card */}
                         <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
                             <div className="mb-8">
@@ -147,7 +164,7 @@ export default function Home() {
                         </div>
 
                         {/* Nexus Card */}
-                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
+                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500 md:col-span-2 lg:col-span-1">
                             <div className="mb-8">
                                 <img src="/Logo-Nexus.png" alt="Logo Nexus" className="h-12 w-auto mb-6 object-contain" />
                                 <h3 className="text-3xl font-bold text-corp-blue mb-2 tracking-tight">Nexus</h3>
@@ -159,23 +176,6 @@ export default function Home() {
                             <div className="mt-auto pt-8">
                                 <Link to="/nexus" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
                                     Descubrir Nexus <span className="text-lg leading-none">&rsaquo;</span>
-                                </Link>
-                            </div>
-                        </div>
-
-                        {/* SyncroTime Card */}
-                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500 md:col-span-2 lg:col-span-1">
-                            <div className="mb-8">
-                                <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-6 object-contain" />
-                                <h3 className="text-3xl font-bold text-corp-cyan mb-2 tracking-tight">SyncroTime</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Generador de Horarios Inteligente</h4>
-                                <p className="text-gray-500 text-lg leading-relaxed">
-                                    Armar horarios nunca fue tan fácil. Nuestro potente motor genera combinaciones óptimas adaptándose a múltiples restricciones en tiempo récord. Exporta resultados claros en PDF y Excel, listos para implementar.
-                                </p>
-                            </div>
-                            <div className="mt-auto pt-8">
-                                <Link to="/syncrotime" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Descubrir SyncroTime <span className="text-lg leading-none">&rsaquo;</span>
                                 </Link>
                             </div>
                         </div>
