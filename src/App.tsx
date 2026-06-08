@@ -11,6 +11,9 @@ import SyncroEdu from './pages/SyncroEdu';
 import Contacto from './pages/Contacto';
 import SyncroTime from './pages/SyncroTime';
 import Nexus from './pages/Nexus';
+import Legal from './pages/Legal';
+import PrivacidadSyncroEdu from './pages/PrivacidadSyncroEdu';
+import CondicionesSyncroEdu from './pages/CondicionesSyncroEdu';
 
 export default function App() {
   return (
@@ -23,6 +26,9 @@ export default function App() {
           <Route path="/nexus" element={<Nexus />} />
           <Route path="/syncrotime" element={<SyncroTime />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/legal" element={<Legal />} />
+          <Route path="/privacidad-syncroedu" element={<PrivacidadSyncroEdu />} />
+          <Route path="/condiciones-syncroedu" element={<CondicionesSyncroEdu />} />
         </Routes>
       </Router>
     </HelmetProvider>

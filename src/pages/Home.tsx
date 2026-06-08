@@ -230,8 +230,16 @@ export default function Home() {
             </section>
 
             <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800">
-                <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                <p>&copy; 2026 Be Academic. Todos los derechos reservados.</p>
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
+                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+                    </div>
+                    <div className="flex gap-4">
+                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                    </div>
+                </div>
             </footer>
         </div>
     );
