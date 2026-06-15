@@ -7,6 +7,7 @@ export default function SyncroTime() {
     const [pricingUrl, setPricingUrl] = useState('https://syncrotime.com/es/pricing');
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const userLang = navigator.language || (navigator as any).userLanguage || 'es';
         const langCode = userLang.split('-')[0].toLowerCase();
         const lang = langCode === 'en' ? 'en' : 'es';

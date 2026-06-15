@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export default function CondicionesSyncroEdu() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white flex flex-col">
             <Helmet>
