@@ -102,7 +102,7 @@ export default function SyncroEdu() {
                         Horarios rotos y fugas financieras: el peligro de usar un "programa ciego".
                     </h2>
                     <p className="text-xl text-gray-600 font-medium leading-relaxed mb-6 text-left">
-                        Diseñar el horario de clases y cuadrar los contratos de los profesores es el dolor de cabeza más grande de cada inicio de año. Históricamente, la UTP pasa semanas armando el horario a mano o usando generadores de horarios matemáticos que son ciegos a la ley, para que luego Contabilidad se dé cuenta de que algún profesor quedó con más horas lectivas de lo permitido, arriesgando multas millonarias.
+                        Diseñar el horario de clases y cuadrar los contratos de los profesores es el dolor de cabeza más grande de cada inicio de año. Históricamente, la UTP pasa semanas armando el horario a mano o usando generadores de horarios matemáticos que son ciegos a la ley, para que luego Contabilidad se dé cuenta de que algún profesor quedó con más horas lectivas de lo permitido o con menos tiempo de preparación de la enseñanza que el mínimo legal exigido por la normativa arriesgando multas millonarias.
                     </p>
                     <p className="text-xl text-corp-green font-bold leading-relaxed text-left">
                         Con SyncroEdu cambiamos las reglas del juego. No somos un simple software de horarios; somos un seguro operativo y financiero para su colegio que integra el cumplimiento de la ley (Ley 20.903) directamente en el diseño del turno.
