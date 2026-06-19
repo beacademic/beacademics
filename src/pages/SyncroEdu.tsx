@@ -102,7 +102,7 @@ export default function SyncroEdu() {
                         Horarios rotos y fugas financieras: el peligro de usar un "programa ciego".
                     </h2>
                     <p className="text-xl text-gray-600 font-medium leading-relaxed mb-6 text-left">
-                        Diseñar el horario de clases y cuadrar los contratos de los profesores es el dolor de cabeza más grande de cada inicio de año. Históricamente, la UTP pasa semanas armando la grilla a mano o usando "solvers" matemáticos que son ciegos a la ley, para que luego Contabilidad se dé cuenta de que algún profesor quedó con más horas lectivas de lo permitido, arriesgando multas millonarias.
+                        Diseñar el horario de clases y cuadrar los contratos de los profesores es el dolor de cabeza más grande de cada inicio de año. Históricamente, la UTP pasa semanas armando el horario a mano o usando generadores de horarios matemáticos que son ciegos a la ley, para que luego Contabilidad se dé cuenta de que algún profesor quedó con más horas lectivas de lo permitido, arriesgando multas millonarias.
                     </p>
                     <p className="text-xl text-corp-green font-bold leading-relaxed text-left">
                         Con SyncroEdu cambiamos las reglas del juego. No somos un simple software de horarios; somos un seguro operativo y financiero para su colegio que integra el cumplimiento de la ley (Ley 20.903) directamente en el diseño del turno.
@@ -127,7 +127,7 @@ export default function SyncroEdu() {
                         <div className="flex-1 space-y-6">
                             <h3 className="text-3xl font-bold text-gray-900">⚖️ Calculadora Legal de Cumplimiento</h3>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Actúa como un asesor legal en tiempo real que verifica que la distribución lectiva/no lectiva (65/35 o 60/40) cumpla estrictamente la normativa educativa chilena. Contiene clasificaciones bajo el MINEDUC para distribuir correctamente el tiempo de Preparación (40%), DPD (60%) y Trabajo Comunitario (60%). Con un semáforo visual único.
+                                Actúa como un asesor legal en tiempo real que verifica que la distribución lectiva/no lectiva (65/35 o 60/40) cumpla estrictamente la normativa educativa chilena. Contiene clasificaciones bajo el MINEDUC para distribuir correctamente el tiempo de Proceso de enseñanza y aprendizaje (40%), Desarrollo Profesional Docente y/o Desarrollo de la comunidad escolar (60%). Con un semáforo visual único que te alerta de incumplimiento legal.
                             </p>
                         </div>
                         <div className="flex-1 w-full bg-white rounded-3xl aspect-[4/3] flex flex-col items-center justify-center p-2 text-center border border-gray-100 shadow-xl relative overflow-hidden group">
@@ -140,11 +140,11 @@ export default function SyncroEdu() {
                         <div className="flex-1 space-y-6">
                             <h3 className="text-3xl font-bold text-gray-900">⚙️ Motor de Generación Algorítmica</h3>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Un "solver" inteligente que respeta restricciones duras y blandas (como ventanas máximas, topes diarios). Permite la inyección masiva en la grilla oficial de docentes con un solo clic. Fundamental para asegurar la dotación de co-docencia y auditoría legal bajo el PIE (Decreto Supremo N° 170).
+                                Un generador de horarios inteligente que respeta restricciones duras y blandas (como ventanas máximas, topes diarios). Permite la inyección masiva en el horario oficial de docentes con un solo clic. Fundamental para asegurar la dotación docente, el cumplimiento normativo de la carga horaria de docentes y evitar topones de horarios u horarios mal diseñados.
                             </p>
                         </div>
                         <div className="flex-1 w-full bg-white rounded-3xl aspect-[4/3] flex flex-col items-center justify-center p-2 text-center border border-gray-100 shadow-xl relative overflow-hidden group">
-                            <img src="/Generador.png" alt="Motor Generador de Grilla" className="w-full h-full object-cover sm:object-contain rounded-2xl relative z-10 group-hover:scale-105 transition-transform duration-500" />
+                            <img src="/Generador.png" alt="Motor Generador de Horario" className="w-full h-full object-cover sm:object-contain rounded-2xl relative z-10 group-hover:scale-105 transition-transform duration-500" />
                         </div>
                     </div>
 
@@ -300,7 +300,7 @@ export default function SyncroEdu() {
             <section className="py-24 px-6 max-w-7xl mx-auto border-b border-gray-100">
                 <div className="text-center md:text-left mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                        ¿Por qué un Simple "Solver" No es Suficiente?
+                        ¿Por qué un Simple Generador de Horarios No es Suficiente?
                     </h2>
                     <p className="text-xl text-gray-500 max-w-3xl">
                         Un programa importado tradicional entrega horarios matemáticamente válidos, pero <span className="font-bold text-gray-700">legalmente ciegos</span> al mercado chileno. SyncroEdu opera en la liga del Compliance Escolar integrado.
@@ -311,7 +311,7 @@ export default function SyncroEdu() {
                         <span className="text-4xl mb-6 block">👩‍⚖️</span>
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">La Calculadora Legal vs el "Algoritmo Ciego"</h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Nuestra plataforma respeta las leyes de Chile, clasifica horas no lectivas y cruza contratos internamente de forma automática garantizando que su grilla aprobada sea 100% auditable bajo Ley de Subvenciones.
+                            Nuestra plataforma respeta las leyes de Chile, clasifica horas no lectivas y cruza contratos internamente de forma automática garantizando que su horario aprobado sea 100% auditable bajo Ley de Subvenciones.
                         </p>
                     </div>
                     <div className="p-10 rounded-3xl bg-gray-50 border border-gray-200 hover:border-corp-green/40 transition-colors">
