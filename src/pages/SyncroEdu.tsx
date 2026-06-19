@@ -169,9 +169,8 @@ export default function SyncroEdu() {
                                 Convierta datos en indicadores críticos de gestión como Costo por Alumno Atendido, Costo por Hora Lectiva e Índice de Ocupación. Incluye detección algorítmica <span className="font-semibold italic">Bradford Factor</span>, que alerta tempranamente sobre ausentismo corto (licencias médicas menores a 3 días) intermitente y recurrente los lunes y viernes.
                             </p>
                         </div>
-                        <div className="flex-1 w-full bg-gray-50 rounded-3xl aspect-[4/3] flex flex-col items-center justify-center p-8 text-center border-2 border-dashed border-gray-300 relative overflow-hidden">
-                            <span className="text-4xl mb-4 z-10 w-full">📈</span>
-                            <span className="text-gray-500 font-medium z-10 text-lg leading-relaxed">[Imagen Requerida: Analytics Bradford Factor] <br/><span className="text-sm">Pantalla de analítica avanzada RRHH con índices como Bradford Factor, tasa de rotación o eNPS.</span></span>
+                        <div className="flex-1 w-full bg-white rounded-3xl aspect-[4/3] flex flex-col items-center justify-center p-2 text-center border border-gray-100 shadow-xl relative overflow-hidden group">
+                            <img src="/Gestion-de-personas.png" alt="Gestión de Personas" className="w-full h-full object-cover sm:object-contain rounded-2xl relative z-10 group-hover:scale-105 transition-transform duration-500" />
                         </div>
                     </div>
                 </div>
