@@ -195,7 +195,7 @@ export default function Home() {
                             </div>
                             <h4 className="text-2xl font-bold text-gray-900 mb-4">Capacitación Docente y Directiva</h4>
                             <p className="text-gray-500 text-lg leading-relaxed">
-                                No te dejamos solo con la herramienta. Entrenamos a tu equipo presencialmente y de forma asíncrona para asegurar la máxima adopción tecnológica y una transición completamente libre de fricciones.
+                                No te dejamos solo con la herramienta. Entrenamos a tu equipo presencialmente y/o de forma sincrónica para asegurar la máxima adopción tecnológica y una transición completamente libre de fricciones.
                             </p>
                         </div>
                         
