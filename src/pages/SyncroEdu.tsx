@@ -181,7 +181,7 @@ export default function SyncroEdu() {
             {/* SECCIÓN 3 — SOCIAL PROOF */}
             <section className="bg-white border-b border-gray-100 py-8 px-6 relative z-10">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
-                    <span className="text-sm text-gray-500 font-medium">Validado y en producción por:</span>
+                    <span className="text-sm text-gray-500 font-medium">Piloteado y en producción en un:</span>
                     <div className="font-bold text-gray-900 text-lg flex items-center gap-2">
                          Colegio Particular Subvencionado <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full ml-2 font-medium">Caso Real</span>
                     </div>
