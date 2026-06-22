@@ -939,12 +939,12 @@ export default function SyncroEdu() {
                     <div>
                         <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-xs">Contacto</h4>
                         <p className="flex items-center gap-2 mb-2">📱 <a href="tel:+56964375050" className="hover:text-white">+56 9 6437 5050</a></p>
-                        <p className="flex items-center gap-2 mb-2">📧 <a href="mailto:ventas@beacademics.com" className="hover:text-white">ventas@beacademics.com</a></p>
+                        <p className="flex items-center gap-2 mb-2">📧 <a href="mailto:ventas@syncroedu.com" className="hover:text-white">ventas@syncroedu.com</a></p>
                         <p className="flex items-center gap-2 text-gray-500 mt-6">Lunes a Viernes · 9:00 a 18:00 hrs</p>
                     </div>
                 </div>
                 <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-600 gap-4">
-                    <p>SyncroEdu &copy; {new Date().getFullYear()} Beacademics SpA. Todos los derechos reservados.</p>
+                    <p>SyncroEdu &copy; {new Date().getFullYear()} Beacademics Ltda. Todos los derechos reservados.</p>
                     <p>Desarrollado en Chile 🇨🇱 para colegios chilenos.</p>
                 </div>
             </footer>
