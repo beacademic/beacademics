@@ -728,7 +728,7 @@ export default function SyncroEdu() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                         {[
-                            { icon: "☁️", title: "Google Cloud Enterprise", text: "Alojado en Google Cloud. Alta disponibilidad y escalabilidad automática." },
+                            { icon: "☁️", title: "Infraestructura Google Cloud", text: "Infraestructura robusta sobre Google Cloud, garantizando alta disponibilidad y escalabilidad automática." },
                             { icon: "🔒", title: "Datos Encriptados SHA-256", text: "Respaldos firmados digitalmente. Doble confirmación para borrado." },
                             { icon: "🏢", title: "Multi-Tenant Aislado", text: "Su establecimiento opera en un entorno 100% aislado criptográficamente." },
                             { icon: "⚡", title: "Sincronización Tiempo Real", text: "Cambios reflejados en toda la red interna de su colegio cada 5 segundos." }
@@ -943,9 +943,12 @@ export default function SyncroEdu() {
                         <p className="flex items-center gap-2 text-gray-500 mt-6">Lunes a Viernes · 9:00 a 18:00 hrs</p>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-600 gap-4">
+                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-600 gap-4 mb-4">
                     <p>SyncroEdu &copy; {new Date().getFullYear()} Beacademics Ltda. Todos los derechos reservados.</p>
                     <p>Desarrollado en Chile 🇨🇱 para colegios chilenos.</p>
+                </div>
+                <div className="max-w-7xl mx-auto px-6 text-[10px] text-gray-600 pb-12 text-center md:text-left">
+                    <p>Google Cloud, Firebase y Google Tasks son marcas comerciales de Google LLC. El uso de estas marcas no implica respaldo ni afiliación oficial.</p>
                 </div>
             </footer>
 
