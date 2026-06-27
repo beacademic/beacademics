@@ -760,13 +760,13 @@ export default function SyncroEdu() {
                         <div className="bg-white rounded-3xl p-10 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
                             <div className="w-24 h-24 mx-auto rounded-full bg-corp-green flex items-center justify-center text-3xl font-bold text-white mb-6 border-4 border-green-100">CM</div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-1">Carlos Mundaca</h3>
-                            <p className="text-corp-green font-medium mb-6">Co-Fundador · Director Pedagógico</p>
+                            <p className="text-corp-green font-medium mb-6">Co-Fundador</p>
                             <p className="text-gray-600 text-sm leading-relaxed">Profesor, UdeC. Especialista en liderazgo educativo y gestión directiva escolar. Une la mirada pedagógica con la gestión financiera de establecimientos.</p>
                         </div>
                         <div className="bg-white rounded-3xl p-10 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
                             <div className="w-24 h-24 mx-auto rounded-full bg-corp-cyan flex items-center justify-center text-3xl font-bold text-white mb-6 border-4 border-cyan-100">AG</div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-1">Aracelli Garcia</h3>
-                            <p className="text-corp-cyan font-medium mb-6">Co-Fundadora · Directora Académica</p>
+                            <p className="text-corp-cyan font-medium mb-6">Co-Fundadora</p>
                             <p className="text-gray-600 text-sm leading-relaxed">Profesora de Inglés, UCT. Magíster en Didáctica. Académica universitaria y experta en diseño y control de procesos técnico-pedagógicos.</p>
                         </div>
                     </div>
