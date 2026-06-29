@@ -95,19 +95,18 @@ export default function SyncroTime() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                     className="flex-1 w-full max-w-2xl"
                 >
-                    <div className="relative rounded-[2rem] bg-apple-light border border-gray-200 p-2 shadow-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
-                        <div className="absolute top-4 left-4 flex gap-2">
+                    <div className="relative rounded-[2rem] bg-apple-light border border-gray-200 p-2 shadow-2xl overflow-hidden flex flex-col">
+                        <div className="flex items-center gap-2 px-3 pt-2 pb-3">
                             <div className="w-3 h-3 rounded-full bg-red-400"></div>
                             <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                             <div className="w-3 h-3 rounded-full bg-cyan-400"></div>
                         </div>
-                        <div className="p-8 text-center">
-                             <div className="grid grid-cols-5 gap-2 mb-4 opacity-50">
-                                {[...Array(20)].map((_, i) => (
-                                    <div key={i} className="h-8 bg-corp-cyan/20 rounded-md"></div>
-                                ))}
-                             </div>
-                             <span className="text-gray-500 font-medium text-lg">Vista Panorámica de Horario</span>
+                        <div className="rounded-2xl overflow-hidden border border-gray-100 bg-white shadow-inner">
+                            <img 
+                                src="/Dashboard%20Syncrotime.png" 
+                                alt="Vista Panorámica de Horario" 
+                                className="w-full h-auto object-cover"
+                            />
                         </div>
                     </div>
                 </motion.div>
