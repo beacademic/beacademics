@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
@@ -370,7 +370,7 @@ export default function SyncroEdu() {
                                 <div className="flex-1 space-y-6">
                                     <h3 className="text-3xl font-bold text-gray-900">Nunca más una multa por error en el contrato</h3>
                                     <p className="text-lg text-gray-600 leading-relaxed">
-                                        SyncroEdu es la única plataforma en Chile que actúa como asesor legal en tiempo real. Valida automáticamente que cada docente cumpla las proporciones exigidas por las Leyes 20.903 y 20.976.
+                                        SyncroEdu es la única plataforma en Chile que actúa como asesor legal en tiempo real. Valida automáticamente que cada docente cumpla las proporciones exigidas por las Leyes 20.903, 21.625 y 19070.
                                     </p>
                                     <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm overflow-x-auto text-gray-700">
                                         <div className="flex font-bold border-b border-gray-300 pb-2 mb-2"><div className="w-1/2">Régimen</div><div className="w-1/4">Lectivas</div><div className="w-1/4">No Lectivas</div></div>
@@ -384,7 +384,7 @@ export default function SyncroEdu() {
                                     </ul>
                                 </div>
                                 <div className="flex-1 w-full rounded-2xl overflow-hidden border border-gray-200">
-                                    <img src="/Semaforo 1.png" alt="Calculadora legal" className="w-full h-full object-cover" />
+                                    <img src="/Semaforo-1.png" alt="Calculadora legal" className="w-full h-full object-cover" />
                                 </div>
                             </div>
                         )}
@@ -743,35 +743,7 @@ export default function SyncroEdu() {
                 </div>
             </section>
 
-            {/* SECCIÓN 13 — EQUIPO */}
-            <section id="equipo" className="py-24 px-6 bg-apple-light border-b border-gray-100">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">✓ El Equipo</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                            Creado por educadores. <span className="text-corp-green">Para educadores.</span>
-                        </h2>
-                        <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-                            SyncroEdu nace de la experiencia directa de profesores que vivieron en carne propia el "calvario" del horario manual y la angustia de una fiscalización.
-                        </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div className="bg-white rounded-3xl p-10 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
-                            <div className="w-24 h-24 mx-auto rounded-full bg-corp-green flex items-center justify-center text-3xl font-bold text-white mb-6 border-4 border-green-100">CM</div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-1">Carlos Mundaca</h3>
-                            <p className="text-corp-green font-medium mb-6">Co-Fundador</p>
-                            <p className="text-gray-600 text-sm leading-relaxed">Profesor, UdeC. Especialista en liderazgo educativo y gestión directiva escolar. Une la mirada pedagógica con la gestión financiera de establecimientos.</p>
-                        </div>
-                        <div className="bg-white rounded-3xl p-10 text-center border border-gray-100 shadow-sm hover:shadow-lg transition-shadow">
-                            <div className="w-24 h-24 mx-auto rounded-full bg-corp-cyan flex items-center justify-center text-3xl font-bold text-white mb-6 border-4 border-cyan-100">AG</div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-1">Aracelli Garcia</h3>
-                            <p className="text-corp-cyan font-medium mb-6">Co-Fundadora</p>
-                            <p className="text-gray-600 text-sm leading-relaxed">Profesora de Inglés, UCT. Magíster en Didáctica. Académica universitaria y experta en diseño y control de procesos técnico-pedagógicos.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* SECCIÓN 14 — FAQ */}
             <section id="faq" className="py-24 px-6 bg-white border-b border-gray-100">
