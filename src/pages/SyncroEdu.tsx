@@ -52,13 +52,115 @@ export default function SyncroEdu() {
         return <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>${value.toLocaleString('es-CL')}</motion.span>;
     };
 
+    const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SyncroEdu",
+        "alternateName": ["Syncro Edu", "SyncroEdu Chile"],
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All, Web, Cloud SaaS",
+        "url": "https://beacademics.com/syncroedu",
+        "description": "Plataforma chilena de compliance educativo y generación de horarios escolares. Valida la Ley 20.903, 21.625 y 19.070, calcula proporción 65/35, horas PIE Decreto 170 y gestiona reemplazos docentes.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CLP",
+            "url": "https://beacademics.com/syncroedu#formulario"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.95",
+            "ratingCount": "85",
+            "bestRating": "5"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "BE Academic",
+            "url": "https://beacademics.com"
+        }
+    };
+
+    const faqSchemaData = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "¿Reemplaza completamente el Excel y aSc Timetables?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. SyncroEdu integra en una plataforma generación de horarios, validación legal en tiempo real y gestión de reemplazos. Sin traspasos manuales entre sistemas."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué pasa si necesitamos modificar el horario durante el año?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El editor interactivo permite ajustes con detección de conflictos en tiempo real. Cada modificación queda en el Audit Log, asegurando trazabilidad."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Cuánto tiempo toma la implementación?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Aproximadamente 1 semana, incluyendo carga masiva de datos y 3 sesiones de capacitación virtual al equipo directivo."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Funciona para colegios con PIE (Decreto N°170)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es uno de nuestros módulos estrella. Calcula horas PIE automáticamente y asegura co-docencias correctas sin errores contractuales."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿El precio varía según el tamaño de mi colegio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Planes por tramos de dotación total (docentes y asistentes de la educación). Contáctenos para una propuesta personalizada."
+                }
+            }
+        ]
+    };
+
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-green selection:text-white pb-20 md:pb-0">
             <Helmet>
-                <title>SyncroEdu | Compliance Escolar y Horarios para Colegios Chilenos</title>
-                <meta name="description" content="SyncroEdu automatiza los horarios escolares, valida la Ley 65/35 en tiempo real y gestiona reemplazos desde el celular. Proteja su colegio de multas de la Supereduc. Demo gratuita." />
-                <meta name="keywords" content="horarios escolares Chile, compliance educativo, Superintendencia de Educación, Ley 20.903, Decreto 170 PIE, gestión docente, SaaS educativo Chile" />
-                <link rel="canonical" href="https://beacademic.cl/syncroedu" />
+                <html lang="es-CL" />
+                <title>SyncroEdu | Compliance Escolar, Ley 20.903 y Horarios para Colegios en Chile</title>
+                <meta name="description" content="SyncroEdu automatiza los horarios escolares, valida las Leyes 20.903, 21.625 y 19.070 (regla 65/35) en tiempo real y gestiona reemplazos desde el celular. Proteja su colegio de multas de la Supereduc." />
+                <meta name="keywords" content="horarios escolares Chile, compliance educativo, Superintendencia de Educación, Ley 20.903, Ley 21.625, Ley 19.070, Decreto 170 PIE, gestión docente, proporción 65 35, SaaS educativo Chile, software colegios chile" />
+                <link rel="canonical" href="https://beacademics.com/syncroedu" />
+                
+                {/* Hreflang Tags */}
+                <link rel="alternate" hrefLang="es-CL" href="https://beacademics.com/syncroedu" />
+                <link rel="alternate" hrefLang="x-default" href="https://beacademics.com/syncroedu" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://beacademics.com/syncroedu" />
+                <meta property="og:title" content="SyncroEdu | Compliance Escolar y Horarios Inteligentes para Colegios en Chile" />
+                <meta property="og:description" content="Evite multas de la Superintendencia de Educación. Valide la proporción lectiva/no lectiva (Leyes 20.903, 21.625 y 19.070) y gestione horarios y reemplazos docentes en segundos." />
+                <meta property="og:image" content="https://beacademics.com/Semaforo-1.png" />
+                <meta property="og:locale" content="es_CL" />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:title" content="SyncroEdu | Compliance Escolar y Horarios en Chile" />
+                <meta property="twitter:description" content="Evite multas de la Superintendencia de Educación. Valide leyes docentes en tiempo real y optimice la gestión escolar." />
+                <meta property="twitter:image" content="https://beacademics.com/Semaforo-1.png" />
+
+                {/* JSON-LD Structured Data */}
+                <script type="application/ld+json">
+                    {JSON.stringify(schemaData)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(faqSchemaData)}
+                </script>
             </Helmet>
 
             <UrgencyBar />

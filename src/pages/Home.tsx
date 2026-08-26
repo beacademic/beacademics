@@ -19,44 +19,63 @@ export default function Home() {
 
     const schemaData = {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "BE Academic",
-        "url": "https://beacademic.cl",
-        "logo": "https://beacademic.cl/Logo-BE-Academic.png",
-        "description": "Ecosistema Tecnológico para la Educación en Chile. Soluciones innovadoras para la gestión escolar, cumplimiento legal y calidad educativa.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "CL"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+56-9-6437-5050",
-            "contactType": "customer service",
-            "email": "beacademic.ltda@gmail.com"
-        }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://beacademics.com/#organization",
+                "name": "BE Academic",
+                "url": "https://beacademics.com",
+                "logo": "https://beacademics.com/Logo-BE-Academic.png",
+                "description": "Ecosistema Tecnológico Global para la Educación. Creadores de SyncroEdu (compliance legal y gestión docente) y SyncroTime (generador inteligente de horarios escolares con IA).",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "CL"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+56-9-6437-5050",
+                    "contactType": "customer service",
+                    "email": "beacademic.ltda@gmail.com"
+                },
+                "sameAs": [
+                    "https://syncrotime.com",
+                    "https://syncroedu.com"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://beacademics.com/#website",
+                "url": "https://beacademics.com",
+                "name": "BE Academic",
+                "publisher": {
+                    "@id": "https://beacademics.com/#organization"
+                }
+            }
+        ]
     };
 
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white">
             <Helmet>
-                <title>BE Academic | Ecosistema Tecnológico para la Educación en Chile</title>
-                <meta name="description" content="BE Academic ofrece soluciones tecnológicas integrales para colegios en Chile: SyncroEdu para gestión docente, SyncroTime para horarios inteligentes y Nexus para calidad educativa." />
-                <meta name="keywords" content="gestión escolar chile, software para colegios, syncroedu, syncrotime, nexus, cumplimiento legal mineduc, calidad educativa, estándares indicativos de desempeño" />
-                <link rel="canonical" href="https://beacademic.cl/" />
+                <html lang="es" />
+                <title>BE Academic | Ecosistema Tecnológico para la Educación - SyncroEdu & SyncroTime</title>
+                <meta name="description" content="BE Academic ofrece soluciones tecnológicas integrales para colegios: SyncroEdu para gestión docente y compliance legal en Chile, y SyncroTime para generación automática de horarios escolares con IA a nivel global." />
+                <meta name="keywords" content="gestión escolar, software para colegios, syncroedu, syncrotime, generador de horarios escolares, nexus, cumplimiento legal mineduc, calidad educativa, software educativo" />
+                <link rel="canonical" href="https://beacademics.com/" />
                 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://beacademic.cl/" />
+                <meta property="og:url" content="https://beacademics.com/" />
                 <meta property="og:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
-                <meta property="og:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile." />
-                <meta property="og:image" content="https://beacademic.cl/Logo-BE-Academic.png" />
+                <meta property="og:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y automatizan la generación de horarios escolares." />
+                <meta property="og:image" content="https://beacademics.com/Logo-BE-Academic.png" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://beacademic.cl/" />
+                <meta property="twitter:url" content="https://beacademics.com/" />
                 <meta property="twitter:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
-                <meta property="twitter:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile." />
-                <meta property="twitter:image" content="https://beacademic.cl/Logo-BE-Academic.png" />
+                <meta property="twitter:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y automatizan la generación de horarios escolares." />
+                <meta property="twitter:image" content="https://beacademics.com/Logo-BE-Academic.png" />
 
                 {/* Structured Data */}
                 <script type="application/ld+json">

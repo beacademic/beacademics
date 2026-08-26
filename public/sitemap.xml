@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página Principal / Home -->
+  <url>
+    <loc>https://beacademics.com/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://beacademics.com/Logo-BE-Academic.png</image:loc>
+      <image:title>BE Academic - Ecosistema Tecnológico para la Educación</image:title>
+    </image:image>
+  </url>
+
+  <!-- SyncroTime - Global AI School Timetable Generator (ES, EN, PT) -->
+  <url>
+    <loc>https://beacademics.com/syncrotime</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://beacademics.com/syncrotime?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://beacademics.com/syncrotime?lang=en" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://beacademics.com/syncrotime?lang=pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncrotime" />
+    <image:image>
+      <image:loc>https://beacademics.com/Dashboard%20Syncrotime.png</image:loc>
+      <image:title>SyncroTime Dashboard - School Timetable Generator</image:title>
+    </image:image>
+  </url>
+
+  <!-- SyncroEdu - Plataforma de Compliance Escolar y Horarios (Chile) -->
+  <url>
+    <loc>https://beacademics.com/syncroedu</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://beacademics.com/syncroedu" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncroedu" />
+    <image:image>
+      <image:loc>https://beacademics.com/Semaforo-1.png</image:loc>
+      <image:title>SyncroEdu - Validador Legal Ley 20.903, 21.625 y 19.070</image:title>
+    </image:image>
+  </url>
+
+  <!-- Nexus - Plataforma de Calidad Educativa -->
+  <url>
+    <loc>https://beacademics.com/nexus</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Contacto / Agendamiento de Demo -->
+  <url>
+    <loc>https://beacademics.com/contacto</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Información Legal -->
+  <url>
+    <loc>https://beacademics.com/legal</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+
+  <!-- Políticas de Privacidad -->
+  <url>
+    <loc>https://beacademics.com/privacidad-syncroedu</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+
+  <!-- Términos y Condiciones -->
+  <url>
+    <loc>https://beacademics.com/condiciones-syncroedu</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+
+</urlset>

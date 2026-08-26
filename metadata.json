@@ -1,6 +1,8 @@
 {
-  "name": "",
-  "description": "",
+  "name": "BE Academic - SyncroEdu & SyncroTime",
+  "description": "Ecosistema tecnológico para la educación: SyncroEdu para compliance legal escolar en Chile y SyncroTime para generación automática de horarios escolares con IA a nivel global.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

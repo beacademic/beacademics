@@ -6,10 +6,17 @@ export default function Nexus() {
     return (
         <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-blue selection:text-white flex flex-col">
             <Helmet>
+                <html lang="es" />
                 <title>Nexus | Plataforma Integral de Calidad Educativa</title>
                 <meta name="description" content="Nexus es la próxima plataforma integral de calidad para colegios en Chile. Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica y más." />
                 <meta name="keywords" content="calidad educativa, estándares indicativos de desempeño, nexus, gestión pedagógica chile, liderazgo escolar" />
-                <link rel="canonical" href="https://beacademic.cl/nexus" />
+                <link rel="canonical" href="https://beacademics.com/nexus" />
+                
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://beacademics.com/nexus" />
+                <meta property="og:title" content="Nexus | Plataforma de Calidad Educativa" />
+                <meta property="og:description" content="Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos." />
             </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">

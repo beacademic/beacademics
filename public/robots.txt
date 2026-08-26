@@ -1,0 +1,7 @@
+# robots.txt for BE Academic & Syncro Products
+User-agent: *
+Allow: /
+Disallow: /acceso
+
+# Sitemaps
+Sitemap: https://beacademics.com/sitemap.xml

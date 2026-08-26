@@ -44,10 +44,17 @@ export default function Contacto() {
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white">
             <Helmet>
-                <title>Contacto | BE Academic - Ecosistema Tecnológico para la Educación</title>
-                <meta name="description" content="Contáctanos para una asesoría gratuita. Potencia tu colegio con SyncroEdu, SyncroTime y Nexus. Estamos para ayudarte a elevar la calidad educativa." />
-                <meta name="keywords" content="contacto be academic, asesoría escolar chile, software educativo contacto" />
-                <link rel="canonical" href="https://beacademic.cl/contacto" />
+                <html lang="es" />
+                <title>Contacto y Asesoría | BE Academic - SyncroEdu & SyncroTime</title>
+                <meta name="description" content="Contáctanos para una asesoría personalizada gratuita. Potencia tu colegio con SyncroEdu (compliance legal y gestión docente) y SyncroTime (horarios escolares con IA)." />
+                <meta name="keywords" content="contacto be academic, asesoría escolar chile, software educativo contacto, agendar demo syncroedu, cotizar syncrotime" />
+                <link rel="canonical" href="https://beacademics.com/contacto" />
+
+                {/* Open Graph */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://beacademics.com/contacto" />
+                <meta property="og:title" content="Contacto y Asesoría | BE Academic" />
+                <meta property="og:description" content="Contáctanos para una asesoría personalizada gratuita. Potencia tu colegio con SyncroEdu y SyncroTime." />
             </Helmet>
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
