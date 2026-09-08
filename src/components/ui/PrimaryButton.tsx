@@ -48,7 +48,7 @@ export function PrimaryButton({
 
   if (to) {
     return (
-      <Link id={id} to={to} className={baseClasses}>
+      <Link id={id} to={to} onClick={onClick} className={baseClasses}>
         {icon}
         <span>{children}</span>
       </Link>
@@ -57,7 +57,7 @@ export function PrimaryButton({
 
   if (href) {
     return (
-      <a id={id} href={href} target={target} rel={rel} className={baseClasses}>
+      <a id={id} href={href} target={target} rel={rel} onClick={onClick} className={baseClasses}>
         {icon}
         <span>{children}</span>
       </a>

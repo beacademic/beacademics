@@ -26,7 +26,9 @@ export default function Portal() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         <a 
-                            href="https://syncrotime.com" 
+                            href="https://app.syncrotime.com/es/login" 
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-cyan/30 transition-all duration-300 text-center"
                         >
                             <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />

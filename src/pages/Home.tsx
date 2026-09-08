@@ -410,7 +410,9 @@ export default function Home() {
                     <div className="mt-14 text-center">
                         <PrimaryButton
                             size="lg"
-                            href="/contacto"
+                            href="https://wa.me/56964375050?text=Hola,%20quisiera%20conversar%20sobre%20mi%20institución%20educativa"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             icon={<ArrowRight className="w-4 h-4" />}
                         >
                             Hablemos sobre su institución
@@ -443,7 +445,9 @@ export default function Home() {
                             </p>
                             <PrimaryButton
                                 size="lg"
-                                href="/contacto"
+                                href="https://wa.me/56964375050?text=Hola,%20quisiera%20agendar%20una%20demostración%20gratuita"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 icon={<Sparkles className="w-4 h-4" />}
                             >
                                 Agendar una demostración gratuita

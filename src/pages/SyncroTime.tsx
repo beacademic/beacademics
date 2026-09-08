@@ -240,8 +240,8 @@ export default function SyncroTime() {
     };
 
     const t = content[currentLang];
-    const loginUrl = currentLang === 'en' ? 'https://app.syncrotime.com/en/login' : 'https://app.syncrotime.com/es/login';
-    const pricingUrl = currentLang === 'en' ? 'https://syncrotime.com/en/#precios' : 'https://syncrotime.com/es/#precios';
+    const loginUrl = 'https://app.syncrotime.com/es/login';
+    const pricingUrl = 'https://syncrotime.com/es/#precios';
 
     const schemaData = {
         "@context": "https://schema.org",
