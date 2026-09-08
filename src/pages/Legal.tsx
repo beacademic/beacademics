@@ -7,7 +7,7 @@ export default function Legal() {
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white flex flex-col">
             <Helmet>
                 <title>Información Legal | BE Academic</title>
-                <meta name="description" content="Información legal de la SOCIEDAD DE FORMACIÓN BE ACADEMIC LIMITADA. Domicilio, RUT, representantes legales y más." />
+                <meta name="description" content="Información legal de la SOCIEDAD DE FORMACIÓN BE ACADEMIC LIMITADA. Domicilio, RUT, canales oficiales de contacto y cumplimiento normativo." />
             </Helmet>
             
             {/* Header / Navigation */}
@@ -46,14 +46,6 @@ export default function Legal() {
                         <div>
                             <h2 className="text-xl font-bold text-gray-900 mb-2">Rol Único Tributario (RUT)</h2>
                             <p className="text-gray-600">77.650.439-4</p>
-                        </div>
-
-                        <div>
-                            <h2 className="text-xl font-bold text-gray-900 mb-2">Representantes Legales</h2>
-                            <ul className="text-gray-600 list-disc list-inside">
-                                <li>CARLOS ANDRÉS MUNDACA VALDEBENITO</li>
-                                <li>ARACELLI GRACIELA GARCÍA CAMPOS</li>
-                            </ul>
                         </div>
 
                         <div>

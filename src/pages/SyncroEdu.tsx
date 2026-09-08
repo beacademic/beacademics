@@ -2,6 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { 
+    Check, 
+    CheckCircle2, 
+    XCircle, 
+    Clock, 
+    Scale, 
+    MessageSquare, 
+    DollarSign, 
+    GitBranch, 
+    ShieldCheck, 
+    Smartphone, 
+    BarChart3, 
+    Cloud, 
+    Lock, 
+    Building2, 
+    Zap, 
+    Calendar, 
+    AlertTriangle, 
+    TrendingUp, 
+    Phone, 
+    Mail, 
+    ArrowRight,
+    Award,
+    Users
+} from 'lucide-react';
+import { BentoCard } from '../components/ui/BentoCard';
+import { PrimaryButton } from '../components/ui/PrimaryButton';
+import { StatusBadge } from '../components/ui/StatusBadge';
+import { LogoContainer } from '../components/ui/LogoContainer';
 
 const UrgencyBar = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -12,16 +41,30 @@ const UrgencyBar = () => {
     if (!isUrgency || !isVisible) return null;
 
     return (
-        <div className="bg-amber-500 text-gray-900 text-sm py-2 px-4 text-center relative z-50 font-medium">
+        <aside aria-label="Aviso de planificación escolar" className="bg-[#1C1C1E] text-white text-xs md:text-sm py-2 px-4 text-center relative z-50 border-b border-white/10">
             <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 pr-8">
+                <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF9500] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF9500]"></span>
+                </span>
                 {isYearEnd ? (
-                    <span>⏰ <strong>Período de planificación escolar 2026–2027</strong> — Los colegios que contratan SyncroEdu ahora llegan al inicio del año con horarios legalmente conformes. <a href="https://wa.me/56964375050?text=Quiero%20agendar%20una%20demo%20de%20SyncroEdu" target="_blank" rel="noreferrer" className="underline font-bold hover:text-white transition-colors">Agendar mi demo ahora &rarr;</a></span>
+                    <span className="text-[#86868B]">
+                        <strong className="text-white">Planificación Escolar 2026–2027</strong> — Colegios con SyncroEdu inician el año escolar con contratos y horarios 100% conformes a la normativa.{' '}
+                        <a href="https://wa.me/56964375050?text=Quiero%20agendar%20una%20demo%20de%20SyncroEdu" target="_blank" rel="noreferrer" className="text-[#34C759] hover:underline font-semibold ml-1">
+                            Agendar demo gratuita &rarr;
+                        </a>
+                    </span>
                 ) : (
-                    <span>⚠️ <strong>Año escolar en marcha</strong> — ¿Ya validó la proporcionalidad 65/35 de todos sus docentes? Un error detectado ahora evita multas de hasta $66.000.000 CLP. <a href="https://wa.me/56964375050?text=Necesito%20asesoría%20sobre%20el%20cumplimiento%2065%2F35" target="_blank" rel="noreferrer" className="underline font-bold hover:text-white transition-colors">Hablar con un asesor &rarr;</a></span>
+                    <span className="text-[#86868B]">
+                        <strong className="text-white">Año Escolar en Curso</strong> — Valide la proporción 65/35 de su dotación docente y prevenga sanciones de la Superintendencia de Educación.{' '}
+                        <a href="https://wa.me/56964375050?text=Necesito%20asesoría%20sobre%20el%20cumplimiento%2065%2F35" target="_blank" rel="noreferrer" className="text-[#34C759] hover:underline font-semibold ml-1">
+                            Hablar con un asesor &rarr;
+                        </a>
+                    </span>
                 )}
             </div>
-            <button onClick={() => setIsVisible(false)} className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-70 font-bold">&times;</button>
-        </div>
+            <button onClick={() => setIsVisible(false)} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#86868B] hover:text-white transition-colors" aria-label="Cerrar aviso">&times;</button>
+        </aside>
     );
 };
 
@@ -42,10 +85,10 @@ export default function SyncroEdu() {
         setFormSubmitted(true);
         setTimeout(() => {
             const msg = encodeURIComponent(
-                `Hola, soy ${data.nombre}, ${data.cargo} del ${data.colegio}. Completé el formulario de SyncroEdu y me interesa agendar una demo. Tenemos aproximadamente ${data.funcionarios}. Mi email es: ${data.email}.`
+                `Hola, soy ${data.nombre}, ${data.cargo} del ${data.colegio}. Completé el formulario de SyncroEdu y me interesa agendar una demo técnica. Tenemos aproximadamente ${data.funcionarios}. Mi email es: ${data.email}.`
             );
             window.open(`https://wa.me/56964375050?text=${msg}`, '_blank');
-        }, 2500);
+        }, 2000);
     };
 
     const counterAnimation = (value: number) => {
@@ -89,7 +132,7 @@ export default function SyncroEdu() {
                 "name": "¿Reemplaza completamente el Excel y aSc Timetables?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. SyncroEdu integra en una plataforma generación de horarios, validación legal en tiempo real y gestión de reemplazos. Sin traspasos manuales entre sistemas."
+                    "text": "Sí. SyncroEdu integra en una sola plataforma la generación algorítmica de horarios, validación normativa chilena en tiempo real y gestión de reemplazos de emergencia sin traspasos manuales."
                 }
             },
             {
@@ -97,7 +140,7 @@ export default function SyncroEdu() {
                 "name": "¿Qué pasa si necesitamos modificar el horario durante el año?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El editor interactivo permite ajustes con detección de conflictos en tiempo real. Cada modificación queda en el Audit Log, asegurando trazabilidad."
+                    "text": "El editor interactivo permite ajustes con verificación de conflictos en tiempo real. Cada modificación queda en el Audit Log con trazabilidad completa."
                 }
             },
             {
@@ -105,7 +148,7 @@ export default function SyncroEdu() {
                 "name": "¿Cuánto tiempo toma la implementación?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Aproximadamente 1 semana, incluyendo carga masiva de datos y 3 sesiones de capacitación virtual al equipo directivo."
+                    "text": "Aproximadamente 1 semana, incluyendo carga masiva de datos y 3 sesiones de capacitación técnica al equipo directivo."
                 }
             },
             {
@@ -113,7 +156,7 @@ export default function SyncroEdu() {
                 "name": "¿Funciona para colegios con PIE (Decreto N°170)?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Es uno de nuestros módulos estrella. Calcula horas PIE automáticamente y asegura co-docencias correctas sin errores contractuales."
+                    "text": "Es uno de nuestros módulos centrales. Calcula horas PIE automáticamente y asegura co-docencias regulares sin discordancias contractuales."
                 }
             },
             {
@@ -121,14 +164,14 @@ export default function SyncroEdu() {
                 "name": "¿El precio varía según el tamaño de mi colegio?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Planes por tramos de dotación total (docentes y asistentes de la educación). Contáctenos para una propuesta personalizada."
+                    "text": "Sí. Ofrecemos planes por tramos de dotación institucional total (docentes y asistentes de la educación)."
                 }
             }
         ]
     };
 
     return (
-        <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-green selection:text-white pb-20 md:pb-0">
+        <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans selection:bg-[#34C759] selection:text-white">
             <Helmet>
                 <html lang="es-CL" />
                 <title>SyncroEdu | Compliance Escolar, Ley 20.903 y Horarios para Colegios en Chile</title>
@@ -165,871 +208,1140 @@ export default function SyncroEdu() {
 
             <UrgencyBar />
 
-            {/* Header / Navigation */}
-            <header id="header" className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300" style={{ top: document.querySelector('.bg-amber-500') ? '36px' : '0' }}>
+            {/* Header / Navigation Glassmorphism */}
+            <header className="sticky top-0 left-0 right-0 z-40 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
                 <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-8">
-                        <Link to="/" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
-                            <span className="text-lg leading-none pb-0.5">&lsaquo;</span>
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-5 w-auto object-contain" />
+                    <div className="flex items-center gap-6 md:gap-8">
+                        <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
+                            <LogoContainer className="w-9 h-9">
+                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                            </LogoContainer>
+                            <span className="text-xs font-semibold text-[#86868B] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
+                                BE Academic
+                            </span>
                         </Link>
-                        <span className="text-corp-green font-bold text-xl tracking-tight flex items-center gap-2">
-                            <span className="bg-corp-green text-white w-7 h-7 rounded-md flex items-center justify-center font-bold text-sm">S</span>
-                            SyncroEdu
-                        </span>
-                        <div className="hidden lg:flex gap-6">
-                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-green transition-colors">Funcionalidades</button>
-                            <button onClick={() => document.getElementById('caso-orione')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-green transition-colors">Caso de Éxito</button>
-                            <button onClick={() => document.getElementById('comparativa')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-green transition-colors">¿Por qué SyncroEdu?</button>
-                            <button onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-green transition-colors">Contacto</button>
+
+                        <div className="h-5 w-px bg-black/10 hidden sm:block" />
+
+                        <div className="flex items-center gap-2">
+                            <LogoContainer className="w-8 h-8 bg-[#34C759]/10 border-[#34C759]/20">
+                                <img src="/Logo-SyncroEdu.png" alt="SyncroEdu" className="h-5 w-5 object-contain" />
+                            </LogoContainer>
+                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">SyncroEdu</span>
+                            <span className="hidden md:inline-block px-2 py-0.5 bg-[#34C759]/10 text-[#248A3D] text-[11px] font-bold rounded-full border border-[#34C759]/20">
+                                Chile Compliance
+                            </span>
+                        </div>
+
+                        <div className="hidden lg:flex items-center gap-6 text-[#86868B]">
+                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Funcionalidades</button>
+                            <button onClick={() => document.getElementById('riesgo-financiero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Impacto Normativo</button>
+                            <button onClick={() => document.getElementById('caso-orione')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Caso Verificado</button>
+                            <button onClick={() => document.getElementById('comparativa')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Comparativa</button>
+                            <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">FAQ</button>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <a href="https://syncroedu.com" className="text-gray-600 hover:text-gray-900 transition-colors hidden sm:block">
-                            Iniciar Sesión
+
+                    <div className="flex items-center gap-3">
+                        <a 
+                            href="https://syncroedu.com" 
+                            className="hidden sm:inline-flex text-xs font-semibold text-[#86868B] hover:text-[#1D1D1F] transition-colors px-3 py-1.5"
+                        >
+                            Acceso Clientes
                         </a>
-                        <button 
-                            onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })} 
-                            className="bg-corp-green text-white px-4 py-1.5 rounded-full font-medium hover:bg-green-600 transition-colors shadow-sm flex items-center gap-2"
+                        <PrimaryButton 
+                            variant="green"
+                            size="sm"
+                            onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                            icon={<Zap className="w-3.5 h-3.5" />}
                         >
                             Agendar Demo
-                        </button>
+                        </PrimaryButton>
                     </div>
                 </nav>
             </header>
 
             {/* SECCIÓN 2 — HERO */}
-            <section id="hero" className="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative">
-                 
-                <div className="flex-1 text-center lg:text-left z-10 pt-10 pb-10">
+            <section id="hero" className="pt-20 pb-16 md:py-24 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
+                <div className="flex-1 text-center lg:text-left z-10">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold tracking-wide mb-8"
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="mb-6 flex justify-center lg:justify-start"
                     >
-                        ✓ Plataforma N°1 de Compliance Escolar en Chile
+                        <StatusBadge 
+                            label="COMPLIANCE ESCOLAR & CONTINUIDAD OPERATIVA · CHILE" 
+                            variant="success" 
+                            pulse={true} 
+                        />
                     </motion.div>
+
                     <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                        className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6 font-display"
+                        style={{ textWrap: 'balance' }}
                     >
-                        ¿Su colegio arriesga <br className="hidden lg:block" /><span className="text-corp-green">multas millonarias</span> por un Excel?
+                        Proteja su colegio de multas millonarias y resuelva el horario en días.
                     </motion.h1>
+
                     <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                        className="text-xl text-gray-500 max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed font-medium"
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                        className="text-lg md:text-xl text-[#86868B] max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-normal"
                     >
-                        SyncroEdu automatiza la generación de horarios escolares, valida en tiempo real el cumplimiento de la Ley 65/35 y gestiona reemplazos de emergencia desde el celular — protegiendo el presupuesto y la continuidad de su establecimiento ante cualquier fiscalización de la Superintendencia de Educación.
+                        SyncroEdu automatiza la confección de horarios académicos, audita en tiempo real las Leyes 20.903, 21.625 y 19.070 (proporción lectiva 65/35) y gestiona reemplazos docentes con trazabilidad legal ante la Superintendencia de Educación.
                     </motion.p>
+
                     <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center lg:items-start gap-4 justify-center lg:justify-start"
                     >
-                        <a href="https://wa.me/56964375050" target="_blank" rel="noreferrer" className="bg-corp-green text-white px-8 py-3 rounded-full text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto text-center shadow-lg hover:shadow-xl">
-                            Cotizar Ahora
-                        </a>
-                        <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-900 font-medium px-8 py-3 flex items-center justify-center gap-2 border-2 border-corp-green hover:bg-green-50 rounded-full transition-colors w-full sm:w-auto text-center">
-                            Ver cómo funciona &rsaquo;
-                        </button>
+                        <PrimaryButton 
+                            variant="green"
+                            size="lg"
+                            onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                            icon={<ArrowRight className="w-4 h-4" />}
+                        >
+                            Solicitar Demo Técnica
+                        </PrimaryButton>
+
+                        <PrimaryButton
+                            variant="secondary"
+                            size="lg"
+                            href="https://wa.me/56964375050?text=Hola,%20deseo%20asesoría%20sobre%20SyncroEdu"
+                            target="_blank"
+                            rel="noreferrer"
+                            icon={<MessageSquare className="w-4 h-4 text-[#34C759]" />}
+                        >
+                            Conversar por WhatsApp
+                        </PrimaryButton>
                     </motion.div>
-                    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 text-sm text-gray-400 justify-center lg:justify-start">
-                        <span>🔒 Sin tarjeta de crédito</span>
-                        <span>✓ Demo en vivo con datos</span>
-                        <span>📞 Respuesta en {'<'} 2 horas</span>
-                    </div>
+
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 text-xs text-[#86868B] justify-center lg:justify-start font-medium"
+                    >
+                        <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#34C759]" /> Validación Ley 20.903 y 21.625</span>
+                        <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#34C759]" /> Datos reales de su dotación</span>
+                        <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-[#34C759]" /> Implementación en 1 semana</span>
+                    </motion.div>
                 </div>
                 
                 <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                    className="flex-1 w-full max-w-2xl z-10 perspective-[1000px]"
+                    className="flex-1 w-full max-w-2xl"
                 >
-                    <div className="relative rounded-[2rem] bg-apple-light border border-gray-200 p-2 shadow-2xl flex items-center justify-center transform transition-transform duration-500 hover:rotate-x-2 hover:-rotate-y-4">
-                        <img src="/Dashboard.PNG" alt="Dashboard Principal" className="w-full h-auto object-contain rounded-xl relative z-10 bg-white" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML += '<div class="absolute inset-0 flex items-center justify-center text-slate-400 font-bold text-xl line-clamp-2">Dashboard SyncroEdu</div>' }} />
-                        
-                        {/* Decorative floating elements */}
-                        <div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-xl z-20 border border-gray-100 hidden md:block">
-                            <div className="flex items-center gap-2 mb-2">
-                                <span className="bg-corp-green text-white rounded-full p-1 w-5 h-5 flex items-center justify-center text-xs">✓</span>
-                                <span className="text-gray-900 font-bold text-sm">Cumplimiento legal</span>
+                    <div className="relative rounded-3xl bg-white border border-black/5 p-3 shadow-2xl overflow-hidden group">
+                        {/* Apple Window Header */}
+                        <div className="flex items-center justify-between px-3 py-2 border-b border-black/5 mb-3 bg-[#F5F5F7]/60 rounded-t-2xl">
+                            <div className="flex items-center gap-2">
+                                <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50" />
+                                <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50" />
+                                <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50" />
                             </div>
-                            <p className="text-xs text-gray-500 mb-1">Docente validado: 100%</p>
-                            <div className="w-40 h-2 bg-gray-100 rounded-full overflow-hidden">
-                                <div className="bg-corp-green w-[65%] h-full"></div>
-                            </div>
-                            <p className="text-[10px] text-gray-400 mt-1 text-right">65% Lectivo</p>
+                            <span className="text-[11px] font-semibold text-[#86868B]">SyncroEdu — Plataforma de Compliance Escolar</span>
+                            <div className="w-12" />
                         </div>
 
-                        <div className="absolute -bottom-6 -right-6 bg-gray-900 text-white p-4 rounded-xl shadow-xl z-20 border border-gray-700 hidden md:block">
-                            <div className="flex items-center gap-2 mb-1">
-                                <span>⚡</span>
-                                <span className="font-bold text-sm">Reemplazo asignado</span>
+                        <div className="rounded-2xl overflow-hidden border border-black/5 bg-white relative">
+                            <img 
+                                src="/Dashboard.PNG" 
+                                alt="Dashboard SyncroEdu Compliance" 
+                                className="w-full h-auto object-contain rounded-xl"
+                                onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                    if (e.currentTarget.parentElement) {
+                                        e.currentTarget.parentElement.innerHTML += '<div class="h-80 flex items-center justify-center text-[#86868B] font-bold text-lg">Dashboard SyncroEdu</div>';
+                                    }
+                                }}
+                            />
+                        </div>
+
+                        {/* Floating verified badge */}
+                        <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-black/5 hidden sm:flex items-center gap-3 z-20">
+                            <div className="w-10 h-10 rounded-xl bg-[#34C759]/10 border border-[#34C759]/20 flex items-center justify-center text-[#34C759]">
+                                <ShieldCheck className="w-5 h-5" />
                             </div>
-                            <p className="text-xs text-slate-300">Bloque 3 — Aula cubierta</p>
-                            <p className="text-[10px] text-corp-green mt-1">Hace 12 segundos</p>
+                            <div>
+                                <p className="text-xs font-bold text-[#1D1D1F]">Cumplimiento Normativo 100%</p>
+                                <p className="text-[11px] text-[#86868B]">Proporción 65/35 y Ley 20.903 verificada</p>
+                            </div>
                         </div>
                     </div>
                 </motion.div>
             </section>
 
-            {/* SECCIÓN 3 — SOCIAL PROOF */}
-            <section className="bg-white border-b border-gray-100 py-8 px-6 relative z-10">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
-                    <span className="text-sm text-gray-500 font-medium">Piloteado y en producción en un:</span>
-                    <div className="font-bold text-gray-900 text-lg flex items-center gap-2">
-                         Colegio Particular Subvencionado <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full ml-2 font-medium">Caso Real</span>
+            {/* SECCIÓN 3 — SOCIAL PROOF BENTO BAR */}
+            <section className="px-6 max-w-7xl mx-auto mb-16">
+                <div className="rounded-3xl bg-white border border-black/5 p-6 md:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <span className="text-xs font-bold text-[#86868B] uppercase tracking-wider block mb-1">Caso Verificado en Producción</span>
+                        <p className="font-bold text-lg text-[#1D1D1F]">Colegio Particular Subvencionado (JEC)</p>
                     </div>
-                    <div className="hidden md:block w-px h-8 bg-gray-200"></div>
-                    <div className="flex flex-wrap gap-8 justify-center text-center">
-                        <div><p className="text-2xl font-black text-corp-green tracking-tight">62</p><p className="text-xs text-gray-500">Docentes</p></div>
-                        <div><p className="text-2xl font-black text-corp-green tracking-tight">36</p><p className="text-xs text-gray-500">Asistentes</p></div>
-                        <div><p className="text-2xl font-black text-corp-green tracking-tight">900+</p><p className="text-xs text-gray-500">Estudiantes (JEC)</p></div>
-                        <div><p className="text-2xl font-black text-corp-green tracking-tight">1-3 días</p><p className="text-xs text-gray-500">de confección</p></div>
+
+                    <div className="hidden md:block w-px h-10 bg-black/5" />
+
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 text-center w-full md:w-auto">
+                        <div>
+                            <p className="text-3xl font-extrabold text-[#34C759] tracking-tight">62</p>
+                            <p className="text-xs text-[#86868B] font-medium">Docentes Activos</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-extrabold text-[#34C759] tracking-tight">36</p>
+                            <p className="text-xs text-[#86868B] font-medium">Asistentes Educación</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-extrabold text-[#34C759] tracking-tight">900+</p>
+                            <p className="text-xs text-[#86868B] font-medium">Estudiantes JEC</p>
+                        </div>
+                        <div>
+                            <p className="text-3xl font-extrabold text-[#34C759] tracking-tight">1-3 días</p>
+                            <p className="text-xs text-[#86868B] font-medium">Confección Total</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECCIÓN 4 — PAIN SECTION */}
-            <section id="problema" className="py-24 px-6 bg-apple-light border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">🔍 ¿Le resulta familiar esto?</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                            ¿Le resulta familiar alguna de estas situaciones?
-                        </h2>
-                        <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-                            Si respondió que sí a alguna de estas, su colegio está expuesto a pérdidas financieras y riesgos normativos que ocurren hoy mismo, en silencio.
-                        </p>
-                    </div>
+            {/* SECCIÓN 4 — PROBLEMA / VULNERABILIDADES */}
+            <section id="problema" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="DIAGNÓSTICO DEL SISTEMA ESCOLAR" variant="warning" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display" style={{ textWrap: 'balance' }}>
+                        ¿Su establecimiento presenta alguna de estas debilidades operacionales?
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-3xl mx-auto font-normal">
+                        Diseñar horarios de forma manual o en planillas Excel expone a los colegios a riesgos normativos silenciosos que se transforman en sanciones ante visitas de la Superintendencia.
+                    </p>
+                </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { icon: "⏰", title: "La UTP vive esclavizada al Excel cada inicio de año", text: "Diseñar el horario escolar a mano toma entre 2 y 3 semanas de trabajo intensivo, fórmulas frágiles y nerviosismo. Todo para un Excel que Contabilidad debe revisar sin validación legal." },
-                            { icon: "⚖️", title: "Cada contrato docente es una bomba de tiempo", text: "¿Seguro que ningún profesor supera su proporción lectiva/no lectiva? La Ley 20.903 exige distribuciones estrictas. Un error expone a multas entre 1 y 1.000 UTM de la Supereduc." },
-                            { icon: "📱", title: "Los reemplazos se gestionan por WhatsApp sin evidencia legal", text: "Cuando un docente falta, se cubre el aula vía WhatsApp. Sin bitácora formal, el colegio queda expuesto ante visitas de fiscalización del MINEDUC." },
-                            { icon: "💰", title: "El Decreto 170 PIE es una caja negra financiera", text: "Una mala planificación de co-docencia puede obligar a devolver la subvención PIE: hasta $9.000.000 CLP por grupo NEE. Sin auditoría, se sabe cuando llega el fiscalizador." },
-                            { icon: "🔀", title: "Contabilidad y UTP trabajan en silos", text: "La información horaria llega tarde y sin validación contractual. Resultado: anexos fuera de plazo, errores en liquidaciones y riesgo de denuncias en la Inspección del Trabajo." }
-                        ].map((pain, idx) => (
-                            <div key={idx} className="bg-white rounded-2xl p-8 shadow-md border-l-4 border-red-500 hover:shadow-xl hover:-translate-y-1 transition-all">
-                                <span className="text-4xl mb-4 block">{pain.icon}</span>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{pain.title}</h3>
-                                <p className="text-gray-600 leading-relaxed">{pain.text}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="w-12 h-12 rounded-2xl bg-[#FF3B30]/10 border border-[#FF3B30]/20 flex items-center justify-center text-[#FF3B30] mb-5">
+                            <Clock className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">La UTP colapsada al inicio del año</h3>
+                        <p className="text-[#86868B] text-sm leading-relaxed">
+                            Elaborar la malla horaria a mano toma semanas de desgaste, fórmulas frágiles en Excel y revisiones repetitivas que no contemplan las exigencias contractuales de la legislación chilena.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="w-12 h-12 rounded-2xl bg-[#FF3B30]/10 border border-[#FF3B30]/20 flex items-center justify-center text-[#FF3B30] mb-5">
+                            <Scale className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">Contratos docentes con descalce legal</h3>
+                        <p className="text-[#86868B] text-sm leading-relaxed">
+                            La Ley 20.903 exige distribuciones estrictas (65% lectivas / 35% no lectivas). Un solo docente con sobrecarga de aula expone al colegio a multas de 1 a 1.000 UTM aplicadas por la Supereduc.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF9500">
+                        <div className="w-12 h-12 rounded-2xl bg-[#FF9500]/10 border border-[#FF9500]/20 flex items-center justify-center text-[#FF9500] mb-5">
+                            <Smartphone className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">Reemplazos vía WhatsApp sin respaldo</h3>
+                        <p className="text-[#86868B] text-sm leading-relaxed">
+                            Ante ausencias de última hora, las coberturas se coordinan por mensajería informal. Sin bitácora auditada, el colegio queda vulnerable en fiscalizaciones y denuncias laborales.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="w-12 h-12 rounded-2xl bg-[#FF3B30]/10 border border-[#FF3B30]/20 flex items-center justify-center text-[#FF3B30] mb-5">
+                            <DollarSign className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">Riesgo en Subvención PIE (Dec. 170)</h3>
+                        <p className="text-[#86868B] text-sm leading-relaxed">
+                            Una asignación incorrecta de horas de co-docencia puede obligar al reintegro de la subvención especial PIE: hasta $9.000.000 CLP por grupo con Necesidades Educativas Especiales.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#5856D6" className="md:col-span-2 lg:col-span-2">
+                        <div className="w-12 h-12 rounded-2xl bg-[#5856D6]/10 border border-[#5856D6]/20 flex items-center justify-center text-[#5856D6] mb-5">
+                            <GitBranch className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">Desconexión crítica entre UTP y Administración</h3>
+                        <p className="text-[#86868B] text-sm leading-relaxed">
+                            La información horaria llega tarde a remuneraciones y sin concordancia contractual. Esto produce anexos extemporáneos, errores en liquidaciones y contingencias directas ante la Dirección del Trabajo.
+                        </p>
+                    </BentoCard>
+                </div>
+            </section>
+
+            {/* SECCIÓN 5 — IMPACTO FINANCIERO CUANTIFICADO */}
+            <section id="riesgo-financiero" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="EVALUACIÓN DE RIESGO ECONÓMICO" variant="danger" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display" style={{ textWrap: 'balance' }}>
+                        Pérdidas y contingencias evitables cada año escolar
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-3xl mx-auto font-normal">
+                        La ausencia de control automatizado sobre la normativa educacional genera fugas financieras concretas. Estos son los 5 riesgos que SyncroEdu previene desde el primer día:
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Superintendencia</span>
+                            <AlertTriangle className="w-5 h-5 text-[#FF3B30]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(1320000)} <span className="text-xs font-semibold text-[#86868B]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa promedio por 1 docente</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Sanción típica de 20 UTM por incumplir la proporción lectiva/no lectiva en un solo contrato fiscalizado.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Decreto N° 170</span>
+                            <DollarSign className="w-5 h-5 text-[#FF3B30]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(9000000)} <span className="text-xs font-semibold text-[#86868B]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Subvención PIE en contingencia</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Riesgo de reintegro por no acreditar las 3 horas de co-docencia requeridas en un curso de 5 alumnos NEE.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF9500">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#FF9500] uppercase tracking-wider">Gestión Directiva</span>
+                            <Clock className="w-5 h-5 text-[#FF9500]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(1687500)} <span className="text-xs font-semibold text-[#86868B]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Costo en horas UTP manuales</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Más de 150 horas anuales del equipo directivo destinadas a cuadraturas y ajustes que pueden ser automáticos.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF9500">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#FF9500] uppercase tracking-wider">Nómina Docente</span>
+                            <TrendingUp className="w-5 h-5 text-[#FF9500]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(4560000)} <span className="text-xs font-semibold text-[#86868B]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Fugas anuales por horas ociosas</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Horas contratadas no aprovechadas por ventanas horarias ineficientes (estimado 8 hrs/sem × 38 sem).
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#007AFF">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#007AFF] uppercase tracking-wider">Continuidad</span>
+                            <Users className="w-5 h-5 text-[#007AFF]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(2500000)} <span className="text-xs font-semibold text-[#86868B]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Ausentismo no detectado</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Impacto por licencias cortas y reiteradas sin monitoreo objetivo ni factor Bradford institucional.
+                        </p>
+                    </BentoCard>
+
+                    {/* Total Card Bento Highlight */}
+                    <div className="rounded-3xl bg-[#1C1C1E] border border-white/10 p-7 md:p-8 text-white flex flex-col justify-between shadow-xl">
+                        <div>
+                            <span className="text-xs font-bold text-[#34C759] uppercase tracking-widest block mb-2">Valor Anual Protegido</span>
+                            <div className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">
+                                {counterAnimation(19067500)} <span className="text-xs font-semibold text-[#86868B]">CLP / año</span>
                             </div>
-                        ))}
+                            <p className="text-xs text-[#86868B] leading-relaxed">
+                                Estimación de mitigación acumulada para un establecimiento subvencionado mediano (dotación de 35 a 45 funcionarios).
+                            </p>
+                        </div>
+                        <div className="pt-6">
+                            <PrimaryButton 
+                                variant="green"
+                                size="sm"
+                                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="w-full"
+                            >
+                                Diagnosticar Mi Colegio &rarr;
+                            </PrimaryButton>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECCIÓN 5 — IMPACTO FINANCIERO */}
-            <section id="riesgo-financiero" className="py-24 px-6 bg-cyan-50/50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                            ¿Cuánto dinero está perdiendo su colegio cada año?
-                        </h2>
-                        <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-                            El diseño manual de horarios y la falta de control normativo generan pérdidas medibles y perfectamente evitables. Estos son los 5 riesgos financieros que SyncroEdu neutraliza desde el primer día.
-                        </p>
+            {/* SECCIÓN 6 — COMPARATIVA: TRADICIONAL VS SYNCROEDU */}
+            <section id="comparativa" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="ARQUITECTURA DE SOFTWARE" variant="primary" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display" style={{ textWrap: 'balance' }}>
+                        SyncroEdu vs. Planillas y Generadores Tradicionales
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-3xl mx-auto font-normal">
+                        Las herramientas genéricas extranjeras fueron diseñadas para ordenar bloques de tiempo, completamente ciegas al ordenamiento legal de la educación chilena.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {/* Generador Tradicional */}
+                    <div className="rounded-3xl bg-white border border-black/5 p-8 shadow-sm">
+                        <div className="flex items-center gap-3 mb-6 pb-6 border-b border-black/5">
+                            <div className="w-10 h-10 rounded-2xl bg-[#FF3B30]/10 flex items-center justify-center text-[#FF3B30]">
+                                <XCircle className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-lg text-[#1D1D1F] font-display">Generadores Tradicionales & Excel</h3>
+                                <p className="text-xs text-[#86868B]">aSc Timetables · Prime Timetable · Planillas</p>
+                            </div>
+                        </div>
+
+                        <ul className="space-y-4 text-sm text-[#86868B]">
+                            <li className="flex items-start gap-3">
+                                <XCircle className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
+                                <span>Distribuyen bloques sin validar la legislación docente chilena.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <XCircle className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
+                                <span>Sin calculadora de proporción lectiva/no lectiva (Leyes 20.903 y 21.625).</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <XCircle className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
+                                <span>Sin registro ni bitácora legal para gestión de reemplazos de aula.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <XCircle className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
+                                <span>Sin auditoría de co-docencia según Decreto N° 170 PIE.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <XCircle className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
+                                <span>Sin integración fluida entre la UTP y el área de Administración y Finanzas.</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {[
-                            { icon: "⚠️", border: "border-amber-500", amount: 1320000, label: "Multa promedio Supereduc", text: "Por incumplimiento de proporción lectiva/no lectiva en 1 docente (20 UTM)." },
-                            { icon: "💸", border: "border-red-500", amount: 9000000, label: "Subvención PIE en riesgo", text: "Por incumplimiento de co-docencia en 1 curso de 5 alumnos NEE (Decreto N°170)." },
-                            { icon: "⏱️", border: "border-corp-green", amount: 1687500, label: "Costo horas UTP perdidas", text: "150 horas anuales de trabajo directivo dedicadas a tareas manuales y automatizables." },
-                            { icon: "📉", border: "border-amber-500", amount: 4560000, label: "Fugas anuales en nómina docente", text: "Por horas contratadas subutilizadas o extras no justificadas (8 hrs/sem × 38 sem)." },
-                            { icon: "🔄", border: "border-red-500", amount: 2500000, label: "Costo de ausentismo no detectado", text: "Licencias cortas y frecuentes no monitoreadas. Sin alertas, se vuelven crónicas." }
-                        ].map((risk, idx) => (
-                            <div key={idx} className={`bg-white rounded-xl p-8 border-t-4 shadow-sm hover:shadow-md transition-shadow ${risk.border}`}>
-                                <div className="text-3xl bg-gray-100 w-12 h-12 flex items-center justify-center rounded-full mb-4">{risk.icon}</div>
-                                <div className="text-3xl font-black text-gray-900 mb-1">
-                                    {counterAnimation(risk.amount)} <span className="text-sm text-gray-500 font-normal">CLP</span>
-                                </div>
-                                <h4 className="font-bold text-gray-900 mb-2">{risk.label}</h4>
-                                <p className="text-sm text-gray-600">{risk.text}</p>
-                            </div>
-                        ))}
+                    {/* SyncroEdu Platform */}
+                    <div className="rounded-3xl bg-white border border-[#34C759]/30 p-8 shadow-xl relative overflow-hidden">
+                        <div className="pointer-events-none absolute -inset-px rounded-3xl opacity-30 blur-xl bg-gradient-to-br from-[#34C759]/20 to-transparent" />
                         
-                        <div className="bg-gradient-to-br from-[#00B4A6] to-[#009e91] rounded-xl p-8 text-center flex flex-col justify-center lg:col-span-1 shadow-2xl">
-                            <p className="text-xs font-bold text-white/80 uppercase tracking-widest mb-2">VALOR TOTAL ENTREGADO ANUAL</p>
-                            <div className="text-5xl font-black text-white mb-2">
-                                {counterAnimation(19397500)} <span className="text-xl font-bold">CLP / año</span>
+                        <div className="relative z-10 flex items-center gap-3 mb-6 pb-6 border-b border-black/5">
+                            <div className="w-10 h-10 rounded-2xl bg-[#34C759]/10 flex items-center justify-center text-[#34C759]">
+                                <CheckCircle2 className="w-5 h-5" />
                             </div>
-                            <p className="text-sm text-white/80">Estimación para colegio mediano (35 func.)</p>
+                            <div>
+                                <h3 className="font-bold text-lg text-[#1D1D1F] font-display">SyncroEdu Ecosystem</h3>
+                                <p className="text-xs text-[#34C759] font-semibold">Compliance Escolar y Continuidad Operativa</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="text-center mt-12">
-                        <p className="text-gray-900 font-medium text-xl mb-6">¿Quiere saber cuánto está en riesgo <span className="font-bold underline decoration-corp-green/40 decoration-4 underline-offset-2">su colegio</span> específicamente?</p>
-                        <button onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })} className="bg-corp-green text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl hover:scale-105 transform duration-300">
-                            Hablar con un asesor &rarr;
-                        </button>
+                        <ul className="relative z-10 space-y-4 text-sm text-[#1D1D1F] font-medium">
+                            <li className="flex items-start gap-3">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Genera y valida horarios en concordancia exacta con la ley vigente.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Calculadora 65/35 y 60/40 en tiempo real con semáforo por docente.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Gestión de reemplazos desde app móvil con bitácora oficial en PDF.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Auditoría de horas PIE Decreto N° 170 para evitar reintegros.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Reportes automáticos directos para Contabilidad, Remuneraciones y RRHH.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            {/* SECCIÓN 6 — SOLUCIÓN */}
-            <section id="comparativa" className="py-24 px-6 bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">✓ La Plataforma</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-                            SyncroEdu: El escudo legal y financiero de su colegio
-                        </h2>
-                        <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-                            No es un generador de horarios. Es la primera plataforma integrada de Compliance Escolar, Continuidad Operativa y Optimización de Recursos Humanos diseñada exclusivamente para Chile.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <div className="bg-red-50 rounded-2xl p-8 border-t-4 border-red-500">
-                            <div className="text-center mb-8">
-                                <span className="text-4xl block mb-2">❌</span>
-                                <h3 className="text-xl font-bold text-gray-900">Generadores tradicionales</h3>
-                                <p className="text-sm text-gray-500">(aSc Timetables · Prime Timetable · Excel)</p>
-                            </div>
-                            <ul className="space-y-4 text-gray-700">
-                                <li className="flex gap-3"><span>❌</span> Distribuyen bloques, ciegos a la ley chilena</li>
-                                <li className="flex gap-3"><span>❌</span> Sin calculadora de proporciones lectivas (65/35)</li>
-                                <li className="flex gap-3"><span>❌</span> Sin gestión de reemplazos con evidencia</li>
-                                <li className="flex gap-3"><span>❌</span> Sin auditoría del Decreto 170 PIE</li>
-                                <li className="flex gap-3"><span>❌</span> Sin analítica de Recursos Humanos</li>
-                                <li className="flex gap-3"><span>❌</span> Sin App Móvil para directivos</li>
-                                <li className="flex gap-3"><span>❌</span> Sin integración entre UTP y Contabilidad</li>
-                            </ul>
-                        </div>
-                        <div className="bg-green-50 rounded-2xl p-8 border-t-4 border-corp-green">
-                            <div className="text-center mb-8">
-                                <span className="text-4xl block mb-2">✅</span>
-                                <h3 className="text-xl font-bold text-gray-900">SyncroEdu</h3>
-                                <p className="text-sm text-corp-green font-medium">Plataforma integrada de Compliance Escolar</p>
-                            </div>
-                            <ul className="space-y-4 text-gray-700 font-medium">
-                                <li className="flex gap-3"><span>✅</span> Genera Y valida horarios según la ley vigente</li>
-                                <li className="flex gap-3"><span>✅</span> Calculadora 65/35 y 60/40 en tiempo real</li>
-                                <li className="flex gap-3"><span>✅</span> Reemplazos gestionados con bitácora legal</li>
-                                <li className="flex gap-3"><span>✅</span> Auditoría PIE completa con simulador financiero</li>
-                                <li className="flex gap-3"><span>✅</span> HR Analytics con Bradford Factor y eNPS</li>
-                                <li className="flex gap-3"><span>✅</span> App iOS + Android para directivos en terreno</li>
-                                <li className="flex gap-3"><span>✅</span> Informes directos para Contabilidad y RRHH</li>
-                            </ul>
-                        </div>
-                    </div>
+            {/* SECCIÓN 7 — LOS 4 PILARES DE SYNCROEDU */}
+            <section id="pilares" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-12">
+                    <StatusBadge label="MÓDULOS DE LA PLATAFORMA" variant="success" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display">
+                        Los 4 Pilares de Protección y Eficiencia
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto font-normal">
+                        Diseñado de forma nativa para la estructura directiva y jurídica de los colegios chilenos.
+                    </p>
                 </div>
-            </section>
 
-            {/* SECCIÓN 7 — LOS 4 PILARES */}
-            <section id="pilares" className="py-24 px-6 bg-apple-light border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">⚙️ Funcionalidades</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                            4 pilares que protegen su colegio
-                        </h2>
-                    </div>
-
-                    <div className="flex flex-col md:flex-row gap-4 mb-8 justify-center border-b border-gray-200 overflow-x-auto pb-4">
-                        {['⚙️ Generación', '⚖️ Compliance', '📱 Continuidad', '📊 HR Analytics'].map((tab, idx) => (
-                            <button 
+                {/* Segmented Control Pills */}
+                <div className="flex justify-center mb-10 overflow-x-auto pb-2">
+                    <div className="bg-[#E8E8ED] p-1 rounded-full flex gap-1 border border-black/5 text-xs sm:text-sm font-semibold">
+                        {[
+                            { label: 'Generación', icon: <Zap className="w-4 h-4" /> },
+                            { label: 'Compliance Legal', icon: <Scale className="w-4 h-4" /> },
+                            { label: 'Continuidad & Móvil', icon: <Smartphone className="w-4 h-4" /> },
+                            { label: 'HR Analytics', icon: <BarChart3 className="w-4 h-4" /> }
+                        ].map((tab, idx) => (
+                            <button
                                 key={idx}
                                 onClick={() => setActiveTab(idx)}
-                                className={`px-6 py-4 font-bold text-lg border-b-[3px] whitespace-nowrap transition-colors ${activeTab === idx ? 'border-corp-green text-corp-green' : 'border-transparent text-gray-500 hover:text-gray-900'}`}
+                                className={`flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full transition-all cursor-pointer whitespace-nowrap ${
+                                    activeTab === idx 
+                                        ? 'bg-white text-[#1D1D1F] shadow-xs' 
+                                        : 'text-[#86868B] hover:text-[#1D1D1F]'
+                                }`}
                             >
-                                {tab}
+                                {tab.icon}
+                                <span>{tab.label}</span>
                             </button>
                         ))}
                     </div>
-
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-                        {activeTab === 0 && (
-                            <div className="flex flex-col md:flex-row gap-12 items-center">
-                                <div className="flex-1 space-y-6">
-                                    <h3 className="text-3xl font-bold text-gray-900">De 3 semanas de estrés a 1-3 días. Así de simple.</h3>
-                                    <p className="text-lg text-gray-600 leading-relaxed">
-                                        Nuestro motor algorítmico genera el horario óptimo de su establecimiento en minutos, respetando todas las restricciones: ventanas horarias, topes de asignaturas por día, salas preferidas, y bloques de co-docencia PIE. Con un solo clic, el borrador aprobado se inyecta automáticamente en los horarios de todos los docentes.
-                                    </p>
-                                    <ul className="space-y-3 text-gray-700">
-                                        <li className="flex gap-2">✅ Reducción del 80% en horas administrativas de UTP</li>
-                                        <li className="flex gap-2">✅ Eliminación del doble ingreso de información</li>
-                                        <li className="flex gap-2">✅ Soporte de co-docencia PIE integrada</li>
-                                    </ul>
-                                </div>
-                                <div className="flex-1 w-full rounded-2xl overflow-hidden border border-gray-200">
-                                    <img src="/Generador.png" alt="Generador de horarios" className="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                        )}
-                        {activeTab === 1 && (
-                            <div className="flex flex-col md:flex-row gap-12 items-center">
-                                <div className="flex-1 space-y-6">
-                                    <h3 className="text-3xl font-bold text-gray-900">Nunca más una multa por error en el contrato</h3>
-                                    <p className="text-lg text-gray-600 leading-relaxed">
-                                        SyncroEdu es la única plataforma en Chile que actúa como asesor legal en tiempo real. Valida automáticamente que cada docente cumpla las proporciones exigidas por las Leyes 20.903, 21.625 y 19070.
-                                    </p>
-                                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 font-mono text-sm overflow-x-auto text-gray-700">
-                                        <div className="flex font-bold border-b border-gray-300 pb-2 mb-2"><div className="w-1/2">Régimen</div><div className="w-1/4">Lectivas</div><div className="w-1/4">No Lectivas</div></div>
-                                        <div className="flex py-1"><div className="w-1/2">Estándar Nacional</div><div className="w-1/4 text-center">65%</div><div className="w-1/4 text-center">35%</div></div>
-                                        <div className="flex py-1"><div className="w-1/2">1° Ciclo (≥80% prioritarios)</div><div className="w-1/4 text-center">60%</div><div className="w-1/4 text-center">40%</div></div>
-                                    </div>
-                                    <ul className="space-y-3 text-gray-700">
-                                        <li className="flex gap-2">✅ Semáforo verde/amarillo/rojo por docente</li>
-                                        <li className="flex gap-2">✅ Clasificación MINEDUC automática</li>
-                                        <li className="flex gap-2">✅ Alertas preventivas antes de auditoría</li>
-                                    </ul>
-                                </div>
-                                <div className="flex-1 w-full rounded-2xl overflow-hidden border border-gray-200">
-                                    <img src="/Semaforo-1.png" alt="Calculadora legal" className="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                        )}
-                        {activeTab === 2 && (
-                            <div className="flex flex-col md:flex-row gap-12 items-center">
-                                <div className="flex-1 space-y-6">
-                                    <h3 className="text-3xl font-bold text-gray-900">Reemplazos urgentes desde el celular</h3>
-                                    <p className="text-lg text-gray-600 leading-relaxed">
-                                        Con SyncroEdu, la dirección gestiona los reemplazos directamente desde la App Móvil mientras recorre los pasillos — sin ir a la oficina, sin llamadas. Nuestro buscador escanea toda la dotación disponible en segundos y sugiere el reemplazante idóneo.
-                                    </p>
-                                    <ul className="space-y-3 text-gray-700">
-                                        <li className="flex gap-2">✅ App Móvil iOS + Android para directivos</li>
-                                        <li className="flex gap-2">✅ Buscador de personal disponible en tiempo real</li>
-                                        <li className="flex gap-2">✅ Bitácora legal de reemplazos en PDF para fiscalización</li>
-                                    </ul>
-                                </div>
-                                <div className="flex-1 w-full rounded-2xl overflow-hidden border border-gray-200">
-                                    <img src="/Dahsboard%20movil.png" alt="App móvil" className="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                        )}
-                        {activeTab === 3 && (
-                            <div className="flex flex-col md:flex-row gap-12 items-center">
-                                <div className="flex-1 space-y-6">
-                                    <h3 className="text-3xl font-bold text-gray-900">Decisiones informadas con HR Analytics</h3>
-                                    <p className="text-lg text-gray-600 leading-relaxed">
-                                        SyncroEdu incorpora metodologías analíticas de alta complejidad al mundo educativo. Transforma los datos operativos en indicadores estratégicos que ninguna planilla Excel puede entregar.
-                                    </p>
-                                    <ul className="space-y-3 text-gray-700">
-                                        <li className="flex gap-2"><span className="text-corp-green">&rarr;</span> Ratio Alumno/Docente en JCE</li>
-                                        <li className="flex gap-2"><span className="text-corp-green">&rarr;</span> Índice de Ocupación Docente</li>
-                                        <li className="flex gap-2"><span className="text-corp-green">&rarr;</span> Bradford Factor (ausentismo corto y frecuente)</li>
-                                        <li className="flex gap-2"><span className="text-corp-green">&rarr;</span> Simulador financiero PIE</li>
-                                    </ul>
-                                </div>
-                                <div className="flex-1 w-full rounded-2xl overflow-hidden border border-gray-200">
-                                    <img src="/Gestion-de-personas.png" alt="Analítica de RRHH" className="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                        )}
-                    </div>
                 </div>
-            </section>
 
-            {/* SECCIÓN 8 — CASO DE ÉXITO */}
-            <section id="caso-orione" className="py-24 px-6 bg-apple-light text-gray-900 border-b border-gray-100">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">✓ Caso de éxito verificado</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                            Establecimiento Subvencionado: De 3 semanas de estrés a 1-3 días de trabajo
-                        </h2>
-                    </div>
-
-                    <div className="bg-white rounded-3xl p-8 mb-8 text-center flex flex-col items-center shadow-lg border border-gray-100">
-                        <div className="text-4xl font-bold text-gray-900 mb-4 italic tracking-widest font-serif flex items-center gap-4">
-                            <span className="text-2xl">🏫</span>
-                            Colegio Confidencial
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-lg font-bold text-corp-green">
-                            <span>62 Docentes</span>
-                            <span className="hidden sm:inline text-gray-300">|</span>
-                            <span>36 Asistentes</span>
-                            <span className="hidden sm:inline text-gray-300">|</span>
-                            <span>900+ Estudiantes (JEC)</span>
-                        </div>
-                    </div>
-
-                    <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg mb-8">
-                        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 text-sm">
-                            <div className="p-4 font-bold text-gray-400 uppercase tracking-widest bg-gray-50">INDICADOR</div>
-                            <div className="p-4 font-bold text-gray-400 uppercase tracking-widest bg-gray-50">ANTES (Manual)</div>
-                            <div className="p-4 font-bold text-corp-green uppercase tracking-widest bg-green-50">CON SYNCROEDU</div>
-                            
-                            <div className="p-4 font-medium text-gray-700">Tiempos de confección</div>
-                            <div className="p-4 text-red-500 italic">3 semanas intensivas</div>
-                            <div className="p-4 text-corp-green font-bold">1 a 3 días ✅</div>
-
-                            <div className="p-4 font-medium text-gray-700">Traspaso manual de datos</div>
-                            <div className="p-4 text-red-500 italic">Sí — Riesgo error humano</div>
-                            <div className="p-4 text-corp-green font-bold">Automatizado ✅</div>
-
-                            <div className="p-4 font-medium text-gray-700">Auditoría / Trazabilidad</div>
-                            <div className="p-4 text-red-500 italic">Parcial e incompleta</div>
-                            <div className="p-4 text-corp-green font-bold">Auditable 100% ✅</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* SECCIÓN 9 — SIMULACIÓN DE OPTIMIZACIÓN */}
-            <section id="roi" className="py-24 px-6 bg-slate-50 border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16">
-                        <div className="flex items-center gap-4 mb-4">
-                            <div className="w-2 h-10 bg-corp-green"></div>
-                            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
-                                Simulación de Optimización
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        {/* Left Column */}
-                        <div className="space-y-8">
-                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                                Estudio de Caso: <span className="underline decoration-corp-green/40 decoration-4 underline-offset-4">Establecimiento 40 Docentes</span>
-                            </h3>
-                            
-                            <p className="text-lg text-gray-700 leading-relaxed">
-                                Un colegio que mantiene un promedio de <span className="font-bold underline decoration-corp-green/30 decoration-2 underline-offset-2">2 horas semanales</span> contratadas por sobre el mínimo técnico (fugas por ventanas u ociosidad horaria) genera un impacto financiero medible:
-                            </p>
-
-                            <ul className="space-y-3 text-lg text-gray-700 list-disc ml-6 marker:text-corp-green">
-                                <li>Impacto en remuneraciones directas e indirectas.</li>
-                                <li>Costo de oportunidad del equipo UTP en gestión manual.</li>
-                                <li>Exposición a multas por descalce en contratos.</li>
-                            </ul>
-
-                            <div className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight border-b-4 border-corp-green inline-block pb-2">
-                                40 docentes <span className="text-gray-400">&times;</span> 2 horas semanales optimizables <span className="text-gray-400">&times;</span> $16.500 por hora <span className="text-gray-400">&times;</span> 40 semanas.
-                            </div>
-
-                            <div className="bg-white border-l-4 border-corp-green p-6 rounded-r-xl shadow-sm mt-8 relative">
-                                <p className="text-gray-600 italic text-sm">
-                                    "SyncroEdu no garantiza montos de ahorro específicos. La plataforma entrega herramientas para optimizar la gestión, reducir riesgos normativos y apoyar la toma de decisiones basadas en evidencia técnica y legal."
+                {/* Pillar Tab Content Bento */}
+                <div className="rounded-3xl bg-white border border-black/5 p-8 md:p-12 shadow-xl">
+                    {activeTab === 0 && (
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            <div className="flex-1 space-y-6">
+                                <StatusBadge label="MÓDULO 01 · MOTOR INTELIGENTE" variant="primary" pulse={false} />
+                                <h3 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] font-display">
+                                    De 3 semanas de incertidumbre a 1-3 días de confección.
+                                </h3>
+                                <p className="text-[#86868B] text-base md:text-lg leading-relaxed font-normal">
+                                    El motor algorítmico resuelve el horario de su colegio en minutos, respetando todas las variables pedagógicas: disponibilidad docente, topes de asignaturas por día, salas especializadas y bloques de co-docencia PIE.
                                 </p>
+                                <div className="space-y-3 text-sm text-[#1D1D1F]">
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Reducción de más del 80% en tiempo administrativo del equipo UTP.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Eliminación del doble traspaso de datos entre plataformas.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Inyección automática de la malla horaria aprobada a los docentes.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-1 w-full rounded-2xl overflow-hidden border border-black/5 bg-[#F5F5F7] p-2 shadow-inner">
+                                <img src="/Generador.png" alt="Generador de Horarios SyncroEdu" className="w-full h-auto object-cover rounded-xl" />
                             </div>
                         </div>
+                    )}
 
-                        {/* Right Column */}
-                        <div className="flex flex-col gap-6">
-                            <div className="bg-gray-900 rounded-[2rem] p-10 text-center shadow-xl flex flex-col items-center justify-center relative overflow-hidden">
-                                <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-corp-green via-cyan-400 to-corp-green"></div>
-                                <p className="text-white font-bold tracking-widest text-sm mb-4 uppercase">Potencial de Mitigación Anual</p>
-                                <div className="text-6xl md:text-[5rem] font-black text-corp-green mb-2 racking-tight flex items-center justify-center">
-                                    <span className="text-4xl md:text-5xl mr-1">+</span>$50M
+                    {activeTab === 1 && (
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            <div className="flex-1 space-y-6">
+                                <StatusBadge label="MÓDULO 02 · ASESOR NORMATIVO" variant="success" pulse={false} />
+                                <h3 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] font-display">
+                                    Auditoría automática de las Leyes 20.903, 21.625 y 19070.
+                                </h3>
+                                <p className="text-[#86868B] text-base md:text-lg leading-relaxed font-normal">
+                                    SyncroEdu actúa como asesor legal continuo. Comprueba en tiempo real que cada docente mantenga la proporción lectiva y no lectiva exigida por la legislación chilena, previniendo sanciones antes de cualquier inspección.
+                                </p>
+                                <div className="rounded-2xl bg-[#F5F5F7] border border-black/5 p-4 text-xs font-mono text-[#1D1D1F]">
+                                    <div className="grid grid-cols-3 font-bold border-b border-black/10 pb-2 mb-2">
+                                        <div>Régimen Normativo</div>
+                                        <div className="text-center">Lectivas</div>
+                                        <div className="text-center">No Lectivas</div>
+                                    </div>
+                                    <div className="grid grid-cols-3 py-1 text-[#86868B]">
+                                        <div className="font-semibold text-[#1D1D1F]">Estándar Nacional</div>
+                                        <div className="text-center text-[#34C759] font-bold">65%</div>
+                                        <div className="text-center text-[#34C759] font-bold">35%</div>
+                                    </div>
+                                    <div className="grid grid-cols-3 py-1 text-[#86868B]">
+                                        <div className="font-semibold text-[#1D1D1F]">1° Ciclo (≥80% Prioritarios)</div>
+                                        <div className="text-center text-[#007AFF] font-bold">60%</div>
+                                        <div className="text-center text-[#007AFF] font-bold">40%</div>
+                                    </div>
                                 </div>
-                                <p className="text-white/80 font-medium">Pesos Chilenos (CLP)</p>
+                                <div className="space-y-3 text-sm text-[#1D1D1F]">
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Semáforo de cumplimiento verde/amarillo/rojo por cada docente.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Clasificación MINEDUC automática para anexos contractuales.</span>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div className="bg-white border border-gray-100 rounded-[2rem] p-6 shadow-lg shadow-gray-200/50">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <span className="text-blue-500 font-bold text-xl">📈</span>
-                                    <h4 className="font-bold text-gray-900">Analítica de Cumplimiento Legal Global</h4>
-                                </div>
-                                <div className="w-full text-xs overflow-hidden">
-                                    <div className="grid grid-cols-5 font-bold text-gray-400 mb-4 uppercase tracking-wider text-[10px]">
-                                        <div className="col-span-2">Ítem</div>
-                                        <div className="text-center">Real</div>
-                                        <div className="text-center">Regla</div>
-                                        <div className="text-right">Discrepancia</div>
-                                    </div>
-                                    <div className="grid grid-cols-5 items-center py-4 border-t border-gray-100">
-                                        <div className="col-span-2">
-                                            <p className="font-bold text-gray-900 text-sm">Contratos Totales</p>
-                                            <p className="text-gray-400 text-[10px] hidden sm:block">Horas asignadas vs lo requerido.</p>
-                                        </div>
-                                        <div className="font-bold text-gray-900 text-center text-sm">2426h</div>
-                                        <div className="text-gray-500 text-center text-sm">1861h</div>
-                                        <div className="text-right">
-                                            <span className="bg-amber-50 border border-amber-200 text-amber-700 px-2 py-1 rounded-md text-[10px] font-bold whitespace-nowrap">+565h 00m</span>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-5 items-center py-4 border-t border-gray-100">
-                                        <div className="col-span-2">
-                                            <p className="font-bold text-gray-900 text-sm">Recreos</p>
-                                            <p className="text-gray-400 text-[10px] hidden sm:block">Minutos de recreos requeridos.</p>
-                                        </div>
-                                        <div className="font-bold text-gray-900 text-center text-sm">
-                                            <div>168h</div>
-                                            <div>00m</div>
-                                        </div>
-                                        <div className="text-gray-500 text-center text-sm">126h 52m</div>
-                                        <div className="text-right">
-                                            <span className="bg-amber-50 border border-amber-200 text-amber-700 px-2 py-1 rounded-md text-[10px] font-bold whitespace-nowrap">+41h 08m</span>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-5 items-center py-4 border-t border-gray-100">
-                                        <div className="col-span-2">
-                                            <p className="font-bold text-gray-900 text-sm">Prep. Enseñanza (35-40%)</p>
-                                            <p className="text-gray-400 text-[10px] hidden sm:block">Tiempo legal preparación.</p>
-                                        </div>
-                                        <div className="font-bold text-gray-900 text-center text-sm">
-                                            <div>223h</div>
-                                            <div>40m</div>
-                                        </div>
-                                        <div className="text-gray-500 text-center text-sm">
-                                            <div>211h</div>
-                                            <div>31.2m</div>
-                                        </div>
-                                        <div className="text-right">
-                                            <span className="bg-amber-50 border border-amber-200 text-amber-700 px-2 py-1 rounded-md text-[10px] font-bold whitespace-nowrap">+12h 08.8m</span>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-5 items-center py-4 border-t border-gray-100">
-                                        <div className="col-span-2">
-                                            <p className="font-bold text-gray-900 text-sm">Otras Act. (Max 60%)</p>
-                                            <p className="text-gray-400 text-[10px] hidden sm:block">Límite máximo no lectivo.</p>
-                                        </div>
-                                        <div className="font-bold text-gray-900 text-center text-sm">
-                                            <div>818h</div>
-                                            <div>30m</div>
-                                        </div>
-                                        <div className="text-gray-500 text-center text-sm">
-                                            <div>317h</div>
-                                            <div>16.8m</div>
-                                        </div>
-                                        <div className="text-right">
-                                            <span className="bg-amber-50 border border-amber-200 text-amber-700 px-2 py-1 rounded-md text-[10px] font-bold whitespace-nowrap">+501h 13.2m</span>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-5 items-center py-4 border-t border-gray-100">
-                                        <div className="col-span-2">
-                                            <p className="font-bold text-gray-900 text-sm">Horas PIE / Colaboración</p>
-                                            <p className="text-gray-400 text-[10px] hidden sm:block">Asignado a doc. regulares.</p>
-                                        </div>
-                                        <div className="font-bold text-gray-900 text-center text-sm">
-                                            <div>62h</div>
-                                            <div>30m</div>
-                                        </div>
-                                        <div className="text-gray-500 text-center flex items-center justify-center gap-1 text-sm">
-                                            <div className="border border-gray-200 rounded px-2 py-0.5">63</div>
-                                            <div className="text-xs">h</div>
-                                        </div>
-                                        <div className="text-right">
-                                            <span className="text-red-500 font-bold border border-red-100 bg-red-50 px-2 py-1 rounded-md text-[10px] whitespace-nowrap">-30m</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="flex-1 w-full rounded-2xl overflow-hidden border border-black/5 bg-[#F5F5F7] p-2 shadow-inner">
+                                <img src="/Semaforo-1.png" alt="Compliance Semáforo Legal SyncroEdu" className="w-full h-auto object-cover rounded-xl" />
                             </div>
                         </div>
-                    </div>
+                    )}
 
-                    <p className="text-xs text-gray-400 mt-12 text-center max-w-4xl mx-auto">
-                        El resultado real depende de la estructura contractual y operacional de cada establecimiento. Simulación basada en valores de mercado ponderados 2026.
+                    {activeTab === 2 && (
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            <div className="flex-1 space-y-6">
+                                <StatusBadge label="MÓDULO 03 · CONTINUIDAD EN TERRENO" variant="purple" pulse={false} />
+                                <h3 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] font-display">
+                                    Reemplazos urgentes desde el smartphone en segundos.
+                                </h3>
+                                <p className="text-[#86868B] text-base md:text-lg leading-relaxed font-normal">
+                                    Los directivos pueden resolver ausencias imprevistas mientras recorren los pasillos del establecimiento. El buscador examina toda la dotación disponible y sugiere al docente o reemplazante idóneo.
+                                </p>
+                                <div className="space-y-3 text-sm text-[#1D1D1F]">
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>App Directiva nativa para iOS y Android.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Buscador de personal disponible en tiempo real según especialidad.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Generación de bitácora oficial en PDF lista para fiscalizaciones MINEDUC.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-1 w-full rounded-2xl overflow-hidden border border-black/5 bg-[#F5F5F7] p-2 shadow-inner">
+                                <img src="/Dahsboard%20movil.png" alt="App Móvil SyncroEdu" className="w-full h-auto object-cover rounded-xl" />
+                            </div>
+                        </div>
+                    )}
+
+                    {activeTab === 3 && (
+                        <div className="flex flex-col lg:flex-row items-center gap-12">
+                            <div className="flex-1 space-y-6">
+                                <StatusBadge label="MÓDULO 04 · INTELIGENCIA DE PERSONAS" variant="warning" pulse={false} />
+                                <h3 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] font-display">
+                                    Decisiones estratégicas respaldadas con analítica de RRHH.
+                                </h3>
+                                <p className="text-[#86868B] text-base md:text-lg leading-relaxed font-normal">
+                                    SyncroEdu traduce la operación diaria en métricas predictivas de gestión de personas: ausentismo reiterado, tasa de ocupación de aulas y simulador financiero para el programa PIE.
+                                </p>
+                                <div className="space-y-3 text-sm text-[#1D1D1F]">
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Cálculo automático de Bradford Factor (ausentismo corto y frecuente).</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Índice de Ocupación Docente y ratio de alumnos por profesional.</span>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                        <span>Simulador de costos y proyecciones presupuestarias para sostenedores.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-1 w-full rounded-2xl overflow-hidden border border-black/5 bg-[#F5F5F7] p-2 shadow-inner">
+                                <img src="/Gestion-de-personas.png" alt="Analítica de RRHH Escolar" className="w-full h-auto object-cover rounded-xl" />
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </section>
+
+            {/* SECCIÓN 8 — CASO DE ÉXITO VERIFICADO */}
+            <section id="caso-orione" className="py-16 md:py-24 px-6 max-w-5xl mx-auto">
+                <div className="text-center mb-12">
+                    <StatusBadge label="CASO REAL DOCUMENTADO" variant="success" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display">
+                        Establecimiento Subvencionado: De 3 semanas a 1-3 días
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto font-normal">
+                        Resultados auditados en un colegio particular subvencionado con jornada escolar completa.
                     </p>
                 </div>
-            </section>
 
-            {/* SECCIÓN 10 — ROLES */}
-            <section id="roles" className="py-24 px-6 bg-apple-light border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                            Habla el idioma de todo su equipo directivo
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all border-t-4 border-gray-900">
-                            <div className="bg-gray-50 p-6 text-gray-900 border-b border-gray-100">
-                                <div className="text-4xl mb-4">💼</div>
-                                <h3 className="text-2xl font-bold">Para el Sostenedor</h3>
-                                <p className="text-gray-500">Enfoque financiero y de riesgo</p>
+                <BentoCard glowColor="#34C759" className="p-8 md:p-10 mb-8">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-black/5 text-center sm:text-left">
+                        <div className="flex items-center gap-4">
+                            <div className="w-14 h-14 rounded-2xl bg-[#34C759]/10 border border-[#34C759]/20 flex items-center justify-center text-[#34C759]">
+                                <Award className="w-7 h-7" />
                             </div>
-                            <div className="p-6">
-                                <ul className="space-y-4 text-gray-700">
-                                    <li>&rarr; Evite multas de hasta $66M CLP</li>
-                                    <li>&rarr; Proteja subvención PIE</li>
-                                    <li>&rarr; Identifique fugas en nómina en tiempo real</li>
-                                    <li>&rarr; ROI demostrado de 10x en año 1</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all border-t-4 border-cyan-500">
-                            <div className="bg-cyan-50 p-6 text-cyan-900 border-b border-cyan-100">
-                                <div className="text-4xl mb-4">🏫</div>
-                                <h3 className="text-2xl font-bold">Para la Dirección</h3>
-                                <p className="text-cyan-700">Enfoque de continuidad</p>
-                            </div>
-                            <div className="p-6">
-                                <ul className="space-y-4 text-gray-700">
-                                    <li>&rarr; Reemplazos en segundos desde celular</li>
-                                    <li>&rarr; Nunca más un aula desatendida</li>
-                                    <li>&rarr; Bitácora legal lista para MINEDUC</li>
-                                    <li>&rarr; Información de reemplazos y Factor Bradford</li>
-                                </ul>
+                            <div>
+                                <h3 className="font-bold text-xl text-[#1D1D1F] font-display">Colegio Particular Subvencionado</h3>
+                                <p className="text-xs text-[#86868B]">Región Metropolitana · Jornada Escolar Completa (JEC)</p>
                             </div>
                         </div>
 
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all border-t-4 border-corp-green">
-                            <div className="bg-green-50 p-6 text-green-900 border-b border-green-100">
-                                <div className="text-4xl mb-4">📚</div>
-                                <h3 className="text-2xl font-bold">Para la UTP</h3>
-                                <p className="text-green-700">Enfoque operativo</p>
-                            </div>
-                            <div className="p-6">
-                                <ul className="space-y-4 text-gray-700">
-                                    <li>&rarr; Horario listo en 1 a 3 días</li>
-                                    <li>&rarr; Generador que respeta contratos</li>
-                                    <li>&rarr; Co-docencia PIE automática</li>
-                                    <li>&rarr; Recupere semanas de oficina</li>
-                                </ul>
-                            </div>
+                        <div className="flex items-center gap-6 text-xs font-bold text-[#248A3D]">
+                            <span className="bg-[#34C759]/10 px-3 py-1.5 rounded-full border border-[#34C759]/20">62 Docentes</span>
+                            <span className="bg-[#34C759]/10 px-3 py-1.5 rounded-full border border-[#34C759]/20">36 Asistentes</span>
+                            <span className="bg-[#34C759]/10 px-3 py-1.5 rounded-full border border-[#34C759]/20">900+ Alumnos</span>
                         </div>
                     </div>
-                </div>
+
+                    <div className="mt-8 overflow-x-auto">
+                        <table className="w-full text-left text-sm">
+                            <thead>
+                                <tr className="border-b border-black/5 text-xs font-bold text-[#86868B] uppercase tracking-wider">
+                                    <th className="py-3 px-4">Indicador de Desempeño</th>
+                                    <th className="py-3 px-4 text-[#FF3B30]">Método Previo (Excel)</th>
+                                    <th className="py-3 px-4 text-[#34C759]">Con SyncroEdu</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-black/5">
+                                <tr>
+                                    <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Tiempo de confección del horario</td>
+                                    <td className="py-4 px-4 text-[#FF3B30]">3 semanas intensivas de UTP</td>
+                                    <td className="py-4 px-4 text-[#34C759] font-bold">1 a 3 días hábiles</td>
+                                </tr>
+                                <tr>
+                                    <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Traspaso manual a remuneraciones</td>
+                                    <td className="py-4 px-4 text-[#FF3B30]">Sí (Alto riesgo de error humano)</td>
+                                    <td className="py-4 px-4 text-[#34C759] font-bold">Automatizado 100%</td>
+                                </tr>
+                                <tr>
+                                    <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Trazabilidad legal ante fiscalización</td>
+                                    <td className="py-4 px-4 text-[#FF3B30]">Parcial e incompleta</td>
+                                    <td className="py-4 px-4 text-[#34C759] font-bold">Auditado y conforme a la ley</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </BentoCard>
             </section>
 
-            {/* SECCIÓN 11 — PROCESO COMERCIAL */}
-            <section id="proceso" className="py-24 px-6 bg-white border-b border-gray-100">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">🚀 Proceso de Contratación</span>
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-12">
-                            Operando en su colegio en menos de una semana
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        {[
-                            { num: "01", icon: "📞", title: "Contacto Inicial", text: "Breve conversación para entender su escenario y dotación.", time: "Hoy mismo" },
-                            { num: "02", icon: "💻", title: "Demo en Vivo", text: "45 min mostrando SyncroEdu con datos reales. Sin presión.", time: "30-45 min" },
-                            { num: "03", icon: "✍️", title: "Contratación", text: "Firma digital del plan ideal para su tamaño institucinal.", time: "Mismo día" },
-                            { num: "04", icon: "🚀", title: "Lanzamiento", text: "Carga masiva, setup y 3 capacitaciones al equipo directivo.", time: "~1 semana" }
-                        ].map((step, i) => (
-                            <div key={i} className="text-center relative">
-                                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#00B4A6] to-corp-green rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 shadow-lg shrink-0 z-10 relative">
-                                    {step.num}
-                                </div>
-                                <div className="text-2xl mb-2">{step.icon}</div>
-                                <h4 className="font-bold text-gray-900 mb-2">{step.title}</h4>
-                                <p className="text-sm text-gray-600 mb-3">{step.text}</p>
-                                <span className="inline-block bg-gray-100 text-corp-green text-xs font-bold px-3 py-1 rounded-full">{step.time}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* SECCIÓN 12 — INFRAESTRUCTURA */}
-            <section id="infraestructura" className="py-24 px-6 bg-apple-light border-b border-gray-100">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                            Infraestructura empresarial. Sus datos, seguros.
-                        </h2>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                        {[
-                            { icon: "☁️", title: "Infraestructura Google Cloud", text: "Infraestructura robusta sobre Google Cloud, garantizando alta disponibilidad y escalabilidad automática." },
-                            { icon: "🔒", title: "Datos Encriptados SHA-256", text: "Respaldos firmados digitalmente. Doble confirmación para borrado." },
-                            { icon: "🏢", title: "Multi-Tenant Aislado", text: "Su establecimiento opera en un entorno 100% aislado criptográficamente." },
-                            { icon: "⚡", title: "Sincronización Tiempo Real", text: "Cambios reflejados en toda la red interna de su colegio cada 5 segundos." }
-                        ].map((item, i) => (
-                            <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
-                                <div className="text-4xl mb-4">{item.icon}</div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                                <p className="text-gray-600">{item.text}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-
-
-            {/* SECCIÓN 14 — FAQ */}
-            <section id="faq" className="py-24 px-6 bg-white border-b border-gray-100">
-                <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 text-center mb-16">
-                        Preguntas Frecuentes
+            {/* SECCIÓN 9 — ROLES DIRECTIVOS BENTO */}
+            <section id="roles" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="INTEGRACIÓN TRANSVERSAL" variant="primary" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display">
+                        Resuelve las prioridades de cada miembro directivo
                     </h2>
-                    
-                    <div className="space-y-4">
-                        {[
-                            { q: "¿Reemplaza completamente el Excel y aSc Timetables?", a: "Sí. SyncroEdu integra en una plataforma generación de horarios, validación legal en tiempo real y gestión de reemplazos. Sin traspasos manuales entre sistemas." },
-                            { q: "¿Qué pasa si necesitamos modificar el horario durante el año?", a: "El editor interactivo permite ajustes con detección de conflictos en tiempo real. Cada modificación queda en el Audit Log, asegurando trazabilidad." },
-                            { q: "¿Cuánto tiempo toma la implementación?", a: "Aproximadamente 1 semana, incluyendo carga masiva de datos y 3 sesiones de capacitación virtual." },
-                            { q: "¿Funciona para colegios con PIE (Decreto N°170)?", a: "Es uno de nuestros módulos estrella. Calcula horas PIE automáticamente y asegura co-docencias correctas." },
-                            { q: "¿El precio varía según el tamaño de mi colegio?", a: "Sí. Planes por tramos de dotación total (docentes y asistentes). Contáctenos para una propuesta." }
-                        ].map((faq, i) => (
-                            <div key={i} className="border border-gray-200 rounded-xl overflow-hidden bg-white">
-                                <button 
-                                    className="w-full text-left px-6 py-5 font-bold text-gray-900 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition-colors"
-                                    onClick={() => setFaqOpen(faqOpen === i ? null : i)}
-                                >
-                                    {faq.q}
-                                    <span className="text-2xl font-normal leading-none text-gray-400">{faqOpen === i ? '✖' : '+'}</span>
-                                </button>
-                                <AnimatePresence>
-                                    {faqOpen === i && (
-                                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
-                                            <div className="p-6 text-gray-600 leading-relaxed border-t border-gray-100">{faq.a}</div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        ))}
-                    </div>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto font-normal">
+                        Una plataforma que une a Sostenedores, Directores y Jefaturas de UTP en un único canal de verdad técnica.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <BentoCard glowColor="#007AFF">
+                        <div className="w-12 h-12 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 flex items-center justify-center text-[#007AFF] mb-5">
+                            <Building2 className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-1 font-display">Para el Sostenedor</h3>
+                        <p className="text-xs text-[#007AFF] font-semibold mb-4">Control Financiero y Mitigación de Riesgos</p>
+                        <ul className="space-y-3 text-sm text-[#86868B]">
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#007AFF] shrink-0 mt-0.5" />
+                                <span>Blindaje ante multas de la Superintendencia.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#007AFF] shrink-0 mt-0.5" />
+                                <span>Protección de fondos de Subvención PIE.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#007AFF] shrink-0 mt-0.5" />
+                                <span>Detección de sobrecontrataciones y fugas de nómina.</span>
+                            </li>
+                        </ul>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#34C759">
+                        <div className="w-12 h-12 rounded-2xl bg-[#34C759]/10 border border-[#34C759]/20 flex items-center justify-center text-[#34C759] mb-5">
+                            <Smartphone className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-1 font-display">Para la Dirección</h3>
+                        <p className="text-xs text-[#34C759] font-semibold mb-4">Continuidad y Operación Diaria</p>
+                        <ul className="space-y-3 text-sm text-[#86868B]">
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Reemplazos inmediatos desde el celular.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Cero aulas desatendidas durante la jornada.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#34C759] shrink-0 mt-0.5" />
+                                <span>Bitácora oficial lista para fiscalizadores.</span>
+                            </li>
+                        </ul>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#5856D6">
+                        <div className="w-12 h-12 rounded-2xl bg-[#5856D6]/10 border border-[#5856D6]/20 flex items-center justify-center text-[#5856D6] mb-5">
+                            <Clock className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#1D1D1F] mb-1 font-display">Para la UTP</h3>
+                        <p className="text-xs text-[#5856D6] font-semibold mb-4">Agilidad Pedagógica sin Estrés</p>
+                        <ul className="space-y-3 text-sm text-[#86868B]">
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#5856D6] shrink-0 mt-0.5" />
+                                <span>Horarios listos en 1 a 3 días sin errores.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#5856D6] shrink-0 mt-0.5" />
+                                <span>Asignación automática de horas de co-docencia.</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-[#5856D6] shrink-0 mt-0.5" />
+                                <span>Eliminación de semanas de cálculos manuales.</span>
+                            </li>
+                        </ul>
+                    </BentoCard>
                 </div>
             </section>
 
-            {/* SECCIÓN 15 — CUBIERTA FORMULARIO */}
-            <section id="formulario" className="py-24 px-6 bg-apple-light border-y border-gray-200 relative overflow-hidden">
-                <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-2 bg-corp-green"></div>
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-corp-green/10 text-corp-green text-sm font-bold mb-6">🎯 Sin costo · Sin compromiso</span>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">Agendemos una demo personalizada</h2>
-                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            En 30-45 minutos le mostramos SyncroEdu funcionando con datos reales de un establecimiento similar al suyo. 
+            {/* SECCIÓN 10 — PROCESO DE IMPLEMENTACIÓN BENTO */}
+            <section id="proceso" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="DESPLIEGUE RÁPIDO" variant="success" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display">
+                        Operando en su colegio en 1 semana
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto font-normal">
+                        Un proceso acompañado por especialistas en normativa educacional chilena.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {[
+                        { step: '01', title: 'Diagnóstico Inicial', desc: 'Revisión breve de la dotación y estructura contractual del colegio.', time: 'Mismo día', icon: <Phone className="w-5 h-5 text-[#34C759]" /> },
+                        { step: '02', title: 'Demo Personalizada', desc: 'Sesión técnica de 30-45 minutos mostrando la plataforma con datos modelo.', time: '45 minutos', icon: <Zap className="w-5 h-5 text-[#34C759]" /> },
+                        { step: '03', title: 'Carga & Setup', desc: 'Importación segura de dotación, salas, asignaturas y restricciones.', time: '2-3 días', icon: <Cloud className="w-5 h-5 text-[#34C759]" /> },
+                        { step: '04', title: 'Capacitación Directiva', desc: '3 talleres virtuales con el equipo de UTP, Dirección y Administración.', time: '1 semana', icon: <Award className="w-5 h-5 text-[#34C759]" /> }
+                    ].map((item, i) => (
+                        <BentoCard key={i} glowColor="#34C759" className="p-6">
+                            <div className="flex items-center justify-between mb-4">
+                                <span className="text-2xl font-black text-[#34C759] font-mono">{item.step}</span>
+                                <span className="text-[11px] font-semibold text-[#86868B] bg-[#E8E8ED] px-2.5 py-1 rounded-full">{item.time}</span>
+                            </div>
+                            <div className="mb-3">{item.icon}</div>
+                            <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">{item.title}</h4>
+                            <p className="text-xs text-[#86868B] leading-relaxed">{item.desc}</p>
+                        </BentoCard>
+                    ))}
+                </div>
+            </section>
+
+            {/* SECCIÓN 11 — INFRAESTRUCTURA & SEGURIDAD */}
+            <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="SEGURIDAD EMPRESARIAL" variant="primary" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display">
+                        Infraestructura en la Nube de Alta Disponibilidad
+                    </h2>
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto font-normal">
+                        Garantizamos la privacidad y seguridad criptográfica de los datos de su institución.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <BentoCard glowColor="#007AFF">
+                        <Cloud className="w-8 h-8 text-[#007AFF] mb-4" />
+                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Google Cloud Platform</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">Infraestructura sobre servidores Google Cloud con 99.9% de uptime garantizado.</p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#34C759">
+                        <Lock className="w-8 h-8 text-[#34C759] mb-4" />
+                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Encriptación SHA-256</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">Cifrado de extremo a extremo en tránsito y en reposo con backups diarios automatizados.</p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#5856D6">
+                        <Building2 className="w-8 h-8 text-[#5856D6] mb-4" />
+                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Multi-Tenant Aislado</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">Bases de datos independientes y estrictamente compartimentadas para cada establecimiento.</p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF9500">
+                        <Zap className="w-8 h-8 text-[#FF9500] mb-4" />
+                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Sincronización Continua</h4>
+                        <p className="text-xs text-[#86868B] leading-relaxed">Cualquier ajuste realizado en la web se propaga a la app móvil de los directivos al instante.</p>
+                    </BentoCard>
+                </div>
+            </section>
+
+            {/* SECCIÓN 12 — FAQ ACCORDION BENTO */}
+            <section id="faq" className="py-16 md:py-24 px-6 max-w-4xl mx-auto">
+                <div className="text-center mb-14">
+                    <StatusBadge label="PREGUNTAS FRECUENTES" variant="primary" pulse={false} className="mb-4" />
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] font-display">
+                        Preguntas Frecuentes sobre SyncroEdu
+                    </h2>
+                </div>
+
+                <div className="space-y-4">
+                    {[
+                        { 
+                            q: "¿Reemplaza completamente el Excel y generadores tradicionales como aSc Timetables?", 
+                            a: "Sí, de manera integral. SyncroEdu unifica la generación de la malla horaria con la validación de la legislación chilena (Leyes 20.903, 21.625 y 19.070) y la gestión de reemplazos en terreno, eliminando la duplicación de planillas y el riesgo de error humano." 
+                        },
+                        { 
+                            q: "¿Qué sucede si debemos modificar el horario en medio del año académico?", 
+                            a: "El editor interactivo permite mover bloques y cambiar salas en segundos. El sistema verifica instantáneamente si el cambio genera algún conflicto legal o pedagógico, guardando un registro auditable de cada modificación." 
+                        },
+                        { 
+                            q: "¿Cuánto tiempo toma el proceso de implementación?", 
+                            a: "El despliegue toma aproximadamente 1 semana. Nuestro equipo de soporte realiza la carga inicial de docentes, contratos y restricciones, acompañada de 3 capacitaciones al equipo directivo." 
+                        },
+                        { 
+                            q: "¿Cómo funciona para colegios con Programa de Integración Escolar (Decreto 170 PIE)?", 
+                            a: "SyncroEdu incorpora un módulo específico para el Decreto 170. Asegura que los bloques de co-docencia de 3 horas cronológicas se asignen de manera coordinada entre profesores de aula y especialistas, protegiendo la subvención de contingencias." 
+                        },
+                        { 
+                            q: "¿El valor de la suscripción varía según el número de funcionarios?", 
+                            a: "Sí. Contamos con planes adaptados por tramos de dotación total (docentes y asistentes de la educación), lo que permite a colegios pequeños, medianos y grandes acceder a la plataforma con tarifas proporcionales." 
+                        }
+                    ].map((faq, i) => (
+                        <div key={i} className="rounded-2xl border border-black/5 bg-white overflow-hidden shadow-xs">
+                            <button 
+                                className="w-full text-left px-6 py-5 font-bold text-[#1D1D1F] flex justify-between items-center hover:bg-[#F5F5F7] transition-colors cursor-pointer"
+                                onClick={() => setFaqOpen(faqOpen === i ? null : i)}
+                            >
+                                <span className="pr-4 font-display text-base md:text-lg">{faq.q}</span>
+                                <span className="text-xl font-bold text-[#34C759] shrink-0">{faqOpen === i ? '−' : '+'}</span>
+                            </button>
+                            <AnimatePresence>
+                                {faqOpen === i && (
+                                    <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                                        <div className="px-6 pb-6 text-[#86868B] text-sm leading-relaxed border-t border-black/5 pt-4">
+                                            {faq.a}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* SECCIÓN 13 — FORMULARIO & CONTACTO BENTO */}
+            <section id="formulario" className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
+                <div className="grid lg:grid-cols-12 gap-12 items-center">
+                    <div className="lg:col-span-5 space-y-6">
+                        <StatusBadge label="DEMOSTRACIÓN TÉCNICA PERSONALIZADA" variant="success" pulse={true} />
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1D1D1F] font-display" style={{ textWrap: 'balance' }}>
+                            Agende una demostración con datos reales.
+                        </h2>
+                        <p className="text-[#86868B] text-base leading-relaxed font-normal">
+                            En 30 a 45 minutos le mostraremos SyncroEdu operando con un caso similar al de su establecimiento.
                         </p>
-                        <ul className="space-y-4 text-gray-700 font-medium mb-12">
-                            <li className="flex gap-3">✅ El generador trabajando en vivo</li>
-                            <li className="flex gap-3">✅ La calculadora 65/35 validando contratos</li>
-                            <li className="flex gap-3">✅ Cómo ahorramos multas reales</li>
-                            <li className="flex gap-3">✅ Cómo se adapta a su dotación específica</li>
-                        </ul>
-                        <div className="flex gap-6 items-center">
-                            <a href="https://wa.me/56964375050" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-200 hover:border-corp-green text-gray-800 font-bold font-mono transition-colors">
-                                <span>📱</span> +56 9 6437 5050
+
+                        <div className="space-y-3 pt-2">
+                            <div className="flex items-center gap-3 text-sm text-[#1D1D1F]">
+                                <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                <span>Generador algorítmico trabajando en vivo.</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm text-[#1D1D1F]">
+                                <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                <span>Calculadora 65/35 auditando contratos docentes.</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm text-[#1D1D1F]">
+                                <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                <span>Demostración de la App Móvil para reemplazos urgentes.</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-sm text-[#1D1D1F]">
+                                <CheckCircle2 className="w-5 h-5 text-[#34C759] shrink-0" />
+                                <span>Simulación de ahorro y protección de subvención PIE.</span>
+                            </div>
+                        </div>
+
+                        <div className="pt-4">
+                            <a 
+                                href="https://wa.me/56964375050" 
+                                target="_blank" 
+                                rel="noreferrer" 
+                                className="inline-flex items-center gap-3 bg-white px-6 py-3.5 rounded-full shadow-sm border border-black/5 hover:border-[#34C759] text-[#1D1D1F] font-bold text-sm transition-all"
+                            >
+                                <Phone className="w-4 h-4 text-[#34C759]" />
+                                <span>+56 9 6437 5050 (WhatsApp Directo)</span>
                             </a>
                         </div>
                     </div>
-                    
-                    <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border-t-8 border-corp-green relative">
-                        {formSubmitted ? (
-                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-10">
-                                <div className="text-6xl mb-4">✅</div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Recibimos su solicitud!</h3>
-                                <p className="text-gray-600 mb-4">Redirigiendo a WhatsApp para agendar fecha...</p>
-                                <div className="flex justify-center mt-6">
-                                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-corp-green"></div>
-                                </div>
-                            </motion.div>
-                        ) : (
-                            <form id="form-contacto" onSubmit={handleFormSubmit} className="space-y-5">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-4">Solicitar demo gratuita</h3>
-                                
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Nombre y Apellido</label>
-                                    <input required name="nombre" type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all" placeholder="Ej: María González" />
-                                </div>
-                                
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Nombre del Establecimiento</label>
-                                    <input required name="colegio" type="text" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all" placeholder="Ej: Colegio San Marcos" />
-                                </div>
-                                
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Su Cargo</label>
-                                    <select required name="cargo" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all bg-white">
-                                        <option value="">-- Seleccione su cargo --</option>
-                                        <option value="Sostenedor">Sostenedor / Propietario</option>
-                                        <option value="Director">Director / Directora</option>
-                                        <option value="UTP">Jefe/a de UTP</option>
-                                        <option value="Otro">Otro directivo</option>
-                                    </select>
-                                </div>
-                                
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                        <input required name="email" type="email" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all" placeholder="correo@micolegio.cl" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 mb-2">WhatsApp</label>
-                                        <input required name="telefono" type="tel" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all" placeholder="+56 9 XXXX XXXX" />
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <label className="block text-sm font-bold text-gray-700 mb-2">Tamaño de Dotación</label>
-                                    <select required name="funcionarios" className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-corp-green focus:ring-1 focus:ring-corp-green transition-all bg-white">
-                                        <option value="">-- Docentes + Asistentes --</option>
-                                        <option value="Menos de 30">Hasta 30 funcionarios</option>
-                                        <option value="31 a 60">31 a 60 funcionarios</option>
-                                        <option value="61 a 100">61 a 100 funcionarios</option>
-                                        <option value="Más de 100">Más de 100 funcionarios</option>
-                                    </select>
-                                </div>
-                                
-                                <button type="submit" className="w-full bg-corp-green text-white font-bold text-lg py-4 rounded-full mt-4 hover:bg-green-600 transition-colors shadow-lg shadow-corp-green/30">
-                                    Solicitar mi demo gratuita &rarr;
-                                </button>
-                                <p className="text-xs text-center text-gray-400 mt-4">🔒 Sus datos están seguros. No compartimos su información.</p>
-                            </form>
-                        )}
-                    </div>
-                </div>
-            </section>
 
-            {/* SECCIÓN 16 — FINAL CTA */}
-            <section className="py-24 px-6 bg-gray-900 text-center">
-                <div className="max-w-4xl mx-auto text-white">
-                    <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
-                        ¿Cuánto dinero está perdiendo hoy su colegio?
-                    </h2>
-                    <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-                        Le mostraremos en vivo, en 30 minutos, cómo SyncroEdu resuelve lo que le toma semanas a su equipo — y cuánto puede ahorrar específicamente.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <a href="https://wa.me/56964375050" target="_blank" rel="noreferrer" className="bg-corp-green text-white px-8 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform w-full sm:w-auto shadow-xl">
-                            Hablar por WhatsApp
-                        </a>
-                        <button onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 w-full sm:w-auto transition-colors">
-                            Completar formulario &rarr;
-                        </button>
-                    </div>
-                </div>
-            </section>
+                    <div className="lg:col-span-7">
+                        <div className="rounded-3xl bg-white border border-black/5 p-8 md:p-10 shadow-xl">
+                            {formSubmitted ? (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
+                                    <div className="w-16 h-16 rounded-full bg-[#34C759]/10 text-[#34C759] flex items-center justify-center mx-auto mb-4">
+                                        <Check className="w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-[#1D1D1F] mb-2 font-display">¡Solicitud Recibida con Éxito!</h3>
+                                    <p className="text-[#86868B] text-sm mb-6">Redirigiendo a WhatsApp con su asesor asignado para coordinar día y hora...</p>
+                                    <div className="flex justify-center">
+                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#34C759]"></div>
+                                    </div>
+                                </motion.div>
+                            ) : (
+                                <form onSubmit={handleFormSubmit} className="space-y-4">
+                                    <div className="border-b border-black/5 pb-4 mb-4">
+                                        <h3 className="text-xl font-bold text-[#1D1D1F] font-display">Solicitar Demo Gratuita de SyncroEdu</h3>
+                                        <p className="text-xs text-[#86868B]">Complete los datos para coordinar una sesión técnica vía Meet o Zoom.</p>
+                                    </div>
 
-            {/* SECCIÓN 17 — FOOTER (Retained existing) */}
-            <footer className="bg-gray-900 text-gray-400 py-12 text-sm border-t border-gray-800">
-                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 mb-8">
-                    <div>
-                        <div className="text-corp-green font-bold text-2xl tracking-tight flex items-center gap-2 mb-4">
-                            <span className="bg-corp-green text-white w-8 h-8 rounded-md flex items-center justify-center font-bold text-lg">S</span> SyncroEdu
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Nombre y Apellido</label>
+                                            <input required name="nombre" type="text" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]" placeholder="Ej: María González" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Nombre del Colegio</label>
+                                            <input required name="colegio" type="text" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]" placeholder="Ej: Colegio San Agustín" />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Cargo Institucional</label>
+                                        <select required name="cargo" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]">
+                                            <option value="">-- Seleccione su cargo --</option>
+                                            <option value="Sostenedor">Sostenedor / Propietario / Fundación</option>
+                                            <option value="Director">Director / Directora</option>
+                                            <option value="UTP">Jefatura de UTP</option>
+                                            <option value="Administrador">Administrador / Finanzas</option>
+                                            <option value="Otro">Otro cargo directivo</option>
+                                        </select>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Correo Electrónico</label>
+                                            <input required name="email" type="email" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]" placeholder="contacto@micolegio.cl" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Teléfono o WhatsApp</label>
+                                            <input required name="telefono" type="tel" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]" placeholder="+56 9 XXXX XXXX" />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-xs font-bold text-[#1D1D1F] uppercase tracking-wider mb-2">Dotación Estimada (Docentes + Asistentes)</label>
+                                        <select required name="funcionarios" className="w-full bg-[#F5F5F7] border border-black/5 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#34C759] focus:bg-white transition-all text-[#1D1D1F]">
+                                            <option value="">-- Seleccione el tramo de dotación --</option>
+                                            <option value="Hasta 30 funcionarios">Hasta 30 funcionarios</option>
+                                            <option value="31 a 60 funcionarios">31 a 60 funcionarios</option>
+                                            <option value="61 a 100 funcionarios">61 a 100 funcionarios</option>
+                                            <option value="Más de 100 funcionarios">Más de 100 funcionarios</option>
+                                        </select>
+                                    </div>
+
+                                    <PrimaryButton 
+                                        variant="green"
+                                        size="lg"
+                                        className="w-full mt-4"
+                                        icon={<ArrowRight className="w-4 h-4" />}
+                                    >
+                                        Agendar Demo de SyncroEdu
+                                    </PrimaryButton>
+
+                                    <p className="text-[11px] text-center text-[#86868B] pt-2">
+                                        🔒 Sus datos se tratan bajo estricta confidencialidad institucional. Cero spam.
+                                    </p>
+                                </form>
+                            )}
                         </div>
-                        <p className="mb-4">La plataforma de Compliance Escolar, Continuidad Operativa y Optimización de RRHH para Chile.</p>
                     </div>
+                </div>
+            </section>
+
+            {/* SECCIÓN 14 — CTA FINAL */}
+            <section className="py-20 px-6 max-w-7xl mx-auto">
+                <div className="rounded-3xl bg-[#1C1C1E] border border-white/10 p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+                    <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+                        <StatusBadge label="TEMPORADA DE CONTRATACIÓN ESCOLAR" variant="success" pulse={true} className="mx-auto" />
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-display" style={{ textWrap: 'balance' }}>
+                            Llegue al inicio del año escolar con certeza legal y sin semanas de estrés.
+                        </h2>
+                        <p className="text-base sm:text-lg text-[#86868B] font-normal leading-relaxed">
+                            Le demostraremos en vivo cómo SyncroEdu resuelve en días lo que hoy le toma semanas a su equipo.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                            <PrimaryButton 
+                                variant="green"
+                                size="lg"
+                                href="https://wa.me/56964375050?text=Hola,%20quisiera%20agendar%20una%20demostración%20de%20SyncroEdu"
+                                target="_blank"
+                                rel="noreferrer"
+                                icon={<MessageSquare className="w-4 h-4 text-white" />}
+                            >
+                                Hablar por WhatsApp
+                            </PrimaryButton>
+
+                            <PrimaryButton 
+                                variant="secondary"
+                                size="lg"
+                                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                            >
+                                Completar Formulario
+                            </PrimaryButton>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* SECCIÓN 15 — FOOTER APPLE HIG */}
+            <footer className="bg-[#1C1C1E] text-[#86868B] py-14 text-sm border-t border-white/10">
+                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                    <div className="md:col-span-2 space-y-4">
+                        <div className="flex items-center gap-2">
+                            <LogoContainer className="w-8 h-8 bg-white/10 border-white/15">
+                                <img src="/Logo-SyncroEdu.png" alt="SyncroEdu" className="h-5 w-5 object-contain" />
+                            </LogoContainer>
+                            <span className="font-bold text-lg text-white tracking-tight">SyncroEdu</span>
+                        </div>
+                        <p className="text-xs text-[#86868B] max-w-md leading-relaxed">
+                            La plataforma de Compliance Escolar, Continuidad Operativa y Optimización de Recursos Humanos para establecimientos educacionales en Chile. Desarrollada por BE Academic.
+                        </p>
+                    </div>
+
                     <div>
-                        <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-xs">Plataforma</h4>
-                        <div className="flex flex-col gap-2">
-                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left w-max">Funcionalidades</button>
-                            <button onClick={() => document.getElementById('caso-orione')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left w-max">Caso de Éxito</button>
+                        <h4 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Navegación</h4>
+                        <div className="flex flex-col gap-2.5 text-xs">
+                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Funcionalidades</button>
+                            <button onClick={() => document.getElementById('riesgo-financiero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Riesgo Financiero</button>
+                            <button onClick={() => document.getElementById('caso-orione')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Caso Verificado</button>
+                            <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Preguntas Frecuentes</button>
                             <Link to="/legal" className="hover:text-white transition-colors">Términos Legales</Link>
                         </div>
                     </div>
+
                     <div>
-                        <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-xs">Contacto</h4>
-                        <p className="flex items-center gap-2 mb-2">📱 <a href="tel:+56964375050" className="hover:text-white">+56 9 6437 5050</a></p>
-                        <p className="flex items-center gap-2 mb-2">📧 <a href="mailto:ventas@syncroedu.com" className="hover:text-white">ventas@syncroedu.com</a></p>
-                        <p className="flex items-center gap-2 text-gray-500 mt-6">Lunes a Viernes · 9:00 a 18:00 hrs</p>
+                        <h4 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Contacto</h4>
+                        <div className="space-y-2 text-xs">
+                            <p className="flex items-center gap-2">
+                                <Phone className="w-3.5 h-3.5 text-[#34C759]" />
+                                <a href="tel:+56964375050" className="hover:text-white transition-colors">+56 9 6437 5050</a>
+                            </p>
+                            <p className="flex items-center gap-2">
+                                <Mail className="w-3.5 h-3.5 text-[#34C759]" />
+                                <a href="mailto:ventas@syncroedu.com" className="hover:text-white transition-colors">ventas@syncroedu.com</a>
+                            </p>
+                            <p className="text-[11px] text-[#86868B] pt-2">Lunes a Viernes · 9:00 a 18:00 hrs</p>
+                        </div>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-gray-600 gap-4 mb-4">
-                    <p>SyncroEdu &copy; {new Date().getFullYear()} Beacademics Ltda. Todos los derechos reservados.</p>
-                    <p>Desarrollado en Chile 🇨🇱 para colegios chilenos.</p>
-                </div>
-                <div className="max-w-7xl mx-auto px-6 text-[10px] text-gray-600 pb-12 text-center md:text-left">
-                    <p>Google Cloud, Firebase y Google Tasks son marcas comerciales de Google LLC. El uso de estas marcas no implica respaldo ni afiliación oficial.</p>
+
+                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-[#86868B] gap-4">
+                    <p>SyncroEdu &copy; {new Date().getFullYear()} Beacademics SpA. Todos los derechos reservados.</p>
+                    <p>Diseñado con estándares Apple HIG & Bento Grid para colegios en Chile 🇨🇱</p>
                 </div>
             </footer>
 
-            {/* BOTÓN FLOTANTE WHATSAPP STICKY */}
-            <a href="https://wa.me/56964375050" target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 md:px-6 md:py-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.45)] font-bold text-sm md:text-base hover:scale-105 transition-transform animate-[pulse_2s_infinite]">
-                 <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 21.0423L12.031 21.0423C13.5615 21.0409 15.0646 20.6276 16.3888 19.8459L16.4837 19.7895L20.4439 20.8286L19.4262 16.9634L19.3364 16.8209C18.4116 15.3533 17.9255 13.6267 17.9255 11.8596C17.9255 6.94557 21.8795 3 26.7905 3C29.1704 3 31.4285 3.92683 33.1118 5.61011C34.7951 7.29339 35.722 9.55152 35.722 11.9314C35.722 16.8455 31.768 20.791 26.8571 20.791C25.0746 20.791 23.3333 20.2929 21.8532 19.3496L21.7223 19.2661L17.7621 20.3053L18.7844 16.4355L18.666 16.2464C17.8488 14.9455 17.4173 13.4158 17.4173 11.8596C17.4173 8.35821 20.2655 5.51 23.7669 5.51C25.464 5.51 27.0628 6.17066 28.2618 7.36971C29.4609 8.56875 30.1215 10.1675 30.1215 11.8646C30.1215 15.366 27.2733 18.2142 23.7719 18.2142C22.2571 18.2142 20.7909 17.7818 19.5393 16.9538L19.2882 16.8041L16.2575 17.596L17.0673 14.6366L16.8996 14.3683C15.9625 12.8717 15.4673 11.1098 15.4673 9.30906C15.4673 4.14817 19.6644 0 24.8329 0C27.3391 0 29.6975 0.976073 31.4682 2.74681C33.2389 4.51756 34.215 6.87593 34.215 9.38211C34.215 14.543 30.0179 18.7404 24.8494 18.7404C23.0805 18.7404 21.3533 18.2779 19.8335 17.3917L12.031 21.0423Z" transform="translate(-11.9688 -0.000488281)"/></svg>
-                 <span className="hidden sm:inline">¿Dudas? Escríbanos</span>
+            {/* BOTÓN FLOTANTE WHATSAPP APPLE HIG */}
+            <a 
+                href="https://wa.me/56964375050?text=Hola,%20deseo%20consultar%20sobre%20SyncroEdu" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#34C759] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(52,199,89,0.4)] font-semibold text-sm hover:scale-105 active:scale-95 transition-all"
+                aria-label="Contactar por WhatsApp"
+            >
+                <MessageSquare className="w-4 h-4 fill-current" />
+                <span className="hidden sm:inline">¿Dudas? Hablemos</span>
             </a>
         </div>
     );

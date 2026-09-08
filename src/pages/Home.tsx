@@ -2,6 +2,25 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { BentoCard } from '../components/ui/BentoCard';
+import { PrimaryButton } from '../components/ui/PrimaryButton';
+import { StatusBadge } from '../components/ui/StatusBadge';
+import { LogoContainer } from '../components/ui/LogoContainer';
+import { 
+    Clock, 
+    ShieldCheck, 
+    Sparkles, 
+    Award, 
+    GraduationCap, 
+    TrendingUp, 
+    ChevronRight, 
+    ArrowRight,
+    CheckCircle2,
+    Calendar,
+    Users,
+    FileSpreadsheet,
+    Zap
+} from 'lucide-react';
 
 export default function Home() {
     const location = useLocation();
@@ -55,7 +74,7 @@ export default function Home() {
     };
 
     return (
-        <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white">
+        <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] selection:bg-[#007AFF]/20 selection:text-[#1D1D1F]">
             <Helmet>
                 <html lang="es" />
                 <title>BE Academic | Ecosistema Tecnológico para la Educación - SyncroEdu & SyncroTime</title>
@@ -82,181 +101,376 @@ export default function Home() {
                     {JSON.stringify(schemaData)}
                 </script>
             </Helmet>
-            {/* Header / Navigation */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
-                <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-8">
-                        <Link to="/" className="flex items-center">
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-8 w-auto" />
+
+            {/* Header / Navigation (Apple HIG Glassmorphism) */}
+            <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5">
+                <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
+                    <div className="flex items-center gap-6">
+                        <Link to="/" className="flex items-center gap-3 group">
+                            <LogoContainer>
+                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-6 w-auto object-contain" />
+                            </LogoContainer>
+                            <span className="font-bold text-base tracking-tight text-[#1D1D1F] group-hover:text-[#007AFF] transition-colors">
+                                BE Academic
+                            </span>
                         </Link>
-                        <div className="hidden md:flex gap-6">
-                            <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-dark transition-colors">Software</button>
-                            <button onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })} className="text-gray-600 hover:text-corp-dark transition-colors">Servicios</button>
-                            <Link to="/contacto" className="text-gray-600 hover:text-corp-dark transition-colors">Contacto</Link>
+                        <div className="hidden md:flex items-center gap-6 pl-4 border-l border-black/5 text-[#515154]">
+                            <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Soluciones</button>
+                            <button onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Servicios</button>
+                            <Link to="/contacto" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
                         </div>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                         <Link 
                             to="/acceso" 
-                            className="bg-corp-dark text-white px-4 py-1.5 rounded-full hover:bg-gray-800 transition-colors"
+                            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-xs text-[#515154] hover:text-[#1D1D1F] hover:bg-black/5 transition-all"
                         >
                             Portal Clientes
                         </Link>
+                        <PrimaryButton 
+                            size="sm"
+                            onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
+                        >
+                            Explorar Plataformas
+                        </PrimaryButton>
                     </div>
                 </nav>
             </header>
 
             {/* Hero Section */}
-            <section className="pt-40 pb-20 px-6 max-w-5xl mx-auto text-center flex flex-col items-center">
+            <section className="pt-36 pb-20 px-6 max-w-5xl mx-auto text-center flex flex-col items-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+                    className="mb-6"
+                >
+                    <StatusBadge 
+                        label="ECOSISTEMA TECNOLÓGICO PARA LA EDUCACIÓN" 
+                        variant="primary" 
+                        pulse={true} 
+                    />
+                </motion.div>
+
                 <motion.h1 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6"
+                    transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.05 }}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6"
                 >
-                    Potenciamos el futuro de <br className="hidden md:block" /> tu gestión escolar.
+                    Potenciamos el futuro de la <br className="hidden sm:block" />
+                    <span className="bg-gradient-to-r from-[#007AFF] to-[#5856D6] bg-clip-text text-transparent">
+                        gestión escolar inteligente.
+                    </span>
                 </motion.h1>
+
                 <motion.p 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                    className="text-xl md:text-2xl text-gray-500 max-w-3xl mb-10 leading-relaxed font-medium"
+                    transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.1 }}
+                    className="text-lg sm:text-xl md:text-2xl text-[#515154] max-w-3xl mb-10 leading-relaxed font-normal"
                 >
-                    Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y elevan la excelencia de las instituciones educativas en Chile.
+                    Arquitectura de nivel mundial que simplifica procesos complejos, elimina riesgos legales y automatiza la confección de horarios para instituciones escolares.
                 </motion.p>
+
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                    className="flex flex-col sm:flex-row gap-4"
+                    transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.15 }}
+                    className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
                 >
-                    <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="bg-corp-dark text-white px-8 py-3 rounded-full text-lg font-medium hover:scale-105 transition-transform">
-                        Descubre el Ecosistema
-                    </button>
-                    <Link to="/contacto" className="text-corp-dark font-medium px-8 py-3 flex items-center gap-2 hover:underline">
-                        Hablar con un asesor &rsaquo;
+                    <PrimaryButton 
+                        size="lg"
+                        onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
+                        icon={<Sparkles className="w-4 h-4" />}
+                        className="w-full sm:w-auto"
+                    >
+                        Descubrir el Ecosistema
+                    </PrimaryButton>
+                    <Link 
+                        to="/contacto" 
+                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm text-[#1D1D1F] bg-white border border-black/5 hover:bg-[#E8E8ED] shadow-xs transition-all w-full sm:w-auto"
+                    >
+                        <span>Hablar con un asesor</span>
+                        <ChevronRight className="w-4 h-4 text-[#8E8E93]" />
                     </Link>
                 </motion.div>
             </section>
 
-            {/* Products (Bento Grid Style) */}
-            <section id="soluciones" className="py-24 px-6 bg-white">
+            {/* Products (Bento Grid Section) */}
+            <section id="soluciones" className="py-20 px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Nuestro Ecosistema</h2>
-                        <p className="text-xl text-gray-500 font-medium">Diseñado para la excelencia escolar.</p>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <div className="mb-2">
+                                <span className="text-[11px] font-bold uppercase tracking-widest text-[#007AFF]">
+                                    Arquitectura Modular
+                                </span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#1D1D1F]">
+                                Plataformas Especializadas
+                            </h2>
+                        </div>
+                        <p className="text-base text-[#515154] max-w-md mt-4 md:mt-0">
+                            Soluciones nativas diseñadas bajo estrictos principios de orden, validación legal e inteligencia algorítmica.
+                        </p>
                     </div>
 
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                        {/* SyncroTime Card */}
-                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
-                            <div className="mb-8">
-                                <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-6 object-contain" />
-                                <h3 className="text-3xl font-bold text-corp-cyan mb-2 tracking-tight">SyncroTime</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Generador de Horarios Inteligente</h4>
-                                <p className="text-gray-500 text-lg leading-relaxed">
-                                    Armar horarios nunca fue tan fácil. Nuestro potente motor genera combinaciones óptimas adaptándose a múltiples restricciones en tiempo récord. Exporta resultados claros en PDF y Excel, listos para implementar.
-                                </p>
-                            </div>
-                            <div className="mt-auto pt-8">
-                                <Link to="/syncrotime" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Descubrir SyncroTime <span className="text-lg leading-none">&rsaquo;</span>
-                                </Link>
-                            </div>
-                        </div>
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                        {/* SyncroTime Bento Card (Core Operations / Data - Blue Glow) */}
+                        <BentoCard glowColor="#007AFF" className="flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center justify-between mb-6">
+                                    <LogoContainer>
+                                        <img src="/Logo-SyncroTime.png" alt="SyncroTime" className="h-6 w-auto object-contain" />
+                                    </LogoContainer>
+                                    <StatusBadge label="OPERACIÓN Y HORARIOS" variant="primary" pulse={false} />
+                                </div>
 
-                        {/* SyncroEdu Card */}
-                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500">
-                            <div className="mb-8">
-                                <img src="/Logo-SyncroEdu.png" alt="Logo SyncroEdu" className="h-12 w-auto mb-6 object-contain" />
-                                <h3 className="text-3xl font-bold text-corp-green mb-2 tracking-tight">SyncroEdu</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Gestión Docente y Cumplimiento Legal</h4>
-                                <p className="text-gray-500 text-lg leading-relaxed">
-                                    El cerebro digital definitivo. Genera e inyecta horarios inteligentes, gestiona reemplazos y estadísticas de ausencias en tiempo real. Blinda tu colegio con auditoría legal global y genera informes PDF detallados de cargas horarias y cumplimiento para una gestión administrativa impecable ante el MINEDUC.
+                                <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
+                                    SyncroTime
+                                </h3>
+                                <p className="text-xs font-semibold uppercase tracking-wider text-[#007AFF] mb-4">
+                                    Motor Inteligente de Horarios con IA
                                 </p>
-                            </div>
-                            <div className="mt-auto pt-8">
-                                <Link to="/syncroedu" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Descubrir SyncroEdu <span className="text-lg leading-none">&rsaquo;</span>
-                                </Link>
-                            </div>
-                        </div>
+                                
+                                <p className="text-[#515154] text-sm leading-relaxed mb-6">
+                                    Genera combinaciones horarias óptimas en segundos resolviendo restricciones complejas de docentes, salas, asignaturas y bloques simultáneos. Exportación instantánea a PDF y Excel.
+                                </p>
 
-                        {/* Nexus Card */}
-                        <div className="bg-apple-light rounded-3xl p-10 md:p-10 flex flex-col h-full hover:shadow-2xl transition-shadow duration-500 md:col-span-2 lg:col-span-1">
-                            <div className="mb-8">
-                                <img src="/Logo-Nexus.png" alt="Logo Nexus" className="h-12 w-auto mb-6 object-contain" />
-                                <h3 className="text-3xl font-bold text-corp-blue mb-2 tracking-tight">Nexus</h3>
-                                <h4 className="text-xl font-medium text-gray-900 mb-4">Plataforma Integral de Calidad</h4>
-                                <p className="text-gray-500 text-lg leading-relaxed">
-                                    Eleva tus Estándares Indicativos de Desempeño. Centraliza la evaluación del liderazgo, la gestión pedagógica, la convivencia y los recursos, logrando mejoras continuas demostrables mes a mes.
-                                </p>
+                                <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#007AFF] shrink-0" />
+                                        <span>Algoritmo de optimización combinatorial multi-criterio</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#007AFF] shrink-0" />
+                                        <span>Editor interactivo drag & drop con detección de topes</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#007AFF] shrink-0" />
+                                        <span>Soporte global multilingüe (ES, EN, PT)</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="mt-auto pt-8">
-                                <Link to="/nexus" className="inline-flex items-center gap-2 text-corp-dark font-semibold hover:bg-white px-6 py-3 rounded-full transition-all bg-white/50">
-                                    Descubrir Nexus <span className="text-lg leading-none">&rsaquo;</span>
+
+                            <div className="pt-8 mt-6 border-t border-black/5">
+                                <Link 
+                                    to="/syncrotime" 
+                                    className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
+                                >
+                                    <span>Conocer SyncroTime</span>
+                                    <ArrowRight className="w-4 h-4 text-[#007AFF] group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
-                        </div>
+                        </BentoCard>
+
+                        {/* SyncroEdu Bento Card (Resources & Legal Compliance - Green Glow) */}
+                        <BentoCard glowColor="#34C759" className="flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center justify-between mb-6">
+                                    <LogoContainer>
+                                        <img src="/Logo-SyncroEdu.png" alt="SyncroEdu" className="h-6 w-auto object-contain" />
+                                    </LogoContainer>
+                                    <StatusBadge label="COMPLIANCE ESCOLAR CHILE" variant="success" pulse={true} />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
+                                    SyncroEdu
+                                </h3>
+                                <p className="text-xs font-semibold uppercase tracking-wider text-[#34C759] mb-4">
+                                    Compliance Legal & Gestión Docente
+                                </p>
+                                
+                                <p className="text-[#515154] text-sm leading-relaxed mb-6">
+                                    Proteja su establecimiento ante la Superintendencia de Educación. Valida las Leyes 20.903, 21.625 y 19.070 (regla 65/35), calcula horas PIE (Decreto 170) y gestiona reemplazos docentes en tiempo real.
+                                </p>
+
+                                <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Auditoría legal y semáforo 65/35 en tiempo real</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Cálculo automático de horas PIE y co-docencias</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Gestión de reemplazos móviles y trazabilidad total</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-8 mt-6 border-t border-black/5">
+                                <Link 
+                                    to="/syncroedu" 
+                                    className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
+                                >
+                                    <span>Conocer SyncroEdu</span>
+                                    <ArrowRight className="w-4 h-4 text-[#34C759] group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </BentoCard>
+
+                        {/* Nexus Bento Card (Quality Standards & Leadership - Purple Glow) */}
+                        <BentoCard glowColor="#5856D6" className="flex flex-col justify-between md:col-span-2 lg:col-span-1">
+                            <div>
+                                <div className="flex items-center justify-between mb-6">
+                                    <LogoContainer>
+                                        <img src="/Logo-Nexus.png" alt="Nexus" className="h-6 w-auto object-contain" />
+                                    </LogoContainer>
+                                    <StatusBadge label="CALIDAD INSTITUCIONAL" variant="purple" pulse={false} />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
+                                    Nexus
+                                </h3>
+                                <p className="text-xs font-semibold uppercase tracking-wider text-[#5856D6] mb-4">
+                                    Plataforma de Calidad Educativa
+                                </p>
+                                
+                                <p className="text-[#515154] text-sm leading-relaxed mb-6">
+                                    Eleve los Estándares Indicativos de Desempeño. Centralice y audite la gestión pedagógica, el liderazgo directivo, la convivencia escolar y los recursos con métricas comparativas periódicas.
+                                </p>
+
+                                <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#5856D6] shrink-0" />
+                                        <span>Alineación con Estándares Indicativos de Desempeño</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#5856D6] shrink-0" />
+                                        <span>Cuadros de mando analíticos para directivos</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#5856D6] shrink-0" />
+                                        <span>Seguimiento de planes de mejora continua (PME)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-8 mt-6 border-t border-black/5">
+                                <Link 
+                                    to="/nexus" 
+                                    className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
+                                >
+                                    <span>Conocer Nexus</span>
+                                    <ArrowRight className="w-4 h-4 text-[#5856D6] group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </BentoCard>
                     </div>
                 </div>
             </section>
 
-            {/* Services */}
-            <section id="servicios" className="py-24 px-6 bg-apple-light">
+            {/* Services Section (Apple HIG Bento Clean Layout) */}
+            <section id="servicios" className="py-20 px-6">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                        <div className="mb-2">
+                            <span className="text-[11px] font-bold uppercase tracking-widest text-[#007AFF]">
+                                Acompañamiento Estratégico
+                            </span>
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1D1D1F] mb-4">
+                            Vamos mucho más allá del software.
+                        </h2>
+                        <p className="text-[#515154] text-base leading-relaxed">
+                            Acompañamos a sostenedores y equipos de gestión para asegurar una transición fluida y una cultura escolar de máxima excelencia.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <BentoCard glowColor="#FF9500" className="p-8">
+                            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-[#FF9500] flex items-center justify-center mb-6">
+                                <GraduationCap className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight mb-3">
+                                Capacitación Docente y Directiva
+                            </h3>
+                            <p className="text-sm text-[#515154] leading-relaxed">
+                                Entrenamos a su equipo presencial y sincrónicamente para garantizar adopción tecnológica total, autonomía operativa y cero fricción en los procesos escolares.
+                            </p>
+                        </BentoCard>
+
+                        <BentoCard glowColor="#007AFF" className="p-8">
+                            <div className="w-12 h-12 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 text-[#007AFF] flex items-center justify-center mb-6">
+                                <TrendingUp className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-[#1D1D1F] tracking-tight mb-3">
+                                Consultoría Estratégica Escolar
+                            </h3>
+                            <p className="text-sm text-[#515154] leading-relaxed">
+                                Asesoramos a sostenedores y directivos en la optimización de recursos, estructuración de dotaciones docentes y prevención rigurosa de sanciones de la Superintendencia.
+                            </p>
+                        </BentoCard>
+                    </div>
+
+                    <div className="mt-14 text-center">
+                        <PrimaryButton
+                            size="lg"
+                            href="/contacto"
+                            icon={<ArrowRight className="w-4 h-4" />}
+                        >
+                            Hablemos sobre su institución
+                        </PrimaryButton>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Final Section */}
+            <section id="contacto" className="py-20 px-6">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center text-gray-900 mb-16">Vamos mucho más allá del software.</h2>
-                    
-                    <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-12">
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
-                            <div className="w-12 h-12 bg-corp-dark text-white rounded-2xl flex items-center justify-center text-2xl mb-6">
-                                🧠
-                            </div>
-                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Capacitación Docente y Directiva</h4>
-                            <p className="text-gray-500 text-lg leading-relaxed">
-                                No te dejamos solo con la herramienta. Entrenamos a tu equipo presencialmente y/o de forma sincrónica para asegurar la máxima adopción tecnológica y una transición completamente libre de fricciones.
-                            </p>
-                        </div>
-                        
-                        <div className="bg-white p-10 rounded-3xl shadow-sm border border-gray-100 transition-all hover:shadow-lg">
-                            <div className="w-12 h-12 bg-corp-dark text-white rounded-2xl flex items-center justify-center text-2xl mb-6">
-                                📈
-                            </div>
-                            <h4 className="text-2xl font-bold text-gray-900 mb-4">Consultoría Estratégica Escolar</h4>
-                            <p className="text-gray-500 text-lg leading-relaxed">
-                                Trabajamos hombro a hombro con sostenedores para optimizar procesos internos, maximizar el rendimiento del PME y garantizar que tu institución se alinee a la perfección con los estándares nacionales.
-                            </p>
-                        </div>
-                    </div>
+                    <div className="rounded-3xl bg-[#1C1C1E] text-white p-10 md:p-16 text-center relative overflow-hidden border border-white/10 shadow-2xl">
+                        {/* Ambient top glow */}
+                        <div 
+                            className="pointer-events-none absolute -inset-px opacity-30 blur-2xl"
+                            style={{ background: 'radial-gradient(circle at 50% 0%, #007AFF, transparent 70%)' }}
+                        />
 
-                    <div className="mt-16 text-center">
-                        <Link to="/contacto" className="bg-corp-dark text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-black transition-all inline-flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transform duration-300">
-                            Hablemos sobre tu institución &rsaquo;
-                        </Link>
+                        <div className="relative z-10 max-w-2xl mx-auto">
+                            <div className="mb-4">
+                                <span className="text-[11px] font-bold uppercase tracking-widest text-[#52A6FF]">
+                                    Asesoría Personalizada
+                                </span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6">
+                                ¿Hablamos sobre el futuro de su colegio?
+                            </h2>
+                            <p className="text-base md:text-lg text-[#A1A1A6] mb-10 leading-relaxed font-normal">
+                                Agende una demostración personalizada con nuestros especialistas educacionales. Descubra cómo blindar legalmente su institución y optimizar la gestión de horarios.
+                            </p>
+                            <PrimaryButton
+                                size="lg"
+                                href="/contacto"
+                                icon={<Sparkles className="w-4 h-4" />}
+                            >
+                                Agendar una demostración gratuita
+                            </PrimaryButton>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Contact / Footer */}
-            <section id="contacto" className="py-24 bg-gray-900 text-white text-center px-6">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="text-4xl font-bold tracking-tight mb-6">¿Hablamos sobre el futuro de tu colegio?</h2>
-                    <p className="text-xl text-gray-400 mb-10">Agenda una sesión estratégica hoy mismo con uno de nuestros expertos educacionales. Descubre en vivo cómo podemos blindar y potenciar tu institución.</p>
-                    <Link to="/contacto" className="bg-corp-green text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-green-500 transition-colors inline-block shadow-xl hover:scale-105 transform duration-300">
-                        Agenda una demostración gratuita
-                    </Link>
-                </div>
-            </section>
-
-            <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <div>
-                        <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+            {/* Footer (Apple HIG Style) */}
+            <footer className="bg-[#F5F5F7] text-[#515154] py-12 text-xs border-t border-black/5">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="flex items-center gap-3">
+                        <LogoContainer className="w-8 h-8 rounded-xl">
+                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                        </LogoContainer>
+                        <div>
+                            <p className="font-semibold text-[#1D1D1F]">BE Academic</p>
+                            <p className="text-[#8E8E93]">&copy; {new Date().getFullYear()} BE Academic. Todos los derechos reservados.</p>
+                        </div>
                     </div>
-                    <div className="flex gap-4">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                    <div className="flex flex-wrap justify-center gap-6 font-medium">
+                        <Link to="/syncroedu" className="hover:text-[#1D1D1F] transition-colors">SyncroEdu</Link>
+                        <Link to="/syncrotime" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
+                        <Link to="/nexus" className="hover:text-[#1D1D1F] transition-colors">Nexus</Link>
+                        <Link to="/legal" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
+                        <Link to="/contacto" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
                     </div>
                 </div>
             </footer>

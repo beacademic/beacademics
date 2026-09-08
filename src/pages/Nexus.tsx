@@ -1,10 +1,23 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { 
+    Users, 
+    BookOpen, 
+    HeartHandshake, 
+    BarChart3, 
+    ArrowRight, 
+    Zap,
+    Sparkles
+} from 'lucide-react';
+import { BentoCard } from '../components/ui/BentoCard';
+import { PrimaryButton } from '../components/ui/PrimaryButton';
+import { StatusBadge } from '../components/ui/StatusBadge';
+import { LogoContainer } from '../components/ui/LogoContainer';
 
 export default function Nexus() {
     return (
-        <div className="bg-white min-h-screen text-apple-gray font-sans selection:bg-corp-blue selection:text-white flex flex-col">
+        <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans selection:bg-[#007AFF] selection:text-white flex flex-col">
             <Helmet>
                 <html lang="es" />
                 <title>Nexus | Plataforma Integral de Calidad Educativa</title>
@@ -18,74 +31,141 @@ export default function Nexus() {
                 <meta property="og:title" content="Nexus | Plataforma de Calidad Educativa" />
                 <meta property="og:description" content="Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos." />
             </Helmet>
-            {/* Header / Navigation */}
-            <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-                <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-8">
-                        <Link to="/" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
-                            <span className="text-lg leading-none pb-0.5">&lsaquo;</span>
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-5 w-auto object-contain" />
+
+            {/* Header / Navigation Glassmorphism */}
+            <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
+                <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
+                    <div className="flex items-center gap-6">
+                        <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
+                            <LogoContainer className="w-9 h-9">
+                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                            </LogoContainer>
+                            <span className="text-xs font-semibold text-[#86868B] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
+                                BE Academic
+                            </span>
                         </Link>
-                        <span className="text-corp-blue font-bold text-lg tracking-tight">Nexus</span>
+
+                        <div className="h-5 w-px bg-black/10 hidden sm:block" />
+
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 flex items-center justify-center text-[#007AFF]">
+                                <Sparkles className="w-4 h-4" />
+                            </div>
+                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">Nexus</span>
+                            <span className="px-2 py-0.5 bg-[#FF9500]/10 text-[#FF9500] text-[11px] font-bold rounded-full border border-[#FF9500]/20">
+                                Próximamente
+                            </span>
+                        </div>
                     </div>
+
                     <div className="flex items-center gap-4">
-                        <Link to="/contacto" className="bg-corp-blue text-white px-4 py-1.5 rounded-full hover:bg-blue-600 transition-colors shadow-sm">
-                            Contactar
-                        </Link>
+                        <PrimaryButton 
+                            variant="blue"
+                            size="sm"
+                            to="/contacto"
+                        >
+                            Lista de Espera VIP
+                        </PrimaryButton>
                     </div>
                 </nav>
             </header>
 
             {/* Central Content */}
-            <main className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-12 text-center bg-gradient-to-b from-white to-blue-50/50">
+            <main className="flex-1 max-w-7xl mx-auto px-6 py-20 md:py-28 flex flex-col items-center text-center">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="max-w-3xl"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="max-w-3xl mb-16"
                 >
-                    <div className="w-20 h-20 bg-blue-100 text-corp-blue rounded-3xl flex items-center justify-center text-4xl mb-8 mx-auto shadow-sm">
-                        <span className="animate-bounce">🚀</span>
-                    </div>
+                    <StatusBadge label="PRÓXIMO LANZAMIENTO · CALIDAD EDUCATIVA" variant="warning" pulse={true} className="mb-6 mx-auto" />
                     
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight mb-6">
-                        Revoluciona tu <br className="hidden md:block" /> Calidad Educativa.
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6 font-display" style={{ textWrap: 'balance' }}>
+                        Revolucione la Calidad Educativa de su Establecimiento.
                     </h1>
                     
-                    <h2 className="text-2xl md:text-3xl font-semibold text-corp-blue mb-8">
-                        Estamos construyendo el estándar del futuro. Pronto revelaremos la plataforma.
-                    </h2>
-                    
-                    <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-                        Nuestra nueva Plataforma Integral de Calidad centralizará por completo el cumplimiento de los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos, facilitando la toma de decisiones basada en datos reales.
+                    <p className="text-lg md:text-xl text-[#007AFF] font-semibold mb-6 font-display">
+                        El nuevo estándar en gestión de Estándares Indicativos de Desempeño.
                     </p>
                     
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link 
-                            to="/contacto" 
-                            className="bg-corp-blue text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-600 hover:scale-105 transition-all w-full sm:w-auto text-center shadow-lg hover:shadow-xl"
+                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                        Nuestra nueva Plataforma Integral de Calidad centralizará el cumplimiento de los Estándares Indicativos de Desempeño del Sistema de Aseguramiento de la Calidad (SAC): Liderazgo, Gestión Pedagógica, Convivencia y Recursos, facilitando la toma de decisiones basada en analítica confiable.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <PrimaryButton 
+                            variant="blue"
+                            size="lg"
+                            to="/contacto"
+                            icon={<ArrowRight className="w-4 h-4" />}
                         >
-                            Lista de Espera VIP
-                        </Link>
-                        <Link 
-                            to="/" 
-                            className="text-gray-900 font-medium px-8 py-3 flex items-center justify-center gap-2 border-2 border-gray-200 hover:bg-gray-50 rounded-full transition-colors w-full sm:w-auto text-center"
+                            Unirse a la Lista de Espera VIP
+                        </PrimaryButton>
+                        <PrimaryButton 
+                            variant="secondary"
+                            size="lg"
+                            to="/"
                         >
-                            Volver al inicio
-                        </Link>
+                            Volver al Ecosistema
+                        </PrimaryButton>
                     </div>
                 </motion.div>
+
+                {/* Bento Grid: 4 Dimensiones de Calidad */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full text-left">
+                    <BentoCard glowColor="#007AFF">
+                        <div className="w-12 h-12 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 flex items-center justify-center text-[#007AFF] mb-5">
+                            <Users className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Liderazgo Escolar</h3>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Monitoreo de metas institucionales, planificación estratégica PME y articulación del equipo directivo.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#34C759">
+                        <div className="w-12 h-12 rounded-2xl bg-[#34C759]/10 border border-[#34C759]/20 flex items-center justify-center text-[#34C759] mb-5">
+                            <BookOpen className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión Pedagógica</h3>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Acompañamiento en aula, cobertura curricular y seguimiento del progreso de los aprendizajes clave.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#5856D6">
+                        <div className="w-12 h-12 rounded-2xl bg-[#5856D6]/10 border border-[#5856D6]/20 flex items-center justify-center text-[#5856D6] mb-5">
+                            <HeartHandshake className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Convivencia Escolar</h3>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Gestión preventiva del clima escolar, protocolos de actuación y bienestar de la comunidad educativa.
+                        </p>
+                    </BentoCard>
+
+                    <BentoCard glowColor="#FF9500">
+                        <div className="w-12 h-12 rounded-2xl bg-[#FF9500]/10 border border-[#FF9500]/20 flex items-center justify-center text-[#FF9500] mb-5">
+                            <BarChart3 className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión de Recursos</h3>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                            Optimización de infraestructura, equipamiento didáctico y soporte continuo a la docencia.
+                        </p>
+                    </BentoCard>
+                </div>
             </main>
-        {/* Footer */}
-            <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+            {/* Footer Apple HIG */}
+            <footer className="bg-[#1C1C1E] text-[#86868B] py-12 text-sm border-t border-white/10 mt-auto">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
                     <div>
-                        <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
+                        <p className="text-white font-semibold mb-1">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
                         <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-6">
                         <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
                     </div>
                 </div>
             </footer>
