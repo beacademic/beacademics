@@ -240,7 +240,8 @@ export default function SyncroTime() {
     };
 
     const t = content[currentLang];
-    const pricingUrl = `https://syncrotime.com/${currentLang === 'pt' ? 'es' : currentLang}/pricing`;
+    const loginUrl = currentLang === 'en' ? 'https://app.syncrotime.com/en/login' : 'https://app.syncrotime.com/es/login';
+    const pricingUrl = currentLang === 'en' ? 'https://syncrotime.com/en/#precios' : 'https://syncrotime.com/es/#precios';
 
     const schemaData = {
         "@context": "https://schema.org",
@@ -373,7 +374,9 @@ export default function SyncroTime() {
                         </div>
 
                         <a 
-                            href="https://syncrotime.com" 
+                            href={loginUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-xs font-semibold text-[#86868B] hover:text-[#1D1D1F] transition-colors hidden sm:block px-2"
                         >
                             {t.login}
@@ -383,6 +386,8 @@ export default function SyncroTime() {
                             variant="blue"
                             size="sm"
                             href={pricingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {t.pricing}
                         </PrimaryButton>
@@ -440,6 +445,8 @@ export default function SyncroTime() {
                             variant="blue"
                             size="lg"
                             href={pricingUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             icon={<ArrowRight className="w-4 h-4" />}
                         >
                             {t.heroCta1}
@@ -659,6 +666,8 @@ export default function SyncroTime() {
                                 variant="blue"
                                 size="lg"
                                 href={pricingUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 icon={<ArrowRight className="w-4 h-4" />}
                             >
                                 {t.ctaBtn1}
