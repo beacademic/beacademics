@@ -3,6 +3,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --color-bg: #F5F5F7;
     --color-bg-card: #FFFFFF;
     --color-bg-card-rgb: 255, 255, 255;
@@ -19,25 +20,6 @@
     --color-success: #34C759;
     --color-warning: #FF9500;
     --color-danger: #FF3B30;
-  }
-
-  .dark {
-    --color-bg: #1C1C1E;
-    --color-bg-card: #2C2C2E;
-    --color-bg-card-rgb: 44, 44, 46;
-    --color-bg-hover: #3A3A3C;
-    --color-border: #3A3A3C;
-    --color-border-subtle: rgba(255, 255, 255, 0.1);
-
-    --color-text: #F5F5F7;
-    --color-text-secondary: #A1A1A6;
-    --color-text-muted: #636366;
-
-    --color-primary: #52A6FF;
-    --color-accent: #8B5CF6;
-    --color-success: #34C759;
-    --color-warning: #FF9F0A;
-    --color-danger: #FF453A;
   }
 }
 
@@ -68,10 +50,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
+  color-scheme: light;
   background-color: #F5F5F7;
   color: #1D1D1F;
   -webkit-font-smoothing: antialiased;
