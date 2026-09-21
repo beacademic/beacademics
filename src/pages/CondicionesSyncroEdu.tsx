@@ -1,29 +1,21 @@
-import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 
 export default function CondicionesSyncroEdu() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white flex flex-col">
-            <Helmet>
-                <title>Condiciones de Servicio - SyncroEdu | BE Academic</title>
-                <meta name="description" content="Condiciones de Servicio de SyncroEdu. Naturaleza del servicio, contratación, planes y facturación, cuentas de usuario." />
-            </Helmet>
+            <Seo path="/condiciones-syncroedu/" />
             
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
                         <Link to="/" className="flex items-center">
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-8 w-auto" />
+                            <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex gap-6">
-                            <Link to="/syncroedu" className="text-gray-600 hover:text-corp-dark transition-colors">Volver a SyncroEdu</Link>
+                            <Link to="/syncroedu/" className="text-gray-600 hover:text-corp-dark transition-colors">Volver a SyncroEdu</Link>
                         </div>
                     </div>
                 </nav>
@@ -39,11 +31,11 @@ export default function CondicionesSyncroEdu() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
                         Condiciones de Servicio de SyncroEdu
                     </h1>
-                    <p className="text-gray-500 mb-10">Última actualización: Junio de 2026</p>
+                    <p className="text-gray-500 mb-10">Última actualización: Septiembre de 2026</p>
                     
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-600">
                         <p className="text-xl leading-relaxed text-gray-800 mb-8">
-                            Te damos la bienvenida a SyncroEdu, la plataforma de diseño, optimización y gestión de horarios para establecimientos educacionales.
+                            Le damos la bienvenida a SyncroEdu, la plataforma de diseño, optimización y gestión de horarios para establecimientos educacionales.
                         </p>
                         
                         <p className="mb-4">
@@ -68,7 +60,7 @@ export default function CondicionesSyncroEdu() {
                         </ul>
 
                         <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">2. Proceso de Contratación y Adquisición</h2>
-                        <p className="mb-4">Para garantizar una atención personalizada y adecuada a la realidad de cada colegio, SyncroEdu no se vende de forma directa ni automatizada a través de nuestro sitio web. El proceso de adquisición se realiza de la siguiente manera:</p>
+                        <p className="mb-4">Para ofrecer una atención personalizada y adecuada a la realidad de cada colegio, SyncroEdu no se vende de forma directa ni automatizada a través de nuestro sitio web. El proceso de adquisición se realiza de la siguiente manera:</p>
                         <ul className="list-disc pl-6 mb-6 space-y-2">
                             <li><strong>Contacto Inicial:</strong> El establecimiento interesado solicita información a través del formulario del sitio web o nos contacta vía telefónica.</li>
                             <li><strong>Reunión de Demostración:</strong> Nuestro equipo realiza una sesión de presentación (remota o presencial) para mostrar las capacidades del software y evaluar las necesidades del establecimiento (número de docentes, jornadas, cantidad de alumnos, etc.).</li>
@@ -106,7 +98,7 @@ export default function CondicionesSyncroEdu() {
 
                         <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">7. Disponibilidad, Soporte y Mantenimiento</h2>
                         <ul className="list-disc pl-6 mb-6 space-y-2">
-                            <li><strong>Disponibilidad del Servicio:</strong> Nos esforzamos por mantener la plataforma operativa las 24 horas del día, los 7 días de la semana, con un porcentaje de disponibilidad (Uptime) del 99.5%.</li>
+                            <li><strong>Disponibilidad del Servicio:</strong> Nos esforzamos por mantener la plataforma operativa las 24 horas del día, los 7 días de la semana, con un porcentaje de disponibilidad (Uptime) del 99,5%.</li>
                             <li><strong>Mantenimiento Programado:</strong> Ocasionalmente realizaremos tareas de mantenimiento, actualizaciones o mejoras de seguridad. Estas interrupciones se programarán preferentemente durante la noche o fines de semana (horas de baja actividad escolar) y serán notificadas previamente a los administradores.</li>
                             <li><strong>Exclusión por Servicios de Terceros y Fuerza Mayor:</strong> SyncroEdu no se hace responsable por interrupciones en el servicio, pérdida de datos o indisponibilidad temporal causadas por fallas en la infraestructura de terceros proveedores de hosting en la nube (como Google Cloud y Firebase), fallas generales en redes de telecomunicaciones, proveedores de internet de la Institución o eventos fortuitos y de fuerza mayor fuera del control directo de SyncroEdu.</li>
                             <li><strong>Soporte Técnico:</strong> Brindamos asistencia técnica remota (vía telefónica, correo electrónico y/o videollamada) para resolver dudas de uso o incidentes dentro del horario laboral acordado en el contrato de servicio.</li>
@@ -136,13 +128,13 @@ export default function CondicionesSyncroEdu() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+                        <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada · RUT 77.650.439-4. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/privacidad-syncroedu" className="hover:text-white transition-colors">Política de Privacidad (SyncroEdu)</Link>
-                        <Link to="/condiciones-syncroedu" className="hover:text-white transition-colors">Condiciones de Servicio (SyncroEdu)</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad (SyncroEdu)</Link>
+                        <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio (SyncroEdu)</Link>
+                        <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>
                 </div>
             </footer>

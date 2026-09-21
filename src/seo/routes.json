@@ -1,0 +1,97 @@
+{
+  "site": {
+    "url": "https://beacademics.com",
+    "name": "BE Academic",
+    "image": "https://beacademics.com/og-image.jpg",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "imageAlt": "BE Academic: SyncroEdu, SyncroTime y Nexus"
+  },
+  "notFound": {
+    "title": "Página no encontrada | BE Academic",
+    "description": "La página que busca no existe. Vuelva al inicio de BE Academic."
+  },
+  "routes": {
+    "/": {
+      "title": "BE Academic | SyncroEdu, SyncroTime y Nexus",
+      "description": "Software para colegios: SyncroEdu valida la normativa docente chilena (regla 65/35, PIE) y SyncroTime genera horarios con un motor de optimización. Nexus, próximamente.",
+      "keywords": "gestión escolar, software para colegios, syncroedu, syncrotime, generador de horarios escolares, nexus, cumplimiento normativo colegios chile, ley 20.903, calidad educativa, software educativo",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "weekly",
+      "priority": "1.0"
+    },
+    "/syncroedu/": {
+      "title": "SyncroEdu | Compliance Escolar, Ley 20.903 y Horarios para Colegios en Chile",
+      "description": "Genere horarios, valide la regla 65/35 (Leyes 20.903, 21.625 y 19.070), audite horas PIE (Decreto 170) y gestione reemplazos. Reduzca el riesgo de multas de la Superintendencia de Educación.",
+      "ogTitle": "SyncroEdu | Compliance Escolar y Horarios para Colegios en Chile",
+      "ogDescription": "Reduzca el riesgo de multas de la Superintendencia de Educación. Valide la proporción lectiva/no lectiva (Leyes 20.903, 21.625 y 19.070) y gestione horarios y reemplazos docentes.",
+      "keywords": "horarios escolares Chile, compliance educativo, Superintendencia de Educación, Ley 20.903, Ley 21.625, Ley 19.070, Decreto 170 PIE, gestión docente, proporción 65 35, SaaS educativo Chile, software colegios chile",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "weekly",
+      "priority": "0.95"
+    },
+    "/syncrotime/": {
+      "title": "SyncroTime | Motor de optimización de horarios escolares",
+      "description": "Motor de optimización de horarios escolares: genere el horario con sus restricciones docentes y de salas, edítelo con detección de topes y exporte a Excel y PDF.",
+      "keywords": "generador de horarios escolares, software horarios colegios, confección de horarios escolares, horarios sin topes, programa para hacer horarios de clases, algoritmo horarios escolares, motor de optimización de horarios",
+      "lang": "es",
+      "locale": "es_ES",
+      "changefreq": "weekly",
+      "priority": "0.95"
+    },
+    "/nexus/": {
+      "title": "Nexus | Plataforma Integral de Calidad Educativa",
+      "description": "Nexus es la próxima plataforma integral de calidad para colegios en Chile. Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica y más.",
+      "ogTitle": "Nexus | Plataforma de Calidad Educativa",
+      "ogDescription": "Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos.",
+      "keywords": "calidad educativa, estándares indicativos de desempeño, nexus, gestión pedagógica chile, liderazgo escolar",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    "/contacto/": {
+      "title": "Contacto y Asesoría | BE Academic",
+      "description": "Contáctenos para una asesoría personalizada gratuita. Consulte por SyncroEdu (cumplimiento normativo y gestión docente) y SyncroTime (horarios escolares).",
+      "keywords": "contacto be academic, asesoría escolar chile, software educativo contacto, agendar demo syncroedu, cotizar syncrotime",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "weekly",
+      "priority": "0.85"
+    },
+    "/acceso/": {
+      "title": "Portal de Clientes | BE Academic",
+      "description": "Ingrese a SyncroEdu, SyncroTime o Nexus desde el portal de clientes de BE Academic.",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.3"
+    },
+    "/legal/": {
+      "title": "Información Legal | BE Academic",
+      "description": "Información legal de la SOCIEDAD DE FORMACIÓN BE ACADEMIC LIMITADA. Domicilio, RUT, canales oficiales de contacto y cumplimiento normativo.",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.5"
+    },
+    "/privacidad-syncroedu/": {
+      "title": "Política de Privacidad - SyncroEdu | BE Academic",
+      "description": "Política de privacidad de SyncroEdu. Información sobre el manejo de datos, derechos ARCOP y protección de la información.",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.4"
+    },
+    "/condiciones-syncroedu/": {
+      "title": "Condiciones de Servicio - SyncroEdu | BE Academic",
+      "description": "Condiciones de Servicio de SyncroEdu. Naturaleza del servicio, contratación, planes y facturación, cuentas de usuario.",
+      "lang": "es",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.4"
+    }
+  }
+}

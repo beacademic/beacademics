@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Helmet } from 'react-helmet-async';
 import { 
     Cpu, 
     Move, 
@@ -20,118 +19,133 @@ import { BentoCard } from '../components/ui/BentoCard';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { LogoContainer } from '../components/ui/LogoContainer';
+import Seo, { getRouteMeta, canonicalUrl } from '../components/Seo';
+import { whatsappLink } from '../config/contact';
 
 type Lang = 'es' | 'en' | 'pt';
 
+const esMeta = getRouteMeta('/syncrotime/');
+
 const content = {
     es: {
-        metaTitle: 'SyncroTime | Generador de Horarios Escolares Inteligente y Automático',
-        metaDescription: 'SyncroTime es el software global para creación y optimización automática de horarios escolares. Diseña horarios sin topes docentes ni de salas en minutos con inteligencia algorítmica.',
-        metaKeywords: 'generador de horarios escolares, software horarios colegios, confeccion de horarios escolares, horarios sin topes, programa para hacer horarios de clases, algoritmo horarios escolares, timetable maker',
+        metaTitle: esMeta.title,
+        metaDescription: esMeta.description,
+        metaKeywords: esMeta.keywords ?? '',
         navFunc: 'Funcionalidades',
         navBenefits: 'Beneficios',
         navFaq: 'Preguntas Frecuentes',
         login: 'Iniciar Sesión',
         pricing: 'Ver Precios',
-        badge: 'MOTOR GLOBAL DE HORARIOS ESCOLARES',
+        chip: 'Motor de horarios',
+        badge: 'MOTOR DE OPTIMIZACIÓN DE HORARIOS ESCOLARES',
         heroTitle1: 'Generación de',
-        heroTitle2: 'Horarios Exacta.',
-        heroSubtitle: 'Arma tu puzzle escolar en minutos, sin topes ni estrés.',
-        heroDesc: 'El motor generador de horarios más inteligente del mercado global. Se adapta a todas las restricciones de tu institución para facilitar la creación, edición y reportabilidad de la carga académica de forma infalible y automatizada.',
+        heroTitle2: 'Horarios Escolares.',
+        heroSubtitle: 'Arme el horario escolar en minutos, con detección de topes.',
+        heroDesc: 'Motor de optimización de horarios: algoritmos de optimización y validación determinista que respetan las restricciones de su institución para facilitar la creación, edición y reporte de la carga académica.',
         heroCta1: 'Cotizar Ahora',
         heroCta2: 'Conversar con experto',
-        imgAlt: 'Vista Panorámica de Horario - SyncroTime Dashboard',
-        problemHeading: '¿Semanas atrapado armando horarios que siempre terminan con topes?',
-        problemDesc: 'Despedirse de los pizarrones magnéticos y de las caóticas hojas de cálculo ya es una realidad. SyncroTime toma todas tus variables docentes, reglas institucionales e infraestructura, y genera la estructura ideal en minutos. Recupera tu tiempo y tu cordura.',
-        featuresTitle: 'El poder de un Horario Inteligente',
-        feat1Title: 'Motor de Generación Ultra-Rápido',
-        feat1Desc: 'Olvídate del agotador trabajo manual. Ingresa tus docentes y asignaturas; deja que nuestro avanzado algoritmo procese miles de combinaciones en segundos para entregarte la distribución perfecta, sin topes ni conflictos.',
+        heroChip1: 'Multi-país, en la nube',
+        heroChip2: 'Detección automática de topes',
+        chooseText: '¿Necesita validar además la normativa docente chilena (regla 65/35, horas PIE)? Elija SyncroEdu. SyncroTime es la opción si solo necesita generar el horario.',
+        chooseLink: 'Conocer SyncroEdu',
+        imgAlt: 'Panel de control de SyncroTime: resumen de docentes, asignaturas, cursos y última generación de horario',
+        problemHeading: '¿Semanas armando horarios que igual terminan con topes?',
+        problemDesc: 'Deje atrás los pizarrones magnéticos y las hojas de cálculo desordenadas. SyncroTime considera las variables docentes, las reglas institucionales y la infraestructura de su establecimiento, y propone una estructura de horario en minutos. Recupere su tiempo.',
+        featuresTitle: 'Funcionalidades del motor de optimización de horarios',
+        feat1Title: 'Motor de Generación de Horarios',
+        feat1Desc: 'Olvídese del trabajo manual. Ingrese sus docentes y asignaturas; el algoritmo de optimización evalúa miles de combinaciones y propone una distribución que respeta las restricciones configuradas, evitando cruces de docentes y de salas.',
         feat2Title: 'Edición Intuitiva Drag & Drop',
-        feat2Desc: 'Afina detalles arrastrando y soltando como en un juego. Nuestro sistema actúa como un copiloto, mostrándote "espacios seguros" en verde y bloqueando movimientos prohibidos para que nunca te equivoques.',
+        feat2Desc: 'Afine los detalles arrastrando y soltando bloques. El sistema le muestra "espacios seguros" en verde y le advierte de los movimientos que no son posibles, para reducir errores de edición.',
         feat3Title: 'Control a Vista de Pájaro',
-        feat3Desc: 'Analiza tu colegio desde cualquier ángulo en tiempo real. Alterna instantáneamente entre Vista Docente, Vista Curso y Panorámicas Globales para detectar necesidades y optimizar cada sala.',
+        feat3Desc: 'Analice su colegio desde cualquier ángulo en tiempo real. Alterne instantáneamente entre Vista Docente, Vista Curso y Panorámicas Globales para detectar necesidades y optimizar cada sala.',
         feat4Title: 'Reportabilidad a un Clic',
-        feat4Desc: 'Basta de transcribir horarios. Descarga sábanas institucionales complejas en Excel o imprime horarios individuales hermosos en PDF listos para entregar a cada docente. Profesionaliza tu gestión.',
+        feat4Desc: 'Deje de transcribir horarios. Descargue sábanas institucionales en Excel o imprima horarios individuales en PDF, listos para entregar a cada docente. Profesionalice su gestión.',
         feat5Title: 'Sistema de Alertas Anti-Topes en Vivo',
-        feat5Desc: 'Mantén el control absoluto. Durante la edición manual, si intentas mover una clase a un bloque que genera un choque de horarios o incumple una restricción, el sistema te alerta instantáneamente dejándote decidir si deseas abortar el movimiento para proteger el horario, o confirmar el cambio y asumir la excepción.',
-        benefitsTitle: 'Por qué elegir SyncroTime en tu Institución',
-        ben1Title: 'Precisión Absoluta',
-        ben1Desc: 'Cero cruces de horario, cero profesores a dos bandas y respeto total por las ventanas pedagógicas configuradas.',
+        feat5Desc: 'Mantenga el control. Durante la edición manual, si intenta mover una clase a un bloque que genera un choque de horarios o incumple una restricción, el sistema le alerta al instante y le deja decidir si aborta el movimiento para proteger el horario, o confirma el cambio y asume la excepción.',
+        benefitsTitle: 'Por qué elegir SyncroTime en su Institución',
+        ben1Title: 'Validación de Cruces',
+        ben1Desc: 'Alertas de cruces de horario y de profesores asignados a dos salas a la vez, con respeto por las ventanas pedagógicas configuradas.',
         ben2Title: 'Agilidad Visual',
-        ben2Desc: 'Mueve piezas como en un tablero interactivo. La edición basada en colores e indicadores visuales hace el trabajo arduo algo simple.',
+        ben2Desc: 'Mueva piezas como en un tablero interactivo. La edición basada en colores e indicadores visuales hace más simple un trabajo arduo.',
         ben3Title: 'Restricciones Flexibles',
-        ben3Desc: 'Define las reglas del juego: bloqueos de disponibilidad docente, prioridades de aulas o salas de laboratorio. El motor lo comprende todo.',
+        ben3Desc: 'Defina las reglas del juego: bloqueos de disponibilidad docente, prioridades de aulas o salas de laboratorio. El motor las considera al generar el horario.',
         faqTitle: 'Preguntas Frecuentes sobre el Generador de Horarios',
         faqs: [
             {
-                q: '¿Cómo garantiza SyncroTime que no existan cruces de horarios o topes docentes?',
-                a: 'SyncroTime utiliza un algoritmo avanzado de resolución de restricciones con validación en tiempo real. Verifica simultáneamente la disponibilidad del profesor, la sala asignada, las restricciones del curso y los límites pedagógicos antes de fijar cualquier bloque.'
+                q: '¿Cómo evita SyncroTime los cruces de horarios y los topes docentes?',
+                a: 'SyncroTime utiliza algoritmos de optimización y validación determinista con verificación en tiempo real. Comprueba simultáneamente la disponibilidad del profesor, la sala asignada, las restricciones del curso y los límites pedagógicos antes de fijar cualquier bloque.'
             },
             {
-                q: '¿Es compatible con instituciones de cualquier país y nivel educativo?',
-                a: 'Sí. SyncroTime es una plataforma 100% web y flexible, configurada para colegios de educación básica, secundaria, bachilleratos, escuelas técnicas y universidades en más de 20 países.'
+                q: '¿Para qué instituciones y niveles educativos está pensado SyncroTime?',
+                a: 'SyncroTime es una plataforma web y configurable, pensada para colegios de educación básica y secundaria, bachilleratos, escuelas técnicas y universidades, con interfaz en español, inglés y portugués. Consúltenos por los requisitos de su institución.'
             },
             {
                 q: '¿Se pueden exportar los horarios a Excel y PDF?',
-                a: 'Sí. Con un solo clic puedes descargar la sábana global del colegio en formato Excel para edición o análisis, así como generar horarios individuales en PDF para cada profesor y curso.'
+                a: 'Sí. Con un solo clic puede descargar la sábana global del colegio en formato Excel para edición o análisis, así como generar horarios individuales en PDF para cada profesor y curso.'
             },
             {
                 q: '¿Qué pasa si necesito hacer cambios a mitad de semestre?',
-                a: 'Puedes editar cualquier bloque en segundos mediante el sistema Drag & Drop. Las alertas en vivo te indicarán al instante si el cambio afecta a otros docentes o salas.'
+                a: 'Puede editar cualquier bloque en segundos mediante el sistema Drag & Drop. Las alertas en vivo le indicarán al instante si el cambio afecta a otros docentes o salas.'
             }
         ],
-        ctaTitle: '¿Listo para generar tu próximo ciclo académico?',
-        ctaDesc: 'Desbloquea el potencial organizativo de tu establecimiento. Solicita ahora mismo una demostración de SyncroTime.',
+        ctaTitle: '¿Listo para generar su próximo ciclo académico?',
+        ctaDesc: 'Aproveche el potencial organizativo de su establecimiento. Solicite ahora mismo una demostración de SyncroTime.',
         ctaBtn1: 'Ver Planes y Precios',
         ctaBtn2: 'Hablar directamente por WhatsApp',
-        footerTag: 'BE Academic. Ecosistema Tecnológico Global para la Educación.'
+        footerTag: 'BE Academic. Ecosistema Tecnológico Global para la Educación.',
+        rights: 'Todos los derechos reservados.'
     },
     en: {
-        metaTitle: 'SyncroTime | AI School Timetable & Schedule Generator Software',
-        metaDescription: 'SyncroTime is the global intelligent school timetable software. Create conflict-free schedules in minutes, manage teacher constraints, room allocation, and curriculum effortlessly.',
-        metaKeywords: 'school timetable software, automatic schedule generator, school schedule creator, school timetable maker, conflict-free timetable, AI timetable generator, university schedule builder, school scheduling software',
+        metaTitle: 'SyncroTime | School Timetable Optimization Engine',
+        metaDescription: 'SyncroTime is a school timetable optimization engine. Generate schedules that respect teacher, room and curriculum constraints, edit them with live clash detection, and export to Excel and PDF.',
+        metaKeywords: 'school timetable software, timetable optimization engine, school schedule generator, school schedule creator, school timetable maker, conflict-free timetable, university schedule builder, school scheduling software',
         navFunc: 'Features',
         navBenefits: 'Benefits',
         navFaq: 'FAQ',
         login: 'Sign In',
         pricing: 'View Pricing',
-        badge: 'GLOBAL AI TIMETABLE ENGINE',
-        heroTitle1: 'Flawless School',
-        heroTitle2: 'Timetable Generation.',
-        heroSubtitle: 'Build your school schedule in minutes, 100% conflict-free.',
-        heroDesc: 'The world’s most intelligent timetable generation engine. SyncroTime effortlessly adapts to all institutional rules, teacher availability, and classroom constraints to deliver optimized schedules in seconds.',
+        chip: 'Timetable engine',
+        badge: 'SCHOOL TIMETABLE OPTIMIZATION ENGINE',
+        heroTitle1: 'School Timetable',
+        heroTitle2: 'Generation.',
+        heroSubtitle: 'Build your school schedule in minutes, with conflict checks built in.',
+        heroDesc: 'A timetable optimization engine. SyncroTime uses optimization algorithms and deterministic validation to respect your institution’s rules, teacher availability and classroom constraints, so you can create, edit and report on the academic load.',
         heroCta1: 'Get a Quote',
         heroCta2: 'Talk to a Scheduling Expert',
-        imgAlt: 'Panoramic Timetable View - SyncroTime Dashboard',
+        heroChip1: 'Multi-country, cloud-based',
+        heroChip2: 'Automatic clash detection',
+        chooseText: 'Also need to validate Chilean teacher regulations (65/35 rule, PIE hours)? Choose SyncroEdu. SyncroTime is the right fit if you only need to generate the timetable.',
+        chooseLink: 'Explore SyncroEdu',
+        imgAlt: 'SyncroTime control panel: summary of teachers, subjects, courses and latest timetable generation',
         problemHeading: 'Spending weeks stuck building schedules that still end with clashes?',
-        problemDesc: 'Say goodbye to magnetic boards and chaotic spreadsheets. SyncroTime ingests teacher constraints, subjects, and room capacities, computing the optimal conflict-free schedule in minutes. Reclaim your time.',
-        featuresTitle: 'The Power of Intelligent Timetabling',
-        feat1Title: 'Ultra-Fast AI Generation Engine',
-        feat1Desc: 'No more manual trial-and-error. Enter your staff and subjects; our algorithmic engine computes thousands of combinations in seconds, delivering a balanced distribution without double-bookings.',
+        problemDesc: 'Say goodbye to magnetic boards and chaotic spreadsheets. SyncroTime takes teacher constraints, subjects, and room capacities into account and proposes a clash-checked schedule in minutes. Reclaim your time.',
+        featuresTitle: 'Timetable Optimization Engine Features',
+        feat1Title: 'Timetable Generation Engine',
+        feat1Desc: 'No more manual trial-and-error. Enter your staff and subjects; our optimization algorithm evaluates thousands of combinations and proposes a balanced distribution that respects your configured constraints, avoiding double-bookings.',
         feat2Title: 'Intuitive Drag & Drop Editor',
-        feat2Desc: 'Fine-tune schedule slots effortlessly. SyncroTime highlights safe slots in green and prevents impossible moves, acting as your automated co-pilot.',
+        feat2Desc: 'Fine-tune schedule slots effortlessly. SyncroTime highlights safe slots in green and warns you about moves that are not possible.',
         feat3Title: 'Bird’s-Eye Panoramic Control',
         feat3Desc: 'Inspect your entire institution from any perspective. Seamlessly toggle between Teacher View, Class View, and Room View to optimize facility utilization.',
         feat4Title: 'One-Click Export & Reporting',
         feat4Desc: 'Never manually transcribe schedules again. Export comprehensive institutional matrices to Excel or generate printable, high-resolution PDFs for teachers and students.',
         feat5Title: 'Live Anti-Clash Alert System',
-        feat5Desc: 'Stay in total control. If a manual shift triggers a teacher conflict or room overload, the system alerts you in real time with instant resolution options.',
-        benefitsTitle: 'Why Schools Worldwide Choose SyncroTime',
-        ben1Title: 'Absolute Accuracy',
-        ben1Desc: 'Zero schedule overlaps, zero double-booked teachers, and full compliance with pedagogical requirements.',
+        feat5Desc: 'Stay in control. If a manual shift triggers a teacher conflict or room overload, the system alerts you in real time with instant resolution options.',
+        benefitsTitle: 'Why Schools Choose SyncroTime',
+        ben1Title: 'Clash Validation',
+        ben1Desc: 'Automatic checks for schedule overlaps and double-booked teachers, within the pedagogical requirements you configure.',
         ben2Title: 'Visual Agility',
         ben2Desc: 'Manage time slots on an interactive visual board. Color-coded markers make complex scheduling intuitive.',
         ben3Title: 'Flexible Custom Rules',
-        ben3Desc: 'Configure availability blocks, teacher preferences, specialized labs, and room priorities. The algorithm handles it all.',
+        ben3Desc: 'Configure availability blocks, teacher preferences, specialized labs, and room priorities. The algorithm takes them into account when generating the schedule.',
         faqTitle: 'Frequently Asked Questions about SyncroTime',
         faqs: [
             {
                 q: 'How does SyncroTime prevent timetable clashes and double-booked teachers?',
-                a: 'SyncroTime utilizes a high-performance constraint solver with real-time verification. It simultaneously checks teacher availability, room capacity, course requirements, and pedagogical limits.'
+                a: 'SyncroTime uses optimization algorithms and deterministic validation with real-time verification. It simultaneously checks teacher availability, room capacity, course requirements, and pedagogical limits.'
             },
             {
-                q: 'Is SyncroTime suitable for any educational system globally?',
-                a: 'Yes. SyncroTime is a 100% cloud-based, customizable platform used by primary schools, high schools, academies, and universities worldwide.'
+                q: 'Which institutions is SyncroTime designed for?',
+                a: 'SyncroTime is a cloud-based, configurable platform designed for primary schools, high schools, academies, technical schools, and universities, with an interface in Spanish, English and Portuguese. Contact us to review your institution’s requirements.'
             },
             {
                 q: 'Can schedules be exported to Excel and PDF formats?',
@@ -146,41 +160,47 @@ const content = {
         ctaDesc: 'Unlock the organizational efficiency of your educational institution. Request a live SyncroTime demo today.',
         ctaBtn1: 'View Plans & Pricing',
         ctaBtn2: 'Chat directly on WhatsApp',
-        footerTag: 'BE Academic. Global Educational Technology Ecosystem.'
+        footerTag: 'BE Academic. Global Educational Technology Ecosystem.',
+        rights: 'All rights reserved.'
     },
     pt: {
-        metaTitle: 'SyncroTime | Gerador Inteligente de Grade Horária e Horários Escolares',
-        metaDescription: 'SyncroTime é o software inteligente para geração automática de horários escolares e acadêmicos. Crie grades horárias sem conflitos de professores ou salas em minutos.',
-        metaKeywords: 'gerador de grade horaria escolar, software de horarios escolares, criador de grade de aulas, montar horario escolar automatico, horario escolar sem conflito, grade horaria colegio, montar horario de professores',
+        metaTitle: 'SyncroTime | Motor de Otimização de Horários Escolares',
+        metaDescription: 'O SyncroTime é um motor de otimização de horários escolares. Gere grades que respeitam as restrições de professores, salas e turmas, edite com detecção de conflitos e exporte para Excel e PDF.',
+        metaKeywords: 'gerador de grade horaria escolar, software de horarios escolares, motor de otimização de horários, criador de grade de aulas, montar horario escolar automatico, grade horaria colegio, montar horario de professores',
         navFunc: 'Recursos',
         navBenefits: 'Benefícios',
         navFaq: 'Dúvidas Frequentes',
         login: 'Entrar',
         pricing: 'Ver Preços',
-        badge: 'MOTOR GLOBAL DE GRADE HORÁRIA',
+        chip: 'Motor de horários',
+        badge: 'MOTOR DE OTIMIZAÇÃO DE HORÁRIOS ESCOLARES',
         heroTitle1: 'Geração de Grade',
-        heroTitle2: 'Horária Exata.',
-        heroSubtitle: 'Monte o horário escolar em minutos, sem conflitos nem estresse.',
-        heroDesc: 'O motor gerador de horários mais inteligente do mercado global. Adapta-se a todas as restrições da sua instituição para criar, editar e emitir relatórios de carga horária de forma infalível e 100% automatizada.',
+        heroTitle2: 'Horária Escolar.',
+        heroSubtitle: 'Monte o horário escolar em minutos, com detecção de conflitos.',
+        heroDesc: 'Motor de otimização de horários: algoritmos de otimização e validação determinística que respeitam as restrições da sua instituição para criar, editar e emitir relatórios de carga horária.',
         heroCta1: 'Solicitar Cotação',
         heroCta2: 'Falar com Especialista',
-        imgAlt: 'Visão Panorâmica da Grade Horária - SyncroTime Dashboard',
+        heroChip1: 'Multipaís, na nuvem',
+        heroChip2: 'Detecção automática de conflitos',
+        chooseText: 'Também precisa validar a normativa docente chilena (regra 65/35, horas PIE)? Escolha o SyncroEdu. O SyncroTime é a opção se você só precisa gerar o horário.',
+        chooseLink: 'Conhecer o SyncroEdu',
+        imgAlt: 'Painel de controle do SyncroTime: resumo de professores, disciplinas, turmas e última geração de horário',
         problemHeading: 'Semanas travado montando horários que sempre terminam com choques de aulas?',
-        problemDesc: 'Diga adeus às planilhas manuais e aos quadros magnéticos. O SyncroTime processa a disponibilidade dos professores, turmas e salas, gerando a grade perfeita em minutos. Recupere o seu tempo.',
-        featuresTitle: 'O Poder de um Horário Escolar Inteligente',
-        feat1Title: 'Motor de Geração Ultra-Rápido',
-        feat1Desc: 'Esqueça o desgaste manual. Insira professores e disciplinas; nosso algoritmo processa milhares de combinações em segundos para entregar a grade ideal, sem sobreposição.',
+        problemDesc: 'Diga adeus às planilhas manuais e aos quadros magnéticos. O SyncroTime considera a disponibilidade dos professores, turmas e salas e propõe uma grade verificada contra conflitos em minutos. Recupere o seu tempo.',
+        featuresTitle: 'Recursos do Motor de Otimização de Horários',
+        feat1Title: 'Motor de Geração de Horários',
+        feat1Desc: 'Esqueça o desgaste manual. Insira professores e disciplinas; nosso algoritmo de otimização avalia milhares de combinações e propõe uma grade que respeita as restrições configuradas, evitando sobreposições.',
         feat2Title: 'Edição Intuitiva Arrastar e Soltar',
-        feat2Desc: 'Ajuste aulas com facilidade arrastando blocos. O sistema atua como copiloto, sinalizando espaços livres em verde e bloqueando movimentos inválidos.',
+        feat2Desc: 'Ajuste aulas com facilidade arrastando blocos. O sistema sinaliza espaços livres em verde e avisa sobre movimentos inválidos.',
         feat3Title: 'Visão Panorâmica Completa',
         feat3Desc: 'Analise a instituição por qualquer ângulo em tempo real. Alterne instantaneamente entre Visão por Professor, Visão por Turma e Visão por Sala.',
         feat4Title: 'Relatórios e Impressão em 1 Clique',
         feat4Desc: 'Chega de retrabalho. Exporte a grade geral para Excel ou gere horários individuais em PDF de alta qualidade prontos para entregar aos professores.',
         feat5Title: 'Alertas Anti-Conflito em Tempo Real',
-        feat5Desc: 'Controle absoluto. Durante edições manuais, qualquer choque de professor ou sala é imediatamente sinalizado com orientações de ajuste.',
+        feat5Desc: 'Mantenha o controle. Durante edições manuais, qualquer choque de professor ou sala é imediatamente sinalizado com orientações de ajuste.',
         benefitsTitle: 'Por que escolher o SyncroTime em sua Escola',
-        ben1Title: 'Precisão Absoluta',
-        ben1Desc: 'Zero choques de horário, zero professores em duas salas ao mesmo tempo e respeito integral às janelas pedagógicas.',
+        ben1Title: 'Validação de Conflitos',
+        ben1Desc: 'Verificação automática de choques de horário e de professores em duas salas ao mesmo tempo, respeitando as janelas pedagógicas configuradas.',
         ben2Title: 'Agilidade Visual',
         ben2Desc: 'Mova blocos como em um tabuleiro intuitivo. A interface visual e colorida torna o processo simples e ágil.',
         ben3Title: 'Restrições Personalizadas',
@@ -188,12 +208,12 @@ const content = {
         faqTitle: 'Perguntas Frequentes sobre o Gerador de Horários',
         faqs: [
             {
-                q: 'Como o SyncroTime garante que não haverá choques de professores ou salas?',
-                a: 'O SyncroTime possui um algoritmo avançado de otimização combinatória que checa em tempo real a disponibilidade de cada professor, salas, disciplinas e diretrizes pedagógicas.'
+                q: 'Como o SyncroTime evita choques de professores ou salas?',
+                a: 'O SyncroTime usa algoritmos de otimização combinatória e validação determinística que checam em tempo real a disponibilidade de cada professor, salas, disciplinas e diretrizes pedagógicas.'
             },
             {
-                q: 'Funciona para qualquer tipo de colégio, escola técnica ou faculdade?',
-                a: 'Sim. A plataforma é 100% online e adapta-se a qualquer grade curricular do Ensino Fundamental, Médio, Cursos Técnicos e Ensino Superior.'
+                q: 'Para quais instituições o SyncroTime foi pensado?',
+                a: 'A plataforma é online e configurável, pensada para o Ensino Fundamental, Médio, Cursos Técnicos e Ensino Superior, com interface em espanhol, inglês e português. Fale conosco para revisar os requisitos da sua instituição.'
             },
             {
                 q: 'É possível exportar os horários para Excel e PDF?',
@@ -208,7 +228,8 @@ const content = {
         ctaDesc: 'Eleve a eficiência operacional da sua escola ou faculdade. Solicite uma demonstração do SyncroTime hoje mesmo.',
         ctaBtn1: 'Ver Planos e Preços',
         ctaBtn2: 'Conversar pelo WhatsApp',
-        footerTag: 'BE Academic. Ecossistema Tecnológico Global para a Educação.'
+        footerTag: 'BE Academic. Ecossistema Tecnológico Global para a Educação.',
+        rights: 'Todos os direitos reservados.'
     }
 };
 
@@ -218,7 +239,6 @@ export default function SyncroTime() {
     const [faqOpen, setFaqOpen] = useState<number | null>(null);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
         const queryLang = searchParams.get('lang')?.toLowerCase();
         if (queryLang === 'en' || queryLang === 'pt' || queryLang === 'es') {
             setCurrentLang(queryLang);
@@ -242,6 +262,9 @@ export default function SyncroTime() {
     const t = content[currentLang];
     const loginUrl = 'https://app.syncrotime.com/es/login';
     const pricingUrl = 'https://syncrotime.com/es/#precios';
+    const whatsappUrl = whatsappLink('syncrotime', { lang: currentLang });
+    const seoLocale = currentLang === 'en' ? 'en_US' : currentLang === 'pt' ? 'pt_BR' : 'es_ES';
+    const baseUrl = canonicalUrl('/syncrotime/');
 
     const schemaData = {
         "@context": "https://schema.org",
@@ -250,20 +273,8 @@ export default function SyncroTime() {
         "alternateName": ["Syncro Time", "SyncroTime Timetable Generator", "Gerador de Horários SyncroTime"],
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "All, Web, Cloud SaaS",
-        "url": "https://beacademics.com/syncrotime",
+        "url": canonicalUrl('/syncrotime/'),
         "description": t.metaDescription,
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "url": pricingUrl
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "145",
-            "bestRating": "5"
-        },
         "creator": {
             "@type": "Organization",
             "name": "BE Academic",
@@ -286,41 +297,28 @@ export default function SyncroTime() {
 
     return (
         <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans selection:bg-[#007AFF] selection:text-white">
-            <Helmet>
-                <html lang={currentLang} />
-                <title>{t.metaTitle}</title>
-                <meta name="description" content={t.metaDescription} />
-                <meta name="keywords" content={t.metaKeywords} />
-                <link rel="canonical" href="https://beacademics.com/syncrotime" />
+            <Seo
+                path="/syncrotime/"
+                title={t.metaTitle}
+                description={t.metaDescription}
+                keywords={t.metaKeywords}
+                lang={currentLang}
+                locale={seoLocale}
+            >
+                {/* Hreflang para las tres versiones de idioma */}
+                <link rel="alternate" hrefLang="es" href={`${baseUrl}?lang=es`} />
+                <link rel="alternate" hrefLang="en" href={`${baseUrl}?lang=en`} />
+                <link rel="alternate" hrefLang="pt" href={`${baseUrl}?lang=pt`} />
+                <link rel="alternate" hrefLang="x-default" href={baseUrl} />
 
-                {/* Hreflang Tags for Multi-language Global SEO */}
-                <link rel="alternate" hrefLang="es" href="https://beacademics.com/syncrotime?lang=es" />
-                <link rel="alternate" hrefLang="en" href="https://beacademics.com/syncrotime?lang=en" />
-                <link rel="alternate" hrefLang="pt" href="https://beacademics.com/syncrotime?lang=pt" />
-                <link rel="alternate" hrefLang="x-default" href="https://beacademics.com/syncrotime" />
-
-                {/* Open Graph / Facebook */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={`https://beacademics.com/syncrotime?lang=${currentLang}`} />
-                <meta property="og:title" content={t.metaTitle} />
-                <meta property="og:description" content={t.metaDescription} />
-                <meta property="og:image" content="https://beacademics.com/Dashboard%20Syncrotime.png" />
-                <meta property="og:locale" content={currentLang === 'en' ? 'en_US' : currentLang === 'pt' ? 'pt_BR' : 'es_ES'} />
-
-                {/* Twitter */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:title" content={t.metaTitle} />
-                <meta property="twitter:description" content={t.metaDescription} />
-                <meta property="twitter:image" content="https://beacademics.com/Dashboard%20Syncrotime.png" />
-
-                {/* JSON-LD Structured Data */}
+                {/* JSON-LD */}
                 <script type="application/ld+json">
                     {JSON.stringify(schemaData)}
                 </script>
                 <script type="application/ld+json">
                     {JSON.stringify(faqSchemaData)}
                 </script>
-            </Helmet>
+            </Seo>
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
@@ -328,9 +326,9 @@ export default function SyncroTime() {
                     <div className="flex items-center gap-6 md:gap-8">
                         <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
                             <LogoContainer className="w-9 h-9">
-                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" alt="BE Academic" width={400} height={344} className="h-4 w-auto object-contain" />
                             </LogoContainer>
-                            <span className="text-xs font-semibold text-[#86868B] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
+                            <span className="text-xs font-semibold text-[#515154] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
                                 BE Academic
                             </span>
                         </Link>
@@ -339,15 +337,15 @@ export default function SyncroTime() {
 
                         <div className="flex items-center gap-2">
                             <LogoContainer className="w-8 h-8 bg-[#007AFF]/10 border-[#007AFF]/20">
-                                <img src="/Logo-SyncroTime.png" alt="SyncroTime" className="h-5 w-5 object-contain" />
+                                <img src="/Logo-SyncroTime.png" alt="SyncroTime" width={200} height={198} className="h-5 w-5 object-contain" />
                             </LogoContainer>
                             <span className="font-bold text-base tracking-tight text-[#1D1D1F]">SyncroTime</span>
                             <span className="hidden md:inline-block px-2 py-0.5 bg-[#007AFF]/10 text-[#007AFF] text-[11px] font-bold rounded-full border border-[#007AFF]/20">
-                                Global AI
+                                {t.chip}
                             </span>
                         </div>
 
-                        <div className="hidden lg:flex items-center gap-6 text-[#86868B]">
+                        <div className="hidden lg:flex items-center gap-6 text-[#515154]">
                             <button onClick={() => document.getElementById('funcionalidades')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFunc}</button>
                             <button onClick={() => document.getElementById('beneficios')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navBenefits}</button>
                             <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFaq}</button>
@@ -364,7 +362,7 @@ export default function SyncroTime() {
                                     className={`px-2.5 py-1 rounded-full transition-all cursor-pointer uppercase ${
                                         currentLang === lang 
                                             ? 'bg-white text-[#1D1D1F] shadow-xs' 
-                                            : 'text-[#86868B] hover:text-[#1D1D1F]'
+                                            : 'text-[#515154] hover:text-[#1D1D1F]'
                                     }`}
                                     title={lang === 'es' ? 'Español' : lang === 'en' ? 'English' : 'Português'}
                                 >
@@ -377,20 +375,23 @@ export default function SyncroTime() {
                             href={loginUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs font-semibold text-[#86868B] hover:text-[#1D1D1F] transition-colors hidden sm:block px-2"
+                            className="text-xs font-semibold text-[#515154] hover:text-[#1D1D1F] transition-colors hidden sm:block px-2"
                         >
                             {t.login}
                         </a>
 
-                        <PrimaryButton
-                            variant="blue"
-                            size="sm"
-                            href={pricingUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {t.pricing}
-                        </PrimaryButton>
+                        {/* En pantallas muy angostas el mismo botón aparece justo debajo, en el hero */}
+                        <div className="hidden sm:block">
+                            <PrimaryButton
+                                variant="blue"
+                                size="sm"
+                                href={pricingUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {t.pricing}
+                            </PrimaryButton>
+                        </div>
                     </div>
                 </nav>
             </header>
@@ -430,7 +431,7 @@ export default function SyncroTime() {
                         initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                        className="text-lg md:text-xl text-[#86868B] max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-normal"
+                        className="text-lg md:text-xl text-[#515154] max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-normal"
                     >
                         {t.heroDesc}
                     </motion.p>
@@ -455,7 +456,7 @@ export default function SyncroTime() {
                         <PrimaryButton 
                             variant="secondary"
                             size="lg"
-                            href="https://wa.me/message/7NPPQUPQWQLCN1" 
+                            href={whatsappUrl} 
                             target="_blank" 
                             rel="noopener noreferrer"
                             icon={<MessageSquare className="w-4 h-4 text-[#007AFF]" />}
@@ -464,10 +465,17 @@ export default function SyncroTime() {
                         </PrimaryButton>
                     </motion.div>
 
-                    <div className="flex items-center gap-6 mt-8 text-xs text-[#86868B] justify-center lg:justify-start font-medium">
-                        <span className="flex items-center gap-1.5"><Globe className="w-4 h-4 text-[#007AFF]" /> Multi-país & Cloud 100%</span>
-                        <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#007AFF]" /> Cero topes garantizado</span>
+                    <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-8 text-xs text-[#515154] justify-center lg:justify-start font-medium">
+                        <span className="flex items-center gap-1.5"><Globe className="w-4 h-4 text-[#007AFF]" /> {t.heroChip1}</span>
+                        <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-[#007AFF]" /> {t.heroChip2}</span>
                     </div>
+
+                    <p className="mt-6 text-sm text-[#515154] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        {t.chooseText}{' '}
+                        <Link to="/syncroedu/" className="font-semibold text-[#0066CC] hover:underline underline-offset-2">
+                            {t.chooseLink}
+                        </Link>
+                    </p>
                 </div>
                 
                 <motion.div 
@@ -484,16 +492,20 @@ export default function SyncroTime() {
                                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50" />
                                 <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50" />
                             </div>
-                            <span className="text-[11px] font-semibold text-[#86868B]">SyncroTime Matrix — Live Engine</span>
+                            <span className="text-[11px] font-semibold text-[#515154]">SyncroTime Matrix — Live Engine</span>
                             <div className="w-12" />
                         </div>
 
                         <div className="rounded-2xl overflow-hidden border border-black/5 bg-white shadow-inner">
                             <img 
-                                src="/Dashboard%20Syncrotime.png" 
+                                src="/Dashboard-Syncrotime.webp" 
                                 alt={t.imgAlt} 
+                                width={1600}
+                                height={862}
                                 className="w-full h-auto object-cover"
                                 loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
                             />
                         </div>
                     </div>
@@ -506,7 +518,7 @@ export default function SyncroTime() {
                     <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-[#1D1D1F] mb-4 font-display" style={{ textWrap: 'balance' }}>
                         {t.problemHeading}
                     </h2>
-                    <p className="text-base md:text-lg text-[#86868B] font-normal leading-relaxed">
+                    <p className="text-base md:text-lg text-[#515154] font-normal leading-relaxed">
                         {t.problemDesc}
                     </p>
                 </BentoCard>
@@ -527,7 +539,7 @@ export default function SyncroTime() {
                             <Cpu className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">{t.feat1Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.feat1Desc}
                         </p>
                     </BentoCard>
@@ -537,7 +549,7 @@ export default function SyncroTime() {
                             <Move className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">{t.feat2Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.feat2Desc}
                         </p>
                     </BentoCard>
@@ -547,7 +559,7 @@ export default function SyncroTime() {
                             <LayoutGrid className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">{t.feat3Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.feat3Desc}
                         </p>
                     </BentoCard>
@@ -557,7 +569,7 @@ export default function SyncroTime() {
                             <FileSpreadsheet className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">{t.feat4Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.feat4Desc}
                         </p>
                     </BentoCard>
@@ -567,7 +579,7 @@ export default function SyncroTime() {
                             <AlertTriangle className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-2 font-display">{t.feat5Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.feat5Desc}
                         </p>
                     </BentoCard>
@@ -589,7 +601,7 @@ export default function SyncroTime() {
                             <Target className="w-7 h-7" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-3 font-display">{t.ben1Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.ben1Desc}
                         </p>
                     </BentoCard>
@@ -599,7 +611,7 @@ export default function SyncroTime() {
                             <Zap className="w-7 h-7" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-3 font-display">{t.ben2Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.ben2Desc}
                         </p>
                     </BentoCard>
@@ -609,7 +621,7 @@ export default function SyncroTime() {
                             <ShieldCheck className="w-7 h-7" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-3 font-display">{t.ben3Title}</h3>
-                        <p className="text-[#86868B] text-sm leading-relaxed">
+                        <p className="text-[#515154] text-sm leading-relaxed">
                             {t.ben3Desc}
                         </p>
                     </BentoCard>
@@ -638,7 +650,7 @@ export default function SyncroTime() {
                             <AnimatePresence>
                                 {faqOpen === index && (
                                     <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
-                                        <div className="px-6 pb-6 text-[#86868B] text-sm leading-relaxed border-t border-black/5 pt-4">
+                                        <div className="px-6 pb-6 text-[#515154] text-sm leading-relaxed border-t border-black/5 pt-4">
                                             {faq.a}
                                         </div>
                                     </motion.div>
@@ -676,7 +688,7 @@ export default function SyncroTime() {
                             <PrimaryButton 
                                 variant="secondary"
                                 size="lg"
-                                href="https://wa.me/message/7NPPQUPQWQLCN1" 
+                                href={whatsappUrl} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 icon={<MessageSquare className="w-4 h-4 text-[#007AFF]" />}
@@ -693,7 +705,7 @@ export default function SyncroTime() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-3">
                         <LogoContainer className="w-8 h-8 bg-white/10 border-white/15">
-                            <img src="/Logo-SyncroTime.png" alt="SyncroTime" className="h-5 w-5 object-contain" />
+                            <img src="/Logo-SyncroTime.png" alt="SyncroTime" width={200} height={198} className="h-5 w-5 object-contain" />
                         </LogoContainer>
                         <div>
                             <p className="text-white font-bold text-sm tracking-tight">SyncroTime</p>
@@ -702,13 +714,13 @@ export default function SyncroTime() {
                     </div>
 
                     <div className="flex gap-6 text-xs font-medium">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                         <Link to="/" className="hover:text-white transition-colors">BE Academic</Link>
                     </div>
 
                     <p className="text-xs text-[#86868B]">
-                        &copy; {new Date().getFullYear()} Be Academic. All rights reserved.
+                        &copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. {t.rights}
                     </p>
                 </div>
             </footer>

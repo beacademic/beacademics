@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import { 
     Users, 
     BookOpen, 
@@ -18,19 +18,7 @@ import { LogoContainer } from '../components/ui/LogoContainer';
 export default function Nexus() {
     return (
         <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans selection:bg-[#007AFF] selection:text-white flex flex-col">
-            <Helmet>
-                <html lang="es" />
-                <title>Nexus | Plataforma Integral de Calidad Educativa</title>
-                <meta name="description" content="Nexus es la próxima plataforma integral de calidad para colegios en Chile. Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica y más." />
-                <meta name="keywords" content="calidad educativa, estándares indicativos de desempeño, nexus, gestión pedagógica chile, liderazgo escolar" />
-                <link rel="canonical" href="https://beacademics.com/nexus" />
-                
-                {/* Open Graph */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://beacademics.com/nexus" />
-                <meta property="og:title" content="Nexus | Plataforma de Calidad Educativa" />
-                <meta property="og:description" content="Basada en los Estándares Indicativos de Desempeño: Liderazgo, Gestión Pedagógica, Convivencia y Recursos." />
-            </Helmet>
+            <Seo path="/nexus/" />
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
@@ -38,9 +26,9 @@ export default function Nexus() {
                     <div className="flex items-center gap-6">
                         <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
                             <LogoContainer className="w-9 h-9">
-                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-4 w-auto object-contain" />
                             </LogoContainer>
-                            <span className="text-xs font-semibold text-[#86868B] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
+                            <span className="text-xs font-semibold text-[#515154] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
                                 BE Academic
                             </span>
                         </Link>
@@ -62,7 +50,7 @@ export default function Nexus() {
                         <PrimaryButton 
                             variant="blue"
                             size="sm"
-                            to="/contacto"
+                            to="/contacto/"
                         >
                             Lista de Espera VIP
                         </PrimaryButton>
@@ -88,7 +76,7 @@ export default function Nexus() {
                         El nuevo estándar en gestión de Estándares Indicativos de Desempeño.
                     </p>
                     
-                    <p className="text-base md:text-lg text-[#86868B] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                    <p className="text-base md:text-lg text-[#515154] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
                         Nuestra nueva Plataforma Integral de Calidad centralizará el cumplimiento de los Estándares Indicativos de Desempeño del Sistema de Aseguramiento de la Calidad (SAC): Liderazgo, Gestión Pedagógica, Convivencia y Recursos, facilitando la toma de decisiones basada en analítica confiable.
                     </p>
                     
@@ -96,7 +84,7 @@ export default function Nexus() {
                         <PrimaryButton 
                             variant="blue"
                             size="lg"
-                            to="/contacto"
+                            to="/contacto/"
                             icon={<ArrowRight className="w-4 h-4" />}
                         >
                             Unirse a la Lista de Espera VIP
@@ -118,7 +106,7 @@ export default function Nexus() {
                             <Users className="w-6 h-6" />
                         </div>
                         <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Liderazgo Escolar</h3>
-                        <p className="text-xs text-[#86868B] leading-relaxed">
+                        <p className="text-xs text-[#515154] leading-relaxed">
                             Monitoreo de metas institucionales, planificación estratégica PME y articulación del equipo directivo.
                         </p>
                     </BentoCard>
@@ -128,7 +116,7 @@ export default function Nexus() {
                             <BookOpen className="w-6 h-6" />
                         </div>
                         <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión Pedagógica</h3>
-                        <p className="text-xs text-[#86868B] leading-relaxed">
+                        <p className="text-xs text-[#515154] leading-relaxed">
                             Acompañamiento en aula, cobertura curricular y seguimiento del progreso de los aprendizajes clave.
                         </p>
                     </BentoCard>
@@ -138,7 +126,7 @@ export default function Nexus() {
                             <HeartHandshake className="w-6 h-6" />
                         </div>
                         <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Convivencia Escolar</h3>
-                        <p className="text-xs text-[#86868B] leading-relaxed">
+                        <p className="text-xs text-[#515154] leading-relaxed">
                             Gestión preventiva del clima escolar, protocolos de actuación y bienestar de la comunidad educativa.
                         </p>
                     </BentoCard>
@@ -148,7 +136,7 @@ export default function Nexus() {
                             <BarChart3 className="w-6 h-6" />
                         </div>
                         <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión de Recursos</h3>
-                        <p className="text-xs text-[#86868B] leading-relaxed">
+                        <p className="text-xs text-[#515154] leading-relaxed">
                             Optimización de infraestructura, equipamiento didáctico y soporte continuo a la docencia.
                         </p>
                     </BentoCard>
@@ -160,11 +148,11 @@ export default function Nexus() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
                     <div>
                         <p className="text-white font-semibold mb-1">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+                        <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-6">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                         <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
                     </div>
                 </div>

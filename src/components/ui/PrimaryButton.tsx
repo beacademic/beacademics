@@ -29,7 +29,7 @@ export function PrimaryButton({
   let variantClasses = 'bg-gradient-to-r from-[#007AFF] to-[#5856D6] text-white shadow-[0_4px_14px_rgba(0,122,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
   
   if (variant === 'green') {
-    variantClasses = 'bg-gradient-to-r from-[#34C759] to-[#248A3D] text-white shadow-[0_4px_14px_rgba(52,199,89,0.3)] hover:shadow-[0_6px_20px_rgba(52,199,89,0.4)]';
+    variantClasses = 'bg-gradient-to-r from-[#1F7A38] to-[#186230] text-white shadow-[0_4px_14px_rgba(31,122,56,0.3)] hover:shadow-[0_6px_20px_rgba(31,122,56,0.4)]';
   } else if (variant === 'blue' || variant === 'primary') {
     variantClasses = 'bg-[#007AFF] text-white shadow-[0_4px_14px_rgba(0,122,255,0.25)] hover:bg-[#0066D6] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
   } else if (variant === 'secondary') {

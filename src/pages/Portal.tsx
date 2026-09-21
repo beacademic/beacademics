@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import Seo from '../components/Seo';
 
 export default function Portal() {
     return (
         <div className="bg-apple-light min-h-screen flex flex-col font-sans selection:bg-corp-dark selection:text-white">
+            <Seo path="/acceso/" />
             {/* Minimal Header */}
             <header className="absolute top-0 left-0 w-full p-6 flex justify-center z-10">
                 <Link to="/" className="hover:opacity-70 transition-opacity">
-                    <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-10 w-auto" />
+                    <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-10 w-auto" />
                 </Link>
             </header>
 
@@ -21,30 +23,30 @@ export default function Portal() {
                 >
                     <div className="text-center mb-16">
                         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">Portal de Clientes</h1>
-                        <p className="text-xl text-gray-500 font-medium">Selecciona la plataforma a la que deseas ingresar.</p>
+                        <p className="text-xl text-gray-500 font-medium">Seleccione la plataforma a la que desea ingresar.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
+                        <a 
+                            href="https://syncroedu.com" 
+                            className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-green/30 transition-all duration-300 text-center"
+                        >
+                            <img src="/Logo-SyncroEdu.png" width={254} height={289} alt="Logo SyncroEdu" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
+                            <h3 className="text-3xl font-bold text-[#1F7A38] tracking-tight mb-8 group-hover:scale-105 transition-transform">SyncroEdu</h3>
+                            <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-green transition-colors mt-auto">
+                                Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+                            </span>
+                        </a>
+
                         <a 
                             href="https://app.syncrotime.com/es/login" 
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-cyan/30 transition-all duration-300 text-center"
                         >
-                            <img src="/Logo-SyncroTime.png" alt="Logo SyncroTime" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
+                            <img src="/Logo-SyncroTime.png" width={200} height={198} alt="Logo SyncroTime" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
                             <h3 className="text-3xl font-bold text-corp-cyan tracking-tight mb-8 group-hover:scale-105 transition-transform">SyncroTime</h3>
                             <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-cyan transition-colors mt-auto">
-                                Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
-                            </span>
-                        </a>
-
-                        <a 
-                            href="https://syncroedu.com" 
-                            className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-green/30 transition-all duration-300 text-center"
-                        >
-                            <img src="/Logo-SyncroEdu.png" alt="Logo SyncroEdu" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
-                            <h3 className="text-3xl font-bold text-corp-green tracking-tight mb-8 group-hover:scale-105 transition-transform">SyncroEdu</h3>
-                            <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-green transition-colors mt-auto">
                                 Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
                             </span>
                         </a>
@@ -53,7 +55,7 @@ export default function Portal() {
                             href="https://app.nexus.cl/login" 
                             className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-blue/30 transition-all duration-300 text-center"
                         >
-                            <img src="/Logo-Nexus.png" alt="Logo Nexus" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
+                            <img src="/Logo-Nexus.png" width={368} height={369} alt="Logo Nexus" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
                             <h3 className="text-3xl font-bold text-corp-blue tracking-tight mb-8 group-hover:scale-105 transition-transform">Nexus</h3>
                             <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-blue transition-colors mt-auto">
                                 Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
@@ -73,11 +75,11 @@ export default function Portal() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+                        <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>
                 </div>
             </footer>

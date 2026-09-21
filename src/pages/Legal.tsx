@@ -1,26 +1,24 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
+import { INSTITUTIONAL_EMAIL, SALES_PHONE_DISPLAY, whatsappLink } from '../config/contact';
 
 export default function Legal() {
     return (
         <div className="bg-apple-light min-h-screen text-apple-gray font-sans selection:bg-corp-dark selection:text-white flex flex-col">
-            <Helmet>
-                <title>Información Legal | BE Academic</title>
-                <meta name="description" content="Información legal de la SOCIEDAD DE FORMACIÓN BE ACADEMIC LIMITADA. Domicilio, RUT, canales oficiales de contacto y cumplimiento normativo." />
-            </Helmet>
+            <Seo path="/legal/" />
             
             {/* Header / Navigation */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-apple-light/80 backdrop-blur-md border-b border-gray-200">
                 <nav className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-8">
                         <Link to="/" className="flex items-center">
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-8 w-auto" />
+                            <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex gap-6">
-                            <Link to="/" state={{ scrollTo: 'soluciones' }} className="text-gray-600 hover:text-corp-dark transition-colors">Software</Link>
-                            <Link to="/" state={{ scrollTo: 'servicios' }} className="text-gray-600 hover:text-corp-dark transition-colors">Servicios</Link>
-                            <Link to="/contacto" className="text-gray-600 hover:text-corp-dark transition-colors">Contacto</Link>
+                            <Link to="/#soluciones" className="text-gray-600 hover:text-corp-dark transition-colors">Software</Link>
+                            <Link to="/#servicios" className="text-gray-600 hover:text-corp-dark transition-colors">Servicios</Link>
+                            <Link to="/contacto/" className="text-gray-600 hover:text-corp-dark transition-colors">Contacto</Link>
                         </div>
                     </div>
                 </nav>
@@ -57,8 +55,8 @@ export default function Legal() {
 
                         <div>
                             <h2 className="text-xl font-bold text-gray-900 mb-2">Contacto</h2>
-                            <p className="text-gray-600">Correo electrónico: beacademic.ltda@gmail.com</p>
-                            <p className="text-gray-600">WhatsApp: <a href="https://wa.me/56964375050" target="_blank" rel="noopener noreferrer" className="hover:text-corp-dark transition-colors">+56964375050</a></p>
+                            <p className="text-gray-600">Correo electrónico: {INSTITUTIONAL_EMAIL}</p>
+                            <p className="text-gray-600">WhatsApp: <a href={whatsappLink('general')} target="_blank" rel="noopener noreferrer" className="hover:text-corp-dark transition-colors">{SALES_PHONE_DISPLAY}</a></p>
                         </div>
                     </div>
                 </motion.div>
@@ -69,11 +67,11 @@ export default function Legal() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
-                        <p>&copy; {new Date().getFullYear()} Be Academic. Todos los derechos reservados.</p>
+                        <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
-                        <Link to="/legal" className="hover:text-white transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link>
+                        <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
+                        <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>
                 </div>
             </footer>

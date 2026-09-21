@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
+import { INSTITUTIONAL_EMAIL, SALES_PHONE_TEL, whatsappLink } from '../config/contact';
 import { BentoCard } from '../components/ui/BentoCard';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
@@ -9,7 +9,6 @@ import { LogoContainer } from '../components/ui/LogoContainer';
 import { 
     Clock, 
     ShieldCheck, 
-    Sparkles, 
     Award, 
     GraduationCap, 
     TrendingUp, 
@@ -23,19 +22,6 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
-    const location = useLocation();
-
-    useEffect(() => {
-        if (location.state && location.state.scrollTo) {
-            const element = document.getElementById(location.state.scrollTo);
-            if (element) {
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
-        }
-    }, [location]);
-
     const schemaData = {
         "@context": "https://schema.org",
         "@graph": [
@@ -43,18 +29,18 @@ export default function Home() {
                 "@type": "Organization",
                 "@id": "https://beacademics.com/#organization",
                 "name": "BE Academic",
-                "url": "https://beacademics.com",
+                "url": "https://beacademics.com/",
                 "logo": "https://beacademics.com/Logo-BE-Academic.png",
-                "description": "Ecosistema Tecnológico Global para la Educación. Creadores de SyncroEdu (compliance legal y gestión docente) y SyncroTime (generador inteligente de horarios escolares con IA).",
+                "description": "Ecosistema tecnológico para la educación. Creadores de SyncroEdu (validación de la normativa docente chilena y gestión de reemplazos) y SyncroTime (motor de optimización de horarios escolares).",
                 "address": {
                     "@type": "PostalAddress",
                     "addressCountry": "CL"
                 },
                 "contactPoint": {
                     "@type": "ContactPoint",
-                    "telephone": "+56-9-6437-5050",
+                    "telephone": SALES_PHONE_TEL,
                     "contactType": "customer service",
-                    "email": "beacademic.ltda@gmail.com"
+                    "email": INSTITUTIONAL_EMAIL
                 },
                 "sameAs": [
                     "https://syncrotime.com",
@@ -64,7 +50,7 @@ export default function Home() {
             {
                 "@type": "WebSite",
                 "@id": "https://beacademics.com/#website",
-                "url": "https://beacademics.com",
+                "url": "https://beacademics.com/",
                 "name": "BE Academic",
                 "publisher": {
                     "@id": "https://beacademics.com/#organization"
@@ -75,32 +61,12 @@ export default function Home() {
 
     return (
         <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] selection:bg-[#007AFF]/20 selection:text-[#1D1D1F]">
-            <Helmet>
-                <html lang="es" />
-                <title>BE Academic | Ecosistema Tecnológico para la Educación - SyncroEdu & SyncroTime</title>
-                <meta name="description" content="BE Academic ofrece soluciones tecnológicas integrales para colegios: SyncroEdu para gestión docente y compliance legal en Chile, y SyncroTime para generación automática de horarios escolares con IA a nivel global." />
-                <meta name="keywords" content="gestión escolar, software para colegios, syncroedu, syncrotime, generador de horarios escolares, nexus, cumplimiento legal mineduc, calidad educativa, software educativo" />
-                <link rel="canonical" href="https://beacademics.com/" />
-                
-                {/* Open Graph / Facebook */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://beacademics.com/" />
-                <meta property="og:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
-                <meta property="og:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y automatizan la generación de horarios escolares." />
-                <meta property="og:image" content="https://beacademics.com/Logo-BE-Academic.png" />
-
-                {/* Twitter */}
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://beacademics.com/" />
-                <meta property="twitter:title" content="BE Academic | Ecosistema Tecnológico para la Educación" />
-                <meta property="twitter:description" content="Herramientas de nivel mundial que simplifican procesos, eliminan riesgos legales y automatizan la generación de horarios escolares." />
-                <meta property="twitter:image" content="https://beacademics.com/Logo-BE-Academic.png" />
-
+            <Seo path="/">
                 {/* Structured Data */}
                 <script type="application/ld+json">
                     {JSON.stringify(schemaData)}
                 </script>
-            </Helmet>
+            </Seo>
 
             {/* Header / Navigation (Apple HIG Glassmorphism) */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5">
@@ -108,7 +74,7 @@ export default function Home() {
                     <div className="flex items-center gap-6">
                         <Link to="/" className="flex items-center gap-3 group">
                             <LogoContainer>
-                                <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-6 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-6 w-auto object-contain" />
                             </LogoContainer>
                             <span className="font-bold text-base tracking-tight text-[#1D1D1F] group-hover:text-[#007AFF] transition-colors">
                                 BE Academic
@@ -117,12 +83,12 @@ export default function Home() {
                         <div className="hidden md:flex items-center gap-6 pl-4 border-l border-black/5 text-[#515154]">
                             <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Soluciones</button>
                             <button onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Servicios</button>
-                            <Link to="/contacto" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
+                            <Link to="/contacto/" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <Link 
-                            to="/acceso" 
+                            to="/acceso/" 
                             className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-xs text-[#515154] hover:text-[#1D1D1F] hover:bg-black/5 transition-all"
                         >
                             Portal Clientes
@@ -156,11 +122,11 @@ export default function Home() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.05 }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6"
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6"
                 >
-                    Potenciamos el futuro de la <br className="hidden sm:block" />
+                    Valide la regla 65/35 y las horas PIE de su colegio{' '}
                     <span className="bg-gradient-to-r from-[#007AFF] to-[#5856D6] bg-clip-text text-transparent">
-                        gestión escolar inteligente.
+                        antes de una fiscalización.
                     </span>
                 </motion.h1>
 
@@ -168,9 +134,9 @@ export default function Home() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.1 }}
-                    className="text-lg sm:text-xl md:text-2xl text-[#515154] max-w-3xl mb-10 leading-relaxed font-normal"
+                    className="text-lg sm:text-xl text-[#515154] max-w-3xl mb-10 leading-relaxed font-normal"
                 >
-                    Arquitectura de nivel mundial que simplifica procesos complejos, elimina riesgos legales y automatiza la confección de horarios para instituciones escolares.
+                    SyncroEdu verifica en cada horario y contrato docente la proporción lectiva/no lectiva de la Ley 20.903 (regla 65/35) y las horas PIE del Decreto 170, con registro auditable de cada cambio. Así reduce el riesgo de multas de la Superintendencia de Educación.
                 </motion.p>
 
                 <motion.div 
@@ -181,20 +147,32 @@ export default function Home() {
                 >
                     <PrimaryButton 
                         size="lg"
-                        onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
-                        icon={<Sparkles className="w-4 h-4" />}
+                        to="/syncroedu/"
+                        icon={<ArrowRight className="w-4 h-4" />}
                         className="w-full sm:w-auto"
                     >
-                        Descubrir el Ecosistema
+                        Conocer SyncroEdu
                     </PrimaryButton>
                     <Link 
-                        to="/contacto" 
+                        to="/contacto/" 
                         className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm text-[#1D1D1F] bg-white border border-black/5 hover:bg-[#E8E8ED] shadow-xs transition-all w-full sm:w-auto"
                     >
                         <span>Hablar con un asesor</span>
-                        <ChevronRight className="w-4 h-4 text-[#8E8E93]" />
+                        <ChevronRight className="w-4 h-4 text-[#515154]" />
                     </Link>
                 </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-8 text-sm text-[#515154]"
+                >
+                    ¿Solo necesita generar el horario?{' '}
+                    <Link to="/syncrotime/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                        Conozca SyncroTime, el motor de horarios
+                    </Link>.
+                </motion.p>
             </section>
 
             {/* Products (Bento Grid Section) */}
@@ -212,17 +190,65 @@ export default function Home() {
                             </h2>
                         </div>
                         <p className="text-base text-[#515154] max-w-md mt-4 md:mt-0">
-                            Soluciones nativas diseñadas bajo estrictos principios de orden, validación legal e inteligencia algorítmica.
+                            Soluciones diseñadas bajo principios de orden, validación normativa y optimización algorítmica.
                         </p>
                     </div>
 
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                        {/* SyncroEdu Bento Card (Resources & Legal Compliance - Green Glow) */}
+                        <BentoCard glowColor="#34C759" className="flex flex-col justify-between">
+                            <div>
+                                <div className="flex items-center justify-between mb-6">
+                                    <LogoContainer>
+                                        <img src="/Logo-SyncroEdu.png" width={254} height={289} alt="SyncroEdu" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
+                                    </LogoContainer>
+                                    <StatusBadge label="COMPLIANCE ESCOLAR CHILE" variant="success" pulse={true} />
+                                </div>
+
+                                <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
+                                    SyncroEdu
+                                </h3>
+                                <p className="text-xs font-semibold uppercase tracking-wider text-[#1F7A38] mb-4">
+                                    Compliance Legal & Gestión Docente
+                                </p>
+                                
+                                <p className="text-[#515154] text-sm leading-relaxed mb-6">
+                                    SyncroEdu valida las Leyes 20.903, 21.625 y 19.070 (regla 65/35), calcula horas PIE (Decreto 170) y gestiona reemplazos docentes en tiempo real, para reducir el riesgo de sanciones de la Superintendencia de Educación. Es la opción si necesita validar la normativa chilena.
+                                </p>
+
+                                <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Auditoría legal y semáforo 65/35 en tiempo real</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Cálculo automático de horas PIE y co-docencias</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
+                                        <span>Gestión de reemplazos móviles con registro de cada cambio</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-8 mt-6 border-t border-black/5">
+                                <Link 
+                                    to="/syncroedu/" 
+                                    className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
+                                >
+                                    <span>Conocer SyncroEdu</span>
+                                    <ArrowRight className="w-4 h-4 text-[#34C759] group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                        </BentoCard>
+
                         {/* SyncroTime Bento Card (Core Operations / Data - Blue Glow) */}
                         <BentoCard glowColor="#007AFF" className="flex flex-col justify-between">
                             <div>
                                 <div className="flex items-center justify-between mb-6">
                                     <LogoContainer>
-                                        <img src="/Logo-SyncroTime.png" alt="SyncroTime" className="h-6 w-auto object-contain" />
+                                        <img src="/Logo-SyncroTime.png" width={200} height={198} alt="SyncroTime" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
                                     </LogoContainer>
                                     <StatusBadge label="OPERACIÓN Y HORARIOS" variant="primary" pulse={false} />
                                 </div>
@@ -231,11 +257,11 @@ export default function Home() {
                                     SyncroTime
                                 </h3>
                                 <p className="text-xs font-semibold uppercase tracking-wider text-[#007AFF] mb-4">
-                                    Motor Inteligente de Horarios con IA
+                                    Motor de optimización de horarios
                                 </p>
                                 
                                 <p className="text-[#515154] text-sm leading-relaxed mb-6">
-                                    Genera combinaciones horarias óptimas en segundos resolviendo restricciones complejas de docentes, salas, asignaturas y bloques simultáneos. Exportación instantánea a PDF y Excel.
+                                    SyncroTime propone horarios resolviendo restricciones de docentes, salas, asignaturas y bloques simultáneos, y permite editarlos con detección de topes. Exporta a PDF y Excel. Es la opción para quien solo necesita el horario.
                                 </p>
 
                                 <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
@@ -256,59 +282,11 @@ export default function Home() {
 
                             <div className="pt-8 mt-6 border-t border-black/5">
                                 <Link 
-                                    to="/syncrotime" 
+                                    to="/syncrotime/" 
                                     className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
                                 >
                                     <span>Conocer SyncroTime</span>
                                     <ArrowRight className="w-4 h-4 text-[#007AFF] group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                            </div>
-                        </BentoCard>
-
-                        {/* SyncroEdu Bento Card (Resources & Legal Compliance - Green Glow) */}
-                        <BentoCard glowColor="#34C759" className="flex flex-col justify-between">
-                            <div>
-                                <div className="flex items-center justify-between mb-6">
-                                    <LogoContainer>
-                                        <img src="/Logo-SyncroEdu.png" alt="SyncroEdu" className="h-6 w-auto object-contain" />
-                                    </LogoContainer>
-                                    <StatusBadge label="COMPLIANCE ESCOLAR CHILE" variant="success" pulse={true} />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
-                                    SyncroEdu
-                                </h3>
-                                <p className="text-xs font-semibold uppercase tracking-wider text-[#34C759] mb-4">
-                                    Compliance Legal & Gestión Docente
-                                </p>
-                                
-                                <p className="text-[#515154] text-sm leading-relaxed mb-6">
-                                    Proteja su establecimiento ante la Superintendencia de Educación. Valida las Leyes 20.903, 21.625 y 19.070 (regla 65/35), calcula horas PIE (Decreto 170) y gestiona reemplazos docentes en tiempo real.
-                                </p>
-
-                                <div className="space-y-2.5 pt-4 border-t border-black/5 text-xs text-[#515154]">
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
-                                        <span>Auditoría legal y semáforo 65/35 en tiempo real</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
-                                        <span>Cálculo automático de horas PIE y co-docencias</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                        <CheckCircle2 className="w-4 h-4 text-[#34C759] shrink-0" />
-                                        <span>Gestión de reemplazos móviles y trazabilidad total</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="pt-8 mt-6 border-t border-black/5">
-                                <Link 
-                                    to="/syncroedu" 
-                                    className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
-                                >
-                                    <span>Conocer SyncroEdu</span>
-                                    <ArrowRight className="w-4 h-4 text-[#34C759] group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
                         </BentoCard>
@@ -318,7 +296,7 @@ export default function Home() {
                             <div>
                                 <div className="flex items-center justify-between mb-6">
                                     <LogoContainer>
-                                        <img src="/Logo-Nexus.png" alt="Nexus" className="h-6 w-auto object-contain" />
+                                        <img src="/Logo-Nexus.png" width={368} height={369} alt="Nexus" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
                                     </LogoContainer>
                                     <StatusBadge label="CALIDAD INSTITUCIONAL" variant="purple" pulse={false} />
                                 </div>
@@ -352,7 +330,7 @@ export default function Home() {
 
                             <div className="pt-8 mt-6 border-t border-black/5">
                                 <Link 
-                                    to="/nexus" 
+                                    to="/nexus/" 
                                     className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
                                 >
                                     <span>Conocer Nexus</span>
@@ -390,7 +368,7 @@ export default function Home() {
                                 Capacitación Docente y Directiva
                             </h3>
                             <p className="text-sm text-[#515154] leading-relaxed">
-                                Entrenamos a su equipo presencial y sincrónicamente para garantizar adopción tecnológica total, autonomía operativa y cero fricción en los procesos escolares.
+                                Capacitamos a su equipo directivo, en sesiones virtuales o presenciales, para una adopción ordenada de la plataforma y autonomía operativa en los procesos escolares.
                             </p>
                         </BentoCard>
 
@@ -410,7 +388,7 @@ export default function Home() {
                     <div className="mt-14 text-center">
                         <PrimaryButton
                             size="lg"
-                            href="https://wa.me/56964375050?text=Hola,%20quisiera%20conversar%20sobre%20mi%20institución%20educativa"
+                            href={whatsappLink('general', { message: 'Hola, quisiera conversar sobre mi institución educativa' })}
                             target="_blank"
                             rel="noopener noreferrer"
                             icon={<ArrowRight className="w-4 h-4" />}
@@ -441,14 +419,14 @@ export default function Home() {
                                 ¿Hablamos sobre el futuro de su colegio?
                             </h2>
                             <p className="text-base md:text-lg text-[#A1A1A6] mb-10 leading-relaxed font-normal">
-                                Agende una demostración personalizada con nuestros especialistas educacionales. Descubra cómo blindar legalmente su institución y optimizar la gestión de horarios.
+                                Agende una demostración personalizada con nuestros especialistas educacionales. Descubra cómo validar su dotación docente contra la normativa vigente y ordenar la gestión de horarios.
                             </p>
                             <PrimaryButton
                                 size="lg"
-                                href="https://wa.me/56964375050?text=Hola,%20quisiera%20agendar%20una%20demostración%20gratuita"
+                                href={whatsappLink('general', { message: 'Hola, quisiera agendar una demostración gratuita' })}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                icon={<Sparkles className="w-4 h-4" />}
+                                icon={<ArrowRight className="w-4 h-4" />}
                             >
                                 Agendar una demostración gratuita
                             </PrimaryButton>
@@ -462,19 +440,21 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-3">
                         <LogoContainer className="w-8 h-8 rounded-xl">
-                            <img src="/Logo-BE-Academic.png" alt="BE Academic" className="h-4 w-auto object-contain" />
+                            <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" loading="lazy" decoding="async" className="h-4 w-auto object-contain" />
                         </LogoContainer>
                         <div>
                             <p className="font-semibold text-[#1D1D1F]">BE Academic</p>
-                            <p className="text-[#8E8E93]">&copy; {new Date().getFullYear()} BE Academic. Todos los derechos reservados.</p>
+                            <p className="text-[#515154]">&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                         </div>
                     </div>
                     <div className="flex flex-wrap justify-center gap-6 font-medium">
-                        <Link to="/syncroedu" className="hover:text-[#1D1D1F] transition-colors">SyncroEdu</Link>
-                        <Link to="/syncrotime" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
-                        <Link to="/nexus" className="hover:text-[#1D1D1F] transition-colors">Nexus</Link>
-                        <Link to="/legal" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
-                        <Link to="/contacto" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
+                        <Link to="/syncroedu/" className="hover:text-[#1D1D1F] transition-colors">SyncroEdu</Link>
+                        <Link to="/syncrotime/" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
+                        <Link to="/nexus/" className="hover:text-[#1D1D1F] transition-colors">Nexus</Link>
+                        <Link to="/legal/" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
+                        <Link to="/condiciones-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Condiciones SyncroEdu</Link>
+                        <Link to="/privacidad-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Privacidad SyncroEdu</Link>
+                        <Link to="/contacto/" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
                     </div>
                 </div>
             </footer>

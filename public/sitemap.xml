@@ -2,93 +2,96 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
+
+  <!-- Las URL llevan barra final: es la forma canonica (GitHub Pages redirige /ruta a /ruta/).
+       Mantener sincronizado con src/seo/routes.json (el build lo verifica). -->
+
   <!-- 1. Inicio / Ecosistema Educativo -->
   <url>
     <loc>https://beacademics.com/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <image:image>
-      <image:loc>https://beacademics.com/Logo-BE-Academic.png</image:loc>
-      <image:title>BE Academic - Ecosistema Tecnológico para la Educación</image:title>
+      <image:loc>https://beacademics.com/og-image.jpg</image:loc>
+      <image:title>BE Academic - SyncroEdu, SyncroTime y Nexus</image:title>
     </image:image>
   </url>
 
-  <!-- 2. SyncroEdu - Software de Compliance Legal Escolar (Chile) -->
+  <!-- 2. SyncroEdu - Cumplimiento normativo y horarios escolares (Chile) -->
   <url>
-    <loc>https://beacademics.com/syncroedu</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/syncroedu/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="es-CL" href="https://beacademics.com/syncroedu" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncroedu" />
+    <xhtml:link rel="alternate" hreflang="es-CL" href="https://beacademics.com/syncroedu/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncroedu/" />
     <image:image>
-      <image:loc>https://beacademics.com/Semaforo-1.png</image:loc>
-      <image:title>SyncroEdu - Validador Legal Leyes 20.903, 21.625 y 19.070</image:title>
+      <image:loc>https://beacademics.com/Semaforo-1.webp</image:loc>
+      <image:title>SyncroEdu - Validación normativa Leyes 20.903, 21.625 y 19.070</image:title>
     </image:image>
   </url>
 
-  <!-- 3. SyncroTime - Global AI School Timetable Generator (ES, EN, PT) -->
+  <!-- 3. SyncroTime - Motor de optimizacion de horarios escolares (ES, EN, PT) -->
   <url>
-    <loc>https://beacademics.com/syncrotime</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/syncrotime/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://beacademics.com/syncrotime?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://beacademics.com/syncrotime?lang=en" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://beacademics.com/syncrotime?lang=pt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncrotime" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://beacademics.com/syncrotime/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://beacademics.com/syncrotime/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://beacademics.com/syncrotime/?lang=pt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncrotime/" />
     <image:image>
-      <image:loc>https://beacademics.com/Dashboard%20Syncrotime.png</image:loc>
-      <image:title>SyncroTime Dashboard - Generador de Horarios Escolares con IA</image:title>
+      <image:loc>https://beacademics.com/Dashboard-Syncrotime.webp</image:loc>
+      <image:title>SyncroTime - Panel de control del motor de horarios escolares</image:title>
     </image:image>
   </url>
 
-  <!-- 4. Nexus - Plataforma Integral de Calidad Educativa -->
+  <!-- 4. Nexus - Plataforma Integral de Calidad Educativa (proximamente) -->
   <url>
-    <loc>https://beacademics.com/nexus</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/nexus/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 5. Portal de Clientes / Acceso a Plataformas -->
+  <!-- 5. Contacto y Asesoria Institucional -->
   <url>
-    <loc>https://beacademics.com/acceso</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- 6. Contacto y Asesoría Institucional -->
-  <url>
-    <loc>https://beacademics.com/contacto</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/contacto/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 7. Información Legal y Cumplimiento Normativo -->
+  <!-- 6. Portal de Clientes / Acceso a Plataformas -->
   <url>
-    <loc>https://beacademics.com/legal</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/acceso/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- 7. Informacion Legal -->
+  <url>
+    <loc>https://beacademics.com/legal/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
   </url>
 
-  <!-- Políticas de Privacidad -->
+  <!-- 8. Politica de Privacidad de SyncroEdu -->
   <url>
-    <loc>https://beacademics.com/privacidad-syncroedu</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/privacidad-syncroedu/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.40</priority>
   </url>
 
-  <!-- Términos y Condiciones -->
+  <!-- 9. Condiciones de Servicio de SyncroEdu -->
   <url>
-    <loc>https://beacademics.com/condiciones-syncroedu</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://beacademics.com/condiciones-syncroedu/</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.40</priority>
   </url>
