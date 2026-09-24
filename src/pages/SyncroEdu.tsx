@@ -92,6 +92,10 @@ const faqs = [
     {
         q: "¿El valor de la suscripción varía según el número de funcionarios?",
         a: "Sí. Contamos con planes adaptados por tramos de dotación total (docentes y asistentes de la educación), lo que permite a colegios pequeños, medianos y grandes acceder a la plataforma con tarifas proporcionales."
+    },
+    {
+        q: "¿Todas estas funciones vienen en un solo plan?",
+        a: "No. El Plan Básico incluye generación de horarios, cargas horarias y el cumplimiento normativo 65/35. El Plan Premium agrega la Auditoría PIE (Decreto 170) con simulador financiero, la gestión de reemplazos de docentes y asistentes, la Ronda de Aula y el Radar de Patios, la Analítica de RRHH (Factor de Bradford) y la app móvil."
     }
 ];
 
@@ -445,7 +449,7 @@ export default function SyncroEdu() {
                         Pérdidas y contingencias evitables cada año escolar
                     </h2>
                     <p className="text-base md:text-lg text-[#515154] max-w-3xl mx-auto font-normal">
-                        La ausencia de control automatizado sobre la normativa educacional genera fugas financieras concretas. Estos son los 5 riesgos que SyncroEdu ayuda a prevenir desde el primer día:
+                        La ausencia de control automatizado sobre la normativa educacional genera fugas financieras concretas. Estos son los 6 riesgos que SyncroEdu ayuda a prevenir desde el primer día:
                     </p>
                 </div>
 
@@ -498,11 +502,11 @@ export default function SyncroEdu() {
                             <TrendingUp className="w-5 h-5 text-[#FF9500]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
-                            {counterAnimation(4560000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
+                            {counterAnimation(5280000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
                         <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Fugas anuales por horas ociosas</h4>
                         <p className="text-xs text-[#515154] leading-relaxed">
-                            Horas contratadas no aprovechadas por ventanas horarias ineficientes (estimado 8 hrs/sem × 38 sem).
+                            Horas contratadas no aprovechadas por ventanas horarias ineficientes (estimado 8 hrs/sem × 40 sem).
                         </p>
                     </BentoCard>
 
@@ -520,12 +524,26 @@ export default function SyncroEdu() {
                         </p>
                     </BentoCard>
 
+                    <BentoCard glowColor="#FF3B30">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Contratos</span>
+                            <Calendar className="w-5 h-5 text-[#FF3B30]" />
+                        </div>
+                        <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
+                            {counterAnimation(359000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
+                        </div>
+                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa por contratos atrasados</h4>
+                        <p className="text-xs text-[#515154] leading-relaxed">
+                            Sanción típica de 5 UTM por descalce en la formalización de contratos docentes.
+                        </p>
+                    </BentoCard>
+
                     {/* Total Card Bento Highlight */}
-                    <div className="rounded-3xl bg-[#1C1C1E] border border-white/10 p-7 md:p-8 text-white flex flex-col justify-between shadow-xl">
+                    <div className="md:col-span-2 lg:col-span-3 rounded-3xl bg-[#1C1C1E] border border-white/10 p-7 md:p-8 text-white flex flex-col justify-between shadow-xl">
                         <div>
                             <span className="text-xs font-bold text-[#34C759] uppercase tracking-widest block mb-2">Valor Anual Protegido</span>
                             <div className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">
-                                {counterAnimation(19181500)} <span className="text-xs font-semibold text-[#86868B]">CLP / año</span>
+                                {counterAnimation(20260500)} <span className="text-xs font-semibold text-[#86868B]">CLP / año</span>
                             </div>
                             <p className="text-xs text-[#86868B] leading-relaxed">
                                 Estimación de mitigación acumulada para un establecimiento subvencionado mediano (dotación de 35 a 45 funcionarios).
