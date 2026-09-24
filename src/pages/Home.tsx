@@ -14,6 +14,7 @@ import {
     TrendingUp, 
     ChevronRight, 
     ArrowRight,
+    ArrowDown,
     CheckCircle2,
     Calendar,
     Users,
@@ -124,9 +125,9 @@ export default function Home() {
                     transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.05 }}
                     className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6"
                 >
-                    Valide la regla 65/35 y las horas PIE de su colegio{' '}
+                    Tecnología para que su colegio funcione{' '}
                     <span className="bg-gradient-to-r from-[#007AFF] to-[#5856D6] bg-clip-text text-transparent">
-                        antes de una fiscalización.
+                        con más orden y más tranquilidad.
                     </span>
                 </motion.h1>
 
@@ -136,7 +137,7 @@ export default function Home() {
                     transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.1 }}
                     className="text-lg sm:text-xl text-[#515154] max-w-3xl mb-10 leading-relaxed font-normal"
                 >
-                    SyncroEdu verifica en cada horario y contrato docente la proporción lectiva/no lectiva de la Ley 20.903 (regla 65/35) y las horas PIE del Decreto 170, con registro auditable de cada cambio. Así reduce el riesgo de multas de la Superintendencia de Educación.
+                    En BE Academic creamos herramientas para colegios chilenos: cumplir la normativa sin estrés, armar horarios que funcionen y cuidar la calidad de la educación. Todo pensado para quienes dirigen un colegio día a día.
                 </motion.p>
 
                 <motion.div 
@@ -147,11 +148,11 @@ export default function Home() {
                 >
                     <PrimaryButton 
                         size="lg"
-                        to="/syncroedu/"
-                        icon={<ArrowRight className="w-4 h-4" />}
+                        onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
+                        icon={<ArrowDown className="w-4 h-4" />}
                         className="w-full sm:w-auto"
                     >
-                        Conocer SyncroEdu
+                        Conozca nuestras plataformas
                     </PrimaryButton>
                     <Link 
                         to="/contacto/" 
@@ -168,9 +169,17 @@ export default function Home() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="mt-8 text-sm text-[#515154]"
                 >
-                    ¿Solo necesita generar el horario?{' '}
+                    ¿Ya sabe qué necesita?{' '}
+                    <Link to="/syncroedu/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                        Cumplir la normativa con SyncroEdu
+                    </Link>
+                    {' · '}
                     <Link to="/syncrotime/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
-                        Conozca SyncroTime, el motor de horarios
+                        Armar horarios con SyncroTime
+                    </Link>
+                    {' · '}
+                    <Link to="/nexus/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                        Medir la calidad con Nexus
                     </Link>.
                 </motion.p>
             </section>
