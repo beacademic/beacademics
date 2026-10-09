@@ -22,7 +22,7 @@ export default function CondicionesSyncroEdu() {
             </header>
 
             {/* Content Section */}
-            <section className="pt-32 pb-24 px-6 max-w-4xl mx-auto flex-grow w-full">
+            <main id="contenido" tabIndex={-1} className="outline-none pt-32 pb-24 px-6 max-w-4xl mx-auto flex-grow w-full">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export default function CondicionesSyncroEdu() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
                         Condiciones de Servicio de SyncroEdu
                     </h1>
-                    <p className="text-gray-500 mb-10">Última actualización: Septiembre de 2026</p>
+                    <p className="text-gray-600 mb-10">Última actualización: Septiembre de 2026</p>
                     
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-600">
                         <p className="text-xl leading-relaxed text-gray-800 mb-8">
@@ -121,10 +121,10 @@ export default function CondicionesSyncroEdu() {
                         <p className="mb-6">Estas Condiciones se rigen e interpretan bajo las leyes de la República de Chile. Para cualquier controversia derivada de la interpretación, validez o ejecución de estas Condiciones, las partes fijan su domicilio y competencia territorial en la comuna de Concepción, sometiéndose a la jurisdicción de sus Tribunales Ordinarios de Justicia. (Nota: La Institución declara conocer y aceptar esta cláusula de jurisdicción y prórroga de competencia, la cual se ratificará formalmente de manera destacada en el respectivo Acuerdo Comercial firmado físicamente o por firma digital por el representante de la Institución).</p>
                     </div>
                 </motion.div>
-            </section>
+            </main>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800 mt-auto">
+            <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800 mt-auto">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>

@@ -23,7 +23,7 @@ export default function PrivacidadSyncroEdu() {
             </header>
 
             {/* Content Section */}
-            <section className="pt-32 pb-24 px-6 max-w-4xl mx-auto flex-grow w-full">
+            <main id="contenido" tabIndex={-1} className="outline-none pt-32 pb-24 px-6 max-w-4xl mx-auto flex-grow w-full">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export default function PrivacidadSyncroEdu() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
                         Política de Privacidad de SyncroEdu
                     </h1>
-                    <p className="text-gray-500 mb-10">Última actualización: Septiembre de 2026</p>
+                    <p className="text-gray-600 mb-10">Última actualización: Septiembre de 2026</p>
                     
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-600">
                         <p className="text-xl leading-relaxed text-gray-800 mb-8">
@@ -108,10 +108,10 @@ export default function PrivacidadSyncroEdu() {
                         <p className="mb-8">Es posible que actualicemos esta política de privacidad para adaptarla a futuras actualizaciones del software, dictámenes de la Agencia de Protección de Datos Personales de Chile o modificaciones legales. Si realizamos un cambio importante, se lo notificaremos con un aviso destacado en la pantalla de inicio de la plataforma antes de que entre en vigor.</p>
                     </div>
                 </motion.div>
-            </section>
+            </main>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800 mt-auto">
+            <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800 mt-auto">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>

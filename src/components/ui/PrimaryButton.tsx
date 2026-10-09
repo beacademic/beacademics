@@ -26,12 +26,12 @@ export function PrimaryButton({
   size?: 'sm' | 'md' | 'lg';
   id?: string;
 }) {
-  let variantClasses = 'bg-gradient-to-r from-[#007AFF] to-[#5856D6] text-white shadow-[0_4px_14px_rgba(0,122,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
+  let variantClasses = 'bg-gradient-to-r from-[#0066CC] to-[#5856D6] text-white shadow-[0_4px_14px_rgba(0,122,255,0.25)] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
   
   if (variant === 'green') {
     variantClasses = 'bg-gradient-to-r from-[#1F7A38] to-[#186230] text-white shadow-[0_4px_14px_rgba(31,122,56,0.3)] hover:shadow-[0_6px_20px_rgba(31,122,56,0.4)]';
   } else if (variant === 'blue' || variant === 'primary') {
-    variantClasses = 'bg-[#007AFF] text-white shadow-[0_4px_14px_rgba(0,122,255,0.25)] hover:bg-[#0066D6] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
+    variantClasses = 'bg-[#0066CC] text-white shadow-[0_4px_14px_rgba(0,102,204,0.25)] hover:bg-[#0055AA] hover:shadow-[0_6px_20px_rgba(0,122,255,0.35)]';
   } else if (variant === 'secondary') {
     variantClasses = 'bg-white text-[#1D1D1F] border border-black/5 hover:bg-[#E8E8ED] shadow-xs';
   } else if (variant === 'outline') {
@@ -44,7 +44,7 @@ export function PrimaryButton({
     lg: 'px-8 py-3.5 text-base',
   }[size];
 
-  const baseClasses = `inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight hover:opacity-95 active:scale-[0.98] transition-all duration-200 cursor-pointer ${sizeClasses} ${variantClasses} ${className}`;
+  const baseClasses = `inline-flex items-center justify-center gap-2 whitespace-nowrap pointer-coarse:min-h-11 rounded-full font-semibold tracking-tight hover:opacity-95 active:scale-[0.98] transition-all duration-200 cursor-pointer ${sizeClasses} ${variantClasses} ${className}`;
 
   if (to) {
     return (

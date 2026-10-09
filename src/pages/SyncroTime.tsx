@@ -15,10 +15,12 @@ import {
     Globe,
     CheckCircle2
 } from 'lucide-react';
+import { scrollToId } from '../lib/scroll';
 import { BentoCard } from '../components/ui/BentoCard';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { LogoContainer } from '../components/ui/LogoContainer';
+import MobileMenu from '../components/MobileMenu';
 import Seo, { getRouteMeta, canonicalUrl } from '../components/Seo';
 import { whatsappLink } from '../config/contact';
 
@@ -322,11 +324,11 @@ export default function SyncroTime() {
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
-                <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-6 md:gap-8">
-                        <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
+                <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between text-sm font-medium">
+                    <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
+                        <Link to="/" className="hidden sm:flex items-center gap-2 group transition-opacity hover:opacity-80" aria-label="BE Academic, ir al inicio">
                             <LogoContainer className="w-9 h-9">
-                                <img src="/Logo-BE-Academic.png" alt="BE Academic" width={400} height={344} className="h-4 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" alt="" width={400} height={344} className="h-4 w-auto object-contain" />
                             </LogoContainer>
                             <span className="text-xs font-semibold text-[#515154] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
                                 BE Academic
@@ -339,20 +341,20 @@ export default function SyncroTime() {
                             <LogoContainer className="w-8 h-8 bg-[#007AFF]/10 border-[#007AFF]/20">
                                 <img src="/Logo-SyncroTime.png" alt="SyncroTime" width={200} height={198} className="h-5 w-5 object-contain" />
                             </LogoContainer>
-                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">SyncroTime</span>
-                            <span className="hidden md:inline-block px-2 py-0.5 bg-[#007AFF]/10 text-[#007AFF] text-[11px] font-bold rounded-full border border-[#007AFF]/20">
+                            <span className="font-bold text-sm sm:text-base tracking-tight text-[#1D1D1F]">SyncroTime</span>
+                            <span className="hidden 2xl:inline-block px-2 py-0.5 bg-[#007AFF]/10 text-[#0066CC] text-xs font-bold rounded-full border border-[#007AFF]/20">
                                 {t.chip}
                             </span>
                         </div>
 
-                        <div className="hidden lg:flex items-center gap-6 text-[#515154]">
-                            <button onClick={() => document.getElementById('funcionalidades')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFunc}</button>
-                            <button onClick={() => document.getElementById('beneficios')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navBenefits}</button>
-                            <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFaq}</button>
+                        <div className="hidden xl:flex items-center gap-6 text-[#515154]">
+                            <button onClick={() => scrollToId('funcionalidades')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFunc}</button>
+                            <button onClick={() => scrollToId('beneficios')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navBenefits}</button>
+                            <button onClick={() => scrollToId('faq')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">{t.navFaq}</button>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 md:gap-4">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                         {/* Apple-style Segmented Language Switcher */}
                         <div className="flex items-center bg-[#E8E8ED] rounded-full p-1 border border-black/5 text-xs font-bold">
                             {(['es', 'en', 'pt'] as Lang[]).map((lang) => (
@@ -392,9 +394,22 @@ export default function SyncroTime() {
                                 {t.pricing}
                             </PrimaryButton>
                         </div>
+                        <MobileMenu
+                            breakpoint="xl"
+                            items={[
+                                { label: t.navFunc, sectionId: 'funcionalidades' },
+                                { label: t.navBenefits, sectionId: 'beneficios' },
+                                { label: t.navFaq, sectionId: 'faq' },
+                                { label: t.login, href: loginUrl },
+                                { label: t.pricing, href: pricingUrl },
+                                { label: 'BE Academic', to: '/' },
+                            ]}
+                        />
                     </div>
                 </nav>
             </header>
+
+            <main id="contenido" tabIndex={-1} className="outline-none">
 
             {/* Hero Section */}
             <section className="pt-20 pb-16 md:py-24 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -472,7 +487,7 @@ export default function SyncroTime() {
 
                     <p className="mt-6 text-sm text-[#515154] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         {t.chooseText}{' '}
-                        <Link to="/syncroedu/" className="font-semibold text-[#0066CC] hover:underline underline-offset-2">
+                        <Link to="/syncroedu/" className="touch-target font-semibold text-[#0066CC] hover:underline underline-offset-2">
                             {t.chooseLink}
                         </Link>
                     </p>
@@ -492,7 +507,7 @@ export default function SyncroTime() {
                                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50" />
                                 <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50" />
                             </div>
-                            <span className="text-[11px] font-semibold text-[#515154]">SyncroTime Matrix — Live Engine</span>
+                            <span className="text-xs font-semibold text-[#515154]">SyncroTime Matrix — Live Engine</span>
                             <div className="w-12" />
                         </div>
 
@@ -641,15 +656,18 @@ export default function SyncroTime() {
                     {t.faqs.map((faq, index) => (
                         <div key={index} className="rounded-2xl border border-black/5 bg-white overflow-hidden shadow-xs">
                             <button
+                                id={`faq-pregunta-${index}`}
+                                aria-expanded={faqOpen === index}
+                                aria-controls={`faq-respuesta-${index}`}
                                 onClick={() => setFaqOpen(faqOpen === index ? null : index)}
                                 className="w-full px-6 py-5 text-left font-bold text-base md:text-lg text-[#1D1D1F] flex justify-between items-center gap-4 hover:bg-[#F5F5F7] transition-colors cursor-pointer font-display"
                             >
                                 <span>{faq.q}</span>
-                                <span className="text-[#007AFF] text-xl shrink-0 font-bold">{faqOpen === index ? '−' : '+'}</span>
+                                <span aria-hidden="true" className="text-[#0066CC] text-xl shrink-0 font-bold">{faqOpen === index ? '−' : '+'}</span>
                             </button>
                             <AnimatePresence>
                                 {faqOpen === index && (
-                                    <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                                    <motion.div id={`faq-respuesta-${index}`} role="region" aria-labelledby={`faq-pregunta-${index}`} initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
                                         <div className="px-6 pb-6 text-[#515154] text-sm leading-relaxed border-t border-black/5 pt-4">
                                             {faq.a}
                                         </div>
@@ -665,11 +683,11 @@ export default function SyncroTime() {
             <section id="cotizar" className="py-20 px-6 max-w-7xl mx-auto">
                 <div className="rounded-3xl bg-[#1C1C1E] border border-white/10 p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
                     <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-                        <StatusBadge label="GLOBAL SAAS" variant="primary" pulse={true} className="mx-auto" />
+                        <StatusBadge label="GLOBAL SAAS" variant="primary" pulse={true} className="mx-auto" onDark />
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-display" style={{ textWrap: 'balance' }}>
                             {t.ctaTitle}
                         </h2>
-                        <p className="text-base sm:text-lg text-[#86868B] font-normal leading-relaxed">
+                        <p className="text-base sm:text-lg text-[#A1A1A6] font-normal leading-relaxed">
                             {t.ctaDesc}
                         </p>
 
@@ -700,8 +718,10 @@ export default function SyncroTime() {
                 </div>
             </section>
 
+            </main>
+
             {/* Footer */}
-            <footer className="bg-[#1C1C1E] text-[#86868B] py-14 text-sm border-t border-white/10">
+            <footer className="bg-[#1C1C1E] text-[#A1A1A6] py-14 text-sm border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex items-center gap-3">
                         <LogoContainer className="w-8 h-8 bg-white/10 border-white/15">
@@ -709,7 +729,7 @@ export default function SyncroTime() {
                         </LogoContainer>
                         <div>
                             <p className="text-white font-bold text-sm tracking-tight">SyncroTime</p>
-                            <p className="text-xs text-[#86868B]">{t.footerTag}</p>
+                            <p className="text-xs text-[#A1A1A6]">{t.footerTag}</p>
                         </div>
                     </div>
 
@@ -719,7 +739,7 @@ export default function SyncroTime() {
                         <Link to="/" className="hover:text-white transition-colors">BE Academic</Link>
                     </div>
 
-                    <p className="text-xs text-[#86868B]">
+                    <p className="text-xs text-[#A1A1A6]">
                         &copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. {t.rights}
                     </p>
                 </div>

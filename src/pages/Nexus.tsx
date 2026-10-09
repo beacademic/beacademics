@@ -22,11 +22,11 @@ export default function Nexus() {
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
-                <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-6">
-                        <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
+                <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between text-sm font-medium">
+                    <div className="flex items-center gap-3 sm:gap-6">
+                        <Link to="/" className="hidden sm:flex items-center gap-2 group transition-opacity hover:opacity-80" aria-label="BE Academic, ir al inicio">
                             <LogoContainer className="w-9 h-9">
-                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-4 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="" className="h-4 w-auto object-contain" />
                             </LogoContainer>
                             <span className="text-xs font-semibold text-[#515154] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
                                 BE Academic
@@ -40,7 +40,7 @@ export default function Nexus() {
                                 <Sparkles className="w-4 h-4" />
                             </div>
                             <span className="font-bold text-base tracking-tight text-[#1D1D1F]">Nexus</span>
-                            <span className="px-2 py-0.5 bg-[#FF9500]/10 text-[#FF9500] text-[11px] font-bold rounded-full border border-[#FF9500]/20">
+                            <span className="px-2 py-0.5 bg-[#FF9500]/10 text-[#8F5000] text-xs font-bold rounded-full border border-[#FF9500]/20">
                                 Próximamente
                             </span>
                         </div>
@@ -52,14 +52,15 @@ export default function Nexus() {
                             size="sm"
                             to="/contacto/"
                         >
-                            Lista de Espera VIP
+                            <span className="sm:hidden">Lista VIP</span>
+                            <span className="hidden sm:inline">Lista de Espera VIP</span>
                         </PrimaryButton>
                     </div>
                 </nav>
             </header>
 
             {/* Central Content */}
-            <main className="flex-1 max-w-7xl mx-auto px-6 py-20 md:py-28 flex flex-col items-center text-center">
+            <main id="contenido" tabIndex={-1} className="outline-none flex-1 max-w-7xl mx-auto px-6 py-20 md:py-28 flex flex-col items-center text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -72,7 +73,7 @@ export default function Nexus() {
                         Revolucione la Calidad Educativa de su Establecimiento.
                     </h1>
                     
-                    <p className="text-lg md:text-xl text-[#007AFF] font-semibold mb-6 font-display">
+                    <p className="text-lg md:text-xl text-[#0066CC] font-semibold mb-6 font-display">
                         El nuevo estándar en gestión de Estándares Indicativos de Desempeño.
                     </p>
                     
@@ -105,8 +106,8 @@ export default function Nexus() {
                         <div className="w-12 h-12 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 flex items-center justify-center text-[#007AFF] mb-5">
                             <Users className="w-6 h-6" />
                         </div>
-                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Liderazgo Escolar</h3>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h2 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Liderazgo Escolar</h2>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Monitoreo de metas institucionales, planificación estratégica PME y articulación del equipo directivo.
                         </p>
                     </BentoCard>
@@ -115,8 +116,8 @@ export default function Nexus() {
                         <div className="w-12 h-12 rounded-2xl bg-[#34C759]/10 border border-[#34C759]/20 flex items-center justify-center text-[#34C759] mb-5">
                             <BookOpen className="w-6 h-6" />
                         </div>
-                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión Pedagógica</h3>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h2 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión Pedagógica</h2>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Acompañamiento en aula, cobertura curricular y seguimiento del progreso de los aprendizajes clave.
                         </p>
                     </BentoCard>
@@ -125,8 +126,8 @@ export default function Nexus() {
                         <div className="w-12 h-12 rounded-2xl bg-[#5856D6]/10 border border-[#5856D6]/20 flex items-center justify-center text-[#5856D6] mb-5">
                             <HeartHandshake className="w-6 h-6" />
                         </div>
-                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Convivencia Escolar</h3>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h2 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Convivencia Escolar</h2>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Gestión preventiva del clima escolar, protocolos de actuación y bienestar de la comunidad educativa.
                         </p>
                     </BentoCard>
@@ -135,8 +136,8 @@ export default function Nexus() {
                         <div className="w-12 h-12 rounded-2xl bg-[#FF9500]/10 border border-[#FF9500]/20 flex items-center justify-center text-[#FF9500] mb-5">
                             <BarChart3 className="w-6 h-6" />
                         </div>
-                        <h3 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión de Recursos</h3>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h2 className="text-lg font-bold text-[#1D1D1F] mb-2 font-display">Gestión de Recursos</h2>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Optimización de infraestructura, equipamiento didáctico y soporte continuo a la docencia.
                         </p>
                     </BentoCard>
@@ -144,13 +145,13 @@ export default function Nexus() {
             </main>
 
             {/* Footer Apple HIG */}
-            <footer className="bg-[#1C1C1E] text-[#86868B] py-12 text-sm border-t border-white/10 mt-auto">
+            <footer className="bg-[#1C1C1E] text-[#A1A1A6] py-12 text-sm border-t border-white/10 mt-auto">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
                     <div>
                         <p className="text-white font-semibold mb-1">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex flex-wrap justify-center gap-x-6">
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                         <Link to="/" className="hover:text-white transition-colors">Inicio</Link>

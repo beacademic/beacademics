@@ -6,6 +6,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { MotionConfig } from 'motion/react';
 import Home from './pages/Home';
 import Portal from './pages/Portal';
 import SyncroEdu from './pages/SyncroEdu';
@@ -17,6 +18,7 @@ import PrivacidadSyncroEdu from './pages/PrivacidadSyncroEdu';
 import CondicionesSyncroEdu from './pages/CondicionesSyncroEdu';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
+import SkipLink from './components/SkipLink';
 
 export default function App() {
     useEffect(() => {
@@ -29,7 +31,9 @@ export default function App() {
 
     return (
         <HelmetProvider>
+            <MotionConfig reducedMotion="user">
             <Router>
+                <SkipLink />
                 <ScrollManager />
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -44,6 +48,7 @@ export default function App() {
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>
+            </MotionConfig>
         </HelmetProvider>
     );
 }

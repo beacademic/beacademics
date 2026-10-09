@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo';
 import { INSTITUTIONAL_EMAIL, SALES_PHONE_TEL, whatsappLink } from '../config/contact';
+import { scrollToId } from '../lib/scroll';
 import { BentoCard } from '../components/ui/BentoCard';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { LogoContainer } from '../components/ui/LogoContainer';
+import MobileMenu from '../components/MobileMenu';
 import { 
     Clock, 
     ShieldCheck, 
@@ -73,36 +75,48 @@ export default function Home() {
             <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5">
                 <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
                     <div className="flex items-center gap-6">
-                        <Link to="/" className="flex items-center gap-3 group">
+                        <Link to="/" aria-label="BE Academic, ir al inicio" className="flex items-center gap-3 group">
                             <LogoContainer>
-                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="BE Academic" className="h-6 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" width={400} height={344} alt="" className="h-6 w-auto object-contain" />
                             </LogoContainer>
-                            <span className="font-bold text-base tracking-tight text-[#1D1D1F] group-hover:text-[#007AFF] transition-colors">
+                            <span className="font-bold text-base tracking-tight text-[#1D1D1F] group-hover:text-[#0066CC] transition-colors">
                                 BE Academic
                             </span>
                         </Link>
                         <div className="hidden md:flex items-center gap-6 pl-4 border-l border-black/5 text-[#515154]">
-                            <button onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Soluciones</button>
-                            <button onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Servicios</button>
+                            <button onClick={() => scrollToId('soluciones')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Soluciones</button>
+                            <button onClick={() => scrollToId('servicios')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Servicios</button>
                             <Link to="/contacto/" className="hover:text-[#1D1D1F] transition-colors">Contacto</Link>
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
                         <Link 
                             to="/acceso/" 
-                            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-xs text-[#515154] hover:text-[#1D1D1F] hover:bg-black/5 transition-all"
+                            className="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full font-medium text-sm text-[#515154] hover:text-[#1D1D1F] hover:bg-black/5 transition-all"
                         >
                             Portal Clientes
                         </Link>
-                        <PrimaryButton 
-                            size="sm"
-                            onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            Explorar Plataformas
-                        </PrimaryButton>
+                        <div className="hidden sm:block">
+                            <PrimaryButton 
+                                size="sm"
+                                onClick={() => scrollToId('soluciones')}
+                            >
+                                Explorar Plataformas
+                            </PrimaryButton>
+                        </div>
+                        <MobileMenu
+                            items={[
+                                { label: 'Explorar plataformas', sectionId: 'soluciones' },
+                                { label: 'Servicios', sectionId: 'servicios' },
+                                { label: 'Contacto', to: '/contacto/' },
+                                { label: 'Portal Clientes', to: '/acceso/' },
+                            ]}
+                        />
                     </div>
                 </nav>
             </header>
+
+            <main id="contenido" tabIndex={-1} className="outline-none">
 
             {/* Hero Section */}
             <section className="pt-36 pb-20 px-6 max-w-5xl mx-auto text-center flex flex-col items-center">
@@ -148,7 +162,7 @@ export default function Home() {
                 >
                     <PrimaryButton 
                         size="lg"
-                        onClick={() => document.getElementById('soluciones')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => scrollToId('soluciones')}
                         icon={<ArrowDown className="w-4 h-4" />}
                         className="w-full sm:w-auto"
                     >
@@ -170,15 +184,15 @@ export default function Home() {
                     className="mt-8 text-sm text-[#515154]"
                 >
                     ¿Ya sabe qué necesita?{' '}
-                    <Link to="/syncroedu/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                    <Link to="/syncroedu/" className="touch-target font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
                         Cumplir la normativa con SyncroEdu
                     </Link>
                     {' · '}
-                    <Link to="/syncrotime/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                    <Link to="/syncrotime/" className="touch-target font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
                         Armar horarios con SyncroTime
                     </Link>
                     {' · '}
-                    <Link to="/nexus/" className="font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                    <Link to="/nexus/" className="touch-target font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
                         Medir la calidad con Nexus
                     </Link>.
                 </motion.p>
@@ -190,7 +204,7 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
                         <div>
                             <div className="mb-2">
-                                <span className="text-[11px] font-bold uppercase tracking-widest text-[#007AFF]">
+                                <span className="text-xs font-bold uppercase tracking-widest text-[#0066CC]">
                                     Arquitectura Modular
                                 </span>
                             </div>
@@ -265,7 +279,7 @@ export default function Home() {
                                 <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
                                     SyncroTime
                                 </h3>
-                                <p className="text-xs font-semibold uppercase tracking-wider text-[#007AFF] mb-4">
+                                <p className="text-xs font-semibold uppercase tracking-wider text-[#0066CC] mb-4">
                                     Motor de optimización de horarios
                                 </p>
                                 
@@ -356,7 +370,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <div className="mb-2">
-                            <span className="text-[11px] font-bold uppercase tracking-widest text-[#007AFF]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#0066CC]">
                                 Acompañamiento Estratégico
                             </span>
                         </div>
@@ -420,7 +434,7 @@ export default function Home() {
 
                         <div className="relative z-10 max-w-2xl mx-auto">
                             <div className="mb-4">
-                                <span className="text-[11px] font-bold uppercase tracking-widest text-[#52A6FF]">
+                                <span className="text-xs font-bold uppercase tracking-widest text-[#52A6FF]">
                                     Asesoría Personalizada
                                 </span>
                             </div>
@@ -443,6 +457,8 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            </main>
 
             {/* Footer (Apple HIG Style) */}
             <footer className="bg-[#F5F5F7] text-[#515154] py-12 text-xs border-t border-black/5">

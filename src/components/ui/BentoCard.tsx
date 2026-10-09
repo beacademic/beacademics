@@ -16,8 +16,7 @@ export function BentoCard({
   return (
     <motion.div
       id={id}
-      whileHover={{ scale: 1.01, y: -3 }}
-      whileTap={{ scale: 0.99 }}
+      whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 380, damping: 28 }}
       className={`group relative overflow-hidden rounded-3xl border border-black/5 bg-white p-7 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300 ${className}`}
     >

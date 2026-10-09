@@ -25,7 +25,7 @@ export default function Legal() {
             </header>
 
             {/* Content Section */}
-            <section className="pt-32 pb-24 px-6 max-w-3xl mx-auto flex-grow w-full">
+            <main id="contenido" tabIndex={-1} className="outline-none pt-32 pb-24 px-6 max-w-3xl mx-auto flex-grow w-full">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -60,10 +60,10 @@ export default function Legal() {
                         </div>
                     </div>
                 </motion.div>
-            </section>
+            </main>
 
             {/* Footer */}
-            <footer className="bg-gray-900 text-gray-500 py-10 text-center text-sm border-t border-gray-800 mt-auto">
+            <footer className="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800 mt-auto">
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div>
                         <p className="mb-2">BE Academic. Ecosistema Tecnológico para la Educación en Chile.</p>

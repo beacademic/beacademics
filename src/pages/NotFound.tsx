@@ -5,7 +5,7 @@ import { PrimaryButton } from '../components/ui/PrimaryButton';
 
 export default function NotFound() {
     return (
-        <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans flex flex-col items-center justify-center px-6 text-center">
+        <main id="contenido" tabIndex={-1} className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans flex flex-col items-center justify-center px-6 text-center outline-none">
             <Helmet>
                 <html lang="es" />
                 <title>{seoData.notFound.title}</title>
@@ -21,6 +21,6 @@ export default function NotFound() {
                 <Link to="/contacto/" className="underline hover:text-[#1D1D1F] transition-colors">contacto</Link>.
             </p>
             <PrimaryButton to="/" size="lg">Volver al inicio</PrimaryButton>
-        </div>
+        </main>
     );
 }

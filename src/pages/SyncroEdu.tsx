@@ -26,10 +26,12 @@ import {
     Award,
     Users
 } from 'lucide-react';
+import { scrollToId } from '../lib/scroll';
 import { BentoCard } from '../components/ui/BentoCard';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { LogoContainer } from '../components/ui/LogoContainer';
+import MobileMenu from '../components/MobileMenu';
 import Seo, { canonicalUrl } from '../components/Seo';
 import HubSpotForm, { HUBSPOT_FORMS } from '../components/HubSpotForm';
 import { BUSINESS_HOURS, SALES_EMAIL, SALES_PHONE_DISPLAY, SALES_PHONE_TEL, whatsappLink } from '../config/contact';
@@ -52,20 +54,20 @@ const UrgencyBar = () => {
                 {isYearEnd ? (
                     <span className="text-[#515154]">
                         <strong className="text-[#1D1D1F]">Planificación Escolar {new Date().getFullYear() + 1}</strong> — Prepare el año escolar con contratos y horarios validados contra la normativa vigente.{' '}
-                        <a href={whatsappLink('syncroedu', { message: 'Hola, quiero agendar una demo de SyncroEdu' })} target="_blank" rel="noopener noreferrer" className="text-[#1F7A38] hover:underline font-semibold ml-1">
+                        <a href={whatsappLink('syncroedu', { message: 'Hola, quiero agendar una demo de SyncroEdu' })} target="_blank" rel="noopener noreferrer" className="touch-target text-[#1F7A38] hover:underline font-semibold ml-1">
                             Agendar demo gratuita &rarr;
                         </a>
                     </span>
                 ) : (
                     <span className="text-[#515154]">
                         <strong className="text-[#1D1D1F]">Año Escolar en Curso</strong> — Valide la proporción 65/35 de su dotación docente y reduzca el riesgo de sanciones de la Superintendencia de Educación.{' '}
-                        <a href={whatsappLink('syncroedu', { message: 'Hola, necesito asesoría sobre el cumplimiento de la regla 65/35 en SyncroEdu' })} target="_blank" rel="noopener noreferrer" className="text-[#1F7A38] hover:underline font-semibold ml-1">
+                        <a href={whatsappLink('syncroedu', { message: 'Hola, necesito asesoría sobre el cumplimiento de la regla 65/35 en SyncroEdu' })} target="_blank" rel="noopener noreferrer" className="touch-target text-[#1F7A38] hover:underline font-semibold ml-1">
                             Hablar con un asesor &rarr;
                         </a>
                     </span>
                 )}
             </div>
-            <button onClick={() => setIsVisible(false)} className="absolute right-4 top-1/2 -translate-y-1/2 text-[#515154] hover:text-[#1D1D1F] transition-colors" aria-label="Cerrar aviso">&times;</button>
+            <button onClick={() => setIsVisible(false)} className="touch-target absolute right-1 top-1/2 -translate-y-1/2 justify-center text-xl text-[#515154] hover:text-[#1D1D1F] transition-colors" aria-label="Cerrar aviso">&times;</button>
         </aside>
     );
 };
@@ -157,11 +159,11 @@ export default function SyncroEdu() {
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-40 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
-                <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-sm font-medium">
-                    <div className="flex items-center gap-6 md:gap-8">
-                        <Link to="/" className="flex items-center gap-2 group transition-opacity opacity-80 hover:opacity-100">
+                <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between text-sm font-medium">
+                    <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
+                        <Link to="/" className="hidden min-[380px]:flex items-center gap-2 group transition-opacity hover:opacity-80" aria-label="BE Academic, ir al inicio">
                             <LogoContainer className="w-9 h-9">
-                                <img src="/Logo-BE-Academic.png" alt="BE Academic" width={400} height={344} className="h-4 w-auto object-contain" />
+                                <img src="/Logo-BE-Academic.png" alt="" width={400} height={344} className="h-4 w-auto object-contain" />
                             </LogoContainer>
                             <span className="text-xs font-semibold text-[#515154] group-hover:text-[#1D1D1F] hidden sm:inline transition-colors">
                                 BE Academic
@@ -174,39 +176,53 @@ export default function SyncroEdu() {
                             <LogoContainer className="w-8 h-8 bg-[#34C759]/10 border-[#34C759]/20">
                                 <img src="/Logo-SyncroEdu.png" alt="SyncroEdu" width={254} height={289} className="h-5 w-5 object-contain" />
                             </LogoContainer>
-                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">SyncroEdu</span>
-                            <span className="hidden md:inline-block px-2 py-0.5 bg-[#34C759]/10 text-[#1F7A38] text-[11px] font-bold rounded-full border border-[#34C759]/20">
+                            <span className="font-bold text-sm sm:text-base tracking-tight text-[#1D1D1F]">SyncroEdu</span>
+                            <span className="hidden 2xl:inline-block px-2 py-0.5 bg-[#34C759]/10 text-[#1F7A38] text-xs font-bold rounded-full border border-[#34C759]/20">
                                 Chile Compliance
                             </span>
                         </div>
 
-                        <div className="hidden lg:flex items-center gap-6 text-[#515154]">
-                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Funcionalidades</button>
-                            <button onClick={() => document.getElementById('riesgo-financiero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Impacto Normativo</button>
-                            <button onClick={() => document.getElementById('caso-piloto')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Caso real</button>
-                            <button onClick={() => document.getElementById('comparativa')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Comparativa</button>
-                            <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">FAQ</button>
+                        <div className="hidden xl:flex items-center gap-6 text-[#515154]">
+                            <button onClick={() => scrollToId('pilares')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Funcionalidades</button>
+                            <button onClick={() => scrollToId('riesgo-financiero')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Impacto Normativo</button>
+                            <button onClick={() => scrollToId('caso-piloto')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Caso real</button>
+                            <button onClick={() => scrollToId('comparativa')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">Comparativa</button>
+                            <button onClick={() => scrollToId('faq')} className="hover:text-[#1D1D1F] transition-colors cursor-pointer">FAQ</button>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                         <a 
                             href="https://syncroedu.com" 
-                            className="hidden sm:inline-flex text-xs font-semibold text-[#515154] hover:text-[#1D1D1F] transition-colors px-3 py-1.5"
+                            className="hidden sm:inline-flex text-sm font-semibold text-[#515154] hover:text-[#1D1D1F] transition-colors px-3 py-1.5"
                         >
                             Acceso Clientes
                         </a>
                         <PrimaryButton 
                             variant="green"
                             size="sm"
-                            onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
-                            icon={<Zap className="w-3.5 h-3.5" />}
+                            onClick={() => scrollToId('formulario')}
+                            icon={<Zap className="hidden min-[420px]:block w-3.5 h-3.5" />}
                         >
                             Agendar Demo
                         </PrimaryButton>
+                        <MobileMenu
+                            breakpoint="xl"
+                            items={[
+                                { label: 'Funcionalidades', sectionId: 'pilares' },
+                                { label: 'Impacto Normativo', sectionId: 'riesgo-financiero' },
+                                { label: 'Caso real', sectionId: 'caso-piloto' },
+                                { label: 'Comparativa', sectionId: 'comparativa' },
+                                { label: 'Preguntas frecuentes', sectionId: 'faq' },
+                                { label: 'Acceso Clientes', href: 'https://syncroedu.com' },
+                                { label: 'Ir a BE Academic', to: '/' },
+                            ]}
+                        />
                     </div>
                 </nav>
             </header>
+
+            <main id="contenido" tabIndex={-1} className="outline-none">
 
             {/* SECCIÓN 2 — HERO */}
             <section id="hero" className="pt-20 pb-16 md:py-24 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative">
@@ -252,7 +268,7 @@ export default function SyncroEdu() {
                         <PrimaryButton 
                             variant="green"
                             size="lg"
-                            onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => scrollToId('formulario')}
                             icon={<ArrowRight className="w-4 h-4" />}
                         >
                             Solicitar Demo Técnica
@@ -288,7 +304,7 @@ export default function SyncroEdu() {
                         className="mt-6 text-sm text-[#515154] max-w-2xl mx-auto lg:mx-0 leading-relaxed"
                     >
                         SyncroEdu es la opción si necesita validar la normativa chilena (regla 65/35, horas PIE) además de generar el horario. ¿Solo necesita el horario?{' '}
-                        <Link to="/syncrotime/" className="font-semibold text-[#0066CC] hover:underline underline-offset-2">
+                        <Link to="/syncrotime/" className="touch-target font-semibold text-[#0066CC] hover:underline underline-offset-2">
                             Conozca SyncroTime, el motor de horarios
                         </Link>.
                     </motion.p>
@@ -308,7 +324,7 @@ export default function SyncroEdu() {
                                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50" />
                                 <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50" />
                             </div>
-                            <span className="text-[11px] font-semibold text-[#515154]">SyncroEdu — Plataforma de Compliance Escolar</span>
+                            <span className="text-xs font-semibold text-[#515154]">SyncroEdu — Plataforma de Compliance Escolar</span>
                             <div className="w-12" />
                         </div>
 
@@ -338,7 +354,7 @@ export default function SyncroEdu() {
                             </div>
                             <div>
                                 <p className="text-xs font-bold text-[#1D1D1F]">Validación normativa continua</p>
-                                <p className="text-[11px] text-[#515154]">Proporción 65/35 y Ley 20.903 verificadas por el sistema</p>
+                                <p className="text-xs text-[#515154]">Proporción 65/35 y Ley 20.903 verificadas por el sistema</p>
                             </div>
                         </div>
                     </div>
@@ -456,84 +472,84 @@ export default function SyncroEdu() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <BentoCard glowColor="#FF3B30">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Superintendencia</span>
+                            <span className="text-xs font-bold text-[#D70015] uppercase tracking-wider">Superintendencia</span>
                             <AlertTriangle className="w-5 h-5 text-[#FF3B30]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(1434000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa promedio por 1 docente</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa promedio por 1 docente</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Sanción típica de 20 UTM por incumplir la proporción lectiva/no lectiva en un solo contrato fiscalizado.
                         </p>
                     </BentoCard>
 
                     <BentoCard glowColor="#FF3B30">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Decreto N° 170</span>
+                            <span className="text-xs font-bold text-[#D70015] uppercase tracking-wider">Decreto N° 170</span>
                             <DollarSign className="w-5 h-5 text-[#FF3B30]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(9000000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Subvención PIE en contingencia</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Subvención PIE en contingencia</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Riesgo de reintegro por no acreditar las 3 horas de co-docencia requeridas en un curso de 5 alumnos NEE.
                         </p>
                     </BentoCard>
 
                     <BentoCard glowColor="#FF9500">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#FF9500] uppercase tracking-wider">Gestión Directiva</span>
+                            <span className="text-xs font-bold text-[#8F5000] uppercase tracking-wider">Gestión Directiva</span>
                             <Clock className="w-5 h-5 text-[#FF9500]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(1687500)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Costo en horas UTP manuales</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Costo en horas UTP manuales</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Más de 150 horas anuales del equipo directivo destinadas a cuadraturas y ajustes que pueden ser automáticos.
                         </p>
                     </BentoCard>
 
                     <BentoCard glowColor="#FF9500">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#FF9500] uppercase tracking-wider">Nómina Docente</span>
+                            <span className="text-xs font-bold text-[#8F5000] uppercase tracking-wider">Nómina Docente</span>
                             <TrendingUp className="w-5 h-5 text-[#FF9500]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(5280000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Fugas anuales por horas ociosas</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Fugas anuales por horas ociosas</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Horas contratadas no aprovechadas por ventanas horarias ineficientes (estimado 8 hrs/sem × 40 sem).
                         </p>
                     </BentoCard>
 
                     <BentoCard glowColor="#007AFF">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#007AFF] uppercase tracking-wider">Continuidad</span>
+                            <span className="text-xs font-bold text-[#0066CC] uppercase tracking-wider">Continuidad</span>
                             <Users className="w-5 h-5 text-[#007AFF]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(2500000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Ausentismo no detectado</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Ausentismo no detectado</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Impacto por licencias cortas y reiteradas sin monitoreo objetivo ni factor Bradford institucional.
                         </p>
                     </BentoCard>
 
                     <BentoCard glowColor="#FF3B30">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-xs font-bold text-[#FF3B30] uppercase tracking-wider">Contratos</span>
+                            <span className="text-xs font-bold text-[#D70015] uppercase tracking-wider">Contratos</span>
                             <Calendar className="w-5 h-5 text-[#FF3B30]" />
                         </div>
                         <div className="text-3xl md:text-4xl font-black text-[#1D1D1F] tracking-tight mb-2">
                             {counterAnimation(359000)} <span className="text-xs font-semibold text-[#515154]">CLP</span>
                         </div>
-                        <h4 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa por contratos atrasados</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">
+                        <h3 className="font-bold text-[#1D1D1F] text-base mb-2 font-display">Multa por contratos atrasados</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">
                             Sanción típica de 5 UTM por descalce en la formalización de contratos docentes.
                         </p>
                     </BentoCard>
@@ -543,9 +559,9 @@ export default function SyncroEdu() {
                         <div>
                             <span className="text-xs font-bold text-[#34C759] uppercase tracking-widest block mb-2">Valor Anual Protegido</span>
                             <div className="text-3xl md:text-4xl font-black text-white tracking-tight mb-2">
-                                {counterAnimation(20260500)} <span className="text-xs font-semibold text-[#86868B]">CLP / año</span>
+                                {counterAnimation(20260500)} <span className="text-xs font-semibold text-[#A1A1A6]">CLP / año</span>
                             </div>
-                            <p className="text-xs text-[#86868B] leading-relaxed">
+                            <p className="text-sm text-[#A1A1A6] leading-relaxed">
                                 Estimación de mitigación acumulada para un establecimiento subvencionado mediano (dotación de 35 a 45 funcionarios).
                             </p>
                         </div>
@@ -553,7 +569,7 @@ export default function SyncroEdu() {
                             <PrimaryButton 
                                 variant="green"
                                 size="sm"
-                                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => scrollToId('formulario')}
                                 className="w-full"
                             >
                                 Diagnosticar Mi Colegio &rarr;
@@ -676,7 +692,7 @@ export default function SyncroEdu() {
                             <button
                                 key={idx}
                                 onClick={() => setActiveTab(idx)}
-                                className={`flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full transition-all cursor-pointer whitespace-nowrap ${
+                                className={`flex items-center gap-2 px-4 sm:px-6 py-2 pointer-coarse:min-h-11 rounded-full transition-all cursor-pointer whitespace-nowrap ${
                                     activeTab === idx 
                                         ? 'bg-white text-[#1D1D1F] shadow-xs' 
                                         : 'text-[#515154] hover:text-[#1D1D1F]'
@@ -866,24 +882,24 @@ export default function SyncroEdu() {
                             <thead>
                                 <tr className="border-b border-black/5 text-xs font-bold text-[#515154] uppercase tracking-wider">
                                     <th className="py-3 px-4">Indicador de Desempeño</th>
-                                    <th className="py-3 px-4 text-[#FF3B30]">Método Previo (Excel)</th>
+                                    <th className="py-3 px-4 text-[#D70015]">Método Previo (Excel)</th>
                                     <th className="py-3 px-4 text-[#1F7A38]">Con SyncroEdu</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-black/5">
                                 <tr>
                                     <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Tiempo de confección del horario</td>
-                                    <td className="py-4 px-4 text-[#FF3B30]">3 semanas intensivas de UTP</td>
+                                    <td className="py-4 px-4 text-[#D70015]">3 semanas intensivas de UTP</td>
                                     <td className="py-4 px-4 text-[#1F7A38] font-bold">1 a 3 días hábiles</td>
                                 </tr>
                                 <tr>
                                     <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Cuadratura de horarios y contratos para remuneraciones</td>
-                                    <td className="py-4 px-4 text-[#FF3B30]">Manual (alto riesgo de error humano)</td>
+                                    <td className="py-4 px-4 text-[#D70015]">Manual (alto riesgo de error humano)</td>
                                     <td className="py-4 px-4 text-[#1F7A38] font-bold">Validada por el sistema</td>
                                 </tr>
                                 <tr>
                                     <td className="py-4 px-4 font-semibold text-[#1D1D1F]">Trazabilidad legal ante fiscalización</td>
-                                    <td className="py-4 px-4 text-[#FF3B30]">Parcial e incompleta</td>
+                                    <td className="py-4 px-4 text-[#D70015]">Parcial e incompleta</td>
                                     <td className="py-4 px-4 text-[#1F7A38] font-bold">Registro auditable de cada cambio</td>
                                 </tr>
                             </tbody>
@@ -910,7 +926,7 @@ export default function SyncroEdu() {
                             <Building2 className="w-6 h-6" />
                         </div>
                         <h3 className="text-xl font-bold text-[#1D1D1F] mb-1 font-display">Para el Sostenedor</h3>
-                        <p className="text-xs text-[#007AFF] font-semibold mb-4">Control Financiero y Mitigación de Riesgos</p>
+                        <p className="text-xs text-[#0066CC] font-semibold mb-4">Control Financiero y Mitigación de Riesgos</p>
                         <ul className="space-y-3 text-sm text-[#515154]">
                             <li className="flex items-start gap-2">
                                 <Check className="w-4 h-4 text-[#007AFF] shrink-0 mt-0.5" />
@@ -995,11 +1011,11 @@ export default function SyncroEdu() {
                         <BentoCard key={i} glowColor="#34C759" className="p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <span className="text-2xl font-black text-[#1F7A38] font-mono">{item.step}</span>
-                                <span className="text-[11px] font-semibold text-[#515154] bg-[#E8E8ED] px-2.5 py-1 rounded-full">{item.time}</span>
+                                <span className="text-xs font-semibold text-[#515154] bg-[#E8E8ED] px-2.5 py-1 rounded-full">{item.time}</span>
                             </div>
                             <div className="mb-3">{item.icon}</div>
-                            <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">{item.title}</h4>
-                            <p className="text-xs text-[#515154] leading-relaxed">{item.desc}</p>
+                            <h3 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">{item.title}</h3>
+                            <p className="text-sm text-[#515154] leading-relaxed">{item.desc}</p>
                         </BentoCard>
                     ))}
                 </div>
@@ -1020,26 +1036,26 @@ export default function SyncroEdu() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     <BentoCard glowColor="#007AFF">
                         <Cloud className="w-8 h-8 text-[#007AFF] mb-4" />
-                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Google Cloud Platform</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">Infraestructura en Google Cloud (Cloud Run y Cloud SQL), región Santiago, con alta disponibilidad, respaldo automático y disponibilidad objetivo de 99,5%.</p>
+                        <h3 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Google Cloud Platform</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">Infraestructura en Google Cloud (Cloud Run y Cloud SQL), región Santiago, con alta disponibilidad, respaldo automático y disponibilidad objetivo de 99,5%.</p>
                     </BentoCard>
 
                     <BentoCard glowColor="#34C759">
                         <Lock className="w-8 h-8 text-[#34C759] mb-4" />
-                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Cifrado de datos</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">Datos cifrados en tránsito y en reposo.</p>
+                        <h3 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Cifrado de datos</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">Datos cifrados en tránsito y en reposo.</p>
                     </BentoCard>
 
                     <BentoCard glowColor="#5856D6">
                         <Building2 className="w-8 h-8 text-[#5856D6] mb-4" />
-                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Datos separados por colegio</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">Cada establecimiento accede solo a sus propios datos, con separación lógica por institución.</p>
+                        <h3 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Datos separados por colegio</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">Cada establecimiento accede solo a sus propios datos, con separación lógica por institución.</p>
                     </BentoCard>
 
                     <BentoCard glowColor="#FF9500">
                         <Zap className="w-8 h-8 text-[#FF9500] mb-4" />
-                        <h4 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Sincronización Continua</h4>
-                        <p className="text-xs text-[#515154] leading-relaxed">Cualquier ajuste realizado en la web se propaga a la app móvil de los directivos al instante.</p>
+                        <h3 className="font-bold text-base text-[#1D1D1F] mb-2 font-display">Sincronización Continua</h3>
+                        <p className="text-sm text-[#515154] leading-relaxed">Cualquier ajuste realizado en la web se propaga a la app móvil de los directivos al instante.</p>
                     </BentoCard>
                 </div>
             </section>
@@ -1057,15 +1073,18 @@ export default function SyncroEdu() {
                     {faqs.map((faq, i) => (
                         <div key={i} className="rounded-2xl border border-black/5 bg-white overflow-hidden shadow-xs">
                             <button 
+                                id={`faq-pregunta-${i}`}
+                                aria-expanded={faqOpen === i}
+                                aria-controls={`faq-respuesta-${i}`}
                                 className="w-full text-left px-6 py-5 font-bold text-[#1D1D1F] flex justify-between items-center hover:bg-[#F5F5F7] transition-colors cursor-pointer"
                                 onClick={() => setFaqOpen(faqOpen === i ? null : i)}
                             >
                                 <span className="pr-4 font-display text-base md:text-lg">{faq.q}</span>
-                                <span className="text-xl font-bold text-[#1F7A38] shrink-0">{faqOpen === i ? '−' : '+'}</span>
+                                <span aria-hidden="true" className="text-xl font-bold text-[#1F7A38] shrink-0">{faqOpen === i ? '−' : '+'}</span>
                             </button>
                             <AnimatePresence>
                                 {faqOpen === i && (
-                                    <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                                    <motion.div id={`faq-respuesta-${i}`} role="region" aria-labelledby={`faq-pregunta-${i}`} initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
                                         <div className="px-6 pb-6 text-[#515154] text-sm leading-relaxed border-t border-black/5 pt-4">
                                             {faq.a}
                                         </div>
@@ -1135,7 +1154,7 @@ export default function SyncroEdu() {
                                 className="[&_.hs-form]:!font-sans"
                             />
 
-                            <p className="text-[11px] text-center text-[#515154] pt-4">
+                            <p className="text-xs text-center text-[#515154] pt-4">
                                 Sus datos se tratan según nuestra <Link to="/privacidad-syncroedu/" className="underline hover:text-[#1D1D1F] transition-colors">Política de Privacidad</Link>. No enviamos spam.
                             </p>
                             <p className="text-sm text-center pt-3">
@@ -1143,7 +1162,7 @@ export default function SyncroEdu() {
                                     href={whatsappLink('syncroedu', { message: 'Hola, quiero agendar una demo de SyncroEdu' })}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="font-semibold text-[#1F7A38] hover:underline underline-offset-2"
+                                    className="touch-target font-semibold text-[#1F7A38] hover:underline underline-offset-2"
                                 >
                                     ¿Prefiere WhatsApp? Escríbanos
                                 </a>
@@ -1157,11 +1176,11 @@ export default function SyncroEdu() {
             <section className="py-20 px-6 max-w-7xl mx-auto">
                 <div className="rounded-3xl bg-[#1C1C1E] border border-white/10 p-12 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
                     <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-                        <StatusBadge label="TEMPORADA DE CONTRATACIÓN ESCOLAR" variant="success" pulse={true} className="mx-auto" />
+                        <StatusBadge label="TEMPORADA DE CONTRATACIÓN ESCOLAR" variant="success" pulse={true} className="mx-auto" onDark />
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-display" style={{ textWrap: 'balance' }}>
                             Llegue al inicio del año escolar con certeza legal y sin semanas de estrés.
                         </h2>
-                        <p className="text-base sm:text-lg text-[#86868B] font-normal leading-relaxed">
+                        <p className="text-base sm:text-lg text-[#A1A1A6] font-normal leading-relaxed">
                             Le demostraremos en vivo cómo SyncroEdu resuelve en días lo que hoy le toma semanas a su equipo.
                         </p>
 
@@ -1180,7 +1199,7 @@ export default function SyncroEdu() {
                             <PrimaryButton 
                                 variant="secondary"
                                 size="lg"
-                                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => scrollToId('formulario')}
                             >
                                 Completar Formulario
                             </PrimaryButton>
@@ -1189,8 +1208,10 @@ export default function SyncroEdu() {
                 </div>
             </section>
 
+            </main>
+
             {/* SECCIÓN 15 — FOOTER APPLE HIG */}
-            <footer className="bg-[#1C1C1E] text-[#86868B] py-14 text-sm border-t border-white/10">
+            <footer className="bg-[#1C1C1E] text-[#A1A1A6] py-14 text-sm border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
                     <div className="md:col-span-2 space-y-4">
                         <div className="flex items-center gap-2">
@@ -1199,18 +1220,18 @@ export default function SyncroEdu() {
                             </LogoContainer>
                             <span className="font-bold text-lg text-white tracking-tight">SyncroEdu</span>
                         </div>
-                        <p className="text-xs text-[#86868B] max-w-md leading-relaxed">
+                        <p className="text-xs text-[#A1A1A6] max-w-md leading-relaxed">
                             La plataforma de Compliance Escolar, Continuidad Operativa y Optimización de Recursos Humanos para establecimientos educacionales en Chile. Desarrollada por BE Academic.
                         </p>
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Navegación</h4>
+                        <h3 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Navegación</h3>
                         <div className="flex flex-col gap-2.5 text-xs">
-                            <button onClick={() => document.getElementById('pilares')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Funcionalidades</button>
-                            <button onClick={() => document.getElementById('riesgo-financiero')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Riesgo Financiero</button>
-                            <button onClick={() => document.getElementById('caso-piloto')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Caso real</button>
-                            <button onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-white transition-colors text-left cursor-pointer">Preguntas Frecuentes</button>
+                            <button onClick={() => scrollToId('pilares')} className="hover:text-white transition-colors text-left cursor-pointer">Funcionalidades</button>
+                            <button onClick={() => scrollToId('riesgo-financiero')} className="hover:text-white transition-colors text-left cursor-pointer">Riesgo Financiero</button>
+                            <button onClick={() => scrollToId('caso-piloto')} className="hover:text-white transition-colors text-left cursor-pointer">Caso real</button>
+                            <button onClick={() => scrollToId('faq')} className="hover:text-white transition-colors text-left cursor-pointer">Preguntas Frecuentes</button>
                             <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                             <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio</Link>
                             <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad</Link>
@@ -1218,7 +1239,7 @@ export default function SyncroEdu() {
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Contacto</h4>
+                        <h3 className="font-bold text-xs uppercase tracking-widest text-white mb-4">Contacto</h3>
                         <div className="space-y-2 text-xs">
                             <p className="flex items-center gap-2">
                                 <Phone className="w-3.5 h-3.5 text-[#34C759]" />
@@ -1228,28 +1249,30 @@ export default function SyncroEdu() {
                                 <Mail className="w-3.5 h-3.5 text-[#34C759]" />
                                 <a href={`mailto:${SALES_EMAIL}`} className="hover:text-white transition-colors">{SALES_EMAIL}</a>
                             </p>
-                            <p className="text-[11px] text-[#86868B] pt-2">{BUSINESS_HOURS}</p>
+                            <p className="text-xs text-[#A1A1A6] pt-2">{BUSINESS_HOURS}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-[#86868B] gap-4">
+                <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between text-xs text-[#A1A1A6] gap-4">
                     <p>SyncroEdu &copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     <p>Plataforma de compliance escolar para establecimientos educacionales de Chile.</p>
                 </div>
             </footer>
 
             {/* BOTÓN FLOTANTE WHATSAPP APPLE HIG */}
+            <aside aria-label="Contacto por WhatsApp">
             <a 
                 href={whatsappLink('syncroedu', { message: 'Hola, deseo consultar sobre SyncroEdu' })} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 bg-[#1F7A38] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(31,122,56,0.4)] font-semibold text-sm hover:scale-105 active:scale-95 transition-all"
+                className="fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-[max(1.5rem,env(safe-area-inset-right))] z-50 flex items-center gap-2.5 min-h-12 bg-[#1F7A38] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(31,122,56,0.4)] font-semibold text-sm hover:scale-105 active:scale-95 transition-all"
                 aria-label="Contactar por WhatsApp"
             >
                 <MessageSquare className="w-4 h-4 fill-current" />
                 <span className="hidden sm:inline">¿Dudas? Hablemos</span>
             </a>
+            </aside>
         </div>
     );
 }
