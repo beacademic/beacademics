@@ -289,8 +289,8 @@ export const MODULOS: ModuloSyncroEdu[] = [
                 a: 'SyncroEdu asegura que los bloques de co-docencia de 3 horas cronológicas se asignen de forma coordinada entre profesores de aula y especialistas, para proteger la subvención.',
             },
             {
-                q: '¿Las 3 horas PIE cuentan como horas no lectivas?',
-                a: 'No. Según el dictamen N° 17.810 de 2016 de la Contraloría, citado por el Mineduc, las 3 horas cronológicas del artículo 86 letra b) del Decreto 170 se imputan dentro del máximo de docencia de aula que fija la ley, no a las horas no lectivas. Por eso SyncroEdu las revisa junto con la proporción 65/35.',
+                q: '¿Las 3 horas PIE son lectivas o no lectivas?',
+                a: 'Depende del docente. Para el profesor de educación regular, las 3 horas cronológicas del artículo 86 letra b) del Decreto 170 (planificación, evaluación y seguimiento del PIE) se imputan dentro de su docencia de aula, es decir, como horas lectivas, según el dictamen N° 17.810 de 2016 de la Contraloría. Para el educador diferencial o profesional PIE, el trabajo colaborativo se considera dentro de sus horas no lectivas, que la dirección debe asignar en bloques suficientes. SyncroEdu aplica cada criterio al revisar la proporción 65/35.',
             },
             {
                 q: '¿En qué plan está?',

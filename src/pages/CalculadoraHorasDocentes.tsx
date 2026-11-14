@@ -60,6 +60,10 @@ const faqs = [
         a: 'Desde la Ley 21.625 (2023), al menos la mitad de las horas no lectivas debe destinarse a la preparación de clases y a la evaluación de aprendizajes. El resto puede usarse en otras actividades profesionales definidas por el establecimiento, como trabajo colaborativo o atención de apoderados.',
     },
     {
+        q: '¿Cómo se cuentan las 3 horas PIE del Decreto 170?',
+        a: 'Para el profesor de educación regular, las 3 horas cronológicas de planificación, evaluación y seguimiento del PIE se imputan dentro de su docencia de aula (horas lectivas), según el dictamen N° 17.810 de 2016 de la Contraloría. Para el educador diferencial o profesional PIE, el trabajo colaborativo se realiza en sus horas no lectivas, que deben asignarse en bloques suficientes.',
+    },
+    {
         q: '¿Sirve para educación parvularia o educación especial?',
         a: 'No directamente. En educación parvularia las horas lectivas son de 60 minutos, por lo que se usa el valor de docencia de aula en horas cronológicas. En educación especial con horas de 30 o 40 minutos, el número de clases debe ajustarse a esa duración manteniendo el máximo de aula que fija la ley.',
     },
