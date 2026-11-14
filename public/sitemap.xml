@@ -5,7 +5,7 @@
 
   <!-- Las URL llevan barra final: es la forma canonica (GitHub Pages redirige /ruta a /ruta/).
        Mantener sincronizado con src/seo/routes.json (el build lo verifica). Las rutas con
-       "noindex": true (por ejemplo /acceso/) no van aquí. -->
+       "noindex": true (por ejemplo /acceso/) o con canonical a otro dominio (/syncrotime/ → syncrotime.com) no van aquí. -->
 
   <!-- 1. Inicio / Ecosistema Educativo -->
   <url>
@@ -15,7 +15,7 @@
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://beacademics.com/og-image.jpg</image:loc>
-      <image:title>BE Academic - SyncroEdu, SyncroTime y Nexus</image:title>
+      <image:title>BE Academic - SyncroEdu, SyncroTime y Skolvik</image:title>
     </image:image>
   </url>
 
@@ -33,22 +33,10 @@
     </image:image>
   </url>
 
-  <!-- 3. SyncroTime - Generador de horarios escolares -->
+  <!-- 4. Skolvik - Plataforma Integral de Calidad Educativa (proximamente) -->
   <url>
-    <loc>https://beacademics.com/syncrotime/</loc>
+    <loc>https://beacademics.com/skolvik/</loc>
     <lastmod>2026-11-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://beacademics.com/Dashboard-Syncrotime.webp</image:loc>
-      <image:title>SyncroTime - Panel de control del motor de horarios escolares</image:title>
-    </image:image>
-  </url>
-
-  <!-- 4. Nexus - Plataforma Integral de Calidad Educativa (proximamente) -->
-  <url>
-    <loc>https://beacademics.com/nexus/</loc>
-    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>

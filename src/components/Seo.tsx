@@ -17,6 +17,8 @@ export interface RouteMeta {
     locale: string;
     /** Página que no debe indexarse (queda fuera del sitemap). */
     noindex?: boolean;
+    /** Canonical absoluto distinto de la propia URL (por ejemplo, otro dominio). La ruta queda fuera del sitemap. */
+    canonical?: string;
 }
 
 const routes = seoData.routes as Record<string, RouteMeta>;
@@ -75,7 +77,7 @@ export default function Seo({
     const socialDescription =
         ogDescription ?? (description ? undefined : meta.ogDescription) ?? pageDescription;
     const pageKeywords = keywords ?? meta.keywords;
-    const canonicalHref = canonical ?? canonicalUrl(path);
+    const canonicalHref = canonical ?? meta.canonical ?? canonicalUrl(path);
     const isNoindex = noindex ?? meta.noindex ?? false;
 
     return (

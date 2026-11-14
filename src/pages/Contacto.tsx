@@ -58,7 +58,7 @@ export default function Contacto() {
                                 { label: 'Ecosistema', to: '/' },
                                 { label: 'SyncroEdu', to: '/syncroedu/' },
                                 { label: 'SyncroTime', to: '/syncrotime/' },
-                                { label: 'Nexus', to: '/nexus/' },
+                                { label: 'Skolvik', to: '/skolvik/' },
                             ]}
                         />
                     </div>

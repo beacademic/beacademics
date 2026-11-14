@@ -38,11 +38,11 @@ Mercado: Chile, español. Posición actual: sin datos (requiere Search Console o
 | software UTP colegio | Fácil | Media | Sin datos | Comercial | Landing por rol (UTP) |
 | alternativa a Peñalara GHC en Chile | Fácil | Media | Sin datos | Comercial | Página comparativa |
 | syncroedu / syncrotime (marca) | Fácil | Media | Sin datos (dividido entre dominios) | Navegacional | Definir una URL dueña por marca |
-| Estándares Indicativos de Desempeño | Moderada (Agencia de Calidad) | Media | Sin datos | Informativa | Guía para la página de Nexus |
+| Estándares Indicativos de Desempeño | Moderada (Agencia de Calidad) | Media | Sin datos | Informativa | Guía para la página de Skolvik |
 | software gestión escolar Chile | Difícil (Lirmi, Napsis, WebClass) | Media | Sin datos | Comercial | Comparativa honesta / página de categoría |
 | capacitación docente colegios Chile | Moderada | Media | Sin datos | Comercial | Landing de servicios (hoy es una tarjeta en el inicio) |
 | consultoría educacional colegios | Moderada | Media | Sin datos | Comercial | Landing de servicios |
-| plan de mejoramiento educativo (PME) | Moderada | Baja–media | Sin datos | Informativa | Artículo para Nexus |
+| plan de mejoramiento educativo (PME) | Moderada | Baja–media | Sin datos | Informativa | Artículo para Skolvik |
 | school timetable generator (EN) | Difícil | Baja | Sin datos | Comercial | Solo tras arreglar hreflang |
 | gerador de horário escolar (PT) | Difícil | Baja | Sin datos | Comercial | Solo tras arreglar hreflang |
 
@@ -51,7 +51,7 @@ Mercado: Chile, español. Posición actual: sin datos (requiere Search Console o
 Obtenidos con Supermetrics el 14/11/2026, propiedad `sc-domain:beacademics.com`.
 
 - **Tráfico muy bajo:** 84 clics y ~1.000 impresiones en 16 meses. Casi todo es la marca ("be academic", posición 3) y la palabra genérica "academic" (126 impresiones, 0 clics).
-- **Solo aparece el inicio.** /syncroedu/, /syncrotime/ y /nexus/ no tienen ni una impresión: hasta el 20/9 eran rutas con `#` (no indexables) y **no hay sitemap enviado** en Search Console.
+- **Solo aparece el inicio.** /syncroedu/, /syncrotime/ y /skolvik/ no tienen ni una impresión: hasta el 20/9 eran rutas con `#` (no indexables) y **no hay sitemap enviado** en Search Console.
 - **Rankings perdidos en la migración de mayo–junio 2026.** El sitio anterior (`www.beacademics.com`) posicionaba:
   - `/material-gratuito` → "material gratuito", posición 7 (52 impresiones). Hoy esa URL da **404**.
   - una **calculadora docente** en el inicio → "calculadora docente" posición 5,9 (57 impresiones) y "calculadora de horas docentes" posición 4. Ya no existe.
@@ -72,11 +72,11 @@ Medido en el sitio en producción (DOM renderizado).
 | / | Título con solo nombres de marca, sin la categoría | Media | `BE Academic \| Software para colegios: horarios y normativa` (58) |
 | / | H1 sin keyword ("Tecnología para que su colegio funcione…") | Media | Incluir "software para colegios" en el H1 o en la bajada inmediata |
 | / | Meta description de 168 caracteres | Baja | `Software para colegios en Chile: SyncroEdu valida la regla 65/35 y las horas PIE, y SyncroTime genera horarios sin topes. Agende una demo gratuita.` (147) |
-| /nexus/ | Contenido escaso (165 palabras), sin schema, sin formulario | Media | Ampliar a ~600 palabras sobre los Estándares Indicativos y agregar lista de espera (HubSpot) |
+| /skolvik/ | Contenido escaso (165 palabras), sin schema, sin formulario | Media | Ampliar a ~600 palabras sobre los Estándares Indicativos y agregar lista de espera (HubSpot) |
 | /syncrotime/ | 543 palabras para una keyword comercial competida | Media | Ampliar: casos de uso, tipos de restricciones, comparativa, más FAQ |
 | /syncrotime/ | Título no incluye "generador" (la forma más buscada) | Baja | `SyncroTime \| Generador de horarios escolares sin topes` (54) |
 | /syncroedu/ | Saltos de jerarquía (H3 de cifras sueltas, H3 "NAVEGACIÓN" en el pie) | Baja | Pie con `<p>`/`<nav>`; cifras como texto, no encabezados |
-| /syncroedu/ | No enlaza a /contacto/ ni a /nexus/; las demos salen a WhatsApp | Baja | Enlace interno a /contacto/ con texto descriptivo |
+| /syncroedu/ | No enlaza a /contacto/ ni a /skolvik/; las demos salen a WhatsApp | Baja | Enlace interno a /contacto/ con texto descriptivo |
 | /acceso/ | Página de 52 palabras, sin valor de búsqueda, en el sitemap | Baja | `noindex, follow` y quitar del sitemap |
 | /contacto/ | 123 palabras, sin schema | Baja | `ContactPage` + `Organization` con dirección |
 | Todas | Misma og:image genérica | Baja | Imagen OG propia por producto |
@@ -93,11 +93,11 @@ Medido en el sitio en producción (DOM renderizado).
 | Plantilla de carga horaria docente | Lead magnet; Lirmi usa este modelo (descargas a cambio de datos) | Plantilla + landing | Media | Medio día |
 | Cómo armar un horario escolar sin topes | Etapa de descubrimiento para SyncroTime | Artículo | Media | Medio día |
 | Multas de la Superintendencia por proporción docente | Etapa de consideración; respalda el mensaje de riesgo con fuentes | Artículo con fuentes oficiales | Media | Medio día |
-| Estándares Indicativos de Desempeño explicados | Prepara demanda para Nexus antes del lanzamiento | Guía | Media | Medio día |
+| Estándares Indicativos de Desempeño explicados | Prepara demanda para Skolvik antes del lanzamiento | Guía | Media | Medio día |
 | Capacitación y consultoría escolar | Hoy son 2 tarjetas en el inicio, sin URL propia que pueda posicionar | 2 landings de servicio | Media | Medio día |
 | Caso de estudio con nombre y cifras | La página dice "Colegio Particular Subvencionado" sin nombre: poca credibilidad para Google y para el comprador | Caso de estudio | Media | Medio día |
 
-**Clusters sugeridos:** (1) *Normativa docente* — pilar 65/35 → horas no lectivas, multas, contratos, PIE; (2) *Horarios escolares* — pilar "cómo hacer un horario escolar" → topes, restricciones, comparativas, plantillas; (3) *Calidad educativa* (Nexus) — Estándares Indicativos → PME, liderazgo, convivencia.
+**Clusters sugeridos:** (1) *Normativa docente* — pilar 65/35 → horas no lectivas, multas, contratos, PIE; (2) *Horarios escolares* — pilar "cómo hacer un horario escolar" → topes, restricciones, comparativas, plantillas; (3) *Calidad educativa* (Skolvik) — Estándares Indicativos → PME, liderazgo, convivencia.
 
 **Etapas del embudo:** hay páginas de decisión (producto, contacto) pero nada de descubrimiento ni consideración.
 
@@ -109,7 +109,7 @@ Medido en el sitio en producción (DOM renderizado).
 | www → raíz | OK | `www` redirige 301 a `https://beacademics.com/` |
 | Barra final | OK | `/syncroedu` → 301 → `/syncroedu/` |
 | Contenido sin JS | Falla | Body vacío; solo el `<head>` está prerenderizado |
-| Datos estructurados | Advertencia | JSON-LD solo existe tras ejecutar JS. `Organization.sameAs` apunta a dominios propios (debería apuntar a perfiles sociales: LinkedIn, Instagram). `SoftwareApplication` sin `offers` → no califica para resultados enriquecidos. Faltan `BreadcrumbList` y schema en Nexus/Contacto. FAQPage está bien (Google ya no lo muestra como resultado enriquecido para sitios comerciales, pero ayuda a buscadores de IA) |
+| Datos estructurados | Advertencia | JSON-LD solo existe tras ejecutar JS. `Organization.sameAs` apunta a dominios propios (debería apuntar a perfiles sociales: LinkedIn, Instagram). `SoftwareApplication` sin `offers` → no califica para resultados enriquecidos. Faltan `BreadcrumbList` y schema en Skolvik/Contacto. FAQPage está bien (Google ya no lo muestra como resultado enriquecido para sitios comerciales, pero ayuda a buscadores de IA) |
 | hreflang | Falla | Variantes `?lang=` de SyncroTime con canonical a otra URL |
 | Canonical | OK (salvo `?lang`) | Autorreferente en las 8 rutas |
 | robots.txt | Advertencia | Dos grupos `User-agent: *` (Cloudflare + propio); funciona, pero conviene uno. Bloquea bots de entrenamiento (GPTBot, ClaudeBot, Google-Extended): no afecta a Google Search. Confirmar que es la decisión buscada |
@@ -159,14 +159,14 @@ Cualitativa (sin datos de backlinks ni de posiciones).
 
 - [ ] **Recuperar la calculadora docente** como /recursos/calculadora-horas-docentes/ y redirigir `/material-gratuito` hacia /recursos/. Impacto: alto (ya posicionó en el top 10) · Esfuerzo: 1–2 días
 
-- [ ] **Prerender del contenido completo**: renderizar cada ruta a HTML en el build (por ejemplo, el prerender de React Router v7 o `react-dom/server` en `scripts/prerender-routes.mjs`), incluyendo el JSON-LD. Impacto: alto · Esfuerzo: 1–2 días · Dependencia: revisar que `motion` y `window` no rompan el render en servidor
+- [x] **Prerender del contenido completo** (hecho el 14/11/2026: el HTML de cada ruta trae el texto, los encabezados y el JSON-LD; el navegador lo hidrata): renderizar cada ruta a HTML en el build (por ejemplo, el prerender de React Router v7 o `react-dom/server` en `scripts/prerender-routes.mjs`), incluyendo el JSON-LD. Impacto: alto · Esfuerzo: 1–2 días · Dependencia: revisar que `motion` y `window` no rompan el render en servidor
 - [ ] **Dividir el JS por ruta** (`React.lazy`) y no animar el H1 desde `opacity: 0`. Impacto: medio (LCP móvil) · Esfuerzo: medio día
 - [ ] **Crear la sección /recursos/** con el cluster *Normativa docente*: pilar 65/35 + calculadora + guía PIE. Impacto: alto · Esfuerzo: 1–2 semanas · Dependencia: revisión legal de las cifras
 - [ ] **Páginas comparativas**: SyncroEdu vs aSc Horarios / Excel; SyncroTime vs Peñalara. Impacto: alto · Esfuerzo: 1–2 días
-- [ ] **Decidir la estrategia de dominios**: qué URL es la dueña de "syncroedu" y "syncrotime" (beacademics.com/… o el dominio propio) y canonicalizar o enlazar en consecuencia. Impacto: alto · Esfuerzo: medio día de decisión + implementación · Dependencia: equipo de producto
+- [x] **Decidir la estrategia de dominios** (14/11/2026: SyncroEdu vende en beacademics.com/syncroedu/ y syncroedu.com es la app; SyncroTime vende en syncrotime.com (ES/EN/PT) y beacademics.com/syncrotime/ declara canonical hacia syncrotime.com/es/). Antes:: qué URL es la dueña de "syncroedu" y "syncrotime" (beacademics.com/… o el dominio propio) y canonicalizar o enlazar en consecuencia. Impacto: alto · Esfuerzo: medio día de decisión + implementación · Dependencia: equipo de producto
 - [ ] **Rutas reales por idioma para SyncroTime** (`/en/`, `/pt/`) prerenderizadas, si el mercado internacional es objetivo. Impacto: medio · Esfuerzo: 1–2 días
 - [ ] **Landings de servicios** (capacitación, consultoría) y **caso de estudio con nombre**. Impacto: medio · Esfuerzo: 2–3 días · Dependencia: autorización del colegio cliente
-- [ ] **Ampliar Nexus** con guía de Estándares Indicativos y lista de espera. Impacto: medio · Esfuerzo: 1 día
+- [ ] **Ampliar Skolvik** con guía de Estándares Indicativos y lista de espera. Impacto: medio · Esfuerzo: 1 día
 - [ ] **Backlinks**: notas en medios educativos (Revista de Educación, Elige Educar), alianzas con sostenedores y fundaciones, la calculadora como recurso enlazable. Impacto: alto · Esfuerzo: continuo
 
 ## Fuentes de la investigación

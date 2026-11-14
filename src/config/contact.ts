@@ -16,7 +16,7 @@ export const INSTITUTIONAL_EMAIL = 'beacademic.ltda@gmail.com';
 /** Horario de atención comercial. */
 export const BUSINESS_HOURS = 'Lunes a Viernes · 9:00 a 18:00 hrs';
 
-export type WhatsAppProduct = 'general' | 'syncroedu' | 'syncrotime' | 'nexus';
+export type WhatsAppProduct = 'general' | 'syncroedu' | 'syncrotime' | 'skolvik';
 export type WhatsAppLang = 'es' | 'en' | 'pt';
 
 /** Texto prellenado por producto e idioma. */
@@ -36,10 +36,10 @@ const DEFAULT_MESSAGES: Record<WhatsAppProduct, Record<WhatsAppLang, string>> = 
         en: 'Hello, I would like information about SyncroTime',
         pt: 'Olá, gostaria de informações sobre o SyncroTime',
     },
-    nexus: {
-        es: 'Hola, quiero información sobre Nexus',
-        en: 'Hello, I would like information about Nexus',
-        pt: 'Olá, gostaria de informações sobre o Nexus',
+    skolvik: {
+        es: 'Hola, quiero información sobre Skolvik',
+        en: 'Hello, I would like information about Skolvik',
+        pt: 'Olá, gostaria de informações sobre o Skolvik',
     },
 };
 

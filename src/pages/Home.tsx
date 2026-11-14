@@ -203,8 +203,8 @@ export default function Home() {
                         Armar horarios con SyncroTime
                     </Link>
                     {' · '}
-                    <Link to="/nexus/" className="touch-target font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
-                        Medir la calidad con Nexus
+                    <Link to="/skolvik/" className="touch-target font-semibold text-[#1D1D1F] underline underline-offset-2 hover:text-[#515154] transition-colors">
+                        Medir la calidad con Skolvik
                     </Link>.
                 </motion.p>
             </section>
@@ -325,18 +325,18 @@ export default function Home() {
                             </div>
                         </BentoCard>
 
-                        {/* Nexus Bento Card (Quality Standards & Leadership - Purple Glow) */}
+                        {/* Skolvik Bento Card (Quality Standards & Leadership - Purple Glow) */}
                         <BentoCard glowColor="#5856D6" className="flex flex-col justify-between md:col-span-2 lg:col-span-1">
                             <div>
                                 <div className="flex items-center justify-between mb-6">
                                     <LogoContainer>
-                                        <img src="/Logo-Nexus.png" width={368} height={369} alt="Nexus" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
+                                        <img src="/Logo-Skolvik.png" width={368} height={369} alt="Skolvik" loading="lazy" decoding="async" className="h-6 w-auto object-contain" />
                                     </LogoContainer>
                                     <StatusBadge label="CALIDAD INSTITUCIONAL" variant="purple" pulse={false} />
                                 </div>
 
                                 <h3 className="text-2xl font-bold text-[#1D1D1F] tracking-tight mb-1">
-                                    Nexus
+                                    Skolvik
                                 </h3>
                                 <p className="text-xs font-semibold uppercase tracking-wider text-[#5856D6] mb-4">
                                     Plataforma de Calidad Educativa
@@ -364,10 +364,10 @@ export default function Home() {
 
                             <div className="pt-8 mt-6 border-t border-black/5">
                                 <Link 
-                                    to="/nexus/" 
+                                    to="/skolvik/" 
                                     className="w-full inline-flex items-center justify-between px-5 py-3 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] text-sm font-semibold text-[#1D1D1F] transition-all group"
                                 >
-                                    <span>Conocer Nexus</span>
+                                    <span>Conocer Skolvik</span>
                                     <ArrowRight className="w-4 h-4 text-[#5856D6] group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
@@ -486,7 +486,7 @@ export default function Home() {
                     <div className="flex flex-wrap justify-center gap-6 font-medium">
                         <Link to="/syncroedu/" className="hover:text-[#1D1D1F] transition-colors">SyncroEdu</Link>
                         <Link to="/syncrotime/" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
-                        <Link to="/nexus/" className="hover:text-[#1D1D1F] transition-colors">Nexus</Link>
+                        <Link to="/skolvik/" className="hover:text-[#1D1D1F] transition-colors">Skolvik</Link>
                         <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-[#1D1D1F] transition-colors">Calculadora de horas docentes</Link>
                         <Link to="/legal/" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
                         <Link to="/condiciones-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Condiciones SyncroEdu</Link>

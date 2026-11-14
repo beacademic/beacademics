@@ -7,15 +7,15 @@
  * canonical, Open Graph y Twitter Card. También regenera el bloque SEO de dist/index.html
  * (inicio) y escribe dist/404.html (rutas desconocidas, con noindex).
  *
- * El contenido lo sigue dibujando React; esto solo entrega metadatos correctos a rastreadores
- * y vistas previas de enlaces que no ejecutan JavaScript. Sin dependencias externas.
+ * El contenido de cada ruta se renderiza con React en el build (dist-ssr/entry-server.js) y el
+ * navegador lo hidrata; así rastreadores y vistas previas sin JavaScript ven el texto completo.
  *
  * La fuente de los metadatos es src/seo/routes.json, la misma que usa el componente
  * src/components/Seo.tsx (así HTML estático y <Helmet> coinciden).
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -41,7 +41,7 @@ const escapeHtml = (value) =>
 
 /** Bloque de etiquetas SEO de una ruta (mismas etiquetas que renderiza src/components/Seo.tsx). */
 function seoBlock(route, meta) {
-  const url = `${site.url}${route}`;
+  const url = meta.canonical ?? `${site.url}${route}`;
   const ogTitle = meta.ogTitle ?? meta.title;
   const ogDescription = meta.ogDescription ?? meta.description;
   const tag = (name, attrs) =>
@@ -94,6 +94,28 @@ function withLang(html, lang) {
 
 const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 
+// Render del contenido de cada ruta con el bundle SSR (vite build --ssr src/entry-server.tsx).
+const { render } = await import(pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')).href);
+const ROOT_EMPTY = '<div id="root"></div>';
+if (!template.includes(ROOT_EMPTY)) fail('dist/index.html no contiene <div id="root"></div>');
+
+/**
+ * React 19 pone al inicio del HTML los elementos "hoistable" (<title>, <meta>, <link>) que
+ * en el navegador van al <head>. Esos ya están en el bloque SEO estático, así que se quitan
+ * del cuerpo; solo se conservan las precargas de imágenes, que se pasan al <head>.
+ */
+function splitRender(html) {
+  const leading = /^(?:<title>[^<]*<\/title>|<(?:meta|link)\b[^>]*\/>)/;
+  let rest = html;
+  const preloads = [];
+  for (let match = rest.match(leading); match; match = rest.match(leading)) {
+    if (/^<link\b[^>]*rel="preload"/.test(match[0])) preloads.push(match[0]);
+    rest = rest.slice(match[0].length);
+  }
+  if (!rest.trim()) fail('el render SSR no produjo contenido');
+  return { body: rest, preloads };
+}
+
 if (!MARKERS.test(template)) {
   fail('dist/index.html no contiene los marcadores <!--seo:start--> / <!--seo:end-->');
 }
@@ -110,7 +132,12 @@ for (const [route, meta] of Object.entries(routes)) {
   if (!route.startsWith('/') || !route.endsWith('/')) {
     fail(`la ruta "${route}" de routes.json debe empezar y terminar con "/"`);
   }
-  const html = withLang(template.replace(MARKERS, () => seoBlock(route, meta)), meta.lang);
+  const { body, preloads } = splitRender(render(route));
+  const head = [seoBlock(route, meta), ...preloads.map((tag) => `    ${tag}`)].join('\n');
+  const html = withLang(
+    template.replace(MARKERS, () => head).replace(ROOT_EMPTY, () => `<div id="root">${body}</div>`),
+    meta.lang,
+  );
   const target = route === '/' ? path.join(dist, 'index.html') : path.join(dist, route, 'index.html');
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, html, 'utf8');
@@ -149,11 +176,11 @@ await writeFile(path.join(dist, '404.html'), notFoundHtml, 'utf8');
 written.push('404.html');
 
 // Coherencia con el sitemap: debe listar exactamente las rutas indexables de routes.json
-// (las marcadas con "noindex": true quedan fuera).
+// (las marcadas con "noindex": true o con "canonical" a otra URL quedan fuera).
 const sitemap = await readFile(path.join(root, 'public/sitemap.xml'), 'utf8');
 const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const expected = Object.entries(routes)
-  .filter(([, meta]) => !meta.noindex)
+  .filter(([, meta]) => !meta.noindex && !meta.canonical)
   .map(([route]) => `${site.url}${route}`);
 const missing = expected.filter((url) => !listed.includes(url));
 const unknown = listed.filter((url) => !expected.includes(url));

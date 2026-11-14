@@ -15,10 +15,10 @@ import { PrimaryButton } from '../components/ui/PrimaryButton';
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { LogoContainer } from '../components/ui/LogoContainer';
 
-export default function Nexus() {
+export default function Skolvik() {
     return (
         <div className="bg-[#F5F5F7] min-h-screen text-[#1D1D1F] font-sans selection:bg-[#007AFF] selection:text-white flex flex-col">
-            <Seo path="/nexus/" />
+            <Seo path="/skolvik/" />
 
             {/* Header / Navigation Glassmorphism */}
             <header className="sticky top-0 left-0 right-0 z-50 bg-[#F5F5F7]/80 backdrop-blur-[20px] border-b border-black/5 transition-all duration-300">
@@ -39,7 +39,7 @@ export default function Nexus() {
                             <div className="w-8 h-8 rounded-2xl bg-[#007AFF]/10 border border-[#007AFF]/20 flex items-center justify-center text-[#007AFF]">
                                 <Sparkles className="w-4 h-4" />
                             </div>
-                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">Nexus</span>
+                            <span className="font-bold text-base tracking-tight text-[#1D1D1F]">Skolvik</span>
                             <span className="px-2 py-0.5 bg-[#FF9500]/10 text-[#8F5000] text-xs font-bold rounded-full border border-[#FF9500]/20">
                                 Próximamente
                             </span>

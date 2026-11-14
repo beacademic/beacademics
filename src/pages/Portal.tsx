@@ -51,16 +51,16 @@ export default function Portal() {
                             </span>
                         </a>
 
-                        <a 
-                            href="https://app.nexus.cl/login" 
+                        <Link 
+                            to="/skolvik/" 
                             className="group flex flex-col items-center justify-center h-full bg-white rounded-3xl p-10 border border-gray-100 hover:shadow-2xl hover:border-corp-blue/30 transition-all duration-300 text-center"
                         >
-                            <img src="/Logo-Nexus.png" width={368} height={369} alt="Logo Nexus" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
-                            <h2 className="text-3xl font-bold text-corp-blue tracking-tight mb-8 group-hover:scale-105 transition-transform">Nexus</h2>
+                            <img src="/Logo-Skolvik.png" width={368} height={369} alt="Logo Skolvik" className="h-12 w-auto mb-4 object-contain group-hover:scale-105 transition-transform" />
+                            <h2 className="text-3xl font-bold text-corp-blue tracking-tight mb-8 group-hover:scale-105 transition-transform">Skolvik</h2>
                             <span className="inline-flex items-center gap-2 text-corp-dark font-semibold group-hover:text-corp-blue transition-colors mt-auto">
-                                Ingresar <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
+                                Próximamente <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform">&rsaquo;</span>
                             </span>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="mt-16 text-center">

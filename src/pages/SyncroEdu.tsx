@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -38,7 +38,12 @@ import { BUSINESS_HOURS, SALES_EMAIL, SALES_PHONE_DISPLAY, SALES_PHONE_TEL, what
 
 const UrgencyBar = () => {
     const [isVisible, setIsVisible] = useState(true);
-    const month = new Date().getMonth() + 1;
+    // La fecha se lee después de montar: el HTML se prerenderiza en el build y no debe
+    // depender del mes en que se compiló (evita diferencias al hidratar).
+    const [today, setToday] = useState<Date | null>(null);
+    useEffect(() => setToday(new Date()), []);
+    if (!today) return null;
+    const month = today.getMonth() + 1;
     const isUrgency = (month >= 7 || month <= 3);
     const isYearEnd = month >= 7;
 
@@ -53,7 +58,7 @@ const UrgencyBar = () => {
                 </span>
                 {isYearEnd ? (
                     <span className="text-[#515154]">
-                        <strong className="text-[#1D1D1F]">Planificación Escolar {new Date().getFullYear() + 1}</strong> — Prepare el año escolar con contratos y horarios validados contra la normativa vigente.{' '}
+                        <strong className="text-[#1D1D1F]">Planificación Escolar {today.getFullYear() + 1}</strong> — Prepare el año escolar con contratos y horarios validados contra la normativa vigente.{' '}
                         <a href={whatsappLink('syncroedu', { message: 'Hola, quiero agendar una demo de SyncroEdu' })} target="_blank" rel="noopener noreferrer" className="touch-target text-[#1F7A38] hover:underline font-semibold ml-1">
                             Agendar demo gratuita &rarr;
                         </a>

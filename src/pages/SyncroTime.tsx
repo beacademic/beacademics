@@ -262,8 +262,9 @@ export default function SyncroTime() {
     };
 
     const t = content[currentLang];
-    const loginUrl = 'https://app.syncrotime.com/es/login';
-    const pricingUrl = 'https://syncrotime.com/es/#precios';
+    // La venta (con medio de pago) está en syncrotime.com, en español, inglés y portugués.
+    const loginUrl = `https://app.syncrotime.com/${currentLang}/login`;
+    const pricingUrl = `https://syncrotime.com/${currentLang}/#precios`;
     const whatsappUrl = whatsappLink('syncrotime', { lang: currentLang });
     const seoLocale = currentLang === 'en' ? 'en_US' : currentLang === 'pt' ? 'pt_BR' : 'es_ES';
 
