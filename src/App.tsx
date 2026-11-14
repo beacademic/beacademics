@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -16,6 +17,8 @@ import Legal from './pages/Legal';
 import PrivacidadSyncroEdu from './pages/PrivacidadSyncroEdu';
 import CondicionesSyncroEdu from './pages/CondicionesSyncroEdu';
 import CalculadoraHorasDocentes from './pages/CalculadoraHorasDocentes';
+import SyncroEduModulo from './pages/SyncroEduModulo';
+import { MODULOS } from './data/syncroeduModulos';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
 import SkipLink from './components/SkipLink';
@@ -30,6 +33,11 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/syncroedu" element={<SyncroEdu />} />
+                    {MODULOS.map((modulo) => (
+                        <Fragment key={modulo.slug}>
+                            <Route path={`/syncroedu/${modulo.slug}`} element={<SyncroEduModulo modulo={modulo} />} />
+                        </Fragment>
+                    ))}
                     <Route path="/syncrotime" element={<SyncroTime />} />
                     <Route path="/skolvik" element={<Skolvik />} />
                     {/* Skolvik cambió de nombre a Skolvik. */}

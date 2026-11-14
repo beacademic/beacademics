@@ -34,6 +34,7 @@ import { LogoContainer } from '../components/ui/LogoContainer';
 import MobileMenu from '../components/MobileMenu';
 import Seo, { canonicalUrl } from '../components/Seo';
 import HubSpotForm, { HUBSPOT_FORMS } from '../components/HubSpotForm';
+import { MODULOS } from '../data/syncroeduModulos';
 import { BUSINESS_HOURS, SALES_EMAIL, SALES_PHONE_DISPLAY, SALES_PHONE_TEL, whatsappLink } from '../config/contact';
 
 const UrgencyBar = () => {
@@ -849,6 +850,18 @@ export default function SyncroEdu() {
                         </div>
                     )}
                 </div>
+
+                <nav aria-label="Módulos de SyncroEdu" className="mt-8 flex flex-wrap justify-center gap-2">
+                    {MODULOS.map((modulo) => (
+                        <Link
+                            key={modulo.slug}
+                            to={`/syncroedu/${modulo.slug}/`}
+                            className="inline-flex items-center min-h-11 px-4 rounded-full bg-white border border-black/5 text-sm font-semibold text-[#1D1D1F] hover:border-[#34C759]/40 transition-colors"
+                        >
+                            {modulo.nombre}
+                        </Link>
+                    ))}
+                </nav>
             </section>
 
             {/* SECCIÓN 8 — CASO DE ÉXITO VERIFICADO */}
@@ -1237,6 +1250,9 @@ export default function SyncroEdu() {
                             <button onClick={() => scrollToId('riesgo-financiero')} className="hover:text-white transition-colors text-left cursor-pointer">Riesgo Financiero</button>
                             <button onClick={() => scrollToId('caso-piloto')} className="hover:text-white transition-colors text-left cursor-pointer">Caso real</button>
                             <button onClick={() => scrollToId('faq')} className="hover:text-white transition-colors text-left cursor-pointer">Preguntas Frecuentes</button>
+                            {MODULOS.map((modulo) => (
+                                <Link key={modulo.slug} to={`/syncroedu/${modulo.slug}/`} className="hover:text-white transition-colors">{modulo.nombre}</Link>
+                            ))}
                             <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-white transition-colors">Calculadora de horas docentes</Link>
                             <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                             <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio</Link>

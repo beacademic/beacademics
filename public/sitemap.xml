@@ -33,6 +33,38 @@
     </image:image>
   </url>
 
+  <!-- 2b. Módulos de SyncroEdu -->
+  <url>
+    <loc>https://beacademics.com/syncroedu/horarios-escolares/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://beacademics.com/syncroedu/cumplimiento-normativo/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://beacademics.com/syncroedu/reemplazos-docentes/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://beacademics.com/syncroedu/gestion-de-personas/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://beacademics.com/syncroedu/auditoria-pie/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- 4. Skolvik - Plataforma Integral de Calidad Educativa (proximamente) -->
   <url>
     <loc>https://beacademics.com/skolvik/</loc>

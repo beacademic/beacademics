@@ -33,6 +33,51 @@
       "changefreq": "weekly",
       "priority": "0.95"
     },
+    "/syncroedu/horarios-escolares/": {
+      "title": "Software de horarios para colegios en Chile | SyncroEdu",
+      "description": "Genere el horario escolar en días, con disponibilidad docente, salas y bloques PIE, y valide la regla 65/35 de cada docente. Para colegios en Chile.",
+      "keywords": "software de horarios para colegios, horarios escolares chile, confección de horarios UTP, horario escolar 65/35, alternativa a asc horarios",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.85"
+    },
+    "/syncroedu/cumplimiento-normativo/": {
+      "title": "Cumplimiento normativo docente y regla 65/35 | SyncroEdu",
+      "description": "Revise en tiempo real que cada docente cumpla la proporción 65/35 de la Ley 20.903, con semáforo por docente. Evite multas de la Superintendencia.",
+      "keywords": "cumplimiento normativo colegios, ley 20.903, proporción 65/35, compliance escolar, superintendencia de educación multas, estatuto docente",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.85"
+    },
+    "/syncroedu/reemplazos-docentes/": {
+      "title": "Gestión de reemplazos docentes para colegios | SyncroEdu",
+      "description": "Resuelva ausencias desde el celular: SyncroEdu sugiere el reemplazo disponible según especialidad y deja una bitácora en PDF para fiscalizaciones.",
+      "keywords": "reemplazos docentes, gestión de reemplazos colegio, ausencia docente, app para directivos, bitácora de reemplazos",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.85"
+    },
+    "/syncroedu/gestion-de-personas/": {
+      "title": "Gestión de personas y RRHH en colegios | SyncroEdu",
+      "description": "Indicadores de RRHH para colegios: ausentismo con Factor de Bradford, ocupación docente y simulador de costos de dotación para sostenedores.",
+      "keywords": "gestión de personas colegios, recursos humanos colegios, ausentismo docente, factor de bradford, dotación docente, sostenedor",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.85"
+    },
+    "/syncroedu/auditoria-pie/": {
+      "title": "Auditoría de horas PIE (Decreto 170) | SyncroEdu",
+      "description": "Coordine los bloques de 3 horas del Decreto 170 entre profesores de aula y especialistas, audite las horas PIE por curso y proteja la subvención.",
+      "keywords": "horas PIE, decreto 170, programa de integración escolar, co-docencia, subvención PIE, auditoría PIE",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.85"
+    },
     "/syncrotime/": {
       "title": "SyncroTime | Generador de horarios escolares sin topes",
       "description": "Motor de optimización de horarios escolares: genere el horario con sus restricciones docentes y de salas, edítelo con detección de topes y exporte a Excel y PDF.",
