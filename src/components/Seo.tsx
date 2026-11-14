@@ -15,6 +15,8 @@ export interface RouteMeta {
     keywords?: string;
     lang: string;
     locale: string;
+    /** Página que no debe indexarse (queda fuera del sitemap). */
+    noindex?: boolean;
 }
 
 const routes = seoData.routes as Record<string, RouteMeta>;
@@ -63,7 +65,7 @@ export default function Seo({
     locale,
     canonical,
     ogUrl,
-    noindex = false,
+    noindex,
     children,
 }: SeoProps) {
     const meta = getRouteMeta(path);
@@ -74,6 +76,7 @@ export default function Seo({
         ogDescription ?? (description ? undefined : meta.ogDescription) ?? pageDescription;
     const pageKeywords = keywords ?? meta.keywords;
     const canonicalHref = canonical ?? canonicalUrl(path);
+    const isNoindex = noindex ?? meta.noindex ?? false;
 
     return (
         <Helmet>
@@ -81,7 +84,7 @@ export default function Seo({
             <title>{pageTitle}</title>
             <meta name="description" content={pageDescription} />
             {pageKeywords && <meta name="keywords" content={pageKeywords} />}
-            {noindex && <meta name="robots" content="noindex, follow" />}
+            {isNoindex && <meta name="robots" content="noindex, follow" />}
             <link rel="canonical" href={canonicalHref} />
 
             {/* Open Graph */}

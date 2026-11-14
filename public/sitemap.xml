@@ -4,12 +4,13 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Las URL llevan barra final: es la forma canonica (GitHub Pages redirige /ruta a /ruta/).
-       Mantener sincronizado con src/seo/routes.json (el build lo verifica). -->
+       Mantener sincronizado con src/seo/routes.json (el build lo verifica). Las rutas con
+       "noindex": true (por ejemplo /acceso/) no van aquí. -->
 
   <!-- 1. Inicio / Ecosistema Educativo -->
   <url>
     <loc>https://beacademics.com/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <image:image>
@@ -21,7 +22,7 @@
   <!-- 2. SyncroEdu - Cumplimiento normativo y horarios escolares (Chile) -->
   <url>
     <loc>https://beacademics.com/syncroedu/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="es-CL" href="https://beacademics.com/syncroedu/" />
@@ -32,16 +33,12 @@
     </image:image>
   </url>
 
-  <!-- 3. SyncroTime - Motor de optimizacion de horarios escolares (ES, EN, PT) -->
+  <!-- 3. SyncroTime - Generador de horarios escolares -->
   <url>
     <loc>https://beacademics.com/syncrotime/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://beacademics.com/syncrotime/?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://beacademics.com/syncrotime/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://beacademics.com/syncrotime/?lang=pt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://beacademics.com/syncrotime/" />
     <image:image>
       <image:loc>https://beacademics.com/Dashboard-Syncrotime.webp</image:loc>
       <image:title>SyncroTime - Panel de control del motor de horarios escolares</image:title>
@@ -64,12 +61,13 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- 6. Portal de Clientes / Acceso a Plataformas -->
+
+  <!-- 6. Calculadora de horas docentes (recurso gratuito) -->
   <url>
-    <loc>https://beacademics.com/acceso/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <loc>https://beacademics.com/recursos/calculadora-horas-docentes/</loc>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- 7. Informacion Legal -->

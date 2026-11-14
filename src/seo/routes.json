@@ -13,8 +13,9 @@
   },
   "routes": {
     "/": {
-      "title": "BE Academic | SyncroEdu, SyncroTime y Nexus",
-      "description": "Software para colegios: SyncroEdu valida la normativa docente chilena (regla 65/35, PIE) y SyncroTime genera horarios con un motor de optimización. Nexus, próximamente.",
+      "title": "BE Academic | Software para colegios: horarios y normativa",
+      "description": "Software para colegios en Chile: SyncroEdu valida la regla 65/35 y las horas PIE, y SyncroTime genera horarios sin topes. Agende una demo gratuita.",
+      "ogTitle": "BE Academic | SyncroEdu, SyncroTime y Nexus",
       "keywords": "gestión escolar, software para colegios, syncroedu, syncrotime, generador de horarios escolares, nexus, cumplimiento normativo colegios chile, ley 20.903, calidad educativa, software educativo",
       "lang": "es",
       "locale": "es_CL",
@@ -22,8 +23,8 @@
       "priority": "1.0"
     },
     "/syncroedu/": {
-      "title": "SyncroEdu | Compliance Escolar, Ley 20.903 y Horarios para Colegios en Chile",
-      "description": "Genere horarios, valide la regla 65/35 (Leyes 20.903, 21.625 y 19.070), audite horas PIE (Decreto 170) y gestione reemplazos. Reduzca el riesgo de multas de la Superintendencia de Educación.",
+      "title": "SyncroEdu: horarios y regla 65/35 para colegios en Chile",
+      "description": "Genere el horario escolar, valide la regla 65/35 (Ley 20.903) y las horas PIE (Decreto 170) y gestione reemplazos docentes. Pida una demo con sus datos.",
       "ogTitle": "SyncroEdu | Compliance Escolar y Horarios para Colegios en Chile",
       "ogDescription": "Reduzca el riesgo de multas de la Superintendencia de Educación. Valide la proporción lectiva/no lectiva (Leyes 20.903, 21.625 y 19.070) y gestione horarios y reemplazos docentes.",
       "keywords": "horarios escolares Chile, compliance educativo, Superintendencia de Educación, Ley 20.903, Ley 21.625, Ley 19.070, Decreto 170 PIE, gestión docente, proporción 65 35, SaaS educativo Chile, software colegios chile",
@@ -33,7 +34,7 @@
       "priority": "0.95"
     },
     "/syncrotime/": {
-      "title": "SyncroTime | Motor de optimización de horarios escolares",
+      "title": "SyncroTime | Generador de horarios escolares sin topes",
       "description": "Motor de optimización de horarios escolares: genere el horario con sus restricciones docentes y de salas, edítelo con detección de topes y exporte a Excel y PDF.",
       "keywords": "generador de horarios escolares, software horarios colegios, confección de horarios escolares, horarios sin topes, programa para hacer horarios de clases, algoritmo horarios escolares, motor de optimización de horarios",
       "lang": "es",
@@ -64,6 +65,7 @@
     "/acceso/": {
       "title": "Portal de Clientes | BE Academic",
       "description": "Ingrese a SyncroEdu, SyncroTime o Nexus desde el portal de clientes de BE Academic.",
+      "noindex": true,
       "lang": "es",
       "locale": "es_CL",
       "changefreq": "monthly",
@@ -92,6 +94,19 @@
       "locale": "es_CL",
       "changefreq": "monthly",
       "priority": "0.4"
+    },
+    "/recursos/calculadora-horas-docentes/": {
+      "title": "Calculadora de horas docentes: lectivas y no lectivas (65/35)",
+      "description": "Calcule las horas lectivas, no lectivas y el recreo de un docente según su contrato, con la tabla oficial 65/35 del Mineduc. Gratis y con la tabla completa.",
+      "keywords": "calculadora docente, calculadora de horas docentes, horas lectivas y no lectivas, tabla horas lectivas y no lectivas, proporción 65/35, horas pedagógicas a cronológicas, ley 20.903",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "monthly",
+      "priority": "0.8"
     }
+  },
+  "redirects": {
+    "_comment": "URL antiguas que tenían tráfico en Google. GitHub Pages no tiene redirecciones de servidor: el build escribe una página con meta refresh 0 y canonical al destino.",
+    "/material-gratuito/": "/recursos/calculadora-horas-docentes/"
   }
 }

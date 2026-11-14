@@ -4,7 +4,7 @@
  */
 
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { MotionConfig } from 'motion/react';
 import Home from './pages/Home';
@@ -16,6 +16,7 @@ import Nexus from './pages/Nexus';
 import Legal from './pages/Legal';
 import PrivacidadSyncroEdu from './pages/PrivacidadSyncroEdu';
 import CondicionesSyncroEdu from './pages/CondicionesSyncroEdu';
+import CalculadoraHorasDocentes from './pages/CalculadoraHorasDocentes';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
 import SkipLink from './components/SkipLink';
@@ -45,6 +46,9 @@ export default function App() {
                     <Route path="/legal" element={<Legal />} />
                     <Route path="/privacidad-syncroedu" element={<PrivacidadSyncroEdu />} />
                     <Route path="/condiciones-syncroedu" element={<CondicionesSyncroEdu />} />
+                    <Route path="/recursos/calculadora-horas-docentes" element={<CalculadoraHorasDocentes />} />
+                    {/* URL antigua con tráfico en Google; el build también genera una página de redirección estática. */}
+                    <Route path="/material-gratuito" element={<Navigate to="/recursos/calculadora-horas-docentes/" replace />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>

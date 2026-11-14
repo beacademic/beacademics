@@ -21,6 +21,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const seo = JSON.parse(await readFile(path.join(root, 'src/seo/routes.json'), 'utf8'));
 const { site, routes, notFound } = seo;
+const redirects = Object.fromEntries(
+  Object.entries(seo.redirects ?? {}).filter(([from]) => !from.startsWith('_')),
+);
 
 const MARKERS = /<!--seo:start-->[\s\S]*?<!--seo:end-->/;
 
@@ -49,6 +52,7 @@ function seoBlock(route, meta) {
     '<!--seo:start-->',
     `    <title data-static-seo>${escapeHtml(meta.title)}</title>`,
     tag('meta', { name: 'description', content: meta.description }),
+    ...(meta.noindex ? [tag('meta', { name: 'robots', content: 'noindex, follow' })] : []),
     tag('link', { rel: 'canonical', href: url }),
     tag('meta', { property: 'og:type', content: 'website' }),
     tag('meta', { property: 'og:site_name', content: site.name }),
@@ -113,14 +117,44 @@ for (const [route, meta] of Object.entries(routes)) {
   written.push(path.relative(dist, target));
 }
 
+// Redirecciones de URL antiguas: meta refresh 0 (Google lo trata como redirección permanente),
+// canonical al destino y respaldo con JavaScript.
+for (const [from, to] of Object.entries(redirects)) {
+  if (!from.startsWith('/') || !from.endsWith('/')) fail(`la redirección "${from}" debe empezar y terminar con "/"`);
+  if (!routes[to]) fail(`la redirección "${from}" apunta a "${to}", que no está en routes.json`);
+  if (routes[from]) fail(`"${from}" no puede ser ruta y redirección a la vez`);
+  const target = `${site.url}${to}`;
+  const html = [
+    '<!doctype html>',
+    '<html lang="es">',
+    '<head>',
+    '<meta charset="UTF-8" />',
+    `<title>${escapeHtml(routes[to].title)}</title>`,
+    `<link rel="canonical" href="${escapeHtml(target)}" />`,
+    `<meta http-equiv="refresh" content="0; url=${escapeHtml(target)}" />`,
+    `<script>window.location.replace(${JSON.stringify(to)} + window.location.search + window.location.hash);</script>`,
+    '</head>',
+    `<body><p>Esta página se movió a <a href="${escapeHtml(target)}">${escapeHtml(target)}</a>.</p></body>`,
+    '</html>',
+    '',
+  ].join('\n');
+  const file = path.join(dist, from, 'index.html');
+  await mkdir(path.dirname(file), { recursive: true });
+  await writeFile(file, html, 'utf8');
+  written.push(path.relative(dist, file));
+}
+
 const notFoundHtml = withLang(template.replace(MARKERS, () => notFoundBlock()), 'es');
 await writeFile(path.join(dist, '404.html'), notFoundHtml, 'utf8');
 written.push('404.html');
 
-// Coherencia con el sitemap: debe listar exactamente las rutas de routes.json.
+// Coherencia con el sitemap: debe listar exactamente las rutas indexables de routes.json
+// (las marcadas con "noindex": true quedan fuera).
 const sitemap = await readFile(path.join(root, 'public/sitemap.xml'), 'utf8');
 const listed = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-const expected = Object.keys(routes).map((route) => `${site.url}${route}`);
+const expected = Object.entries(routes)
+  .filter(([, meta]) => !meta.noindex)
+  .map(([route]) => `${site.url}${route}`);
 const missing = expected.filter((url) => !listed.includes(url));
 const unknown = listed.filter((url) => !expected.includes(url));
 if (missing.length || unknown.length) {

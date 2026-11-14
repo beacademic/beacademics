@@ -32,11 +32,21 @@ export default function Home() {
                 "@type": "Organization",
                 "@id": "https://beacademics.com/#organization",
                 "name": "BE Academic",
+                "legalName": "Sociedad de Formación BE Academic Limitada",
+                "taxID": "77.650.439-4",
                 "url": "https://beacademics.com/",
-                "logo": "https://beacademics.com/Logo-BE-Academic.png",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://beacademics.com/Logo-BE-Academic.png",
+                    "width": 400,
+                    "height": 344
+                },
                 "description": "Ecosistema tecnológico para la educación. Creadores de SyncroEdu (validación de la normativa docente chilena y gestión de reemplazos) y SyncroTime (motor de optimización de horarios escolares).",
                 "address": {
                     "@type": "PostalAddress",
+                    "streetAddress": "El Pinar Lt. E-1 C-A",
+                    "addressLocality": "Los Ángeles",
+                    "addressRegion": "Región del Biobío",
                     "addressCountry": "CL"
                 },
                 "contactPoint": {
@@ -45,9 +55,10 @@ export default function Home() {
                     "contactType": "customer service",
                     "email": INSTITUTIONAL_EMAIL
                 },
+                // Perfiles oficiales de la empresa (agregar Instagram cuando esté confirmado).
+                // No usar los dominios de producto (syncroedu.com, syncrotime.com): no son perfiles de la empresa.
                 "sameAs": [
-                    "https://syncrotime.com",
-                    "https://syncroedu.com"
+                    "https://www.linkedin.com/company/be-academic/"
                 ]
             },
             {
@@ -139,7 +150,7 @@ export default function Home() {
                     transition={{ type: 'spring', stiffness: 380, damping: 28, delay: 0.05 }}
                     className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6"
                 >
-                    Tecnología para que su colegio funcione{' '}
+                    Software para que su colegio funcione{' '}
                     <span className="bg-gradient-to-r from-[#007AFF] to-[#5856D6] bg-clip-text text-transparent">
                         con más orden y más tranquilidad.
                     </span>
@@ -476,6 +487,7 @@ export default function Home() {
                         <Link to="/syncroedu/" className="hover:text-[#1D1D1F] transition-colors">SyncroEdu</Link>
                         <Link to="/syncrotime/" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
                         <Link to="/nexus/" className="hover:text-[#1D1D1F] transition-colors">Nexus</Link>
+                        <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-[#1D1D1F] transition-colors">Calculadora de horas docentes</Link>
                         <Link to="/legal/" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
                         <Link to="/condiciones-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Condiciones SyncroEdu</Link>
                         <Link to="/privacidad-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Privacidad SyncroEdu</Link>

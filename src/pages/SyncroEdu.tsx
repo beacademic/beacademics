@@ -247,7 +247,7 @@ export default function SyncroEdu() {
                         className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1D1D1F] leading-[1.08] mb-6 font-display"
                         style={{ textWrap: 'balance' }}
                     >
-                        Proteja su colegio de multas millonarias y resuelva el horario en días.
+                        Horario escolar listo en días y regla 65/35 bajo control.
                     </motion.h1>
 
                     <motion.p 
@@ -1232,6 +1232,7 @@ export default function SyncroEdu() {
                             <button onClick={() => scrollToId('riesgo-financiero')} className="hover:text-white transition-colors text-left cursor-pointer">Riesgo Financiero</button>
                             <button onClick={() => scrollToId('caso-piloto')} className="hover:text-white transition-colors text-left cursor-pointer">Caso real</button>
                             <button onClick={() => scrollToId('faq')} className="hover:text-white transition-colors text-left cursor-pointer">Preguntas Frecuentes</button>
+                            <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-white transition-colors">Calculadora de horas docentes</Link>
                             <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                             <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio</Link>
                             <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad</Link>

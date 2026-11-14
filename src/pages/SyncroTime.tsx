@@ -266,7 +266,6 @@ export default function SyncroTime() {
     const pricingUrl = 'https://syncrotime.com/es/#precios';
     const whatsappUrl = whatsappLink('syncrotime', { lang: currentLang });
     const seoLocale = currentLang === 'en' ? 'en_US' : currentLang === 'pt' ? 'pt_BR' : 'es_ES';
-    const baseUrl = canonicalUrl('/syncrotime/');
 
     const schemaData = {
         "@context": "https://schema.org",
@@ -307,11 +306,9 @@ export default function SyncroTime() {
                 lang={currentLang}
                 locale={seoLocale}
             >
-                {/* Hreflang para las tres versiones de idioma */}
-                <link rel="alternate" hrefLang="es" href={`${baseUrl}?lang=es`} />
-                <link rel="alternate" hrefLang="en" href={`${baseUrl}?lang=en`} />
-                <link rel="alternate" hrefLang="pt" href={`${baseUrl}?lang=pt`} />
-                <link rel="alternate" hrefLang="x-default" href={baseUrl} />
+                {/* Sin hreflang: las variantes ?lang= se cambian en el navegador y comparten el canonical
+                    /syncrotime/, así que Google no puede indexarlas por separado. Para posicionar EN y PT
+                    hacen falta rutas propias prerenderizadas (por ejemplo /en/syncrotime/). */}
 
                 {/* JSON-LD */}
                 <script type="application/ld+json">
