@@ -63,10 +63,12 @@ export default function Cookies() {
     return (
         <>
             <Seo path="/cookies/" />
-            <PoliticaLayout titulo="Política de cookies" actualizacion="18 de noviembre de 2026">
+            <PoliticaLayout titulo="Política de cookies" actualizacion="18 de noviembre de 2026 · versión 2.0">
                 <p>
                     Esta política explica qué cookies y tecnologías similares usa <strong>beacademics.com</strong>, para qué sirven y cómo puede aceptarlas,
-                    rechazarlas o cambiar su decisión. Complementa la <Link to="/privacidad/">Política de privacidad</Link>.
+                    rechazarlas o cambiar su decisión. Complementa la <Link to="/privacidad/">Política de privacidad</Link>. Se rige por la Ley N° 19.628 y, desde
+                    su entrada en vigencia, por la Ley N° 21.719; ya aplicamos desde hoy el estándar de esta última: consentimiento libre, informado, específico e
+                    inequívoco, dado con una acción afirmativa.
                 </p>
                 <p>
                     <button

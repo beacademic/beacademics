@@ -1,8 +1,9 @@
 /**
  * Consentimiento de cookies de beacademics.com.
  *
- * Reglas que implementa (Ley 19.628 y Ley 21.719 de protección de datos personales, y el estándar de la
- * industria: Google Consent Mode v2, directrices del Comité Europeo de Protección de Datos):
+ * Reglas que implementa (Ley 19.628 y estándar de la Ley 21.719 de protección de datos personales, que exige un
+ * consentimiento libre, informado, específico e inequívoco, revocable con la misma facilidad con que se da;
+ * y el estándar de la industria: Google Consent Mode v2, directrices del Comité Europeo de Protección de Datos):
  * - Nada de análisis ni de marketing se carga antes de que el visitante lo acepte. Google Tag Manager
  *   NO está en el HTML: solo se inyecta aquí, después de un consentimiento.
  * - Rechazar es tan fácil como aceptar; no hay casillas premarcadas.
@@ -23,10 +24,14 @@ interface StoredConsent extends ConsentChoice {
     v: number;
     /** Momento de la elección (ms desde 1970). */
     ts: number;
+    /** Versión de la política de cookies y de privacidad vigente cuando se decidió (prueba del consentimiento). */
+    policy: string;
 }
 
 const STORAGE_KEY = 'be_cookie_consent';
 const CONSENT_VERSION = 1;
+/** Cambiar al modificar las políticas. Si cambia el uso de cookies, subir también CONSENT_VERSION para volver a preguntar. */
+const POLICY_VERSION = '2026-11-18';
 const MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000;
 
 /** Evento para abrir el panel de preferencias desde cualquier enlace o botón. */
@@ -61,7 +66,7 @@ export function readConsent(): StoredConsent | null {
         ) {
             return null;
         }
-        return data as StoredConsent;
+        return { policy: '', ...data } as StoredConsent;
     } catch {
         return null;
     }
@@ -130,7 +135,13 @@ export function initConsent(): void {
 /** Guarda la elección del visitante y la aplica. */
 export function saveConsent(choice: ConsentChoice): void {
     const previous = readConsent();
-    const record: StoredConsent = { v: CONSENT_VERSION, ts: Date.now(), analytics: choice.analytics, marketing: choice.marketing };
+    const record: StoredConsent = {
+        v: CONSENT_VERSION,
+        ts: Date.now(),
+        policy: POLICY_VERSION,
+        analytics: choice.analytics,
+        marketing: choice.marketing,
+    };
     try {
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(record));
     } catch {

@@ -98,9 +98,14 @@ export default function CookieConsent() {
                     </h2>
                     <p className="mb-4 text-sm leading-relaxed text-[#515154]">
                         Usamos cookies de análisis y de marketing de Google solo si usted lo autoriza, para medir el uso del sitio y la efectividad
-                        de nuestros anuncios. Puede aceptarlas, rechazarlas o elegir cuáles. Más información en la{' '}
+                        de nuestros anuncios. Si no elige, no se activa ninguna. Puede aceptarlas, rechazarlas o elegir cuáles, y cambiar su decisión
+                        cuando quiera. Más información en la{' '}
                         <Link to="/cookies/" className="font-semibold text-[#0066CC] underline underline-offset-2">
                             Política de cookies
+                        </Link>{' '}
+                        y la{' '}
+                        <Link to="/privacidad/" className="font-semibold text-[#0066CC] underline underline-offset-2">
+                            Política de privacidad
                         </Link>
                         .
                     </p>
