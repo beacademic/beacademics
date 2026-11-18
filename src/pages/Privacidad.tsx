@@ -82,6 +82,7 @@ export default function Privacidad() {
                     <li><strong>Razón social:</strong> Sociedad de Formación BE Academic Limitada</li>
                     <li><strong>RUT:</strong> 77.650.439-4</li>
                     <li><strong>Domicilio:</strong> El Pinar Lt. E-1 C-A, comuna de Los Ángeles, Región del Biobío, Chile</li>
+                    <li><strong>Responsable de privacidad:</strong> Carlos Mundaca Valdebenito</li>
                     <li><strong>Contacto de privacidad y derechos:</strong> <a href={`mailto:${INSTITUTIONAL_EMAIL}`}>{INSTITUTIONAL_EMAIL}</a></li>
                 </ul>
 

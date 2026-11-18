@@ -35,10 +35,10 @@ Ordenado por urgencia.
    - Guardar una copia firmada o el comprobante de aceptación.
 2. **Configurar HubSpot para el consentimiento.** En las opciones del formulario, sección de consentimiento y privacidad: agregar el texto de tratamiento y una casilla separada y **sin marcar** para recibir comunicaciones comerciales, si se piensa enviar boletines. Mientras no exista esa casilla, usar los contactos solo para responder la solicitud.
 3. **Habilitar un correo propio para derechos** (por ejemplo `privacidad@beacademics.com`) en lugar de la cuenta de Gmail. Cambiarlo en `src/config/contact.ts` (`INSTITUTIONAL_EMAIL`) y en las políticas.
-4. **Designar a una persona responsable** de atender solicitudes y vulneraciones, y dejar su nombre en el registro de abajo. La ley permite, sin exigirlo, un delegado de protección de datos.
+4. ~~Designar a una persona responsable~~ **Hecho:** Carlos Mundaca Valdebenito atiende las solicitudes de derechos y los incidentes de seguridad (figura en las políticas). La ley permite, sin exigirlo, un delegado de protección de datos.
 5. **Revisión legal** de `/privacidad/`, `/cookies/`, de la base de licitud de cada finalidad (en especial el «interés legítimo» del seguimiento comercial) y de las transferencias a Estados Unidos.
 6. **Tag Manager:** activar en el contenedor la configuración de consentimiento y mantener las etiquetas de Google Ads con sus permisos integrados.
-7. **Revisar lo que no cubre este trabajo:** `syncrotime.com` y `app.syncrotime.com` (tienen su propia política y usan un procesador de pagos) y la plataforma SyncroEdu (`syncroedu.com`, con datos de docentes y asistentes). Allí BE Academic es encargada o responsable de datos de terceros y el estándar es más alto.
+7. **SyncroEdu** (`syncroedu.com`) ya tiene su propia revisión de cumplimiento, hecha aparte; este documento no la cubre. **SyncroTime** se revisó el 18 de noviembre de 2026: ver la sección 8.
 8. **Capacitar** al equipo que atiende consultas: qué es un dato personal, no reenviar datos por canales informales, y a quién derivar un reclamo.
 
 ## 4. Registro de actividades de tratamiento del sitio
@@ -47,12 +47,12 @@ Mantener actualizado; es la base para demostrar cumplimiento ante la Agencia.
 
 | Tratamiento | Datos | Titulares | Base | Encargado / destinatario | País | Conservación | Responsable interno |
 |---|---|---|---|---|---|---|---|
-| Consultas y demos | Nombre, correo, teléfono, establecimiento, cargo, mensaje | Directivos y docentes de colegios | Medidas precontractuales | HubSpot | EE. UU. | Mientras se atienda la solicitud | (completar) |
-| Seguimiento comercial | Datos anteriores + historial | Ídem | Interés legítimo | HubSpot | EE. UU. | Mientras dure la relación o hasta oposición | (completar) |
-| Seguridad y entrega del sitio | IP, navegador, páginas | Visitantes | Interés legítimo | GitHub, Cloudflare | EE. UU. | Según proveedor | (completar) |
-| Análisis | Identificadores de cookies | Visitantes que aceptan | Consentimiento | Google | EE. UU. | Hasta 2 años | (completar) |
-| Marketing | Identificadores de cookies y clics | Visitantes que aceptan | Consentimiento | Google | EE. UU. | 90 días a 13 meses | (completar) |
-| Atención de derechos | Datos de la solicitud | Quien la presenta | Obligación legal | — | Chile | Plazos de prescripción | (completar) |
+| Consultas y demos | Nombre, correo, teléfono, establecimiento, cargo, mensaje | Directivos y docentes de colegios | Medidas precontractuales | HubSpot | EE. UU. | Mientras se atienda la solicitud | Carlos Mundaca Valdebenito |
+| Seguimiento comercial | Datos anteriores + historial | Ídem | Interés legítimo | HubSpot | EE. UU. | Mientras dure la relación o hasta oposición | Carlos Mundaca Valdebenito |
+| Seguridad y entrega del sitio | IP, navegador, páginas | Visitantes | Interés legítimo | GitHub, Cloudflare | EE. UU. | Según proveedor | Carlos Mundaca Valdebenito |
+| Análisis | Identificadores de cookies | Visitantes que aceptan | Consentimiento | Google | EE. UU. | Hasta 2 años | Carlos Mundaca Valdebenito |
+| Marketing | Identificadores de cookies y clics | Visitantes que aceptan | Consentimiento | Google | EE. UU. | 90 días a 13 meses | Carlos Mundaca Valdebenito |
+| Atención de derechos | Datos de la solicitud | Quien la presenta | Obligación legal | — | Chile | Plazos de prescripción | Carlos Mundaca Valdebenito |
 
 ## 5. Protocolo para solicitudes de derechos
 
@@ -77,3 +77,31 @@ Respuesta tipo: *«Estimado/a [nombre]: recibimos el [fecha] su solicitud de [de
 - Si cambia de forma importante el uso de cookies (nuevo proveedor de publicidad, nuevas finalidades), subir `CONSENT_VERSION` en `src/lib/consent.ts`; todos los visitantes verán el aviso otra vez.
 - Si solo cambia el texto de las políticas, actualizar `POLICY_VERSION` y la fecha en `/privacidad/` y `/cookies/`.
 - Si se agrega una cookie o un proveedor, actualizar la tabla de `/cookies/` en el mismo cambio.
+
+## 8. SyncroTime (syncrotime.com y app.syncrotime.com)
+
+Revisado el 18 de noviembre de 2026.
+
+**Qué está publicado:** `syncrotime.com` lo sirve el repositorio `LandingSyncrotime` (GitHub Pages, con dominio propio); `app.syncrotime.com` es la plataforma, del repositorio `SyncroTime` (Cloud Run). Ambos publican las páginas de términos, privacidad y reembolsos; el texto de privacidad es **idéntico en los dos repositorios** (`src/lib/privacyPolicy.ts`) y hay que mantenerlos sincronizados.
+
+**Qué se corrigió:**
+- Política de privacidad v2.0 en español, inglés y portugués (antes, el texto estaba solo en español para los tres idiomas).
+- Identificación del responsable (razón social, RUT, domicilio), de Carlos Mundaca Valdebenito como responsable de privacidad y de los roles: BE Academic responsable de los datos de cuenta, facturación y navegación; **la institución responsable** de los datos académicos que ingresa (docentes, horas de contrato, etc.) y BE Academic **encargada** de ese tratamiento.
+- Tabla de finalidades con base de licitud, destinatarios y conservación; cookies reales; transferencias a Estados Unidos; decisiones automatizadas; derechos con plazo de 30 días corridos; menores; vulneraciones.
+- Términos: se corrigió la razón social («BeAcademic Limitada») y la política que mostraba asteriscos sueltos.
+- Aviso con enlaces a los términos y la política en la página de registro.
+
+**Hallazgos sobre el sistema (base de la política):**
+- Datos que trata: usuarios (nombre, correo, contraseña con hash, rol, idioma, institución, país); datos académicos (docentes con nombre y horas de contrato, asignaturas, cursos, salas, restricciones); suscripción (identificadores de Paddle, estado y fechas).
+- Proveedores: Google Cloud (Cloud Run en **us-central1, Estados Unidos**, y colas de tareas), Paddle (pagos, distribuidor autorizado), Resend (correos), GitHub Pages y Cloudflare (landing).
+- Cookies: solo las estrictamente necesarias (`__session` de autenticación, 12 h de inactividad; cookie de seguridad de NextAuth; `NEXT_LOCALE` de idioma). La landing no crea cookies, no usa Google Analytics ni etiquetas de marketing, así que **no requiere banner**. Si algún día se agrega analítica o publicidad, hay que implementar el mismo aviso de beacademics.com.
+
+**Pendientes de BE Academic para SyncroTime:**
+1. **Contrato de encargo con cada institución.** Como encargada de los datos de los docentes, BE Academic necesita un contrato con el contenido mínimo que fija la ley. Lo más simple es agregar a los términos una cláusula de tratamiento de datos o un anexo aceptado al registrarse. Debe redactarlo un abogado.
+2. **Términos solo en español.** Los términos y la política de reembolsos siguen en español para los tres idiomas. Para vender en inglés y portugués conviene traducirlos con revisión legal.
+3. **Eliminación y exportación de datos.** La política promete eliminar los datos al cerrar la cuenta o a solicitud. Hoy no hay un flujo en la aplicación para que la institución pida su exportación o eliminación: se atiende por correo. Confirmar que existe un procedimiento interno (borrar la institución y sus datos asociados, avisar a Paddle y a Resend) y, a mediano plazo, ofrecer un botón de exportar y de eliminar.
+4. **Aceptar los acuerdos de tratamiento de datos** de Google Cloud, Paddle, Resend, GitHub y Cloudflare.
+5. **Región de la base de datos.** La política dice que el servicio se ejecuta en Google Cloud (us-central1). Si la base de datos está en otra región, ajustar el texto.
+6. **Usuarios de la Unión Europea o Brasil.** Se ofrece SyncroTime en inglés y portugués; si se venden suscripciones en esos mercados, además de la ley chilena pueden aplicar el RGPD o la LGPD. Consultarlo con el abogado antes de promocionar allí.
+7. **Correo de privacidad propio** (también aplica aquí): cambiar `PRIVACY_EMAIL` en `src/lib/privacyPolicy.ts` de ambos repositorios.
+8. **Despliegue de la app.** El cambio en `SyncroTime` lo despliega Cloud Build al llegar a `main`; confirmar en `https://app.syncrotime.com/es/privacy` que se publicó.
