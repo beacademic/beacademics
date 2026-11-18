@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openCookiePreferences } from '../lib/consent';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo';
 import { 
@@ -152,6 +153,9 @@ export default function Skolvik() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex flex-wrap justify-center gap-x-6">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                         <Link to="/" className="hover:text-white transition-colors">Inicio</Link>

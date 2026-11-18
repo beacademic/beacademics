@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openCookiePreferences } from '../lib/consent';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo';
 import { INSTITUTIONAL_EMAIL, SALES_PHONE_TEL, whatsappLink } from '../config/contact';
@@ -488,6 +489,9 @@ export default function Home() {
                         <Link to="/syncrotime/" className="hover:text-[#1D1D1F] transition-colors">SyncroTime</Link>
                         <Link to="/skolvik/" className="hover:text-[#1D1D1F] transition-colors">Skolvik</Link>
                         <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-[#1D1D1F] transition-colors">Calculadora de horas docentes</Link>
+                        <Link to="/privacidad/" className="hover:text-[#1D1D1F] transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-[#1D1D1F] transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-[#1D1D1F] transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-[#1D1D1F] transition-colors">Información Legal</Link>
                         <Link to="/condiciones-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Condiciones SyncroEdu</Link>
                         <Link to="/privacidad-syncroedu/" className="hover:text-[#1D1D1F] transition-colors">Privacidad SyncroEdu</Link>

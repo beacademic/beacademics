@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { openCookiePreferences } from '../lib/consent';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { INSTITUTIONAL_EMAIL, SALES_PHONE_DISPLAY, whatsappLink } from '../config/contact';
@@ -70,6 +71,9 @@ export default function Legal() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>

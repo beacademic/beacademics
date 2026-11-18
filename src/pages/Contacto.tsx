@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { openCookiePreferences } from '../lib/consent';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import HubSpotForm, { HUBSPOT_FORMS } from '../components/HubSpotForm';
@@ -182,6 +183,9 @@ export default function Contacto() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex flex-wrap justify-center gap-x-6">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones SyncroEdu</Link>
                         <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Privacidad SyncroEdu</Link>

@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { openCookiePreferences } from '../lib/consent';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import { INSTITUTIONAL_EMAIL } from '../config/contact';
@@ -32,9 +33,15 @@ export default function PrivacidadSyncroEdu() {
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
                         Política de Privacidad de SyncroEdu
                     </h1>
-                    <p className="text-gray-600 mb-10">Última actualización: Septiembre de 2026</p>
+                    <p className="text-gray-600 mb-10">Última actualización: 18 de noviembre de 2026</p>
                     
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 prose prose-lg max-w-none text-gray-600">
+                        <p className="mb-6 rounded-2xl bg-gray-50 p-4 text-base text-gray-700">
+                            Esta política se aplica a los datos que se tratan <strong>dentro de la plataforma SyncroEdu</strong>. Los datos de quienes visitan
+                            el sitio web beacademics.com, usan el formulario de contacto o aceptan cookies se explican en la{' '}
+                            <Link to="/privacidad/" className="underline">Política de privacidad del sitio web</Link> y en la{' '}
+                            <Link to="/cookies/" className="underline">Política de cookies</Link>.
+                        </p>
                         <p className="text-xl leading-relaxed text-gray-800 mb-8">
                             En SyncroEdu nos comprometemos a proteger la privacidad de toda nuestra comunidad escolar. Por eso, hemos redactado esta Política de Privacidad de manera transparente y directa, eliminando términos legales complejos para que entienda perfectamente cómo cuidamos su información, en total conformidad con la normativa chilena vigente de protección de datos personales (Ley N° 19.628 y la nueva Ley N° 21.719).
                         </p>
@@ -118,6 +125,9 @@ export default function PrivacidadSyncroEdu() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada · RUT 77.650.439-4. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad (SyncroEdu)</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>

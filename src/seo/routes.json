@@ -150,6 +150,22 @@
       "locale": "es_CL",
       "changefreq": "monthly",
       "priority": "0.8"
+    },
+    "/privacidad/": {
+      "title": "Política de privacidad | BE Academic",
+      "description": "Cómo BE Academic trata los datos personales de quienes visitan beacademics.com, usan el formulario de contacto o escriben por WhatsApp. Sus derechos y cómo ejercerlos.",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    "/cookies/": {
+      "title": "Política de cookies | BE Academic",
+      "description": "Qué cookies usa beacademics.com, para qué sirven y cómo aceptarlas, rechazarlas o cambiar su decisión. Las de análisis y marketing solo con su permiso.",
+      "lang": "es-CL",
+      "locale": "es_CL",
+      "changefreq": "yearly",
+      "priority": "0.3"
     }
   },
   "redirects": {

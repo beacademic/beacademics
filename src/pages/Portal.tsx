@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openCookiePreferences } from '../lib/consent';
 import { motion } from 'motion/react';
 import Seo from '../components/Seo';
 
@@ -78,6 +79,9 @@ export default function Portal() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>

@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { openCookiePreferences } from '../lib/consent';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 
@@ -131,6 +132,9 @@ export default function CondicionesSyncroEdu() {
                         <p>&copy; {new Date().getFullYear()} Sociedad de Formación BE Academic Limitada · RUT 77.650.439-4. Todos los derechos reservados.</p>
                     </div>
                     <div className="flex gap-4">
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad (SyncroEdu)</Link>
                         <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio (SyncroEdu)</Link>

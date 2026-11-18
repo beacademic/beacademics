@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { openCookiePreferences } from '../lib/consent';
 import { ArrowRight, CheckCircle2, AlertTriangle, Calculator } from 'lucide-react';
 import Seo, { canonicalUrl } from '../components/Seo';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
@@ -210,6 +211,9 @@ export default function SyncroEduModulo({ modulo }: { modulo: ModuloSyncroEdu })
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
                         <Link to="/syncroedu/" className="hover:text-white transition-colors">SyncroEdu</Link>
                         <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-white transition-colors">Calculadora de horas docentes</Link>
+                        <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                        <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                        <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                         <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                         <Link to="/contacto/" className="hover:text-white transition-colors">Contacto</Link>
                     </div>

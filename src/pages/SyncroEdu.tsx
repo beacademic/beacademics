@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { openCookiePreferences } from '../lib/consent';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -1254,6 +1255,9 @@ export default function SyncroEdu() {
                                 <Link key={modulo.slug} to={`/syncroedu/${modulo.slug}/`} className="hover:text-white transition-colors">{modulo.nombre}</Link>
                             ))}
                             <Link to="/recursos/calculadora-horas-docentes/" className="hover:text-white transition-colors">Calculadora de horas docentes</Link>
+                            <Link to="/privacidad/" className="hover:text-white transition-colors">Política de privacidad</Link>
+                            <Link to="/cookies/" className="hover:text-white transition-colors">Política de cookies</Link>
+                            <button type="button" onClick={openCookiePreferences} className="hover:text-white transition-colors">Preferencias de cookies</button>
                             <Link to="/legal/" className="hover:text-white transition-colors">Información Legal</Link>
                             <Link to="/condiciones-syncroedu/" className="hover:text-white transition-colors">Condiciones de Servicio</Link>
                             <Link to="/privacidad-syncroedu/" className="hover:text-white transition-colors">Política de Privacidad</Link>

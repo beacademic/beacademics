@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SALES_EMAIL, whatsappLink } from '../config/contact';
 import type { WhatsAppProduct } from '../config/contact';
 
@@ -151,6 +152,14 @@ export default function HubSpotForm({
                 data-form-id={formId}
                 data-portal-id={portalId}
             ></div>
+            <p className="mt-4 text-xs leading-relaxed text-[#515154]">
+                Al enviar este formulario, BE Academic tratará sus datos para responder su solicitud y contactarlo por ese motivo. El formulario lo presta
+                HubSpot (Estados Unidos). Conozca sus derechos y cómo ejercerlos en nuestra{' '}
+                <Link to="/privacidad/" className="underline hover:text-[#1D1D1F]">
+                    Política de privacidad
+                </Link>
+                .
+            </p>
         </div>
     );
 }

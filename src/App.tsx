@@ -18,10 +18,13 @@ import PrivacidadSyncroEdu from './pages/PrivacidadSyncroEdu';
 import CondicionesSyncroEdu from './pages/CondicionesSyncroEdu';
 import CalculadoraHorasDocentes from './pages/CalculadoraHorasDocentes';
 import SyncroEduModulo from './pages/SyncroEduModulo';
+import Privacidad from './pages/Privacidad';
+import Cookies from './pages/Cookies';
 import { MODULOS } from './data/syncroeduModulos';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
 import SkipLink from './components/SkipLink';
+import CookieConsent from './components/CookieConsent';
 
 /** Rutas del sitio. El router lo pone main.tsx (BrowserRouter) o entry-server.tsx (StaticRouter). */
 export default function App() {
@@ -29,6 +32,7 @@ export default function App() {
         <HelmetProvider>
             <MotionConfig reducedMotion="user">
                 <SkipLink />
+                <CookieConsent />
                 <ScrollManager />
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -40,11 +44,13 @@ export default function App() {
                     ))}
                     <Route path="/syncrotime" element={<SyncroTime />} />
                     <Route path="/skolvik" element={<Skolvik />} />
-                    {/* Skolvik cambió de nombre a Skolvik. */}
+                    {/* Nexus (nombre anterior) cambió a Skolvik. */}
                     <Route path="/nexus" element={<Navigate to="/skolvik/" replace />} />
                     <Route path="/contacto" element={<Contacto />} />
                     <Route path="/acceso" element={<Portal />} />
                     <Route path="/legal" element={<Legal />} />
+                    <Route path="/privacidad" element={<Privacidad />} />
+                    <Route path="/cookies" element={<Cookies />} />
                     <Route path="/privacidad-syncroedu" element={<PrivacidadSyncroEdu />} />
                     <Route path="/condiciones-syncroedu" element={<CondicionesSyncroEdu />} />
                     <Route path="/recursos/calculadora-horas-docentes" element={<CalculadoraHorasDocentes />} />
